@@ -36,69 +36,144 @@
   display: none;
 }
 
+.desktopOnly {
+  display: none;
+}
+.notPhone {
+  display: none;
+}
 .fs-10 {
-  font-size: (10px);
+  font-size: vw(10px);
 }
 .fs-12 {
-  font-size: (12px);
+  font-size: vw(12px);
 }
 .fs-13 {
-  font-size: (13px);
+  font-size: vw(13px);
 }
 .fs-14 {
-  font-size: (14px);
+  font-size: vw(14px);
 }
 .fs-15 {
-  font-size: (15px);
+  font-size: vw(15px);
 }
 .fs-16 {
-  font-size: (16px);
+  font-size: vw(16px);
 }
 .fs-18 {
-  font-size: (18px);
+  font-size: vw(18px);
 }
 .fs-20 {
-  font-size: (20px);
+  font-size: vw(20px);
 }
 .fs-22 {
-  font-size: (22px);
+  font-size: vw(22px);
 }
 .fs-24 {
-  font-size: (24px);
+  font-size: vw(24px);
 }
 .fs-28 {
-  font-size: (28px);
+  font-size: vw(28px);
 }
 .fs-30 {
-  font-size: (30px);
+  font-size: vw(30px);
 }
 .fs-32 {
-  font-size: (32px);
+  font-size: vw(32px);
 }
 .fs-34 {
-  font-size: (34px);
+  font-size: vw(34px);
 }
 .fs-36 {
-  font-size: (36px);
+  font-size: vw(36px);
 }
 .fs-40 {
-  font-size: (40px);
+  font-size: vw(40px);
 }
 .fs-48 {
-  font-size: (48px);
+  font-size: vw(48px);
 }
 .fs-50 {
-  font-size: (50px);
+  font-size: vw(50px);
 }
 .fs-60 {
-  font-size: (60px);
+  font-size: vw(60px);
 }
 .fs-80 {
-  font-size: (80px);
+  font-size: vw(80px);
 }
 .fs-90 {
-  font-size: (90px);
+  font-size: vw(90px);
 }
 .fs-100 {
-  font-size: (100px);
+  font-size: vw(100px);
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .fs-10 {
+    font-size: (10px);
+  }
+  .fs-12 {
+    font-size: (12px);
+  }
+  .fs-13 {
+    font-size: (13px);
+  }
+  .fs-14 {
+    font-size: (14px);
+  }
+  .fs-15 {
+    font-size: (15px);
+  }
+  .fs-16 {
+    font-size: (16px);
+  }
+  .fs-18 {
+    font-size: (18px);
+  }
+  .fs-20 {
+    font-size: (20px);
+  }
+  .fs-22 {
+    font-size: (22px);
+  }
+  .fs-24 {
+    font-size: (24px);
+  }
+  .fs-28 {
+    font-size: (28px);
+  }
+  .fs-30 {
+    font-size: (30px);
+  }
+  .fs-32 {
+    font-size: (32px);
+  }
+  .fs-34 {
+    font-size: (34px);
+  }
+  .fs-36 {
+    font-size: (36px);
+  }
+  .fs-40 {
+    font-size: (40px);
+  }
+  .fs-48 {
+    font-size: (48px);
+  }
+  .fs-50 {
+    font-size: (50px);
+  }
+  .fs-60 {
+    font-size: (60px);
+  }
+  .fs-80 {
+    font-size: (80px);
+  }
+  .fs-90 {
+    font-size: (90px);
+  }
+  .fs-100 {
+    font-size: (100px);
+  }
 }

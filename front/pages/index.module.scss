@@ -1,0 +1,13 @@
+// 390 보다 작을 때
+.wrapper {
+  font-size: vw(40px);
+  margin-right: vw(10px);
+}
+
+// 390 보다 클 때
+@media screen and (min-width: 390px) {
+  .wrapper {
+    font-size: 40px;
+    margin-right: 10px;
+  }
+}
