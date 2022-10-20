@@ -1,7 +1,7 @@
 import "../styles/reset.css";
-import "../styles/_variables.scss";
 import "../styles/_typography.scss";
 import "../styles/font.css";
+import "../styles/_common.scss";
 import type { AppProps } from "next/app";
 
 import AppLayout from "../components/AppLayout";
