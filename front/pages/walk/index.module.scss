@@ -1,0 +1,55 @@
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    position: relative;
+    .map {
+      height: calc(100vh - 120px);
+      background: $BLACK;
+    }
+    .controller {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      background-color: $WHITE;
+      .icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 30px 0;
+        color: $GRAY_BA;
+        .distance {
+          .distance__num {
+            margin-bottom: 10px;
+          }
+          .distance__unit {
+          }
+        }
+        .coin {
+          padding: 0 40px;
+          border-inline: 1px solid $GRAY_BA;
+          .coin__num {
+            margin-bottom: 10px;
+          }
+          .coin__unit {
+          }
+        }
+        .time {
+          .time__num {
+            margin-bottom: 10px;
+          }
+          .time__unit {
+          }
+        }
+      }
+      .startBtn {
+        .startBtn__content {
+          padding: 12px 50px;
+          border: 0;
+          border-radius: 24px;
+          color: $WHITE;
+          background-color: $MAIN;
+        }
+      }
+    }
+  }
+}
