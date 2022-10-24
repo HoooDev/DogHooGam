@@ -2,8 +2,8 @@ import "../styles/reset.css";
 import "../styles/_typography.scss";
 import "../styles/font.css";
 import "../styles/_common.scss";
+import { wrapper } from "../store";
 import type { AppProps } from "next/app";
-
 import AppLayout from "../components/AppLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -14,4 +14,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
