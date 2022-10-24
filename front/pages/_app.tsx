@@ -4,8 +4,8 @@ import "../styles/font.css";
 import "../styles/_common.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-
 import AppLayout from "../components/AppLayout";
+import { wrapper } from "../store";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -18,4 +18,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
