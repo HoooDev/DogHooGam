@@ -11,8 +11,6 @@ type AppLayoutProps = {
 const AppLayout = ({ children }: AppLayoutProps) => {
   const router = useRouter();
 
-  console.log(router);
-
   return (
     <div className={`${styles.wrapper}`}>
       {router.pathname === "/" ? null : <Navbar />}
