@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className={`${styles.wrapper} flex justify-space-between align-center`}>
       <Link href="/"><div className={`${styles.icon}`}><Image src={logo} alt="#" /></div></Link>
-      <Link href="/mypage"><a className={`${styles.link}`}>마이페이지</a></Link>
+      <Link href="/profile"><a className={`${styles.link}`}>마이페이지</a></Link>
     </nav>
   )
 }

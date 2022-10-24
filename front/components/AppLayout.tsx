@@ -1,5 +1,7 @@
 import styles from "./AppLayout.module.scss";
 import Navbar from '../components/common/Navbar';
+import Footer from '../components/common/Footer';
+
 
 type AppLayoutProps = {
   children: React.ReactNode;
@@ -10,7 +12,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
     <Navbar />
     <div className={`${styles.children}`}>{children}</div>
     
-    <footer>aaa</footer>
+    <Footer />
     </div>;
 };
 
