@@ -1,39 +1,30 @@
-import { useCallback } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as counterActions from "../store/modules/counter";
+import { testActions } from "redux/slice/testSlice";
 
-export default function Test() {
+function TestPage() {
+  const count = useSelector((state) => state.test.value);
   const dispatch = useDispatch();
-  const value = useSelector(({ counter }) => counter.value);
-
-  // const plus = useCallback(
-  //   ({ value }) => {
-  //     dispatch(counterActions.increment());
-  //   },
-  //   [dispatch]
-  // );
-
-  const plus = () => {
-    dispatch(counterActions.increment());
-  };
-
-  const minus = () => {
-    dispatch(counterActions.decrement());
-  };
-
-  // const minus = useCallback(
-  //   ({ value }) => {
-  //     dispatch(counterActions.decrement());
-  //   },
-  //   [dispatch]
-  // );
 
   return (
-    <div>
-      <h1>Counter</h1>
-      <button onClick={() => minus()}>-</button>
-      <span>{value}</span>
-      <button onClick={() => plus()}>+</button>
-    </div>
+    <>
+      <button
+        aria-label="Increment value"
+        onClick={() => dispatch(testActions.increment())}
+      >
+        Increment
+      </button>
+      <span>{count}</span>
+      <button
+        aria-label="Decrement value"
+        onClick={() => dispatch(testActions.decrement())}
+      >
+        Decrement
+      </button>
+
+      <div>hi</div>
+    </>
   );
 }
+
+export default TestPage;
