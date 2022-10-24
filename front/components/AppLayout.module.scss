@@ -1,5 +1,5 @@
 .wrapper {
-  width: vw(390px);
+  width: vw(420px);
   height: 100vh;
   margin: 0 auto;
   .children{
@@ -8,9 +8,9 @@
 }
 
 // 태브릿, 노트북, 데탑 뷰
-@media screen and (min-width: 390px) {
+@media screen and (min-width: $PHONE_VW) {
   .wrapper {
-    width: 390px;
+    width: 420px;
     .children{
     }
   }
