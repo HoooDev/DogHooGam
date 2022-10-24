@@ -1,12 +1,16 @@
 .wrapper {
-  width: 100%;
+  width: vw(390px);
   height: 100vh;
   margin: 0 auto;
+  .children{
+  }
 }
 
 // 태브릿, 노트북, 데탑 뷰
 @media screen and (min-width: 390px) {
   .wrapper {
     width: 390px;
+    .children{
+    }
   }
 }
