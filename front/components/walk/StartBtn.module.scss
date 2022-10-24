@@ -1,0 +1,15 @@
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    .startBtn {
+      cursor: pointer;
+      .startBtn__content {
+        padding: 12px 50px;
+        border: 0;
+        border-radius: 24px;
+        color: $WHITE;
+        background-color: $MAIN;
+        text-decoration: none;
+      }
+    }
+  }
+}
