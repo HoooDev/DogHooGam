@@ -1,19 +1,25 @@
+import { useRouter } from "next/router";
 import styles from "./AppLayout.module.scss";
-import Navbar from '../components/common/Navbar';
-import Footer from '../components/common/Footer';
 
+import Navbar from "./common/Navbar";
+import Footer from "./common/Footer";
 
 type AppLayoutProps = {
   children: React.ReactNode;
 };
 
 const AppLayout = ({ children }: AppLayoutProps) => {
-  return <div className={`${styles.wrapper}`}>
-    <Navbar />
-    <div className={`${styles.children}`}>{children}</div>
-    
-    <Footer />
-    </div>;
+  const router = useRouter();
+
+  console.log(router);
+
+  return (
+    <div className={`${styles.wrapper}`}>
+      {router.pathname === "/" ? null : <Navbar />}
+      <div className={`${styles.children}`}>{children}</div>
+      {router.pathname === "/" ? null : <Footer />}
+    </div>
+  );
 };
 
 export default AppLayout;
