@@ -3,6 +3,7 @@ import "../styles/_typography.scss";
 import "../styles/font.css";
 import "../styles/_common.scss";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import AppLayout from "../components/AppLayout";
 import { PersistGate } from "redux-persist/integration/react";
 import store, { persistor } from "../redux/store";
@@ -13,6 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <AppLayout>
+          <Head>
+            <script async src="https://developers.kakao.com/sdk/js/kakao.js" />
+          </Head>
           <Component {...pageProps} />
         </AppLayout>
       </PersistGate>
