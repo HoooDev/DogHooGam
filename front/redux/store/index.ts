@@ -1,4 +1,9 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  combineReducers,
+  EnhancedStore,
+  Store
+} from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,
@@ -13,7 +18,7 @@ import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
 
 import testSlice from "../slice/testSlice";
-import postSlice from "../slice/postSlice";
+import { createWrapper, MakeStore } from "next-redux-wrapper";
 
 const persistConfig = {
   key: "root",
@@ -22,8 +27,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  test: testSlice,
-  post: postSlice
+  test: testSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -36,7 +40,13 @@ const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
       }
       // }).concat(logger),
-    }).concat(logger)
+    }).concat(logger),
+  devTools: process.env.NEXT_PUBLIC_NODE_ENV !== "production"
 });
+const setupStore = (context: any): EnhancedStore => store;
+const makeStore: MakeStore<any> = (context: any) => setupStore(context);
 export const persistor = persistStore(store);
+export const wrapper = createWrapper<Store>(makeStore);
+export type AppDispatch = typeof store.dispatch;
+
 export default store;
