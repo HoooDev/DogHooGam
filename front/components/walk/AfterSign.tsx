@@ -1,6 +1,16 @@
+import Image from "next/image";
+import { useState } from "react";
+
 import styles from "./AfterSign.module.scss";
+import pause from "../../public/icons/pause.svg";
+import stop from "../../public/icons/stop.svg";
+import play from "../../public/icons/play.svg";
 
 const AfterSign = () => {
+  const [isPausing, setIsPausing] = useState<boolean>(false);
+  const onPlayToggle = () => {
+    setIsPausing((prev) => !prev);
+  };
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.icons}`}>
@@ -18,8 +28,29 @@ const AfterSign = () => {
         </div>
       </div>
       <div className={`${styles.controller} flex justify-center`}>
-        <div className={`${styles.controller__content} fs-16`}>
-          일지정지 정지
+        <div className={`${styles.controller__content} flex fs-16`}>
+          {!isPausing ? (
+            <div
+              className={`${styles.controller__pause} flex justify-center align-center`}
+              onClick={onPlayToggle}
+              aria-hidden="true"
+            >
+              <Image src={pause} alt="pause" />
+            </div>
+          ) : (
+            <div
+              className={`${styles.controller__play} flex justify-center align-center`}
+              onClick={onPlayToggle}
+              aria-hidden="true"
+            >
+              <Image src={play} alt="play" />
+            </div>
+          )}
+          <div
+            className={`${styles.controller__stop} flex justify-center align-center`}
+          >
+            <Image src={stop} alt="stop" />
+          </div>
         </div>
       </div>
     </div>

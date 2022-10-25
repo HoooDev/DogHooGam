@@ -1,5 +1,6 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
+    height: calc(100vh - 110px);
     position: relative;
     background-color: $GRAY_BA;
   }
