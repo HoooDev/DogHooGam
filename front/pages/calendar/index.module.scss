@@ -1,0 +1,18 @@
+
+
+
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    .profile {
+      height: 246px;
+      background-color: #FFF8EA;
+    }
+    .procom {
+      width: 380px;
+      justify-content: space-between;
+      margin-left: 22px;
+    }
+  }
+}

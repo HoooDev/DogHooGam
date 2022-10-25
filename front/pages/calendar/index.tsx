@@ -3,16 +3,18 @@ import styles from "./index.module.scss";
 
 import DogProfile from "../../components/calendar/DogProfile";
 
-function Calendar() {
+const Calendar: NextPage = () => {
   return (
     <div className={`${styles.wrapper}`}>
-      <div className={`$`}>
-
+      <div className={`${styles.profile}`}>
+        <div className={`${styles.procom} flex`}>
+          <DogProfile />
+          <DogProfile />
+          <DogProfile />
+        </div>
       </div>
-      <DogProfile />
-      <DogProfile />
     </div>
   );
-}
+};
 
 export default Calendar;
