@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../public/icons/logo2.png";
+import logo from "../../public/icons/logo.png";
 
 function Navbar() {
   return (
