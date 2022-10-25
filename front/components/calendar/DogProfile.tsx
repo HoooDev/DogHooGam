@@ -1,12 +1,18 @@
 import styles from "./DogProfile.module.scss";
+import Image from 'next/image';
 
-import logo from "../../public/icons/logo2.png";
+import logo from "../../public/icons/dogprofilelogo.svg";
+import circle from "../../public/icons/circle.svg"
 
 function DogProfile() {
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.logo}`}>
-        강아지로고
+        <Image src={logo} alt="강아지프로필" width={90} height={97} />
+      </div>
+      <div className={`${styles.proname} flex`}>
+        <Image src={circle} alt="원" width={16} height={16} />
+        <div className={`${styles.name} notoMid fs-16`}>멍멍이</div>
       </div>
     </div>
   )

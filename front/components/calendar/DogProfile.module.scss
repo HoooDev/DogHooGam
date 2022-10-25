@@ -1,7 +1,34 @@
-
-
-@media screen and (min-width:390px) {
+@media screen and (min-width: $PHONE-VW) {
   .wrapper {
-  
+    .logo {
+      width: 97px;
+      height: 90px;
+      border-radius: 50%;
+      border: 1px solid;
+      object-fit: cover;
+      overflow: hidden;
+      margin-bottom: 12px;
+
+      // .logoimg {
+      //   margin-top: 10px;
+      //   width: 97px;
+      //   height: 90px;
+      //   border-radius: 50%;
+      //   fill: $GRAY_5B;
+      // }
+    }
+
+    .proname {
+      align-items: center;
+      margin-left: 12px;
+      // .circle {
+      //   width: 16px;
+      //   height: 16px;
+      // }
+      .name {
+        color: $GRAY_3C;
+        margin-left: 4px;
+      }
+    }
   }
 }
