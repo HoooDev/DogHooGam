@@ -15,7 +15,7 @@ const BeforeSign = () => {
         </div>
         <div className={`${styles.time} flex column align-center`}>
           <div className={`${styles.time__num} fs-20`}>01:00</div>
-          <div className={`${styles.time__unit} fs-12`}>시간:분</div>
+          <div className={`${styles.time__unit} fs-12`}>시간(분)</div>
         </div>
       </div>
       <StartBtn />
