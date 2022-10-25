@@ -9,7 +9,7 @@ import logo from "../public/icons/logo.png";
 const kakaoInit = () => {
   const kakao = (window as any).Kakao;
   if (!kakao.isInitialized()) {
-    kakao.init("JavaScript Key를 입력하세요");
+    kakao.init("63114dc256e35bf85feb3421ba6ac4fc");
   }
 
   return kakao;
@@ -25,9 +25,9 @@ const Index: NextPage = () => {
         kakao.API.request({
           url: "/v2/user/me", // 사용자 정보 가져오기
           success: (res: any) => {
-            // 로그인 성공할 경우 정보 확인 후 /kakao 페이지로 push
+            // 로그인 성공할 경우 정보 확인 후 home 페이지로 push
             console.log(res);
-            Router.push("/kakao");
+            // Router.push("/home");
           },
           fail: (error: any) => {
             console.log(error);

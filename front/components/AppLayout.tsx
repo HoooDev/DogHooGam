@@ -11,11 +11,18 @@ type AppLayoutProps = {
 const AppLayout = ({ children }: AppLayoutProps) => {
   const router = useRouter();
 
+  if (router.pathname === "/") {
+    return (
+      <div className={`${styles.wrapper}`}>
+        <div className={`${styles.main}`}>{children}</div>
+      </div>
+    );
+  }
   return (
     <div className={`${styles.wrapper}`}>
-      {router.pathname === "/" ? null : <Navbar />}
+      <Navbar />
       <div className={`${styles.children}`}>{children}</div>
-      {router.pathname === "/" ? null : <Footer />}
+      <Footer />
     </div>
   );
 };

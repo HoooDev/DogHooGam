@@ -1,11 +1,19 @@
+import Link from "next/link";
+
 import styles from "./MainMemory.module.scss";
 
 function MainMemory() {
   return (
     <div className={`${styles.wrapper} flex justify-space-around align-center`}>
-      <button type="button" className={`${styles.MainTabButton} fs-10 notoMid`}>
-        추억남기기
-      </button>
+      <Link href="/memory">
+        <button
+          type="button"
+          className={`${styles.MainTabButton} fs-10 notoMid`}
+        >
+          추억남기기
+        </button>
+      </Link>
+
       <div className={`${styles.MainTabText}`}>
         <h1 className="fs-13 notoBold text-end">독후감으로</h1>
         <h1 className="fs-13 notoBold text-end">

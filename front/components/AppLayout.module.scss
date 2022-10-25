@@ -9,9 +9,13 @@
 
 // 태브릿, 노트북, 데탑 뷰
 @media screen and (min-width: $PHONE_VW) {
+  .main {
+    width: 420px;
+  }
   .wrapper {
     width: 420px;
     .children{
+      padding-block: 55px;
     }
   }
 }
