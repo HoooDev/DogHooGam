@@ -1,9 +1,12 @@
 .wrapper{
   height: vw(55px);
-  width: vw(390px);
-  background-color: bisque;
+  width: vw(420px);
   position: sticky;
   top: 0;
+  box-shadow: 0 4px 4px 0 #CCC8C0;
+  background-color: white;
+
+
   .link{
     text-decoration: none;
   }
@@ -15,11 +18,10 @@
 }
 
 
-@media screen and (min-width: 390px) {
+@media screen and (min-width: 420px) {
   .wrapper{
     height: 55px;
-    width: 390px;
-    background-color: bisque;
+    width: 420px;
     position: sticky;
     top: 0;
     .link{

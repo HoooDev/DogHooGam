@@ -5,16 +5,22 @@ import "../styles/_common.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import AppLayout from "../components/AppLayout";
-import { wrapper } from "../store";
+import { PersistGate } from "redux-persist/integration/react";
+import store, { persistor, wrapper } from "../redux/store";
+import { Provider } from "react-redux";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AppLayout>
-      <Head>
-        <script async src="https://developers.kakao.com/sdk/js/kakao.js" />
-      </Head>
-      <Component {...pageProps} />
-    </AppLayout>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <AppLayout>
+          <Head>
+            <script async src="https://developers.kakao.com/sdk/js/kakao.js" />
+          </Head>
+          <Component {...pageProps} />
+        </AppLayout>
+      </PersistGate>
+    </Provider>
   );
 }
 
