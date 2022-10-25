@@ -1,16 +1,17 @@
 .wrapper{
   height: vw(55px);
-  width: vw(390px);
-  background-color: bisque;
+  width: vw(420px);
   position: fixed;
   bottom: 0;
+  box-shadow: 0 -5px 4px 0 #CCC8C0;
+  background-color: white;
 }
 
 
-@media screen and (min-width: 390px) {
+@media screen and (min-width: 420px) {
   .wrapper{
     height: 55px;
-    width: 390px;
+    width: 420px;
     .icon{
       width: 30px;
       height: 30px;

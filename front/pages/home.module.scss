@@ -1,0 +1,10 @@
+.wrapper {
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    .mainTab{
+      margin-top: 50px;
+    }
+  }
+}

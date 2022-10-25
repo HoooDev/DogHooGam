@@ -1,0 +1,21 @@
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .calendar {
+    width: 390px;
+    margin-inline: 15px;
+    height: 185px;
+    box-shadow: 0px 4px 4px 0px #0000003d;
+    .calendarY {
+      width: 180px;
+      background-color: #fff8ea;
+      padding: 15px 20px;
+      .calendarS{
+        margin-top: 30px;
+      }
+    }
+    .calendarW {
+      width: 180px;
+    }
+  }
+}
