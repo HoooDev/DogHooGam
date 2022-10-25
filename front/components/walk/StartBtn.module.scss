@@ -1,5 +1,6 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
+    z-index: 100;
     .startBtn {
       cursor: pointer;
       .startBtn__content {

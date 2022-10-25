@@ -1,7 +1,6 @@
-import StartBtn from "./StartBtn";
-import styles from "./Sign.module.scss";
+import styles from "./AfterSign.module.scss";
 
-const Sign = () => {
+const AfterSign = () => {
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.icons}`}>
@@ -10,17 +9,21 @@ const Sign = () => {
           <div className={`${styles.distance__unit} fs-12`}>거리(km)</div>
         </div>
         <div className={`${styles.coin} flex column align-center`}>
-          <div className={`${styles.coin__num} fs-20`}>100</div>
+          <div className={`${styles.coin__num} fs-20`}>0</div>
           <div className={`${styles.coin__unit} fs-12`}>coin</div>
         </div>
         <div className={`${styles.time} flex column align-center`}>
-          <div className={`${styles.time__num} fs-20`}>01:00</div>
+          <div className={`${styles.time__num} fs-20`}>00:00</div>
           <div className={`${styles.time__unit} fs-12`}>시간:분</div>
         </div>
       </div>
-      <StartBtn />
+      <div className={`${styles.controller} flex justify-center`}>
+        <div className={`${styles.controller__content} fs-16`}>
+          일지정지 정지
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Sign;
+export default AfterSign;
