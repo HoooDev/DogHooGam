@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
-import Map from "../../components/walk/Map";
-import BeforeSign from "../../components/walk/BeforeSign";
+import Map from "../../components/walk/KakaoMap";
+// import BeforeSign from "../../components/walk/BeforeSign";
 import AfterSign from "../../components/walk/AfterSign";
 import styles from "./index.module.scss";
 
