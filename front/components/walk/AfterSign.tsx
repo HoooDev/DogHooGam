@@ -1,15 +1,21 @@
 import Image from "next/image";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import styles from "./AfterSign.module.scss";
 import pause from "../../public/icons/pause.svg";
 import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
+import { stopWalking } from "../../redux/slice/walkSlice";
 
 const AfterSign = () => {
+  const dispatch = useDispatch();
   const [isPausing, setIsPausing] = useState<boolean>(false);
   const onPlayToggle = () => {
     setIsPausing((prev) => !prev);
+  };
+  const onStopClick = () => {
+    dispatch(stopWalking());
   };
   return (
     <div className={`${styles.wrapper}`}>
@@ -48,6 +54,8 @@ const AfterSign = () => {
           )}
           <div
             className={`${styles.controller__stop} flex justify-center align-center`}
+            onClick={onStopClick}
+            aria-hidden="true"
           >
             <Image src={stop} alt="stop" />
           </div>

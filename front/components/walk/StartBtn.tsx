@@ -1,7 +1,13 @@
+import { useDispatch } from "react-redux";
+
 import styles from "./StartBtn.module.scss";
+import { startWalking } from "../../redux/slice/walkSlice";
 
 const StartBtn = () => {
-  const onWalkStartClick = () => {};
+  const dispatch = useDispatch();
+  const onWalkStartClick = () => {
+    dispatch(startWalking());
+  };
   return (
     <div className={`${styles.wrapper} flex justify-center`}>
       <div

@@ -16,9 +16,11 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
+import { createWrapper, MakeStore } from "next-redux-wrapper";
 
 import testSlice from "../slice/testSlice";
-import { createWrapper, MakeStore } from "next-redux-wrapper";
+import counterSlice from "../slice/counterSlice";
+import walkSlice from "../slice/walkSlice";
 
 const persistConfig = {
   key: "root",
@@ -27,7 +29,9 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  test: testSlice
+  test: testSlice,
+  counter: counterSlice,
+  walk: walkSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -48,5 +52,6 @@ const makeStore: MakeStore<any> = (context: any) => setupStore(context);
 export const persistor = persistStore(store);
 export const wrapper = createWrapper<Store>(makeStore);
 export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
 
 export default store;
