@@ -1,0 +1,24 @@
+
+
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    // place-items: center center;
+    grid-auto-rows: 120px;
+    gap: 10px;
+    .item{
+      background-color: rgb(173, 173, 173);
+      border-radius: 10px;
+      .img{
+        width: 120px;
+        height: 120px;
+      } 
+    }
+  }
+}
