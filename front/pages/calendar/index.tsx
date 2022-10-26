@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import styles from "./index.module.scss";
-
+// 컴포넌트
 import DogProfile from "../../components/calendar/DogProfile";
+import Todo from "../../components/calendar/Todo";
+// 이미ㅈ
 import line from "../../public/icons/Line 1.svg";
 import arrow from "../../public/icons/expand.svg";
 
@@ -54,6 +56,9 @@ const Calendar: NextPage = () => {
             <p className={`${styles.date} notoMid fs-18`}>21</p>
           </div>
         </div>
+      </div>
+      <div>
+        <Todo />
       </div>
     </div>
   );
