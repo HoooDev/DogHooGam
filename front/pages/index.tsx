@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import Router from "next/router";
 
-import kakaoLogo from "../public/icons/kakao.svg";
 import styles from "./index.module.scss";
+import kakaoLogo from "../public/icons/kakao.svg";
 import logo from "../public/icons/logo.png";
 
 const kakaoInit = () => {
@@ -25,7 +25,7 @@ const Index: NextPage = () => {
         kakao.API.request({
           url: "/v2/user/me", // 사용자 정보 가져오기
           success: (res: any) => {
-            // 로그인 성공할 경우 정보 확인 후 home 페이지로 push
+            // 로그인 성공할 경우 정보 확인 후 /kakao 페이지로 push
             console.log(res);
             // Router.push("/home");
           },
