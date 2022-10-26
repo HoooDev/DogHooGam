@@ -13,6 +13,60 @@
       width: 380px;
       justify-content: space-between;
       margin-left: 22px;
+      padding-top: 36px;
+    }
+
+    .selbox {
+      position: relative;
+      top: 44px;
+      width: 340px;
+      height: 74px;
+      justify-content: center;
+      background-color: $WHITE;
+      border: 1px solid;
+      border-radius: 15px;
+      margin: auto;
+      button {
+        background-color: $WHITE;
+        border: 0;
+      }
+
+      .seltxt1 {
+        margin-right: 24px;
+      }
+
+      .seltxt2 {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+
+      .seltxt3 {
+        margin-left: 15px;
+      }
+    }
+    
+    .cal {
+      margin-top: 44px;
+    }
+
+    .month {
+      margin-left: 28px;
+      margin-right: 16px;
+    }
+
+    .dayname {
+      color: $GRAY-5F;
+      width: 300px;
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .date {
+      color: $GRAY-5F;
+      width: 300px;
+      justify-content: space-around;
+      margin-top: 8px;
+      text-align: center;
     }
   }
 }

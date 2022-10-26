@@ -1,8 +1,8 @@
+import Image from "next/image";
 import styles from "./DogProfile.module.scss";
-import Image from 'next/image';
 
 import logo from "../../public/icons/dogprofilelogo.svg";
-import circle from "../../public/icons/circle.svg"
+import circle from "../../public/icons/circle.svg";
 
 function DogProfile() {
   return (
@@ -15,7 +15,7 @@ function DogProfile() {
         <div className={`${styles.name} notoMid fs-16`}>멍멍이</div>
       </div>
     </div>
-  )
+  );
 }
 
 export default DogProfile;
