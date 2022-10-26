@@ -1,0 +1,39 @@
+@media screen and (min-width: $PHONE-VW) {
+  .dogProfileBox {
+    width: 380px;
+    height: 210px;
+    margin-top: 15px;
+    border-radius: 15px;
+    background-color: #fff8ea;
+    .profileBox {
+      position: relative;
+      top: 25px;
+      left: 25px;
+      width: 360px;
+      display: flex;
+      align-items: flex-end;
+      .imgBox {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        .dogImg {
+          position: absolute;
+          width: 90%;
+          height: 90%;
+          top: 61%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .dogName {
+        position: absolute;
+        font-size: 19px;
+        margin-left: 80px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+    }
+  }
+}
