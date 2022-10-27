@@ -36,6 +36,8 @@ function Plusdog() {
       <div className={`${styles.dogInputForm} notoMid`}>
         <p className={`${styles.dogInputTitle}`}>강아지 이름</p>
         <input type="text" className={`${styles.dogInput} notoReg`} /> <hr />
+        <p className={`${styles.dogInputTitle}`}>등록번호</p>
+        <input type="number" className={`${styles.dogInput} notoReg`} /> <hr />
         <p className={`${styles.dogInputTitle}`}>견종</p>
         <input type="text" className={`${styles.dogInput} notoReg`} /> <hr />
         <p className={`${styles.dogInputTitle}`}>생년월일</p>
