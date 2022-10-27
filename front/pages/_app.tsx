@@ -6,8 +6,8 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import store, { persistor, wrapper } from "../redux/store";
 import AppLayout from "../components/AppLayout";
+import store, { persistor, wrapper } from "../redux/store";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

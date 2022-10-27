@@ -1,0 +1,124 @@
+.dogProfileBox {
+  width: vw(380px);
+  height: vw(210px);
+  margin-top: vw(15px);
+  border-radius: vw(15px);
+  background-color: #fff8ea;
+  .profileBox {
+    position: relative;
+    top: vw(25px);
+    left: vw(25px);
+    width: vw(360px);
+    display: flex;
+    align-items: flex-end;
+    .imgBox {
+      position: relative;
+      width: vw(70px);
+      height: vw(70px);
+      background-color: $WHITE;
+      border-radius: vw(15px);
+      .dogImg {
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        top: 61%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .dogNameBox {
+      position: absolute;
+      font-size: vw(19px);
+      margin-left: vw(80px);
+      margin-bottom: vw(5px);
+      font-weight: bold;
+    }
+  }
+  .addDogBtn {
+    width: vw(70px);
+    height: vw(70px);
+    margin-inline: auto;
+    display: flex;
+    margin-top: 18%;
+  }
+  .addDogBtnText {
+    margin-top: vw(10px);
+    font-size: vw(18px);
+    font-weight: bold;
+    text-align: center;
+  }
+  .dogInfoBox {
+    margin-top: vw(45px);
+    margin-left: vw(28px);
+    font-size: vw(18px);
+    font-weight: bold;
+    .dogInfo {
+      margin-bottom: vw(10px);
+    }
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .dogProfileBox {
+    width: 380px;
+    height: 210px;
+    margin-top: 15px;
+    border-radius: 15px;
+    background-color: #fff8ea;
+    .profileBox {
+      position: relative;
+      top: 25px;
+      left: 25px;
+      width: 360px;
+      display: flex;
+      align-items: flex-end;
+      .imgBox {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        background-color: $WHITE;
+        border-radius: 15px;
+        .dogImg {
+          position: absolute;
+          width: 90%;
+          height: 90%;
+          top: 61%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .dogNameBox {
+        position: absolute;
+        font-size: 19px;
+        margin-left: 80px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+    }
+    .addDogBtn {
+      width: 70px;
+      height: 70px;
+      margin-inline: auto;
+      display: flex;
+      margin-top: 18%;
+      cursor: pointer;
+    }
+    .addDogBtnText {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .dogInfoBox {
+      margin-top: 45px;
+      margin-left: 28px;
+      font-size: 18px;
+      font-weight: bold;
+      .dogInfo {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
