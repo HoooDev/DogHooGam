@@ -8,7 +8,6 @@ function profile() {
 
   return (
     <div className={`${styles.profile}`}>
-      <h1 className={`${styles.title}`}>마이페이지</h1>
       <MyProfileBox />
       <DogProfile />
     </div>

@@ -4,8 +4,10 @@ import Slider from "react-slick";
 import React from "react";
 import { v4 } from "uuid";
 import Image from "next/image";
+import Link from "next/link";
 import defaultDog from "../../public/icons/defaultDog.svg";
 import styles from "./DogProfile.module.scss";
+import addImg from "../../public/icons/addImg.svg";
 
 // import SimpleSlider from "./Carousel";
 
@@ -68,6 +70,16 @@ function DogProfile() {
             </div>
           );
         })}
+        <div className={`${styles.dogProfileBox}`}>
+          <Link href="/profile/plusdog">
+            <div className={`${styles.addDogBtn}`}>
+              <Image src={addImg} />
+            </div>
+          </Link>
+          <p className={`${styles.addDogBtnText}`}>
+            NFT 신분증을 등록 해보세요!
+          </p>
+        </div>
       </Slider>
     </div>
   );

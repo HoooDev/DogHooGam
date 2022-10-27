@@ -1,0 +1,58 @@
+.plusDog {
+  .dogProfileBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .dogImgBox {
+      margin-top: 30px;
+      width: 150px;
+      height: 150px;
+      border-radius: 20%;
+      overflow: hidden;
+      // box-shadow: 3px 3px 3px #787878;
+      .dogImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .dogProfileTitle {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+  .dogInputForm {
+    margin-inline: 20px;
+    .dogInputTitle {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .dogInput {
+      margin-top: 15px;
+      border: 0 solid black;
+      font-size: 18px;
+    }
+    .dogInput:focus {
+      outline: none;
+    }
+
+    .dogBirthInputForm {
+      margin-top: 15px;
+      width: 380px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .dogBirthInput {
+        border-radius: 10px;
+        border: 1px #787878 solid;
+        width: 100px;
+        height: 40px;
+      }
+      .dogBirthInput::placeholder {
+        text-align: center;
+      }
+    }
+  }
+}
