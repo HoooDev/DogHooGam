@@ -62,7 +62,7 @@ function Create() {
             )}
           </label>
           <textarea
-            className={`${styles.text} fs-20 notoMid`}
+            className={`${styles.text} fs-16 notoMid`}
             placeholder="문구 입력..."
           />
         </div>
