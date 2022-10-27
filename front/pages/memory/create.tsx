@@ -5,6 +5,7 @@ import Router, { useRouter } from "next/router";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
 import arrowRight from "../../public/icons/arrowRight.svg";
+import addimg from "../../public/icons/addImg.png";
 
 function Create() {
   const [uploadimg, setUploadimg] = useState<any>(null);
@@ -52,7 +53,13 @@ function Create() {
           <label className={`${styles.image}`} htmlFor="uploadimg">
             {uploadimg ? (
               <img className={`${styles.preview}`} src={uploadimg} alt="#" />
-            ) : null}
+            ) : (
+              <div
+                className={`${styles.noimg} flex justify-center align-center`}
+              >
+                <Image src={addimg} alt="#" />
+              </div>
+            )}
           </label>
           <textarea
             className={`${styles.text} fs-20 notoMid`}

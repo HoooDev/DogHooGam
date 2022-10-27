@@ -1,6 +1,6 @@
 .wrapper{
   height: vw(55px);
-  width: vw(420px);
+  width: vw($PHONE-VW);
   position: sticky;
   top: 0;
   box-shadow: 0 4px 4px 0 #CCC8C0;
@@ -18,10 +18,10 @@
 }
 
 
-@media screen and (min-width: 420px) {
+@media screen and (min-width: $PHONE-VW) {
   .wrapper{
     height: 55px;
-    width: 420px;
+    width: $PHONE-VW;
     position: sticky;
     top: 0;
     z-index: 99;
