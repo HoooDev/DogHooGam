@@ -17,6 +17,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
 import { createWrapper, MakeStore } from "next-redux-wrapper";
+import { useDispatch } from "react-redux";
 
 import testSlice from "../slice/testSlice";
 import counterSlice from "../slice/counterSlice";

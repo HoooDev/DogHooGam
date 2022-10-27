@@ -2,13 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./StartBtn.module.scss";
 import { startWalking } from "../../redux/slice/walkSlice";
-import type { RootState } from "../../redux/store/index";
+import type { AppDispatch, RootState } from "../../redux/store/index";
 
 const StartBtn = () => {
-  const dispatch = useDispatch();
-  const {} = useSelector((state: RootState) => state.walk);
+  const dispatch = useDispatch<AppDispatch>();
+  const { isWalkingStarted } = useSelector((state: RootState) => state.walk);
   const onWalkStartClick = () => {
-    dispatch(startWalking());
+    dispatch(
+      startWalking({
+        lat: 0,
+        lon: 0
+      })
+    );
   };
   return (
     <div className={`${styles.wrapper} flex justify-center`}>

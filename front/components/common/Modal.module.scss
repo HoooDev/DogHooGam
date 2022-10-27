@@ -1,5 +1,6 @@
-@media screen and (max-width: $PHONE-VW) {
+@media screen and (min-width: $PHONE-VW) {
   .modal {
+    z-index: 2;
     position: fixed;
     top: 0;
     left: 0;

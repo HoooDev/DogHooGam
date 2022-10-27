@@ -7,9 +7,10 @@ import pause from "../../public/icons/pause.svg";
 import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
 import { stopWalking } from "../../redux/slice/walkSlice";
+import { AppDispatch } from "../../redux/store";
 
 const AfterSign = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [isPausing, setIsPausing] = useState<boolean>(false);
   const onPlayToggle = () => {
     setIsPausing((prev) => !prev);

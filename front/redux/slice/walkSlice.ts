@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // import axios from "axios";
@@ -16,6 +17,11 @@ interface Location {
   lon: number;
 }
 
+interface MyKnownError {
+  errorMessage: string;
+}
+type Any = any;
+
 const initialState: State = {
   loading: false,
   success: false,
@@ -25,17 +31,53 @@ const initialState: State = {
   isWalkingStarted: false
 }; // 초기 상태 정의
 
-export const startWalking = createAsyncThunk(
-  "walk/startWalking",
-  async ({ location }, thunkAPI) => {
+export const startWalking = createAsyncThunk<
+  // Return type of the payload creator
+  Any,
+  // First argument to the payload creator
+  Location
+  // Types for ThunkAPI
+>("walk/startWalking", async (location) => {
+  try {
+    // const res = await fetch(`/walk/${location}`);
+    // if (res.status === 400) {
+    //   // Return the known error for future handling
+    //   return (await res.json()) as MyKnownError;
+    // }
+    // return (await res.json()) as any;
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+export const nowWalking = createAsyncThunk<Any, Location>(
+  // Types for ThunkAPI
+  "walk/nowWalking",
+  async () => {
     try {
-      console.log(location);
-      // const res = await axios.post("/walk/start", { location });
-      // const { data } = res;
-      // return thunkAPI.fulfillWithValue(data);
-      return thunkAPI.fulfillWithValue(null);
+      // const res = await fetch(`/walk/now`);
+      // if (res.status === 400) {
+      //   return (await res.json()) as MyKnownError;
+      // }
+      // return (await res.json()) as any;
     } catch (error) {
-      return thunkAPI.rejectWithValue((error as any).response.data);
+      console.error(error);
+    }
+  }
+);
+
+export const stopWalking = createAsyncThunk<Any>(
+  // Types for ThunkAPI
+  "walk/stopWalking",
+  async () => {
+    try {
+      // const res = await fetch(`/walk/stop`);
+      // if (res.status === 400) {
+      //   return (await res.json()) as MyKnownError;
+      // }
+      // return (await res.json()) as any;
+    } catch (error) {
+      console.error(error);
     }
   }
 );
@@ -47,9 +89,6 @@ const walkSlice = createSlice({
     setCurLocation: (state, { payload }) => {
       state.lat = payload.lat;
       state.lon = payload.lon;
-    },
-    stopWalking: (state) => {
-      state.isWalkingStarted = false;
     }
   },
   extraReducers: (builder) => {
@@ -69,8 +108,41 @@ const walkSlice = createSlice({
       state.success = false;
       state.error = payload;
     });
+
+    builder.addCase(nowWalking.pending, (state) => {
+      state.loading = true;
+      state.success = false;
+      state.error = null;
+    });
+    builder.addCase(nowWalking.fulfilled, (state) => {
+      state.loading = false;
+      state.success = true;
+      state.error = null;
+    });
+    builder.addCase(nowWalking.rejected, (state, { payload }) => {
+      state.loading = false;
+      state.success = false;
+      state.error = payload;
+    });
+
+    builder.addCase(stopWalking.pending, (state) => {
+      state.loading = true;
+      state.success = false;
+      state.error = null;
+      state.isWalkingStarted = false;
+    });
+    builder.addCase(stopWalking.fulfilled, (state) => {
+      state.loading = false;
+      state.success = true;
+      state.error = null;
+    });
+    builder.addCase(stopWalking.rejected, (state, { payload }) => {
+      state.loading = false;
+      state.success = false;
+      state.error = payload;
+    });
   }
 });
 
-export const { stopWalking } = walkSlice.actions; // 액션 생성함수
+export const { setCurLocation } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서

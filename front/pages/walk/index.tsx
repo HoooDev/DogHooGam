@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
 
-import Map from "../../components/walk/KakaoMap";
+import KakaoMap from "../../components/walk/KakaoMap";
 import BeforeSign from "../../components/walk/BeforeSign";
 import AfterSign from "../../components/walk/AfterSign";
 import styles from "./index.module.scss";
@@ -11,7 +11,7 @@ const Index: NextPage = () => {
   const { isWalkingStarted } = useSelector((state: RootState) => state.walk);
   return (
     <div className={styles.wrapper}>
-      <Map />
+      {isWalkingStarted ? <KakaoMap /> : <div className={styles.hidden} />}
       {!isWalkingStarted ? <BeforeSign /> : <AfterSign />}
     </div>
   );
