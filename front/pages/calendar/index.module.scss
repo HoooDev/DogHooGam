@@ -1,3 +1,69 @@
+.wrapper {
+  .profile {
+    height: vw(246px);
+    background-color: #FFF8EA;
+  }
+  .procom {
+    width: vw(380px);
+    justify-content: space-between;
+    margin-left: vw(22px);
+    padding-top: vw(36px);
+  }
+
+  .selbox {
+    position: relative;
+    top: vw(44px);
+    width: vw(340px);
+    height: vw(74px);
+    justify-content: center;
+    background-color: $WHITE;
+    border: vw(1px) solid;
+    border-radius: vw(15px);
+    margin: auto;
+    button {
+      background-color: $WHITE;
+      border: 0;
+    }
+
+    .seltxt1 {
+      margin-right: vw(24px);
+    }
+
+    .seltxt2 {
+      margin-left: vw(15px);
+      margin-right: vw(15px);
+    }
+
+    .seltxt3 {
+      margin-left: vw(15px);
+    }
+  }
+  
+  .cal {
+    margin-top: vw(44px);
+  }
+
+  .month {
+    margin-left: vw(28px);
+    margin-right: vw(16px);
+  }
+
+  .dayname {
+    color: $GRAY-5F;
+    width: vw(300px);
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .date {
+    color: $GRAY-5F;
+    width: vw(300px);
+    justify-content: space-around;
+    margin-top: vw(8px);
+    text-align: center;
+  }
+}
+
 
 
 

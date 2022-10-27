@@ -1,4 +1,14 @@
-
+.wrapper {
+  margin-top: vw(24px);
+  .list {
+    width: vw(300px);
+    background-color: #EDECEC;
+    padding: vw(24px);
+    border-radius: vw(16px);
+    margin: auto;
+    margin-bottom: vw(40px);
+  }
+}
 
 
 

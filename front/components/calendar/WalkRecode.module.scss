@@ -1,4 +1,34 @@
+.wrapper {
+  .map {
+    margin-left: vw(30px);
+    margin-top: vw(24px);
+    margin-bottom: vw(36px);
+  }
 
+  .bottom {
+    margin-bottom: vw(40px);
+
+    .sub1 {
+      margin-left: vw(64px);
+      margin-right: vw(68px);
+    }
+    .sub3 {
+      margin-left: vw(64px);
+    }
+  }
+
+  .content {
+    margin-bottom: vw(40px);
+
+    .con1 {
+      margin-left: vw(46px);
+      margin-right: vw(36px);
+    }
+    .con3 {
+      margin-left: vw(68px);
+    }
+  }
+}
 
 
 
