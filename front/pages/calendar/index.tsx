@@ -4,7 +4,8 @@ import styles from "./index.module.scss";
 // 컴포넌트
 import DogProfile from "../../components/calendar/DogProfile";
 // import Todo from "../../components/calendar/Todo";
-import Memory from "../../components/calendar/Memory";
+// import Memory from "../../components/calendar/Memory";
+import WalkRecode from "../../components/calendar/WalkRecode";
 // 이미지
 import line from "../../public/icons/Line 1.svg";
 import arrow from "../../public/icons/expand.svg";
@@ -60,7 +61,8 @@ const Calendar: NextPage = () => {
       </div>
       <div>
         {/* <Todo /> */}
-        <Memory />
+        {/* <Memory /> */}
+        <WalkRecode />
       </div>
     </div>
   );

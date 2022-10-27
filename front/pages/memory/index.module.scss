@@ -2,5 +2,13 @@
 
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
+    margin-top: 40px;
+    .memoryNav{
+      margin-inline: 25px;
+      .createBtn{
+        width: 25px;
+        height: 25px;
+      }
+    }
   }
 }

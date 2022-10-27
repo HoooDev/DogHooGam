@@ -32,5 +32,20 @@
         }
       }
     }
+    .controller {
+      padding-bottom: 20px;
+      .controller__content {
+        .controller__pause {
+          width: 36px;
+        }
+        .controller__play {
+          width: 36px;
+        }
+        .controller__stop {
+          width: 36px;
+          margin-left: 20px;
+        }
+      }
+    }
   }
 }

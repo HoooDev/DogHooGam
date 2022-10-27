@@ -1,0 +1,37 @@
+
+
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    .map {
+      margin-left: 30px;
+      margin-top: 24px;
+      margin-bottom: 36px;
+    }
+
+    .bottom {
+      margin-bottom: 40px;
+
+      .sub1 {
+        margin-left: 64px;
+        margin-right: 68px;
+      }
+      .sub3 {
+        margin-left: 64px;
+      }
+    }
+
+    .content {
+      margin-bottom: 40px;
+
+      .con1 {
+        margin-left: 46px;
+        margin-right: 36px;
+      }
+      .con3 {
+        margin-left: 68px;
+      }
+    }
+  }
+}
