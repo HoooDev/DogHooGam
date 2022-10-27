@@ -3,6 +3,7 @@
     width: 380px;
     height: 210px;
     margin-top: 15px;
+    margin-bottom: 30px;
     border-radius: 15px;
     background-color: #fff8ea;
     .profileBox {
@@ -27,12 +28,21 @@
           transform: translate(-50%, -50%);
         }
       }
-      .dogName {
+      .dogNameBox {
         position: absolute;
         font-size: 19px;
         margin-left: 80px;
         margin-bottom: 5px;
         font-weight: bold;
+      }
+    }
+    .dogInfoBox {
+      margin-top: 45px;
+      margin-left: 28px;
+      font-size: 18px;
+      font-weight: bold;
+      .dogInfo {
+        margin-bottom: 10px;
       }
     }
   }
