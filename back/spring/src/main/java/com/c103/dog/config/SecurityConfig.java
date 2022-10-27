@@ -5,6 +5,8 @@ package com.c103.dog.config;
 import com.c103.dog.api.service.UserService;
 import com.c103.dog.common.auth.JwtAuthenticationFilter;
 import com.c103.dog.common.auth.SsafyUserDetailsService;
+import com.c103.dog.common.auth.oauth.CustomOAuth2UserService;
+import com.c103.dog.common.auth.oauth.OAuth2SuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +35,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Autowired
     private UserService userService;
-    
+
+    @Autowired
+    private OAuth2SuccessHandler oAuth2SuccessHandler;
+
+    @Autowired
+            private CustomOAuth2UserService customOAuth2UserService;
 
 
     // DAO 기반으로 Authentication Provider를 생성
@@ -76,7 +83,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/demori/**").authenticated()       //인증이 필요한 URL과 필요하지 않은 URL에 대하여 설정
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .anyRequest().permitAll()
-                .and().cors();
+                .and().cors()
+                .and()
+                .oauth2Login()
+                .successHandler(oAuth2SuccessHandler)
+                .userInfoEndpoint().userService(customOAuth2UserService);
     }
 
 
