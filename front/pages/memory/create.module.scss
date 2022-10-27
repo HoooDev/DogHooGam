@@ -1,0 +1,69 @@
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    margin-top: 40px;
+    .memoryNav {
+      margin-inline: 25px;
+      .backbutton {
+        width: 30px;
+        height: 30px;
+        background-color: $WHITE;
+        border: none;
+      }
+      .createbutton {
+        width: 100px;
+        height: 30px;
+        background-color: $WHITE;
+        border: none;
+        color: rgb(146, 146, 253);
+      }
+    }
+    .inputForm {
+      margin-top: 40px;
+      padding-inline: 20px;
+      height: 100px;
+      .image {
+        background-color: rgb(153, 148, 148);
+        width: 100px;
+        height: 100px;
+        .preview{
+          width: 100%;
+          height: 100%;
+        }
+        .noimg{
+          width: 100%;
+          height: 100%;
+          background-color: $WHITE;
+          border: 1px dashed #787878;
+        }
+      }
+      .text {
+        width: 200px;
+        border: none;
+        text-align: start;
+        outline: none;
+        resize: none;
+      }
+    }
+    .place {
+      margin-top: 60px;
+      height: 50px;
+      background-color: #f4f4f4;
+      padding-inline: 20px;
+      .space {
+        width: 100px;
+      }
+      .btn {
+        width: 200px;
+        .button {
+          width: 30px;
+          height: 30px;
+          border: none;
+          background-color: #f4f4f4;
+          .img {
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+}
