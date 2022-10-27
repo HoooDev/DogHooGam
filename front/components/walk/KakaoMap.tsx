@@ -23,25 +23,6 @@ if (typeof window !== "undefined") {
   kakao = (window as any).kakao;
 }
 
-const positions = [
-  {
-    title: "카카오",
-    latlng: new kakao.maps.LatLng(33.450705, 126.570677)
-  },
-  {
-    title: "생태연못",
-    latlng: new kakao.maps.LatLng(33.450936, 126.569477)
-  },
-  {
-    title: "텃밭",
-    latlng: new kakao.maps.LatLng(33.450879, 126.56994)
-  },
-  {
-    title: "근린공원",
-    latlng: new kakao.maps.LatLng(33.451393, 126.570738)
-  }
-];
-
 const KakaoMap = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [map, setMap] = useState<any>(null);
@@ -68,8 +49,27 @@ const KakaoMap = () => {
     }
   };
 
-  const displayOthers = (map: any, positions: any[]) => {
+  const displayOthers = (map: any) => {
     kakao.maps.load(() => {
+      const positions = [
+        {
+          title: "카카오",
+          latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+        },
+        {
+          title: "생태연못",
+          latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+        },
+        {
+          title: "텃밭",
+          latlng: new kakao.maps.LatLng(33.450879, 126.56994)
+        },
+        {
+          title: "근린공원",
+          latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+        }
+      ];
+
       // 마커 이미지의 이미지 주소입니다
       const imageSrc =
         "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
@@ -137,7 +137,7 @@ const KakaoMap = () => {
       }); // 지도를 생성합니다
       setMap(firstMap);
       displayMarker(firstMap);
-      displayOthers(firstMap, positions);
+      displayOthers(firstMap);
     });
   };
 

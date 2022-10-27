@@ -1,0 +1,94 @@
+@media screen and (min-width: $PHONE-VW) {
+  .plusDog {
+    // margin-top: 30px;
+    margin-bottom: 30px;
+    .dogProfileBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .dogImgBox {
+        margin-top: 30px;
+        width: 150px;
+        height: 150px;
+        border-radius: 20%;
+        overflow: hidden;
+        // box-shadow: 3px 3px 3px #787878;
+        .dogImg {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .dogProfileTitle {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+    .dogInputForm {
+      margin-inline: 20px;
+      .dogInputTitle {
+        margin-top: 25px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .walletTitleBox {
+        display: flex;
+        width: 150px;
+        justify-content: space-between;
+        .walletAdd {
+          color: white;
+          font-size: 13px;
+          font-weight: bold;
+          height: 30px;
+          width: 70px;
+          background-color: #9e7676;
+          border: none;
+          border-radius: 10px;
+          margin-top: 19px;
+          cursor: pointer;
+        }
+      }
+      .dogInput {
+        margin-top: 10px;
+        border: 0 solid black;
+        font-size: 18px;
+        width: 100%;
+      }
+      .dogInput:focus {
+        outline: none;
+      }
+
+      .dogBirthInputForm {
+        margin-top: 15px;
+        width: 380px;
+        flex-direction: row;
+        justify-content: space-between;
+        .dogBirthInput {
+          border-radius: 10px;
+          border: 1px #787878 solid;
+          width: 100px;
+          height: 40px;
+          padding-inline: 10px;
+        }
+        .dogBirthInput::placeholder {
+          text-align: center;
+        }
+      }
+    }
+    .AddBtn {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      // margin-left: 10px;
+      // margin-block: 2px;
+      height: 40px;
+      width: 130px;
+      background-color: #9e7676;
+      border: none;
+      border-radius: 10px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+  }
+}
