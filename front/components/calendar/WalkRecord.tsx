@@ -1,10 +1,10 @@
 import Image from "next/image";
-import styles from "./WalkRecode.module.scss";
+import styles from "./WalkRecord.module.scss";
 
 // 더미이미지
 import map from "../../public/image/map.png";
 
-function WalkRecode() {
+function WalkRecord() {
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.map}`}>
@@ -24,4 +24,4 @@ function WalkRecode() {
   );
 }
 
-export default WalkRecode;
+export default WalkRecord;

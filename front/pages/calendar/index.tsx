@@ -1,16 +1,32 @@
 import type { NextPage } from "next";
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./index.module.scss";
 // 컴포넌트
 import DogProfile from "../../components/calendar/DogProfile";
-// import Todo from "../../components/calendar/Todo";
-// import Memory from "../../components/calendar/Memory";
-import WalkRecode from "../../components/calendar/WalkRecode";
+import Todo from "../../components/calendar/Todo";
+import Memory from "../../components/calendar/Memory";
+import WalkRecord from "../../components/calendar/WalkRecord";
 // 이미지
 import line from "../../public/icons/Line 1.svg";
 import arrow from "../../public/icons/expand.svg";
 
 const Calendar: NextPage = () => {
+  // 탭 변환
+  const [Tab, setTab] = useState("메모");
+  let CalendarTab = null;
+  if (Tab === "메모") {
+    CalendarTab = <Todo />;
+  } else if (Tab === "산책일지") {
+    CalendarTab = <WalkRecord />;
+  } else {
+    CalendarTab = <Memory />;
+  }
+  function changeTab(e: any) {
+    // console.log(e.target.innerText);
+    setTab(e.target.innerText);
+  }
+
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.profile}`}>
@@ -20,15 +36,30 @@ const Calendar: NextPage = () => {
           <DogProfile />
         </div>
         <div className={`${styles.selbox} flex`}>
-          <button type="button" className={`${styles.seltxt1} notoBold fs-20`}>
+          <button
+            id="Todo"
+            type="button"
+            className={`${styles.seltxt1} notoBold fs-20`}
+            onClick={(e) => changeTab(e)}
+          >
             메모
           </button>
           <Image src={line} alt="선" />
-          <button type="button" className={`${styles.seltxt2} notoBold fs-20`}>
+          <button
+            id="WalkRecord"
+            type="button"
+            className={`${styles.seltxt2} notoBold fs-20`}
+            onClick={(e) => changeTab(e)}
+          >
             산책일지
           </button>
           <Image src={line} alt="선" />
-          <button type="button" className={`${styles.seltxt3} notoBold fs-20`}>
+          <button
+            id="Memory"
+            type="button"
+            className={`${styles.seltxt3} notoBold fs-20`}
+            onClick={(e) => changeTab(e)}
+          >
             추억기록
           </button>
         </div>
@@ -59,11 +90,7 @@ const Calendar: NextPage = () => {
           </div>
         </div>
       </div>
-      <div>
-        {/* <Todo /> */}
-        {/* <Memory /> */}
-        <WalkRecode />
-      </div>
+      <div>{CalendarTab}</div>
     </div>
   );
 };
