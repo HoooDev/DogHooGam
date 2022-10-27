@@ -1,6 +1,5 @@
-import Image from "next/image";
+import Link from "next/link";
 import styles from "./MemoryList.module.scss";
-import dummyimg from "../../public/icons/dummy.svg";
 
 function MemoryList() {
   const dummys = [
@@ -17,7 +16,9 @@ function MemoryList() {
       {dummys.map((item) => {
         return (
           <div className={`${styles.item}`} key={item.id}>
-            <div className={`${styles.img}`} />
+            <Link href={`/memory/${item.id}`}>
+              <div className={`${styles.img}`} />
+            </Link>
           </div>
         );
       })}

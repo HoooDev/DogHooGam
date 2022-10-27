@@ -1,15 +1,36 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import Image from "next/image";
+import { useState } from "react";
+import Router, { useRouter } from "next/router";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
 import arrowRight from "../../public/icons/arrowRight.svg";
 
-function create() {
+function Create() {
+  const [uploadimg, setUploadimg] = useState<any>(null);
+
+  const router = useRouter();
+
+  function handleImageUpload(e: any) {
+    const fileArr = e.target.files;
+    console.log(fileArr);
+    const file = fileArr[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setUploadimg(reader.result);
+    };
+  }
+
   return (
     <div className={`${styles.wrapper}`}>
       <div>
         <div className={`${styles.memoryNav} flex justify-space-between`}>
-          <button className={`${styles.backbutton}`} type="button">
+          <button
+            className={`${styles.backbutton}`}
+            onClick={() => router.back()}
+            type="button"
+          >
             <Image src={back} alt="#" />
           </button>
           <button
@@ -22,13 +43,16 @@ function create() {
         <div className={`${styles.inputForm} flex justify-space-around`}>
           <input
             className={`${styles.image}`}
+            onChange={(e) => handleImageUpload(e)}
             id="uploadimg"
             type="file"
             accept="image/gif, image/jpeg, image/png"
             hidden
           />
           <label className={`${styles.image}`} htmlFor="uploadimg">
-            이미지 업로드
+            {uploadimg ? (
+              <img className={`${styles.preview}`} src={uploadimg} alt="#" />
+            ) : null}
           </label>
           <textarea
             className={`${styles.text} fs-20 notoMid`}
@@ -48,4 +72,4 @@ function create() {
   );
 }
 
-export default create;
+export default Create;
