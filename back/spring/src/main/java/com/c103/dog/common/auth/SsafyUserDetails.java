@@ -5,16 +5,15 @@ import com.c103.dog.DB.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-public class SsafyUserDetails implements UserDetails {
-	
-	@Autowired
+public class SsafyUserDetails implements UserDetails , OAuth2User {
+
 	private User user;
-	
 
 	private Map<String, Object> attributes;
     
@@ -91,6 +90,8 @@ public class SsafyUserDetails implements UserDetails {
 		this.user = user;
 	}
 
+
+	@Override
 	public Map<String, Object> getAttributes() {
 		return attributes;
 	}
@@ -98,7 +99,9 @@ public class SsafyUserDetails implements UserDetails {
 	public void setAttributes(Map<String, Object> attributes) {
 		this.attributes = attributes;
 	}
-	
-	
 
+	@Override
+	public String getName() {
+		return attributes.get("sub").toString();
+	}
 }
