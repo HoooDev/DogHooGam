@@ -1,4 +1,6 @@
 .plusDog {
+  // margin-top: 30px;
+  margin-bottom: 30px;
   .dogProfileBox {
     display: flex;
     flex-direction: column;
@@ -25,14 +27,31 @@
   .dogInputForm {
     margin-inline: 20px;
     .dogInputTitle {
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 18px;
       font-weight: bold;
     }
+    .walletTitleBox {
+      display: flex;
+      width: 150px;
+      justify-content: space-between;
+      .walletAdd {
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        height: 30px;
+        width: 70px;
+        background-color: #9e7676;
+        border: none;
+        border-radius: 10px;
+        margin-top: 19px;
+      }
+    }
     .dogInput {
-      margin-top: 15px;
+      margin-top: 10px;
       border: 0 solid black;
       font-size: 18px;
+      width: 100%;
     }
     .dogInput:focus {
       outline: none;
@@ -49,10 +68,24 @@
         border: 1px #787878 solid;
         width: 100px;
         height: 40px;
+        padding-inline: 10px;
       }
       .dogBirthInput::placeholder {
         text-align: center;
       }
     }
+  }
+  .AddBtn {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    // margin-left: 10px;
+    // margin-block: 2px;
+    height: 40px;
+    width: 130px;
+    background-color: #9e7676;
+    border: none;
+    border-radius: 10px;
+    margin-top: 15px;
   }
 }
