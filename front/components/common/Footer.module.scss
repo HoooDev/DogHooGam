@@ -12,9 +12,11 @@
   .wrapper{
     height: 55px;
     width: 420px;
+    z-index: 99;
     .icon{
       width: 30px;
       height: 30px;
+      background-color: gray;
     }
   }
 }
