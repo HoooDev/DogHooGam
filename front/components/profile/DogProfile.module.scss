@@ -15,7 +15,7 @@
       position: relative;
       width: vw(70px);
       height: vw(70px);
-      background-color: #ffffff;
+      background-color: $White;
       border-radius: vw(15px);
       .dogImg {
         position: absolute;
@@ -77,7 +77,7 @@
         position: relative;
         width: 70px;
         height: 70px;
-        background-color: #ffffff;
+        background-color: $White;
         border-radius: 15px;
         .dogImg {
           position: absolute;

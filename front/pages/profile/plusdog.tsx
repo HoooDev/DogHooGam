@@ -39,7 +39,7 @@ function Plusdog() {
         <p className={`${styles.dogInputTitle}`}>견종</p>
         <input type="text" className={`${styles.dogInput} notoReg`} /> <hr />
         <p className={`${styles.dogInputTitle}`}>생년월일</p>
-        <div className={`${styles.dogBirthInputForm} notoReg`}>
+        <div className={`${styles.dogBirthInputForm} flex notoReg`}>
           <input
             type="number"
             placeholder="연도 ex) 2022"
