@@ -2,13 +2,14 @@
 /* eslint-disable prettier/prettier */
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import gps from "../../public/icons/gps.svg";
 import styles from "./KakaoMap.module.scss";
 import { nowWalking, startWalking } from "../../redux/slice/walkSlice";
 import { AppDispatch } from "../../redux/store";
 import Modal from "../common/Modal";
+import type { RootState } from "../../redux/store/index";
 
 declare global {
   interface Window {
@@ -22,6 +23,25 @@ if (typeof window !== "undefined") {
   kakao = (window as any).kakao;
 }
 
+const positions = [
+  {
+    title: "카카오",
+    latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+  },
+  {
+    title: "생태연못",
+    latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+  },
+  {
+    title: "텃밭",
+    latlng: new kakao.maps.LatLng(33.450879, 126.56994)
+  },
+  {
+    title: "근린공원",
+    latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+  }
+];
+
 const KakaoMap = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [map, setMap] = useState<any>(null);
@@ -32,6 +52,7 @@ const KakaoMap = () => {
   // const [latitude, setLatitude] = useState(35.2056221);
   // const [longitude, setLongitude] = useState(126.8115104);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { others } = useSelector((state: RootState) => state.walk);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const fetchLocation = () => {
@@ -45,6 +66,35 @@ const KakaoMap = () => {
         console.log(lat, lon);
       });
     }
+  };
+
+  const displayOthers = (map: any, positions: any[]) => {
+    kakao.maps.load(() => {
+      // 마커 이미지의 이미지 주소입니다
+      const imageSrc =
+        "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+      for (let i = 0; i < positions.length; i += 1) {
+        // 마커 이미지의 이미지 크기 입니다
+        const imageSize = new kakao.maps.Size(24, 35);
+
+        // 마커 이미지를 생성합니다
+        const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+        // 마커를 생성합니다
+        const marker = new kakao.maps.Marker({
+          map, // 마커를 표시할 지도
+          position: positions[i].latlng, // 마커를 표시할 위치
+          title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+          image: markerImage // 마커 이미지
+        });
+
+        kakao.maps.event.addListener(marker, "click", () => {
+          // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+          setIsModalOpen(true);
+        });
+      }
+    });
   };
 
   // 지도에 마커와 인포윈도우를 표시하는 함수입니다
@@ -83,10 +133,11 @@ const KakaoMap = () => {
     kakao.maps.load(() => {
       const firstMap = new kakao.maps.Map(containerRef.current, {
         center: new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
-        level: 10 // 지도의 확대 레벨
+        level: 5 // 지도의 확대 레벨
       }); // 지도를 생성합니다
       setMap(firstMap);
       displayMarker(firstMap);
+      displayOthers(firstMap, positions);
     });
   };
 

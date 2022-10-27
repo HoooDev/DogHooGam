@@ -3,13 +3,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // import axios from "axios";
 
-interface State {
+interface WalkState {
   loading: boolean;
   success: boolean;
   error: any;
   lat: number;
   lon: number;
   isWalkingStarted: boolean;
+  others: any[];
 }
 
 interface Location {
@@ -17,18 +18,16 @@ interface Location {
   lon: number;
 }
 
-interface MyKnownError {
-  errorMessage: string;
-}
 type Any = any;
 
-const initialState: State = {
+const initialState: WalkState = {
   loading: false,
   success: false,
   error: null,
   lat: 33.450701,
   lon: 126.570667,
-  isWalkingStarted: false
+  isWalkingStarted: false,
+  others: []
 }; // 초기 상태 정의
 
 export const startWalking = createAsyncThunk<
