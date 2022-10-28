@@ -21,7 +21,24 @@ public class Feed {
     @Column(name = "feed_pk")
     private int pk;
 
+    private String feedImg;
+
+    private long lat;
+
+    private long lng;
+
+    private String content;
+
+    private boolean isHide;
+
+    private String transactionHash;
+
     @CreationTimestamp
     @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
     private Timestamp createDate;
+
+    @ManyToOne
+    @JoinColumn(name = "dog_pk")
+    private Dog dog;
+
 }

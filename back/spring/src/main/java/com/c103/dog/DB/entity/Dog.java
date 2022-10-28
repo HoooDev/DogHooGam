@@ -9,6 +9,8 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -45,5 +47,10 @@ public class Dog {
     private User user;
 
 
-    
+    @OneToMany(mappedBy = "dog" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    private List<Feed> dogList = new ArrayList<>();
+
+
+
+
 }

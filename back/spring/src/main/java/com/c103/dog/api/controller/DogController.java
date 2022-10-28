@@ -22,10 +22,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
-@Api(value = "dog API" , tags = {"auth"})
+@Api(value = "dog API" , tags = {"dog"})
 @Slf4j
 @RestController
 @RequestMapping("/api/dog")
@@ -70,12 +71,16 @@ public class DogController {
 
             List<Dog> dogList = dogService.findDogByUserId(user);
 
-            if(dogList == null){
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "잘못된 요청"));
-            }else if(dogList.size() == 0){
+            List<dogPostResponse> dogResList = new ArrayList<>();
+            for(Dog d : dogList){
+                dogPostResponse dogRes = dogPostResponse.of(d);
+                dogResList.add(dogRes);
+            }
+
+            if(dogResList.size() == 0){
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(BaseResponseBody.of(204, "데이터 없음"));
             }else{
-                return ResponseEntity.status(HttpStatus.OK).body(dogList);
+                return ResponseEntity.status(HttpStatus.OK).body(dogResList);
             }
 
         }catch (Exception e){
