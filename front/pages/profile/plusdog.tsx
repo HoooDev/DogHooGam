@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import styles from "./plusdog.module.scss";
-import dogDummy from "../../public/icons/dogDummy.jpg";
 import defaultDog from "../../public/icons/defaultDog.svg";
 
 function Plusdog() {
@@ -37,14 +36,6 @@ function Plusdog() {
     }
   };
 
-  function maxLengthChk(object: any) {
-    setNftDog({ ...nftDog, dogBirth: `${object.value}년` });
-
-    if (object.value.length > object.maxLength) {
-      // eslint-disable-next-line no-param-reassign
-      object.value = object.value.slice(0, object.maxLength);
-    }
-  }
   console.log(nftDog);
   return (
     <div className={`${styles.plusDog}`}>

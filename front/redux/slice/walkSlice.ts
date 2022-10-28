@@ -36,7 +36,7 @@ export const startWalking = createAsyncThunk<
   // First argument to the payload creator
   Location
   // Types for ThunkAPI
->("walk/startWalking", async (location) => {
+>("walk/startWalking", async () => {
   try {
     // const res = await fetch(`/walk/${location}`);
     // if (res.status === 400) {
