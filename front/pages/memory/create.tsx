@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import Image from "next/image";
 import { useState } from "react";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
 import arrowRight from "../../public/icons/arrowRight.svg";

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import gps from "../../public/icons/gps.svg";
 import styles from "./KakaoMap.module.scss";
-import { nowWalking, startWalking } from "../../redux/slice/walkSlice";
+import { nowWalking } from "../../redux/slice/walkSlice";
 import { AppDispatch } from "../../redux/store";
 import Modal from "../common/Modal";
 import type { RootState } from "../../redux/store/index";
@@ -34,6 +34,7 @@ const KakaoMap = () => {
   // const [longitude, setLongitude] = useState(126.8115104);
   const containerRef = useRef<HTMLDivElement>(null);
   const { others } = useSelector((state: RootState) => state.walk);
+  console.log(others);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const fetchLocation = () => {

@@ -17,10 +17,6 @@ import {
 import storage from "redux-persist/lib/storage";
 // import logger from "redux-logger";
 import { createWrapper, MakeStore } from "next-redux-wrapper";
-import { useDispatch } from "react-redux";
-
-import testSlice from "../slice/testSlice";
-import counterSlice from "../slice/counterSlice";
 import walkSlice from "../slice/walkSlice";
 
 const persistConfig = {
@@ -30,8 +26,6 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  test: testSlice,
-  counter: counterSlice,
   walk: walkSlice
 });
 
@@ -48,7 +42,10 @@ const store = configureStore({
     }),
   devTools: process.env.NEXT_PUBLIC_NODE_ENV !== "production"
 });
-const setupStore = (context: any): EnhancedStore => store;
+const setupStore = (context: any): EnhancedStore => {
+  console.log(context);
+  return store;
+};
 const makeStore: MakeStore<any> = (context: any) => setupStore(context);
 export const persistor = persistStore(store);
 export const wrapper = createWrapper<Store>(makeStore);
