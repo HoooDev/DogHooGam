@@ -15,4 +15,11 @@ public class UserServiceImpl implements UserService {
     public User getUserByUserId(String userId) {
         return userRepository.findByUserId(userId);
     }
+
+    @Override
+    public User registerAddress(User user, String userWallerAddress) {
+        user.setWalletAddress(userWallerAddress);
+        return userRepository.save(user);
+    }
+
 }

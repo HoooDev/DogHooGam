@@ -41,6 +41,7 @@ public class DogController {
     @ApiOperation(value = "강아지 등록하기",notes = "ntf 발행된 해쉬와 사진 주소로 강아지 등록",response = dogPostResponse.class)
     public ResponseEntity<?> registerDog(@ApiIgnore Authentication authentication, @RequestBody dogPostRequest dog){
         try {
+
             SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
             User user = userService.getUserByUserId(userDetails.getUsername());
             if (user == null) {

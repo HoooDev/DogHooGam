@@ -2,8 +2,10 @@ package com.c103.dog.config;
 
 
 
+import com.c103.dog.DB.entity.User;
 import com.c103.dog.api.service.UserService;
 import com.c103.dog.common.auth.JwtAuthenticationFilter;
+import com.c103.dog.common.auth.SsafyUserDetails;
 import com.c103.dog.common.auth.SsafyUserDetailsService;
 import com.c103.dog.common.auth.oauth.CustomOAuth2UserService;
 import com.c103.dog.common.auth.oauth.OAuth2SuccessHandler;
@@ -18,6 +20,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -105,14 +108,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 UsernamePasswordAuthenticationFilter.class);
     }
 
-//    @Bean
-//    public EmbeddedServletContainerCustomizer tomcatCustomizer() {
-//        return container -> {
-//            if (container instanceof TomcatEmbeddedServletContainerFactory) {
-//                TomcatEmbeddedServletContainerFactory tomcat = (TomcatEmbeddedServletContainerFactory) container;
-//                tomcat.addContextCustomizers(context -> context.setCookieProcessor(new LegacyCookieProcessor()));
-//            }
-//        };
-//    }
+
 
 }

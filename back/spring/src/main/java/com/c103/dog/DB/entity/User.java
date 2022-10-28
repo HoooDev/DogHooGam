@@ -1,6 +1,7 @@
 package com.c103.dog.DB.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,6 +36,10 @@ public class User {
     private String profileImg;
 
     private String userId;
+
+    private String walletAddress;
+
+    private String personalKey;
 
     @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     private List<Dog> dogList = new ArrayList<>();
