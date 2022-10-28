@@ -1,8 +1,11 @@
 package com.c103.dog.api.controller;
 
 import com.c103.dog.DB.entity.Feed;
+import com.c103.dog.DB.entity.Memo;
 import com.c103.dog.api.response.FeedPostResponse;
+import com.c103.dog.api.response.MemoResponse;
 import com.c103.dog.api.service.FeedService;
+import com.c103.dog.api.service.MemoService;
 import com.c103.dog.api.service.UserService;
 import com.c103.dog.common.response.BaseResponseBody;
 import io.swagger.annotations.Api;
@@ -31,6 +34,9 @@ public class CalendarController {
     @Autowired
     FeedService feedService;
 
+    @Autowired
+    MemoService memoService;
+
     @GetMapping("/feed")
     @ApiOperation(value = "캘린더 피드 리스트 읽기",notes = "강아지 별 년도, 달별에 포함되는 한달씩만 출력",response = FeedPostResponse.class)
     public ResponseEntity<?> getCalenderFeedList(@RequestParam String year, @RequestParam String month, @RequestParam int dogPk){
@@ -47,6 +53,34 @@ public class CalendarController {
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(BaseResponseBody.of(204, "데이터 없음"));
             }else{
                 return ResponseEntity.status(HttpStatus.OK).body(feedResList);
+            }
+        }catch (IllegalArgumentException e) {
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
+        }catch (Exception e){
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
+        }
+    }
+
+
+
+    @GetMapping("/memo")
+    @ApiOperation(value = "캘린더 메모 리스트 읽기",notes = "강아지 별 년도, 달별에 포함되는 한달씩만 출력",response = MemoResponse.class)
+    public ResponseEntity<?> getCalenderMemoList(@RequestParam String year, @RequestParam String month, @RequestParam int dogPk){
+        try {
+            List<Memo> memoList = memoService.findMemoByDay(dogPk,year,month);
+
+            List<MemoResponse> memoResList = new ArrayList<>();
+            for(Memo m : memoList){
+                MemoResponse feedRes = MemoResponse.of(m);
+                memoResList.add(feedRes);
+            }
+
+            if(memoResList.size() == 0){
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(BaseResponseBody.of(204, "데이터 없음"));
+            }else{
+                return ResponseEntity.status(HttpStatus.OK).body(memoResList);
             }
         }catch (IllegalArgumentException e) {
             e.getStackTrace();

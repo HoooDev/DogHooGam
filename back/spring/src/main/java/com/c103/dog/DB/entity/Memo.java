@@ -22,6 +22,17 @@ public class Memo {
     @Column(name = "memo_pk")
     private int pk;
 
+    private String title;
+
+    private String content;
+
+    @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd")
+    private Timestamp memoDate;
+
+    @ManyToOne
+    @JoinColumn(name = "dog_pk")
+    private Dog dog;
+
     @CreationTimestamp
     @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
     private Timestamp createDate;

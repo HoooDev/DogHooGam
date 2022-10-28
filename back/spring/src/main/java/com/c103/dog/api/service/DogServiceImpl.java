@@ -7,6 +7,7 @@ import com.c103.dog.api.request.dogPostRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -22,7 +23,7 @@ public class DogServiceImpl implements DogService{
                 .dogImg(dog.getDogImg())
                 .dogName(dog.getDogName())
                 .dogBreed(dog.getDogBreed())
-                .birthday(dog.getBirthday())
+                .birthday(Timestamp.valueOf(dog.getBirthday()))
                 .dogCharacter(dog.getDogCharacter())
                 .isHide(false)
                 .user(user)

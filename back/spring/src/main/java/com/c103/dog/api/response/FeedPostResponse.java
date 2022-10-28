@@ -35,6 +35,10 @@ public class FeedPostResponse {
 
     private boolean isHide;
 
+    @ApiModelProperty(name="생성 날짜", example="yyyy-MM-dd HH:mm")
+    @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
+    private Timestamp createDate;
+
     public static FeedPostResponse of(Feed feed){
         FeedPostResponse feedRes = FeedPostResponse.builder()
                 .pk(feed.getPk())
@@ -44,10 +48,8 @@ public class FeedPostResponse {
                 .lng(feed.getLng())
                 .content(feed.getContent())
                 .isHide(feed.isHide())
+                .createDate(feed.getCreateDate())
                 .build();
         return feedRes;
-
-
-
     }
 }
