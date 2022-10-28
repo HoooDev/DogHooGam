@@ -12,10 +12,7 @@ import java.util.Collection;
 import java.util.Map;
 
 public class SsafyUserDetails implements UserDetails , OAuth2User {
-	
-	@Autowired
 	private User user;
-	
 
 	private Map<String, Object> attributes;
     
@@ -100,7 +97,6 @@ public class SsafyUserDetails implements UserDetails , OAuth2User {
 	public void setAttributes(Map<String, Object> attributes) {
 		this.attributes = attributes;
 	}
-
 
 	@Override
 	public String getName() {

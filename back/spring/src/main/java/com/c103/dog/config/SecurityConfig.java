@@ -19,7 +19,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
 
@@ -38,10 +40,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
     @Autowired
-    private OAuth2SuccessHandler oAuth2SuccessHandler;
-
+    private CustomOAuth2UserService oAuth2UserService;
     @Autowired
-            private CustomOAuth2UserService customOAuth2UserService;
+    private OAuth2SuccessHandler successHandler;
+
 
 
     // DAO 기반으로 Authentication Provider를 생성
@@ -71,10 +73,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 
+    public PasswordEncoder passwordEncoder(){
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
 
 
     @Override
@@ -84,19 +86,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 토큰 기반 인증이므로 세션 사용 하지않음
                 .and()
-                .addFilter(new JwtAuthenticationFilter(authenticationManager(), userService)) //HTTP 요청에 JWT 토큰 인증 필터를 거치도록 필터를 추가
+        //        .addFilter(new JwtAuthenticationFilter(authenticationManager(), userService)) //HTTP 요청에 JWT 토큰 인증 필터를 거치도록 필터를 추가
                 .authorizeRequests()
                 .antMatchers("/demori/**").authenticated()       //인증이 필요한 URL과 필요하지 않은 URL에 대하여 설정
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .anyRequest().permitAll()
                 .and().cors()
                 .and()
+                .addFilterBefore(new JwtAuthenticationFilter(authenticationManager(), userService),
+                        UsernamePasswordAuthenticationFilter.class)
                 .oauth2Login()
-                .successHandler(oAuth2SuccessHandler)
-                .userInfoEndpoint().userService(customOAuth2UserService);
+                .successHandler(successHandler)
+                .userInfoEndpoint() // OAuth2 로그인 성공 후에 가져올 설정들
+                .userService(oAuth2UserService); // 서버에서 사용자 정보를 가져온 상태에서 추가로 진행하고자 하는 기능 명시
+
+        http.addFilterBefore(new JwtAuthenticationFilter(authenticationManager(), userService),
+                UsernamePasswordAuthenticationFilter.class);
     }
 
-
-
+//    @Bean
+//    public EmbeddedServletContainerCustomizer tomcatCustomizer() {
+//        return container -> {
+//            if (container instanceof TomcatEmbeddedServletContainerFactory) {
+//                TomcatEmbeddedServletContainerFactory tomcat = (TomcatEmbeddedServletContainerFactory) container;
+//                tomcat.addContextCustomizers(context -> context.setCookieProcessor(new LegacyCookieProcessor()));
+//            }
+//        };
+//    }
 
 }

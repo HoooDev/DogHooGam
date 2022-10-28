@@ -28,6 +28,10 @@ public class User {
 
     private String role;
 
+    private String nickName;
+
+    private String profileImg;
+
     private String userId;
 
     private String profileImg;
