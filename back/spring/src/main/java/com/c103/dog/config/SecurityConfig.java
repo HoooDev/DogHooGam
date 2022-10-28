@@ -90,6 +90,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/demori/**").authenticated()       //인증이 필요한 URL과 필요하지 않은 URL에 대하여 설정
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                //.antMatchers("/api/**").hasAnyRole("ROLE_USER")
                 .anyRequest().permitAll()
                 .and().cors()
                 .and()

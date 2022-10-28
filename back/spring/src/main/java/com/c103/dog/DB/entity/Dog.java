@@ -31,9 +31,19 @@ public class Dog {
 
     private String dogName;
 
-    private String content;
+    @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
+    private Timestamp birthday;
 
-    private String birthday;
+    private String dogBreed;
+
+    private String dogCharacter;
+
+    private boolean isHide;
+
+    @ManyToOne
+    @JoinColumn(name = "uni_pk")
+    private User user;
+
 
     
 }

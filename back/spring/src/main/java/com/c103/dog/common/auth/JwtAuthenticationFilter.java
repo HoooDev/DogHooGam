@@ -6,6 +6,7 @@ import com.c103.dog.DB.entity.User;
 import com.c103.dog.api.service.UserService;
 import com.c103.dog.common.util.JwtTokenUtil;
 import com.c103.dog.common.util.ResponseBodyWriteUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,6 +23,7 @@ import java.io.IOException;
 /**
  * 요청 헤더에 jwt 토큰이 있는 경우, 토큰 검증 및 인증 처리 로직 정의.
  */
+@Slf4j
 public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
 	private UserService userService;
 
@@ -58,6 +60,7 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
 
 	@Transactional(readOnly = true)
 	public Authentication getAuthentication(HttpServletRequest request) throws Exception {
+		log.info("jwt Filter getAuthentication 실행");
 		String token = request.getHeader(JwtTokenUtil.HEADER_STRING);
 		// 요청 헤더에 Authorization 키값에 jwt 토큰이 포함된 경우에만, 토큰 검증 및 인증 처리 로직 실행.
 		if (token != null) {
@@ -75,6 +78,7 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
 				if (user != null) {
 					// 식별된 정상 유저인 경우, 요청 context 내에서 참조 가능한 인증 정보(jwtAuthentication) 생성.
 					SsafyUserDetails userDetails = new SsafyUserDetails(user);
+					log.info("userID : {} userDetails.getId" , userId, userDetails.getUsername());
 					UsernamePasswordAuthenticationToken jwtAuthentication = new UsernamePasswordAuthenticationToken(
 							userId, null, userDetails.getAuthorities());
 					jwtAuthentication.setDetails(userDetails);

@@ -9,6 +9,8 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -34,9 +36,8 @@ public class User {
 
     private String userId;
 
-    private String profileImg;
-
-    private String nickName;
+    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    private List<Dog> dogList = new ArrayList<>();
 
 
 }
