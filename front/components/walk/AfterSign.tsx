@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import Image from "next/image";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -16,7 +17,9 @@ const AfterSign = () => {
     setIsPausing((prev) => !prev);
   };
   const onStopClick = () => {
-    dispatch(stopWalking());
+    if (confirm("산책을 마치시겠습니까?")) {
+      dispatch(stopWalking());
+    }
   };
   return (
     <div className={`${styles.wrapper}`}>

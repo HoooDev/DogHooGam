@@ -15,6 +15,7 @@ const StartBtn = () => {
       })
     );
   };
+  console.log(isWalkingStarted);
   return (
     <div className={`${styles.wrapper} flex justify-center`}>
       <div
