@@ -10,7 +10,7 @@ function Navbar() {
     <nav
       className={`${styles.wrapper} flex justify-space-between align-center`}
     >
-      <Link href="/">
+      <Link href="/home">
         <div className={`${styles.icon}`}>
           <Image src={logo} alt="#" />
         </div>
