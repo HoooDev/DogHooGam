@@ -30,4 +30,9 @@ public class User {
 
     private String userId;
 
+    private String profileImg;
+
+    private String nickName;
+
+
 }

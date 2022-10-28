@@ -28,6 +28,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
                 .getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
         log.info("registrationId = {}", registrationId);
         log.info("userNameAttributeName = {}", userNameAttributeName);
+        log.info(oAuth2User.getAttributes().toString());
 
         // Success Handler가 사용할 수 있도록 등록
         OAuth2Attribute oAuth2Attribute =
@@ -35,8 +36,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         var memberAttribute = oAuth2Attribute.covertToMap();
         // DefaultOAuth2User 객체를 성공 정보를 바탕으로 만듦
-        return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority("USER")),
-                memberAttribute, "email");
+        return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority("ROLE_USER")),
+                memberAttribute, "providerId");
 
     }
 }
