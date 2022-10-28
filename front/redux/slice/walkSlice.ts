@@ -95,12 +95,12 @@ const walkSlice = createSlice({
       state.loading = true;
       state.success = false;
       state.error = null;
-      state.isWalkingStarted = true;
     });
     builder.addCase(startWalking.fulfilled, (state) => {
       state.loading = false;
       state.success = true;
       state.error = null;
+      state.isWalkingStarted = true;
     });
     builder.addCase(startWalking.rejected, (state, { payload }) => {
       state.loading = false;
@@ -128,12 +128,12 @@ const walkSlice = createSlice({
       state.loading = true;
       state.success = false;
       state.error = null;
-      state.isWalkingStarted = false;
     });
     builder.addCase(stopWalking.fulfilled, (state) => {
       state.loading = false;
       state.success = true;
       state.error = null;
+      state.isWalkingStarted = false;
     });
     builder.addCase(stopWalking.rejected, (state, { payload }) => {
       state.loading = false;
