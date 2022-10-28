@@ -39,6 +39,22 @@
     .seltxt3 {
       margin-left: vw(15px);
     }
+
+    .selecttxt1 {
+      margin-right: vw(24px);
+      color: $MAIN;
+    }
+
+    .selecttxt2 {
+      margin-left: vw(15px);
+      margin-right: vw(15px);
+      color: $MAIN;
+    }
+
+    .selecttxt3 {
+      margin-left: vw(15px);
+      color: $MAIN;
+    }
   }
   
   .cal {
@@ -104,16 +120,32 @@
       }
 
       .seltxt1 {
-        margin-right: 24px;
+        margin-right: vw(20px);
       }
-
+  
       .seltxt2 {
-        margin-left: 15px;
-        margin-right: 15px;
+        margin-left: vw(15px);
+        margin-right: vw(15px);
       }
-
+  
       .seltxt3 {
-        margin-left: 15px;
+        margin-left: vw(15px);
+      }
+  
+      .selecttxt1 {
+        margin-right: vw(20px);
+        color: $MAIN;
+      }
+  
+      .selecttxt2 {
+        margin-left: vw(15px);
+        margin-right: vw(15px);
+        color: $MAIN;
+      }
+  
+      .selecttxt3 {
+        margin-left: vw(15px);
+        color: $MAIN;
       }
     }
     
