@@ -2,6 +2,7 @@
 const path = require("path");
 
 const nextConfig = {
+  distDir: "build",
   reactStrictMode: true,
   swcMinify: true,
   sassOptions: {
