@@ -30,7 +30,7 @@ const Calendar: NextPage = () => {
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.profile}`}>
-        <div className={`${styles.procom} flex`}>
+        <div className={`${styles.procom}`}>
           <DogProfile />
         </div>
         <div className={`${styles.selbox} flex`}>
