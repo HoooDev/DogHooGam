@@ -17,7 +17,7 @@
     }
     .modal__box {
       position: absolute;
-      width: 60%;
+      width: 20%;
       margin: 0 10%;
       padding: 30px;
       border-radius: 20px;
@@ -25,9 +25,12 @@
       color: $BLACK;
       align-items: center;
       .modal__btn {
+        border: none;
+        background: none;
         align-self: flex-end;
         line-height: 30px;
         transition: transform 0.25s ease-in-out;
+        font-size: 30px;
         &:hover {
           transform: rotate(180deg);
         }
