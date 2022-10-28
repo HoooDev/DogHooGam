@@ -19,7 +19,7 @@ const Calendar: NextPage = () => {
     CalendarTab = <Todo />;
   } else if (Tab === "산책일지") {
     CalendarTab = <WalkRecord />;
-  } else {
+  } else if (Tab === "추억기록") {
     CalendarTab = <Memory />;
   }
   function changeTab(e: any) {
@@ -37,7 +37,9 @@ const Calendar: NextPage = () => {
           <button
             id="Todo"
             type="button"
-            className={`${styles.seltxt1} notoBold fs-20`}
+            className={`${
+              Tab === "메모" ? styles.selecttxt1 : styles.seltxt1
+            } notoBold fs-20`}
             onClick={(e) => changeTab(e)}
           >
             메모
@@ -46,7 +48,9 @@ const Calendar: NextPage = () => {
           <button
             id="WalkRecord"
             type="button"
-            className={`${styles.seltxt2} notoBold fs-20`}
+            className={`${
+              Tab === "산책일지" ? styles.selecttxt2 : styles.seltxt2
+            } notoBold fs-20`}
             onClick={(e) => changeTab(e)}
           >
             산책일지
@@ -55,7 +59,9 @@ const Calendar: NextPage = () => {
           <button
             id="Memory"
             type="button"
-            className={`${styles.seltxt3} notoBold fs-20`}
+            className={`${
+              Tab === "추억기록" ? styles.selecttxt3 : styles.seltxt3
+            } notoBold fs-20`}
             onClick={(e) => changeTab(e)}
           >
             추억기록
