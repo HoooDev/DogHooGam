@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 import styles from "./Todo.module.scss";
 
 function Todo() {
@@ -5,11 +6,11 @@ function Todo() {
   console.log(arr);
   return (
     <div className={`${styles.wrapper}`}>
-      {/* <div className={`${styles.list} notoBold fs-20`}>산책하기</div>
-      <div className={`${styles.list} notoBold fs-20`}>예방접종</div> */}
       {arr.length !== 0 &&
         arr.map((value: string): any => (
-          <div className={`${styles.list} notoBold fs-20`}>{value}</div>
+          <div key={v4()} className={`${styles.list} notoBold fs-20`}>
+            {value}
+          </div>
         ))}
     </div>
   );

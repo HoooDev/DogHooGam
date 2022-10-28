@@ -32,8 +32,6 @@ const Calendar: NextPage = () => {
       <div className={`${styles.profile}`}>
         <div className={`${styles.procom} flex`}>
           <DogProfile />
-          <DogProfile />
-          <DogProfile />
         </div>
         <div className={`${styles.selbox} flex`}>
           <button

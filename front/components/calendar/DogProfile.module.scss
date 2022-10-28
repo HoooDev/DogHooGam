@@ -1,12 +1,12 @@
 .wrapper {
   .logo {
-    width: vw(97px);
-    height: vw(90px);
+    width: vw(70px);
+    height: vw(70px);
     border-radius: 50%;
     border: vw(1px) solid;
     object-fit: cover;
     overflow: hidden;
-    margin-bottom: vw(12px);
+    margin-bottom: vw(12px);    
 
     // .logoimg {
     //   margin-top: 10px;
@@ -35,14 +35,16 @@
 
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
+    
     .logo {
-      width: 97px;
-      height: 90px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       border: 1px solid;
       object-fit: cover;
       overflow: hidden;
       margin-bottom: 12px;
+      
 
       // .logoimg {
       //   margin-top: 10px;
