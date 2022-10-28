@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import Router from "next/router";
-
+// import Router from "next/router";
 import styles from "./index.module.scss";
 import kakaoLogo from "../public/icons/kakao.svg";
 import logo from "../public/icons/logo.png";

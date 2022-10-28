@@ -7,13 +7,16 @@
       flex-direction: column;
       align-items: center;
       .dogImgBox {
+        border: #e6e6e6 3px solid;
         margin-top: 30px;
         width: 150px;
         height: 150px;
         border-radius: 20%;
         overflow: hidden;
-        // box-shadow: 3px 3px 3px #787878;
+        box-shadow: 1px 1px 1px #787878;
         .dogImg {
+          // 정원slint-disable-next-line @next/next/no-img-element
+          display: flex;
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -65,14 +68,13 @@
         flex-direction: row;
         justify-content: space-between;
         .dogBirthInput {
-          border-radius: 10px;
-          border: 1px #787878 solid;
-          width: 100px;
-          height: 40px;
-          padding-inline: 10px;
+          margin-top: 10px;
+          border: 0 solid black;
+          font-size: 18px;
+          width: 100%;
         }
-        .dogBirthInput::placeholder {
-          text-align: center;
+        .dogBirthInput:focus {
+          outline: none;
         }
       }
     }
