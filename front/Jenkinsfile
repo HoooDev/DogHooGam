@@ -1,18 +1,33 @@
 // JenkinsFile
 pipeline {
-     agent any
-     stages {
-        stage("Build") {
+    agent any
+    tools {
+        nodejs "node14"
+        git "Default"
+    }
+    stages {
+        stage('prepare') {
             steps {
-                sh "sudo npm install"
-                sh "sudo npm run build"
+                echo 'prepare'
+                 git branch: "frontend", credentialsId: "haengsong", url: 'https://lab.ssafy.com/s07-final/S07P31C103.git'
             }
         }
-        stage("Deploy") {
+        stage('build') {
             steps {
-                script {
-                    sh 'sudo chmod +x ./script/deploy.sh'
-                    sh 'sudo ./script/deploy.sh'
+                dir("front") {
+                    sh 'sudo su'
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+                
+
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'deploy'   
+                dir("front") {
+                    sh 'npm run start'
                 }
             }
         }
