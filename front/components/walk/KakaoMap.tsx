@@ -1,7 +1,9 @@
+/* eslint-disable prefer-template */
+/* eslint-disable no-bitwise */
 /* eslint-disable no-shadow */
 /* eslint-disable prettier/prettier */
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import gps from "../../public/icons/gps.svg";
@@ -24,7 +26,7 @@ if (typeof window !== "undefined") {
 }
 
 const KakaoMap = () => {
-  console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
+  // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
   const dispatch = useDispatch<AppDispatch>();
   const [map, setMap] = useState<any>(null);
   const [isFirst, setIsFirst] = useState(false);
@@ -37,19 +39,6 @@ const KakaoMap = () => {
   const { others } = useSelector((state: RootState) => state.walk);
   console.log(others);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-
-  const fetchLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude; // 위도
-        const lon = position.coords.longitude; // 경도
-        setLatitude(lat);
-        setLongitude(lon);
-        setIsFirst(true);
-        console.log(lat, lon);
-      });
-    }
-  };
 
   const displayOthers = (map: any) => {
     kakao.maps.load(() => {
@@ -91,7 +80,7 @@ const KakaoMap = () => {
           image: markerImage // 마커 이미지
         });
 
-        kakao.maps.event.addListener(marker, "click", () => {
+        kakao.maps.event?.addListener(marker, "click", () => {
           // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
           setIsModalOpen(true);
         });
@@ -124,23 +113,36 @@ const KakaoMap = () => {
       marker.setMap(map);
 
       // 마커에 마우스오버 이벤트를 등록합니다
-      kakao.maps.event.addListener(marker, "click", () => {
+      kakao.maps.event?.addListener(marker, "click", () => {
         // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
         setIsModalOpen(true);
       });
     });
   };
 
-  const initMap = () => {
+  const initMap = useCallback(() => {
     kakao.maps.load(() => {
-      const firstMap = new kakao.maps.Map(containerRef.current, {
+      const map = new kakao.maps.Map(containerRef.current, {
         center: new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
         level: 5 // 지도의 확대 레벨
       }); // 지도를 생성합니다
-      setMap(firstMap);
-      displayMarker(firstMap);
-      displayOthers(firstMap);
+      setMap(map);
+      displayMarker(map);
+      displayOthers(map);
     });
+  }, [latitude, longitude]);
+
+  const fetchLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const lat = position.coords.latitude; // 위도
+        const lon = position.coords.longitude; // 경도
+        setLatitude(lat);
+        setLongitude(lon);
+        setIsFirst(true);
+        console.log(lat, lon);
+      });
+    }
   };
 
   const moveMap = () => {
@@ -152,6 +154,7 @@ const KakaoMap = () => {
       map.panTo(moveLatLon);
     });
   };
+
   useEffect(() => {
     fetchLocation();
   }, []);
@@ -160,7 +163,7 @@ const KakaoMap = () => {
     if (isFirst) {
       initMap();
     }
-  }, [isFirst]);
+  }, [initMap, isFirst]);
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -12,6 +12,8 @@ interface WalkState {
   isWalkingStarted: boolean;
   others: any[];
   selectedDogs: any[];
+  start: number;
+  end: number;
 }
 
 interface Location {
@@ -29,7 +31,9 @@ const initialState: WalkState = {
   lon: 126.570667,
   isWalkingStarted: false,
   others: [],
-  selectedDogs: []
+  selectedDogs: [],
+  start: Date.now(),
+  end: Date.now()
 }; // 초기 상태 정의
 
 export const startWalking = createAsyncThunk<
@@ -67,9 +71,9 @@ export const nowWalking = createAsyncThunk<Any, Location>(
   }
 );
 
-export const stopWalking = createAsyncThunk<Any>(
+export const finishWalking = createAsyncThunk<Any>(
   // Types for ThunkAPI
-  "walk/stopWalking",
+  "walk/finishWalking",
   async () => {
     try {
       // const res = await fetch(`/walk/stop`);
@@ -116,6 +120,7 @@ const walkSlice = createSlice({
       state.success = true;
       state.error = null;
       state.isWalkingStarted = true;
+      state.start = Date.now();
     });
     builder.addCase(startWalking.rejected, (state, { payload }) => {
       state.loading = false;
@@ -139,18 +144,20 @@ const walkSlice = createSlice({
       state.error = payload;
     });
 
-    builder.addCase(stopWalking.pending, (state) => {
+    builder.addCase(finishWalking.pending, (state) => {
       state.loading = true;
       state.success = false;
       state.error = null;
     });
-    builder.addCase(stopWalking.fulfilled, (state) => {
+    builder.addCase(finishWalking.fulfilled, (state) => {
       state.loading = false;
       state.success = true;
       state.error = null;
       state.isWalkingStarted = false;
+      state.end = Date.now();
+      console.log((state.end - state.start) / 1000, "초 동안 산책했음");
     });
-    builder.addCase(stopWalking.rejected, (state, { payload }) => {
+    builder.addCase(finishWalking.rejected, (state, { payload }) => {
       state.loading = false;
       state.success = false;
       state.error = payload;

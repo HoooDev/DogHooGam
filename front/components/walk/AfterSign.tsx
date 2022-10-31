@@ -7,7 +7,7 @@ import styles from "./AfterSign.module.scss";
 import pause from "../../public/icons/pause.svg";
 import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
-import { stopWalking } from "../../redux/slice/walkSlice";
+import { finishWalking } from "../../redux/slice/walkSlice";
 import { AppDispatch } from "../../redux/store";
 
 const AfterSign = () => {
@@ -18,7 +18,7 @@ const AfterSign = () => {
   };
   const onStopClick = () => {
     if (confirm("산책을 마치시겠습니까?")) {
-      dispatch(stopWalking());
+      dispatch(finishWalking());
     }
   };
   return (
