@@ -78,6 +78,18 @@
       font-weight: bold;
       text-align: center;
     }
+    .addWalletBtnBox {
+      display: flex;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: auto;
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      flex-direction: column;
+      cursor: pointer;
+    }
     .addWalletBtn {
       // display: flex;
       width: 70px;

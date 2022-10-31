@@ -1,15 +1,45 @@
 import Web3 from "web3";
 import axios from "axios";
-import { NFTContract } from "./SmartContract";
+import { NFTContract, TOKENContract } from "./SmartContract";
 
 const web3 = new Web3();
 web3.setProvider(
   new Web3.providers.HttpProvider(process.env.NEXT_PUBLIC_GETH_NODE)
 );
 
+export const getAdminAdress = async () => {
+  const res = await web3.eth.getCoinbase();
+  return res;
+};
+
+export const createAccount = async () => {
+  const coinBase = await getAdminAdress();
+  const createdObj = web3.eth.accounts.create();
+  const account = web3.eth.accounts.privateKeyToAccount(createdObj.privateKey);
+  const wallet = web3.eth.accounts.wallet.add(account);
+
+  await web3.eth.personal.unlockAccount(
+    coinBase,
+    process.env.NEXT_PUBLIC_COINBASE_PASSWORD,
+    300
+  );
+
+  const Eth = web3.utils.toWei("10", "ether");
+  const tx = {
+    from: coinBase,
+    to: wallet.address,
+    value: Eth
+  };
+  web3.eth.sendTransaction(tx).then((receipt) => receipt);
+
+  await TOKENContract.methods.transferFrom(coinBase, wallet.address, 10);
+  // .then(console.log("보냄"));
+  return [wallet.address, wallet.privateKey];
+};
+
 const sendFileToIPFS = async (e, file, text) => {
   e.preventDefault(process.env.NEXT_PUBLIC_GETH_NODE);
-  console.log(process.env.NEXT_PUBLIC_GETH_NODE);
+
   console.log(file);
   let ImgHash;
   let getImg;
@@ -34,8 +64,8 @@ const sendFileToIPFS = async (e, file, text) => {
       console.log(ImgHash);
       await web3.eth.personal
         .unlockAccount(
-          "0x08fb12b11182248577539d21e11b9fcb3b87e844",
-          "1234",
+          process.env.NEXT_PUBLIC_COINBASE,
+          process.env.NEXT_PUBLIC_COINBASE_PASSWORD,
           15000
         )
         .then(console.log("계정해제"));
@@ -66,22 +96,22 @@ const sendFileToIPFS = async (e, file, text) => {
     console.log(res.data.IpfsHash, "res데이터");
     await web3.eth.personal
       .unlockAccount(
-        "0x08fb12b11182248577539d21e11b9fcb3b87e844",
-        "1234",
+        process.env.NEXT_PUBLIC_COINBASE,
+        process.env.NEXT_PUBLIC_COINBASE_PASSWORD,
         15000
       )
       .then(console.log("계정해제"));
     await NFTContract.methods
       .mintNFT(
-        "0xb3d796fe23c34133e549057eee49c25b599fd704",
+        "0x56b3de125f0885052181a83e9e6aa4a78f5215ab",
         `ipfs://${res.data.IpfsHash}`
       )
-      .send({ from: "0x08fb12b11182248577539d21e11b9fcb3b87e844" })
+      .send({ from: process.env.NEXT_PUBLIC_COINBASE })
       .then((response) => console.log(response));
 
     const tx = {
-      from: "0x08fb12b11182248577539d21e11b9fcb3b87e844", // 보내는 주소
-      to: "0xb3d796fe23c34133e549057eee49c25b599fd704", // 받는 주소
+      from: process.env.NEXT_PUBLIC_COINBASE, // 보내는 주소
+      to: "0x56b3de125f0885052181a83e9e6aa4a78f5215ab", // 받는 주소
       value: 1e18 // 1코인 송금
     };
     // eslint-disable-next-line no-shadow
