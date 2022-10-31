@@ -31,9 +31,12 @@ export const createAccount = async () => {
     value: Eth
   };
   web3.eth.sendTransaction(tx).then((receipt) => receipt);
-
-  await TOKENContract.methods.transferFrom(coinBase, wallet.address, 10);
-  // .then(console.log("보냄"));
+  // ERC-20 토큰 보내기 전 허용
+  await TOKENContract.methods.approve(coinBase, 10).send({ from: coinBase });
+  // 허용 한 후 ERC-20 토큰 전송 ( 로그인 시 10 잉크 (10잉크 -> 1피드) )
+  await TOKENContract.methods
+    .transferFrom(coinBase, wallet.address, 10)
+    .send({ from: coinBase });
   return [wallet.address, wallet.privateKey];
 };
 
@@ -77,7 +80,7 @@ const sendFileToIPFS = async (e, file, text) => {
 
     const data = JSON.stringify({
       description: text, // NFT 설명
-      image: ImgHash, // IPFS에 올린 이미지 주소
+      imageHash: ImgHash, // IPFS에 올린 이미지 주소
       name: `(유저이름)의 강아지 - ${text.dogName} `, //
       imageUrl: `https://gateway.pinata.cloud/ipfs/${getImg}`
     });

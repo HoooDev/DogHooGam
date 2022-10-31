@@ -4,7 +4,7 @@ import styles from "./MyWallet.module.scss";
 import walletLogo from "../../public/icons/walletLogo.png";
 import addImg from "../../public/icons/addImg.svg";
 import { createAccount } from "../../pages/api/web3/Web3";
-import createWallet from "../../pages/api/user/createWallet";
+// import createWallet from "../../pages/api/user/createWallet";
 
 function MyWallet() {
   const dummy = false;

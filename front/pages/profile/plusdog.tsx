@@ -48,12 +48,17 @@ function Plusdog() {
     }
   };
 
+  const makeNFT = async (e: any) => {
+    const dogImg = await sendFileToIPFS(e, imgFile, nftDog);
+    console.log(dogImg, "강아지 이미지 url 리턴");
+  };
+
   console.log(nftDog);
   return (
     <div className={`${styles.plusDog}`}>
       <form
         onSubmit={(e: any) => {
-          sendFileToIPFS(e, imgFile, nftDog);
+          makeNFT(e);
         }}
       >
         <div className={`${styles.dogProfileBox}`}>
