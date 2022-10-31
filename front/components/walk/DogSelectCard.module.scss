@@ -1,0 +1,20 @@
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    margin-bottom: 6px;
+    .dogSelectCard__icon {
+      padding: 6px;
+      margin-inline: 10px;
+      margin-bottom: 6px;
+      border-width: 4px;
+      border-style: solid;
+      border-color: $WHITE;
+      border-radius: 50%;
+      background-color: $WHITE;
+    }
+    .dogSelectCard__name {
+    }
+    .borderColor__MAIN {
+      border-color: $MAIN;
+    }
+  }
+}

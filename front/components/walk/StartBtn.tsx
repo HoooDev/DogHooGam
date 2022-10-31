@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./StartBtn.module.scss";
@@ -6,8 +7,13 @@ import type { AppDispatch, RootState } from "../../redux/store/index";
 
 const StartBtn = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted } = useSelector((state: RootState) => state.walk);
+  const { isWalkingStarted, selectedDogs } = useSelector(
+    (state: RootState) => state.walk
+  );
   const onWalkStartClick = () => {
+    if (selectedDogs.length === 0) {
+      return alert("산책 전 반려견을 선택해주세요.");
+    }
     dispatch(
       startWalking({
         lat: 0,

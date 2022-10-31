@@ -11,6 +11,7 @@ interface WalkState {
   lon: number;
   isWalkingStarted: boolean;
   others: any[];
+  selectedDogs: any[];
 }
 
 interface Location {
@@ -27,7 +28,8 @@ const initialState: WalkState = {
   lat: 33.450701,
   lon: 126.570667,
   isWalkingStarted: false,
-  others: []
+  others: [],
+  selectedDogs: []
 }; // 초기 상태 정의
 
 export const startWalking = createAsyncThunk<
@@ -88,6 +90,19 @@ const walkSlice = createSlice({
     setCurLocation: (state, { payload }) => {
       state.lat = payload.lat;
       state.lon = payload.lon;
+    },
+    toggleSelectedDogs: (state, { payload }) => {
+      console.log(state.selectedDogs);
+      if (state.selectedDogs.find((dog) => dog.id === payload.id)) {
+        state.selectedDogs = state.selectedDogs.filter(
+          (dog) => dog.id !== payload.id
+        );
+      } else {
+        state.selectedDogs.push(payload);
+      }
+    },
+    clearSelectedDogs: (state) => {
+      state.selectedDogs = [];
     }
   },
   extraReducers: (builder) => {
@@ -143,5 +158,6 @@ const walkSlice = createSlice({
   }
 });
 
-export const { setCurLocation } = walkSlice.actions; // 액션 생성함수
+export const { setCurLocation, toggleSelectedDogs, clearSelectedDogs } =
+  walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서
