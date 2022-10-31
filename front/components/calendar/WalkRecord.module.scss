@@ -1,0 +1,68 @@
+// .wrapper {
+//   .map {
+//     margin-left: vw(30px);
+//     margin-top: vw(24px);
+//     margin-bottom: vw(36px);
+//   }
+
+//   .bottom {
+//     margin-bottom: vw(40px);
+
+//     .sub1 {
+//       margin-left: vw(64px);
+//       margin-right: vw(72px);
+//     }
+//     .sub3 {
+//       margin-left: vw(64px);
+//     }
+//   }
+
+//   .content {
+//     margin-bottom: vw(40px);
+
+//     .con1 {
+//       margin-left: vw(46px);
+//       margin-right: vw(36px);
+//     }
+//     .con3 {
+//       margin-left: vw(68px);
+//     }
+//   }
+// }
+
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    .map {
+      margin-left: 30px;
+      margin-top: 24px;
+      margin-bottom: 36px;
+      width: 360px;
+    }
+
+    .bottom {
+      margin-bottom: 40px;
+
+      .sub1 {
+        margin-left: 64px;
+        margin-right: 72px;
+      }
+      .sub3 {
+        margin-left: 64px;
+      }
+    }
+
+    .content {
+      margin-bottom: 40px;
+
+      .con1 {
+        margin-left: 46px;
+        margin-right: 48px;
+      }
+      .con3 {
+        margin-left: 72px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+// .wrapper {
+//   margin-top: vw(24px);
+//   .list {
+//     width: vw(300px);
+//     background-color: #EDECEC;
+//     padding: vw(24px);
+//     border-radius: vw(16px);
+//     margin: auto;
+//     margin-bottom: vw(24px);
+//   }
+// }
+
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    margin-top: 24px;
+    .list {
+      width: 300px;
+      background-color: #EDECEC;
+      padding: 24px;
+      border-radius: 16px;
+      margin: auto;
+      margin-bottom: 24px;
+    }
+  }
+}
+
+

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../public/icons/logo.png";
 import styles from "./Navbar.module.scss";
+import logo from "../../public/icons/logo.png";
 
 import profileimg from "../../public/icons/profile.svg";
 
@@ -16,9 +16,7 @@ function Navbar() {
         </div>
       </Link>
       <Link href="/profile">
-        <div className={`${styles.profileimg}`}>
-          <Image width="30px" height="30px" src={profileimg} alt="#" />
-        </div>
+        <a className={`${styles.link}`}>마이페이지</a>
       </Link>
     </nav>
   );
