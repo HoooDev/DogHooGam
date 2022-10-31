@@ -24,28 +24,28 @@ public class DateTest {
     @Test
     @Commit
     void dateTest(){
-        Calendar cal = Calendar.getInstance();
-        cal.set(2022, 10, 1);
-
-        System.out.println("cal 출력 : " + cal.toString());
-
-        System.out.println("date 출력 : " + new Date(cal.getTimeInMillis()));
-
-        LocalDate date = LocalDate.of(2021, 12, 25);
-
-        System.out.println("LocalDate 출력 : " + date);
-
-        for(int i = 1;  i <25 ; i++){
-            LocalDate now = LocalDate.of(2021,1,1+i);
-            deptRepository.save(new Dept(i, "dname_" + String.valueOf(i) ,"loc_" +  String.valueOf(i) , Timestamp.valueOf(now.atStartOfDay())));
-        }
-
-
-        List<Dept> list = deptRepository.findDeptByDeptNo("2021" , "1");
-
-        for(Dept d : list){
-            System.out.println("날짜 출력 : " + d.getTime());
-        }
+//        Calendar cal = Calendar.getInstance();
+//        cal.set(2022, 10, 1);
+//
+//        System.out.println("cal 출력 : " + cal.toString());
+//
+//        System.out.println("date 출력 : " + new Date(cal.getTimeInMillis()));
+//
+//        LocalDate date = LocalDate.of(2021, 12, 25);
+//
+//        System.out.println("LocalDate 출력 : " + date);
+//
+//        for(int i = 1;  i <25 ; i++){
+//            LocalDate now = LocalDate.of(2021,1,1+i);
+//            deptRepository.save(new Dept(i, "dname_" + String.valueOf(i) ,"loc_" +  String.valueOf(i) , Timestamp.valueOf(now.atStartOfDay())));
+//        }
+//
+//
+//        List<Dept> list = deptRepository.findDeptByDeptNo("2021" , "1");
+//
+//        for(Dept d : list){
+//            System.out.println("날짜 출력 : " + d.getTime());
+//        }
 
 
 
