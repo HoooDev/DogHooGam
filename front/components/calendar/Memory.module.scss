@@ -1,21 +1,21 @@
-.wrapper {
-  .image {
-    width: vw(320px);
-    height: vw(300px);
-    margin: auto;
-    margin-top: vw(24px);
-    border-radius: vw(16px);
-    background-size: cover;
-    overflow: hidden;
-    margin-bottom: vw(40px);
-  }
+// .wrapper {
+//   .image {
+//     width: vw(320px);
+//     height: vw(300px);
+//     margin: auto;
+//     margin-top: vw(24px);
+//     border-radius: vw(16px);
+//     background-size: cover;
+//     overflow: hidden;
+//     margin-bottom: vw(40px);
+//   }
 
-  .text {
-    width: vw(320px);
-    margin: auto;
-    margin-bottom: vw(40px);
-  }
-}
+//   .text {
+//     width: vw(320px);
+//     margin: auto;
+//     margin-bottom: vw(40px);
+//   }
+// }
 
 
 @media screen and (min-width: $PHONE-VW) {
