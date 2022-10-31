@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import { useState } from "react";
 import Image from "next/image";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 import styles from "./index.module.scss";
 // 컴포넌트
 import DogProfile from "../../components/calendar/DogProfile";
@@ -11,7 +13,7 @@ import WalkRecord from "../../components/calendar/WalkRecord";
 import line from "../../public/icons/Line 1.svg";
 import arrow from "../../public/icons/expand.svg";
 
-const Calendar: NextPage = () => {
+const CalendarPage: NextPage = () => {
   // 탭 변환
   const [Tab, setTab] = useState("메모");
   let CalendarTab = null;
@@ -95,8 +97,9 @@ const Calendar: NextPage = () => {
         </div>
       </div>
       <div>{CalendarTab}</div>
+      <Calendar />
     </div>
   );
 };
 
-export default Calendar;
+export default CalendarPage;
