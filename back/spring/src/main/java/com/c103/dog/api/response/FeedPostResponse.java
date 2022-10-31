@@ -25,10 +25,10 @@ public class FeedPostResponse {
     private String feedImg;
 
     @ApiModelProperty(name="위도", example="127.01")
-    private long lat;
+    private double lat;
 
     @ApiModelProperty(name="경도", example="64.01")
-    private long lng;
+    private double lng;
 
     @ApiModelProperty(name="문구", example="문구입니다~")
     private String content;

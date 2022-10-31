@@ -45,16 +45,17 @@ public class DogController {
 
             SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
             User user = userService.getUserByUserId(userDetails.getUsername());
+
+            log.info("userId : {} ", user.getUserId());
+
             if (user == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "유저 없음"));
             }
             dogPostResponse dogRes = dogPostResponse.of(dogService.registerDog(dog,user));
             return ResponseEntity.status(HttpStatus.OK).body(dogRes);
         }catch (IllegalArgumentException e) {
-            e.getStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){
-            e.getStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
@@ -63,8 +64,12 @@ public class DogController {
     @ApiOperation(value = "등록된 강아지 확인하기",notes = "본인 강아지 확인하기",response = dogPostResponse.class)
     public ResponseEntity<?> getDogList(@ApiIgnore Authentication authentication){
         try {
+            log.info("getDogList");
             SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
+            log.info("userDetails : {} " , userDetails.getUsername());
             User user = userService.getUserByUserId(userDetails.getUsername());
+            log.info("userId : {} " , user.getUserId());
+
             if (user == null) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "유저 없음"));
             }
@@ -84,7 +89,6 @@ public class DogController {
             }
 
         }catch (Exception e){
-            e.getStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }

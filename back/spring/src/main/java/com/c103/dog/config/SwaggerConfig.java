@@ -25,29 +25,30 @@ public class SwaggerConfig {
 
     @Bean
     public Docket restAPI() {
-//        Parameter parameterBuilder = new ParameterBuilder()
-//                .name(HttpHeaders.AUTHORIZATION)
-//                .description("Access Tocken")
-//                .modelRef(new ModelRef("string"))
-//                .parameterType("header")
-//                .required(false)
-//                .build();
-//
-//        List<Parameter> globalParamters = new ArrayList<>();
-//        globalParamters.add(parameterBuilder);
+        Parameter parameterBuilder = new ParameterBuilder()
+                .name(HttpHeaders.AUTHORIZATION)
+                .description("Access Tocken")
+                .modelRef(new ModelRef("string"))
+                .parameterType("header")
+                .required(false)
+                .build();
+
+        List<Parameter> globalParamters = new ArrayList<>();
+        globalParamters.add(parameterBuilder);
 
         return new Docket(DocumentationType.SWAGGER_2)
-//                .globalOperationParameters(globalParamters)
+                .globalOperationParameters(globalParamters)
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.c103.dog"))
                 .paths(PathSelectors.any())
-                .build().securitySchemes(Arrays.asList(apiKey()));
+                .build();
+                //.securitySchemes(Arrays.asList(apiKey()));
     }
 
-    private ApiKey apiKey() {
-        return new ApiKey("Bearer +accessToken", "Authorization", "header");
-    }
+//    private ApiKey apiKey() {
+//        return new ApiKey("Bearer +accessToken", "Authorization", "header");
+//    }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

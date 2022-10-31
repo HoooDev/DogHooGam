@@ -12,7 +12,6 @@ import java.sql.Timestamp;
 
 @Entity
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Feed {
@@ -23,9 +22,9 @@ public class Feed {
 
     private String feedImg;
 
-    private long lat;
+    private double lat;
 
-    private long lng;
+    private double lng;
 
     private String content;
 

@@ -18,10 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 
@@ -77,7 +74,7 @@ public class UserController {
 
     @PostMapping("/wallet")
     @ApiOperation(value = "로그인 유저 지갑 주소 등록",notes = "" ,response = UserAddressResponse.class)
-    public ResponseEntity<?> registerWalletAddress(@ApiIgnore Authentication authentication, UserAddressRequest userAdd){
+    public ResponseEntity<?> registerWalletAddress(@ApiIgnore Authentication authentication,@RequestBody UserAddressRequest userAdd){
 
         SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
         User user = userService.getUserByUserId(userDetails.getUsername());

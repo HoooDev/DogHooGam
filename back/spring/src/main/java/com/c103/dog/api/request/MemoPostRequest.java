@@ -19,7 +19,7 @@ public class MemoPostRequest {
 
     private String content;
 
-    @ApiModelProperty(name="메모 저장 날짜", example="yyyy-MM-dd HH:mm" , value = "year와 month,date로 분리해서 바꿔줄수 있음")
+    @ApiModelProperty(name="메모 저장 날짜", example="2022-10-31 11:28" , value = "year와 month,date로 분리해서 바꿔줄수 있음")
     @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime memoDate;
 }

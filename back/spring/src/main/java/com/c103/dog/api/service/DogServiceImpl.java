@@ -18,16 +18,17 @@ public class DogServiceImpl implements DogService{
 
     @Override
     public Dog registerDog(dogPostRequest dog, User user) throws IllegalArgumentException {
-        Dog dogEntity = Dog.builder()
-                .transactionHash(dog.getTransactionHash())
-                .dogImg(dog.getDogImg())
-                .dogName(dog.getDogName())
-                .dogBreed(dog.getDogBreed())
-                .birthday(Timestamp.valueOf(dog.getBirthday()))
-                .dogCharacter(dog.getDogCharacter())
-                .isHide(false)
-                .user(user)
-                .build();
+        Dog dogEntity = new Dog();
+
+        dogEntity.setDogBreed(dog.getDogBreed());
+        dogEntity.setDogImg(dog.getDogImg());
+        dogEntity.setDogCharacter(dog.getDogCharacter());
+        dogEntity.setDogName(dog.getDogName());
+        dogEntity.setHide(false);
+        dogEntity.setUser(user);
+        dogEntity.setTransactionHash(dog.getTransactionHash());
+        dogEntity.setBirthday(Timestamp.valueOf(dog.getBirthday()));
+
         return dogRepository.save(dogEntity);
     }
 

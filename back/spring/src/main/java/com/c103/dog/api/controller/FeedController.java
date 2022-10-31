@@ -114,7 +114,7 @@ public class FeedController {
 
             Feed feed = feedService.getByFeedPk(feedPk);
 
-            return ResponseEntity.status(HttpStatus.OK).body(feed);
+            return ResponseEntity.status(HttpStatus.OK).body(FeedPostResponse.of(feed));
 
 
         }catch (IllegalArgumentException e) {

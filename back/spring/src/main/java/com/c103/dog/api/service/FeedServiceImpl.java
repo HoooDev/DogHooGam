@@ -26,15 +26,14 @@ public class FeedServiceImpl implements FeedService{
     public Feed registerFeed(FeedPostRequest feedReq)   throws IllegalArgumentException{
         Dog dog = dogRepository.getById(feedReq.getDogPk());
 
-        Feed feedEntity = Feed.builder()
-                .transactionHash(feedReq.getTransactionHash())
-                .feedImg(feedReq.getFeedImg())
-                .content(feedReq.getContent())
-                .lng(feedReq.getLng())
-                .lat(feedReq.getLat())
-                .isHide(false)
-                .dog(dog)
-                .build();
+        Feed feedEntity = new Feed();
+        feedEntity.setTransactionHash(feedReq.getTransactionHash());
+        feedEntity.setDog(dog);
+        feedEntity.setLat(feedReq.getLat());
+        feedEntity.setLng(feedReq.getLng());
+        feedEntity.setContent(feedReq.getContent());
+        feedEntity.setHide(false);
+        feedEntity.setFeedImg(feedReq.getFeedImg());
         return feedRepository.save(feedEntity);
     }
 

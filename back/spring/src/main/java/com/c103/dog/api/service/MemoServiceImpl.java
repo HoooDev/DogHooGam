@@ -27,12 +27,13 @@ public class MemoServiceImpl implements MemoService {
     public Memo registerMemo(MemoPostRequest memoPostReq) throws IllegalArgumentException {
         Dog dog = dogRepository.getById(memoPostReq.getDogPk());
 
-        Memo memoEntity = Memo.builder()
-                .memoDate(Timestamp.valueOf(memoPostReq.getMemoDate()))
-                .content(memoPostReq.getContent())
-                .title(memoPostReq.getTitle())
-                .dog(dog)
-                .build();
+        Memo memoEntity = new Memo();
+
+        memoEntity.setContent(memoPostReq.getContent());
+        memoEntity.setMemoDate(Timestamp.valueOf(memoPostReq.getMemoDate()));
+        memoEntity.setTitle(memoPostReq.getTitle());
+        memoEntity.setDog(dog);
+
         return memoRepository.save(memoEntity);
     }
 

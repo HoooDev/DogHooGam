@@ -12,7 +12,6 @@ import java.sql.Timestamp;
 
 @Entity
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Memo {

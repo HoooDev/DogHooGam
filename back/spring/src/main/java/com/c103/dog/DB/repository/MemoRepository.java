@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface MemoRepository extends JpaRepository<Memo, Integer> {
 
-    @Query(value = "SELECT * from Memo m where (year(m.memo_date) = :year and month(m.memo_date) = :month and m.dog_pk = :dogPk)",
+    @Query(value = "SELECT * from memo m where (year(m.memo_date) = :year and month(m.memo_date) = :month and m.dog_pk = :dogPk)",
             nativeQuery = true)
     List<Memo> findMemoByDay(int dogPk, String year, String month);
 }

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "Memo API" , tags = {"Memo"})
 @Slf4j
 @RestController
-@RequestMapping("/api/Memo")
+@RequestMapping("/api/memo")
 public class MemoController {
 
     @Autowired
@@ -44,7 +44,7 @@ public class MemoController {
     @ApiOperation(value = "메모 상세 보기",notes = "단건 조회",response = MemoResponse.class)
     public ResponseEntity<?> getMemo(@PathVariable int memoPk){
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(memoService.getByMemoPk(memoPk));
+            return ResponseEntity.status(HttpStatus.OK).body(MemoResponse.of(memoService.getByMemoPk(memoPk)));
         }catch (IllegalArgumentException e) {
             e.getStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
@@ -60,7 +60,7 @@ public class MemoController {
     public ResponseEntity<?> updateMemo(@RequestBody MemoUpdateRequest memoUpdateReq){
         try {
 
-            return ResponseEntity.status(HttpStatus.OK).body(memoService.updateMemo(memoUpdateReq));
+            return ResponseEntity.status(HttpStatus.OK).body(MemoResponse.of(memoService.updateMemo(memoUpdateReq)));
         }catch (IllegalArgumentException e) {
             e.getStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));

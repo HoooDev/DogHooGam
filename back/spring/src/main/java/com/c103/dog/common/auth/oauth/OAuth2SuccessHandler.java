@@ -36,12 +36,11 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
         Map<String, Object> map = (Map<String, Object>) oAuth2User.getAttributes();
 
-        User userEntity = User.builder()
-                .userId((String) map.get("providerId"))
-                .role("ROLE_USER")
-                .nickName((String) map.get("name"))
-                .profileImg((String) map.get("profileImg"))
-                .build();
+        User userEntity = new User();
+        userEntity.setUserId((String) map.get("providerId"));
+        userEntity.setRole("ROLE_USER");
+        userEntity.setProfileImg((String) map.get("profileImg"));
+        userEntity.setNickName((String) map.get("name"));
 
 
         if(userRepository.findByUserId(userEntity.getUserId()) == null){
@@ -61,7 +60,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         response.setContentType("text/html;charset=UTF-8");
         response.addHeader("accessToken", accessToken);
         response.setContentType("application/json;charset=UTF-8");
-        targetUrl = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/oauth/redirect")
+        targetUrl = UriComponentsBuilder.fromHttpUrl("https://k7c103.p.ssafy.io:3000/oauth/redirect")
         .queryParam("accessToken", accessToken)
         .build().toUriString();
         getRedirectStrategy().sendRedirect(request, response, targetUrl);
