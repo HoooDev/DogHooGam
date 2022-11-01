@@ -73,6 +73,7 @@ public class FeedController {
     }
 
 
+
     @GetMapping("")
     @ApiOperation(value = "강아지 사진 모두 보기",notes = "본인 강아지 피드 확인하기",response = FeedPostResponse.class)
     public ResponseEntity<?> getFeedList(@ApiIgnore Authentication authentication){

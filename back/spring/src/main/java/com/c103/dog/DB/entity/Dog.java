@@ -52,6 +52,9 @@ public class Dog {
     @OneToMany(mappedBy = "dog" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     private List<Memo> memoList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "dog" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    private List<Walk> walkList = new ArrayList<>();
+
 
 
 }
