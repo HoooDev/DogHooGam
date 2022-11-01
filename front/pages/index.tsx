@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-// import Router from "next/router";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { getInfo } from "../redux/slice/userSlice";
 import styles from "./index.module.scss";
 import kakaoLogo from "../public/icons/kakao.svg";
 import logo from "../public/icons/logo.png";
@@ -15,6 +17,9 @@ const kakaoInit = () => {
 };
 
 const Index: NextPage = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   const kakaoLogin = async () => {
     // 카카오 초기화
     const kakao = kakaoInit();
@@ -26,10 +31,12 @@ const Index: NextPage = () => {
           success: (res: any) => {
             // 로그인 성공할 경우 정보 확인 후 /kakao 페이지로 push
             console.log(res);
-            // Router.push("/home");
+            dispatch(getInfo(res.kakao_account));
+            // router.push("/home");
           },
           fail: (error: any) => {
             console.log(error);
+            alert("로그인 실패");
           }
         });
       },
@@ -59,6 +66,9 @@ const Index: NextPage = () => {
         </div>
         카카오 로그인
       </button>
+      <a href="http://k7c103.p.ssafy.io:8000/oauth2/authorization/kakao">
+        카톡 로그인
+      </a>
     </div>
   );
 };

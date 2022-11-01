@@ -2,9 +2,9 @@ import Image from "next/image";
 import axios from "axios";
 import styles from "./MyWallet.module.scss";
 import walletLogo from "../../public/icons/walletLogo.png";
-import addImg from "../../public/icons/addImg.svg";
+import addImg2 from "../../public/icons/addImg2.svg";
 import { createAccount } from "../../pages/api/web3/Web3";
-// import createWallet from "../../pages/api/user/createWallet";
+import createWallet from "../../pages/api/user/createWallet";
 
 function MyWallet() {
   const dummy = false;
@@ -25,7 +25,7 @@ function MyWallet() {
   const createUserWallet = async () => {
     const [userWalletAddress, userWalletKey] = await createAccount();
     console.log(userWalletAddress, userWalletKey);
-    // await createWallet(walletAddress, userWalletKey);
+    await createWallet(userWalletAddress, userWalletKey);
   };
   return (
     <div className={`${styles.myWalletBox}`}>
@@ -60,7 +60,7 @@ function MyWallet() {
             }}
           >
             <div className={`${styles.addWalletBtn}`}>
-              <Image src={addImg} />
+              <Image src={addImg2} />
             </div>
             <p className={`${styles.addWalletBtnText}`}>
               지갑을 등록 해주세요!
