@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
 import arrowRight from "../../public/icons/arrowRight.svg";
-import addimg from "../../public/icons/addImg.png";
+import addimg from "../../public/icons/addImg2.png";
 
 function Create() {
   const [uploadimg, setUploadimg] = useState<any>(null);
