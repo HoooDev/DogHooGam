@@ -6,11 +6,13 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Builder
 public class PersonResponse {
     @ApiModelProperty(name="dogPk", example="1" , dataType = "int")
-    private int dogPk;
+    private List<Integer> dogPk;
 
     @ApiModelProperty(name="위도", example="127.01")
     private double lat;
@@ -23,7 +25,7 @@ public class PersonResponse {
 
     public static PersonResponse of(Person person){
         PersonResponse personRes = PersonResponse.builder()
-                .dogPk(Integer.parseInt(person.getId()))
+                .dogPk(person.getDogPk())
                 .lat(person.getLat())
                 .lng(person.getLng())
                 .dogState(person.getDogState())
