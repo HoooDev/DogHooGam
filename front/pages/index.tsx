@@ -1,24 +1,24 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import { Router, useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import { getInfo } from "../redux/slice/userSlice";
+import { useRouter } from "next/router";
+// import { useDispatch } from "react-redux";
+// import { getInfo } from "../redux/slice/userSlice";
 import styles from "./index.module.scss";
 import kakaoLogo from "../public/icons/kakao.svg";
 import logo from "../public/icons/logo.png";
 
-const kakaoInit = () => {
-  const kakao = (window as any).Kakao;
-  if (!kakao.isInitialized()) {
-    kakao.init("63114dc256e35bf85feb3421ba6ac4fc");
-  }
+// const kakaoInit = () => {
+//   const kakao = (window as any).Kakao;
+//   if (!kakao.isInitialized()) {
+//     kakao.init("63114dc256e35bf85feb3421ba6ac4fc");
+//   }
 
-  return kakao;
-};
+//   return kakao;
+// };
 
 const Index: NextPage = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // const kakaoLogin = async () => {
   //   // 카카오 초기화
