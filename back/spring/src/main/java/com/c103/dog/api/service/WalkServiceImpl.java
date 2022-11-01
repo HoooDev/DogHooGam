@@ -1,9 +1,15 @@
 package com.c103.dog.api.service;
 
+import com.c103.dog.DB.entity.Dog;
+import com.c103.dog.DB.entity.Feed;
+import com.c103.dog.DB.entity.Walk;
 import com.c103.dog.DB.entity.redis.Person;
+import com.c103.dog.DB.repository.DogRepository;
 import com.c103.dog.DB.repository.WalkRepository;
 import com.c103.dog.DB.repository.redis.PersonRedisRepository;
+import com.c103.dog.api.request.PersonEndRequest;
 import com.c103.dog.api.request.PersonRequest;
+import com.c103.dog.api.request.PersonWalkingRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +29,11 @@ public class WalkServiceImpl implements WalkService {
     WalkRepository walkRepository;
 
     @Autowired
+    DogRepository dogRepository;
+
+
+
+    @Autowired
     PersonRedisRepository redisRepo;
 
     public LocalTime toTime(int time) {
@@ -36,52 +47,124 @@ public class WalkServiceImpl implements WalkService {
     }
 
 
+//    @Override
+//    public List<Person> walkingDogList(PersonRequest walkReq) {
+//        String pk = Integer.toString(walkReq.getDogPk());
+//        int lngArea = (int)((walkReq.getLng() - STD_LNG)*1000);
+//        int latArea = (int)((walkReq.getLat() - STD_LAT)*1000);
+//
+//        Person p = redisRepo.findById(pk).orElse(null);
+//        LocalDateTime createdAt = LocalDateTime.now();
+//        if(p == null){
+//            p = Person.builder()
+//                    .id(pk)
+//                    .lng(walkReq.getLng())
+//                    .lat(walkReq.getLat())
+//                    .dogState(walkReq.getDogState())
+//                    .build();
+//        }else{
+//            createdAt = p.getCreatedAt();
+//            redisRepo.deleteById(pk);
+//        }
+//
+//        List<Person> personList = redisRepo.findAll();
+//        p.setCreatedAt(createdAt);
+//        p.setLatArea(latArea);
+//        p.setLngArea(lngArea);
+//        redisRepo.save(p);
+//
+//        List<Person> check = new ArrayList<>();
+//
+//        for(Person std : personList){
+//            if(Math.abs(std.getLatArea() - latArea) > 1 || Math.abs(std.getLngArea() - lngArea) > 1 ) continue;
+//            check.add(std);
+//        }
+//
+//        return check;
+//    }
+
+
     @Override
-    public List<Person> walkingDogList(PersonRequest walkReq) {
-        String pk = Integer.toString(walkReq.getDogPk());
-        int lngArea = (int)((walkReq.getLng() - STD_LNG)*1000);
-        int latArea = (int)((walkReq.getLat() - STD_LAT)*1000);
+    public String startWalking(PersonRequest personReq) {
+        int lngArea = (int)((personReq.getLng() - STD_LNG)*1000);
+        int latArea = (int)((personReq.getLat() - STD_LAT)*1000);
 
-        Person p = redisRepo.findById(pk).orElse(null);
-        LocalDateTime createdAt = LocalDateTime.now();
-        if(p == null){
-            p = Person.builder()
-                    .id(pk)
-                    .lng(walkReq.getLng())
-                    .lat(walkReq.getLat())
-                    .dogState(walkReq.getDogState())
-                    .build();
-        }else{
-            createdAt = p.getCreatedAt();
-            redisRepo.deleteById(pk);
-        }
-
-        List<Person> personList = redisRepo.findAll();
-        p.setCreatedAt(createdAt);
+        Person p = new Person();
+        p.setDogPk(personReq.getDogPk());
+        p.setLng(personReq.getLng());
+        p.setLat(personReq.getLat());
+        p.setDogState(personReq.getDogState());
         p.setLatArea(latArea);
         p.setLngArea(lngArea);
+
+        return redisRepo.save(p).getId();
+
+
+
+
+    }
+
+    @Override
+    public List<Person> walkingDogList(PersonWalkingRequest personWalkingReq) {
+        String pk = personWalkingReq.getPersonId();
+        int lngArea = (int)((personWalkingReq.getLng() - STD_LNG)*1000);
+        int latArea = (int)((personWalkingReq.getLat() - STD_LAT)*1000);
+
+        Person p = redisRepo.findById(pk).orElse(new Person());
+        p.setId(pk);
+        p.setLng(personWalkingReq.getLng());
+        p.setLat(personWalkingReq.getLat());
+        p.setLngArea(lngArea);
+        p.setLatArea(latArea);
+
+        redisRepo.deleteById(pk);
         redisRepo.save(p);
 
         List<Person> check = new ArrayList<>();
-
+        List<Person> personList = redisRepo.findAll();
         for(Person std : personList){
             if(Math.abs(std.getLatArea() - latArea) > 1 || Math.abs(std.getLngArea() - lngArea) > 1 ) continue;
             check.add(std);
         }
 
         return check;
+
     }
 
-    public List<Person> walkingEndDogList(PersonRequest walkReq) {
-        String pk = Integer.toString(walkReq.getDogPk());
-        Person p = redisRepo.findById(pk).orElse(null);
+    @Override
+    public boolean endWalking(PersonEndRequest walkReq) {
+        Person p = redisRepo.findById(walkReq.getPersonId()).orElse(null);
+        redisRepo.deleteById(walkReq.getPersonId());
 
-        Duration duration = Duration.between(p.getCreatedAt(), LocalDateTime.now());
-        LocalTime time = toTime((int)duration.getSeconds());
+        if(p ==  null){
+            return false;
+        }
+
+
+        Walk walk = new Walk();
+        walk.setWalkPath(walkReq.lineToString());
+        walk.setCoin(walkReq.getCoin());
+        walk.setDistance(walkReq.getDistance());
+
+
+        List<Dog> dogList = dogRepository.findAllById(p.getDogPk());
 
 
 
+        for(Dog dog : dogList){
+            walk.setDog(dog);
+            walkRepository.save(walk);
+        }
+        return true;
+    }
 
-        return null;
+    @Override
+    public Walk getByWalkPk(int walkPk) {
+        return walkRepository.getById(walkPk);
+    }
+
+    @Override
+    public List<Walk> findWalkByDay(int dogPk, String year, String month) {
+        return walkRepository.findWalkByDay(dogPk, year, month);
     }
 }

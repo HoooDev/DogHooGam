@@ -1,9 +1,15 @@
 package com.c103.dog.api.controller;
 
 
+import com.c103.dog.DB.entity.Feed;
+import com.c103.dog.DB.entity.Walk;
 import com.c103.dog.DB.entity.redis.Person;
+import com.c103.dog.api.request.PersonEndRequest;
 import com.c103.dog.api.request.PersonRequest;
+import com.c103.dog.api.request.PersonWalkingRequest;
+import com.c103.dog.api.response.FeedPostResponse;
 import com.c103.dog.api.response.PersonResponse;
+import com.c103.dog.api.response.WalkResponse;
 import com.c103.dog.api.service.WalkService;
 import com.c103.dog.common.response.BaseResponseBody;
 import io.swagger.annotations.Api;
@@ -28,17 +34,34 @@ public class WalkController {
 
 
     @PostMapping("")
-    @ApiOperation(value = "산책 시작, 하는 중",notes = "자기 제외 다른 강아지 위치 반환,")
-    public ResponseEntity<?> walkingDog(@RequestBody PersonRequest personReq){
+    @ApiOperation(value = "산책 시작",notes = "강아지 여러마리 선택가능, 자기 ID 반환")
+    public ResponseEntity<?> startWalk(@RequestBody PersonRequest personReq){
         try {
-            List<Person> personList = walkService.walkingDogList(personReq);
+            String personId = walkService.startWalking(personReq);
+
+            return ResponseEntity.status(HttpStatus.OK).body(personId);
+
+        }catch (IllegalArgumentException e) {
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
+        }catch (Exception e){
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
+        }
+    }
+
+    @PostMapping("/waking")
+    @ApiOperation(value = "산책 시작",notes = "강아지 여러마리 선택가능, 자기 ID 반환")
+    public ResponseEntity<?> walkingDog(@RequestBody PersonWalkingRequest personWalkingReq){
+        try {
+            List<Person> personList = walkService.walkingDogList(personWalkingReq);
 
             List<PersonResponse> personResList = new ArrayList<>();
             for (Person p : personList) {
                 personResList.add(PersonResponse.of(p));
             }
 
-           if(personResList.size() == 0){
+            if(personResList.size() == 0){
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(BaseResponseBody.of(204, "데이터 없음"));
             }else{
                 return ResponseEntity.status(HttpStatus.OK).body(personResList);
@@ -53,14 +76,52 @@ public class WalkController {
         }
     }
 
+
+
+
     @PostMapping("/end")
     @ApiOperation(value = "산책 종료",notes = "자기 위치 삭제 후 산책 기록 저장")
-    public ResponseEntity<?> walkingEndDog(@RequestBody PersonRequest walkReq){
+    public ResponseEntity<?> walkingEndDog(@RequestBody PersonEndRequest walkReq){
 
+        try {
 
+            if(walkService.endWalking(walkReq)){
+                return ResponseEntity.status(HttpStatus.OK).body(BaseResponseBody.of(200, "산책 종료 저장 성공"));
+            }else{
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "저장 실패"));
+            }
 
-        return null;
+        }catch (IllegalArgumentException e) {
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
+        }catch (Exception e){
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
+        }
     }
+
+
+    @GetMapping("/{walkPk}")
+    @ApiOperation(value = "강아지 사진 상세 보기",notes = "단건 조회",response = WalkResponse.class)
+    public ResponseEntity<?> getWalk(@PathVariable int walkPk){
+        try {
+
+            Walk walk = walkService.getByWalkPk(walkPk);
+
+            return ResponseEntity.status(HttpStatus.OK).body(WalkResponse.of(walk));
+
+
+        }catch (IllegalArgumentException e) {
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
+        }catch (Exception e){
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
+        }
+    }
+
+
+
 
 
 

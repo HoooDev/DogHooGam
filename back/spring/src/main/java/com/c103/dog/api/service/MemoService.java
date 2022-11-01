@@ -3,6 +3,7 @@ package com.c103.dog.api.service;
 import com.c103.dog.DB.entity.Feed;
 import com.c103.dog.DB.entity.Memo;
 import com.c103.dog.DB.entity.User;
+import com.c103.dog.DB.entity.Walk;
 import com.c103.dog.api.request.FeedPostRequest;
 import com.c103.dog.api.request.MemoPostRequest;
 import com.c103.dog.api.request.MemoUpdateRequest;
