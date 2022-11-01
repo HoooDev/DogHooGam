@@ -2,6 +2,7 @@ package com.c103.dog.api.service;
 
 import com.c103.dog.DB.entity.User;
 import com.c103.dog.DB.repository.UserRepository;
+import com.c103.dog.api.request.UserAddressRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User registerAddress(User user, String userWallerAddress) {
-        user.setWalletAddress(userWallerAddress);
+    public User registerAddress(User user, UserAddressRequest userAdd) {
+        user.setWalletAddress(userAdd.getUserWalletAddress());
+        user.setPersonalKey(userAdd.getUserPersonalKey());
         return userRepository.save(user);
     }
 

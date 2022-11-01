@@ -83,7 +83,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "유저 없음"));
         }
 
-        User userEntity = userService.registerAddress(user,userAdd.getUserWallerAddress());
+        User userEntity = userService.registerAddress(user,userAdd);
 
         UserAddressResponse userAddressRes = UserAddressResponse.builder()
                 .userPk(user.getPk())
