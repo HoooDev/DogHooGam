@@ -1,5 +1,6 @@
 FROM openjdk:11-jdk
 
+RUN chmod +x gradlew
 RUN ./gradlew clean build
 
 ARG JAR_FILE=./build/libs/dog-0.0.1-SNAPSHOT.jar
