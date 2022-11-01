@@ -61,7 +61,7 @@ const Index: NextPage = () => {
         type="button"
         onClick={() => {
           router.push(
-            "http://k7c103.p.ssafy.io:8000/oauth2/authorization/kakao"
+            "https://k7c103.p.ssafy.io:8000/oauth2/authorization/kakao"
           );
         }}
       >
