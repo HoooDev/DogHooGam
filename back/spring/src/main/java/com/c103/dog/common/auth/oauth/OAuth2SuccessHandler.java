@@ -56,11 +56,13 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         log.info("accessToken : {}" , accessToken);
 
         String targetUrl;
-
+        //response.setHeader("Authorization", JwtTokenUtil.TOKEN_PREFIX + accessToken);
         response.setContentType("text/html;charset=UTF-8");
         response.addHeader("accessToken", accessToken);
         response.setContentType("application/json;charset=UTF-8");
-        targetUrl = UriComponentsBuilder.fromHttpUrl("https://k7c103.p.ssafy.io:3000/oauth/redirect")
+        targetUrl = UriComponentsBuilder.fromHttpUrl("https://localhost:3000/oauth/redirect")
+        //targetUrl = UriComponentsBuilder.fromHttpUrl("https://k7c103.p.ssafy.io:3000/oauth/redirect")
+        //targetUrl = UriComponentsBuilder.fromHttpUrl("http://k7c103.p.ssafy.io:3000/home")
         .queryParam("accessToken", accessToken)
         .build().toUriString();
         getRedirectStrategy().sendRedirect(request, response, targetUrl);
