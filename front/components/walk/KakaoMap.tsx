@@ -24,6 +24,7 @@ if (typeof window !== "undefined") {
 }
 
 const KakaoMap = () => {
+  console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
   const dispatch = useDispatch<AppDispatch>();
   const [map, setMap] = useState<any>(null);
   const [isFirst, setIsFirst] = useState(false);

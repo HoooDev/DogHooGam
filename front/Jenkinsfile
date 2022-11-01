@@ -1,0 +1,35 @@
+// JenkinsFile
+pipeline {
+    agent any
+    tools {
+        nodejs "node14"
+        git "Default"
+    }
+    stages {
+        stage('prepare') {
+            steps {
+                echo 'prepare'
+                 git branch: "frontend", credentialsId: "haengsong", url: 'https://lab.ssafy.com/s07-final/S07P31C103.git'
+            }
+        }
+        stage('build') {
+            steps {
+                dir("front") {
+                    sh 'sudo su'
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+                
+
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'deploy'   
+                dir("front") {
+                    sh 'npm run start'
+                }
+            }
+        }
+    }
+}
