@@ -2,7 +2,7 @@ import Image from "next/image";
 import axios from "axios";
 import styles from "./MyWallet.module.scss";
 import walletLogo from "../../public/icons/walletLogo.png";
-import addImg2 from "../../public/icons/addImg2.svg";
+import addImg from "../../public/icons/addImg.svg";
 import { createAccount } from "../../pages/api/web3/Web3";
 import createWallet from "../../pages/api/user/createWallet";
 
@@ -60,7 +60,7 @@ function MyWallet() {
             }}
           >
             <div className={`${styles.addWalletBtn}`}>
-              <Image src={addImg2} />
+              <Image src={addImg} />
             </div>
             <p className={`${styles.addWalletBtnText}`}>
               지갑을 등록 해주세요!

@@ -46,6 +46,7 @@ const sendFileToIPFS = async (e, file, text) => {
   console.log(file);
   let ImgHash;
   let getImg;
+  let tranHash;
   if (file) {
     try {
       const formData = new FormData();
@@ -110,7 +111,7 @@ const sendFileToIPFS = async (e, file, text) => {
         `ipfs://${res.data.IpfsHash}`
       )
       .send({ from: process.env.NEXT_PUBLIC_COINBASE })
-      .then((response) => console.log(response));
+      .then((response) => console.log(response, "nft 리스폰스"));
 
     const tx = {
       from: process.env.NEXT_PUBLIC_COINBASE, // 보내는 주소
@@ -118,9 +119,11 @@ const sendFileToIPFS = async (e, file, text) => {
       value: 1e18 // 1코인 송금
     };
     // eslint-disable-next-line no-shadow
-    await web3.eth.sendTransaction(tx).then((res) => console.log(res));
+    await web3.eth.sendTransaction(tx).then((res) => {
+      tranHash = res.blockHash;
+    });
   }
-  return `https://gateway.pinata.cloud/ipfs/${getImg}`;
+  return [`https://gateway.pinata.cloud/ipfs/${getImg}`, tranHash];
 };
 
 export default sendFileToIPFS;

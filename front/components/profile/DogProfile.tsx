@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import defaultDog from "../../public/icons/defaultDog.svg";
 import styles from "./DogProfile.module.scss";
-import addImg2 from "../../public/icons/addImg2.svg";
+import addImg from "../../public/icons/addImg.svg";
 
 // import SimpleSlider from "./Carousel";
 
@@ -73,7 +73,7 @@ function DogProfile() {
         <div className={`${styles.dogProfileBox}`}>
           <Link href="/profile/plusdog">
             <div className={`${styles.addDogBtn}`}>
-              <Image src={addImg2} />
+              <Image src={addImg} />
             </div>
           </Link>
           <p className={`${styles.addDogBtnText}`}>

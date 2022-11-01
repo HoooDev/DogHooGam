@@ -1,16 +1,16 @@
 import axios from "axios";
 
-const createWallet = (userWallerAddress: any, userPersonalKey: any) => {
-  console.log(userWallerAddress);
+const createWallet = (userWalletAddress: any, userPersonalKey: any) => {
+  console.log(userWalletAddress);
   console.log(userPersonalKey);
   const Token = window.localStorage.getItem("AccessToken");
 
   axios({
-    url: `https://k7c103.p.ssafy.io:8000/user/wallet`,
+    url: `https://k7c103.p.ssafy.io:8000/api/user/wallet`,
     method: "post",
     headers: { Authorization: `Bearer ${Token}` },
     params: {
-      userWallerAddress,
+      userWalletAddress,
       userPersonalKey
     }
   })

@@ -6,14 +6,31 @@ import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
 import arrowRight from "../../public/icons/arrowRight.svg";
 import addimg from "../../public/icons/addImg2.png";
+import sendFileToIPFS from "../api/web3/Web3";
 
 function Create() {
+  const [imgFile, setImgFile] = useState(null);
   const [uploadimg, setUploadimg] = useState<any>(null);
-
+  // const [nftImg, setNftImg] = useState<any>(null);
+  // const [tranHash, setTranHash] = useState<any>(null);
+  const [nftFeed, setNftFeed] = useState({
+    content: ""
+    // dogPk: null,
+    // dogName: ""
+  });
+  const [apiFeed, setApiFeed] = useState<any>({
+    content: "",
+    dogPk: null,
+    feedImg: "",
+    lat: null,
+    lng: null,
+    transactionHash: ""
+  });
   const router = useRouter();
 
   function handleImageUpload(e: any) {
     const fileArr = e.target.files;
+    setImgFile(e.target.files[0]);
     console.log(fileArr);
     const file = fileArr[0];
     const reader = new FileReader();
@@ -23,6 +40,16 @@ function Create() {
     };
   }
 
+  const makeNFT = async (e: any) => {
+    const feedNft = await sendFileToIPFS(e, imgFile, nftFeed);
+    console.log(feedNft[0], feedNft[1], "이미지, 트랜해쉬");
+    setApiFeed({
+      ...apiFeed,
+      feedImg: feedNft[0],
+      transactionHash: feedNft[1]
+    });
+  };
+  console.log(apiFeed, "에이피아이피드");
   return (
     <div className={`${styles.wrapper}`}>
       <div>
@@ -37,6 +64,9 @@ function Create() {
           <button
             className={`${styles.createbutton} notoMid fs-16`}
             type="button"
+            onClick={(e) => {
+              makeNFT(e);
+            }}
           >
             발행하기
           </button>
@@ -64,6 +94,10 @@ function Create() {
           <textarea
             className={`${styles.text} fs-16 notoMid`}
             placeholder="문구 입력..."
+            onChange={(e) => {
+              setNftFeed({ ...nftFeed, content: e.target.value });
+              setApiFeed({ ...apiFeed, content: e.target.value });
+            }}
           />
         </div>
       </div>
