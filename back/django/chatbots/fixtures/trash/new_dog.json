@@ -1,0 +1,5922 @@
+[
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 1,
+    "fields": {
+      "indata": "디스크",
+      "symptom": "강아지디스크"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 2,
+    "fields": {
+      "indata": "디스크에 걸렸어요",
+      "symptom": "강아지디스크"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 3,
+    "fields": {
+      "indata": "디스크에 걸렸어요",
+      "symptom": "강아지디스크"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 4,
+    "fields": {
+      "indata": "디스크 치료",
+      "symptom": "강아지디스크"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 5,
+    "fields": {
+      "indata": "디스크",
+      "symptom": "강아지디스크"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 6,
+    "fields": {
+      "indata": "거위기침을 해요",
+      "symptom": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 7,
+    "fields": {
+      "indata": "기침소리가 이상해요",
+      "symptom": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 8,
+    "fields": {
+      "indata": "기침이 거위 울음소리 같아요",
+      "symptom": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 9,
+    "fields": {
+      "indata": "거위 울음소리가 나요",
+      "symptom": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 10,
+    "fields": {
+      "indata": "기침이 거위소리같아요",
+      "symptom": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 11,
+    "fields": {
+      "indata": "딸국질을 해요",
+      "symptom": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 12,
+    "fields": {
+      "indata": "거위 기침",
+      "symptom": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 13,
+    "fields": {
+      "indata": "거품토를 해요",
+      "symptom": "거품토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 14,
+    "fields": {
+      "indata": "거품토",
+      "symptom": "거품토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 15,
+    "fields": {
+      "indata": "거품토를 함",
+      "symptom": "거품토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 16,
+    "fields": {
+      "indata": "안구 출혈",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 17,
+    "fields": {
+      "indata": "눈이 뭐에 찔림",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 18,
+    "fields": {
+      "indata": "눈이 가시에 찔림",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 19,
+    "fields": {
+      "indata": "눈이 나무에 찔림",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 20,
+    "fields": {
+      "indata": "눈이 나무에 찔렸어요",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 21,
+    "fields": {
+      "indata": "눈이 찢어졌어요",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 22,
+    "fields": {
+      "indata": "눈이 찢어짐",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 23,
+    "fields": {
+      "indata": "눈동자가 움직여요",
+      "symptom": "안구진탕"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 24,
+    "fields": {
+      "indata": "눈을 움직여요",
+      "symptom": "안구진탕"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 25,
+    "fields": {
+      "indata": "눈이 뭐에 찔렸어요",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 26,
+    "fields": {
+      "indata": "몸이 뜨거워요",
+      "symptom": "고열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 27,
+    "fields": {
+      "indata": "체온이 높음",
+      "symptom": "고열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 28,
+    "fields": {
+      "indata": "고열인거 같아요",
+      "symptom": "고열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 29,
+    "fields": {
+      "indata": "몸이 뜨거움",
+      "symptom": "고열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 30,
+    "fields": {
+      "indata": "고혈압이 있어요",
+      "symptom": "고혈압"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 31,
+    "fields": {
+      "indata": "혈압이 높아요",
+      "symptom": "고혈압"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 32,
+    "fields": {
+      "indata": "고혈압이 있음",
+      "symptom": "고혈압"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 33,
+    "fields": {
+      "indata": "과한 호흡",
+      "symptom": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 34,
+    "fields": {
+      "indata": "호흡이 과해요",
+      "symptom": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 35,
+    "fields": {
+      "indata": "호흡이 빨라요",
+      "symptom": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 36,
+    "fields": {
+      "indata": "과호흡을 해요",
+      "symptom": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 37,
+    "fields": {
+      "indata": "과호흡",
+      "symptom": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 38,
+    "fields": {
+      "indata": "호흡이 많이 빨라요",
+      "symptom": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 39,
+    "fields": {
+      "indata": "땀띠",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 40,
+    "fields": {
+      "indata": "사마귀",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 41,
+    "fields": {
+      "indata": "여드름",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 42,
+    "fields": {
+      "indata": "물사마귀",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 43,
+    "fields": {
+      "indata": "비립종",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 44,
+    "fields": {
+      "indata": "입냄새",
+      "symptom": "구취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 45,
+    "fields": {
+      "indata": "입냄새가 심해요",
+      "symptom": "구취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 46,
+    "fields": {
+      "indata": "입냄새가 심함",
+      "symptom": "구취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 47,
+    "fields": {
+      "indata": "입에서 악취",
+      "symptom": "구취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 48,
+    "fields": {
+      "indata": "입에서 악취가 나요",
+      "symptom": "구취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 49,
+    "fields": {
+      "indata": "입에서 악취가 남",
+      "symptom": "구취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 50,
+    "fields": {
+      "indata": "구취가 심해요",
+      "symptom": "구취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 51,
+    "fields": {
+      "indata": "구취가 심함",
+      "symptom": "구취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 52,
+    "fields": {
+      "indata": "토를 합니다",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 53,
+    "fields": {
+      "indata": "구토를 함",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 54,
+    "fields": {
+      "indata": "토를 해요",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 55,
+    "fields": {
+      "indata": "구토를 해요",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 56,
+    "fields": {
+      "indata": "토했어요",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 57,
+    "fields": {
+      "indata": "토 했어요",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 58,
+    "fields": {
+      "indata": "토",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 59,
+    "fields": {
+      "indata": "구토를 했어요",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 60,
+    "fields": {
+      "indata": "토혈",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 61,
+    "fields": {
+      "indata": "토를 함",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 62,
+    "fields": {
+      "indata": "토를 했어요",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 63,
+    "fields": {
+      "indata": "구토를 합니다",
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 64,
+    "fields": {
+      "indata": "귀를 가려워합니다",
+      "symptom": "귀가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 65,
+    "fields": {
+      "indata": "귀를 긁음",
+      "symptom": "귀가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 66,
+    "fields": {
+      "indata": "귀를 긁어요",
+      "symptom": "귀가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 67,
+    "fields": {
+      "indata": "귀 가려움",
+      "symptom": "귀가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 68,
+    "fields": {
+      "indata": "귀를 가려워해요",
+      "symptom": "귀가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 69,
+    "fields": {
+      "indata": "귀에 뭐가 났어요",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 70,
+    "fields": {
+      "indata": "귀에 좁쌀같이 뭐가 났어요",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 71,
+    "fields": {
+      "indata": "귀에 자잘하게 뭐가 났어요",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 72,
+    "fields": {
+      "indata": "귀에 이물질이 들어갔어요",
+      "symptom": "귀내부이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 73,
+    "fields": {
+      "indata": "귀에 이물질 들어감",
+      "symptom": "귀내부이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 74,
+    "fields": {
+      "indata": "귀에 이물질이 들어감",
+      "symptom": "귀내부이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 75,
+    "fields": {
+      "indata": "귀에 뭐가 들어갔어요",
+      "symptom": "귀내부이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 76,
+    "fields": {
+      "indata": "귀에 뭐가 들어감",
+      "symptom": "귀내부이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 77,
+    "fields": {
+      "indata": "귀에 이물질",
+      "symptom": "귀내부이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 78,
+    "fields": {
+      "indata": "귀에 피가 차올라요",
+      "symptom": "귀혈종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 79,
+    "fields": {
+      "indata": "이개혈종",
+      "symptom": "귀혈종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 80,
+    "fields": {
+      "indata": "귀에 피가 차오름",
+      "symptom": "귀혈종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 81,
+    "fields": {
+      "indata": "귀에 빨간 반점이 생겼어요",
+      "symptom": "귀홍반"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 82,
+    "fields": {
+      "indata": "귀에 빨간 반점",
+      "symptom": "귀홍반"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 83,
+    "fields": {
+      "indata": "귀에 빨간 반점이 있어요",
+      "symptom": "귀홍반"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 84,
+    "fields": {
+      "indata": "귀지가 많아요",
+      "symptom": "귀지과다"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 85,
+    "fields": {
+      "indata": "귀지가 넘쳐요",
+      "symptom": "귀지과다"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 86,
+    "fields": {
+      "indata": "귀지가 너무 많아요",
+      "symptom": "귀지과다"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 87,
+    "fields": {
+      "indata": "귀지가 많음",
+      "symptom": "귀지과다"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 88,
+    "fields": {
+      "indata": "귀지가 과하게 많아요",
+      "symptom": "귀지과다"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 89,
+    "fields": {
+      "indata": "균형을 못 잡아요",
+      "symptom": "균형상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 90,
+    "fields": {
+      "indata": "균형을 잃어요",
+      "symptom": "균형상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 91,
+    "fields": {
+      "indata": "균형을 잃음",
+      "symptom": "균형상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 92,
+    "fields": {
+      "indata": "균형을 못 잡음",
+      "symptom": "균형상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 93,
+    "fields": {
+      "indata": "균형 감각을 잃은거 같아요",
+      "symptom": "균형상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 94,
+    "fields": {
+      "indata": "근육이 굳고 발작을 일으킴",
+      "symptom": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 95,
+    "fields": {
+      "indata": "근육이 굳고 발작을 해요",
+      "symptom": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 96,
+    "fields": {
+      "indata": "근육이 굳고 경련을 일으켜요",
+      "symptom": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 97,
+    "fields": {
+      "indata": "근육이 굳고 경련을 일으킴",
+      "symptom": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 98,
+    "fields": {
+      "indata": "근육이 굳고 발작을 함",
+      "symptom": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 99,
+    "fields": {
+      "indata": "근육 강직성 경련을 일으켜요",
+      "symptom": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 100,
+    "fields": {
+      "indata": "근육이 굳으면서 경련을 일으켜요",
+      "symptom": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 101,
+    "fields": {
+      "indata": "다리 근육이 떨려요",
+      "symptom": "근육떨림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 102,
+    "fields": {
+      "indata": "다리 근육이 떨림",
+      "symptom": "근육떨림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 103,
+    "fields": {
+      "indata": "근육이 떨려요",
+      "symptom": "근육떨림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 104,
+    "fields": {
+      "indata": "근육이 떨림",
+      "symptom": "근육떨림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 105,
+    "fields": {
+      "indata": "다리 근육이 쪼그라 들었어요",
+      "symptom": "근육수축"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 106,
+    "fields": {
+      "indata": "다리 근육이 수축됬어요",
+      "symptom": "근육수축"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 107,
+    "fields": {
+      "indata": "다리 근육이 수축됨",
+      "symptom": "근육수축"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 108,
+    "fields": {
+      "indata": "근육에 통증을 느끼는거 같아요",
+      "symptom": "근육통"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 109,
+    "fields": {
+      "indata": "근육통이 있어요",
+      "symptom": "근육통"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 110,
+    "fields": {
+      "indata": "근육통을 느껴요",
+      "symptom": "근육통"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 111,
+    "fields": {
+      "indata": "기침을 해요",
+      "symptom": "기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 112,
+    "fields": {
+      "indata": "기침을 많이 해요",
+      "symptom": "기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 113,
+    "fields": {
+      "indata": "기침",
+      "symptom": "기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 114,
+    "fields": {
+      "indata": "기침을 함",
+      "symptom": "기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 115,
+    "fields": {
+      "indata": "기침을 많이 함",
+      "symptom": "기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 116,
+    "fields": {
+      "indata": "기형이 있음",
+      "symptom": "기형"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 117,
+    "fields": {
+      "indata": "기형이 있어요",
+      "symptom": "기형"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 118,
+    "fields": {
+      "indata": "벌침에 쏘였어요",
+      "symptom": "꿀벌의침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 119,
+    "fields": {
+      "indata": "벌에 쏘임",
+      "symptom": "꿀벌의침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 120,
+    "fields": {
+      "indata": "벌침에 쏘임",
+      "symptom": "꿀벌의침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 121,
+    "fields": {
+      "indata": "벌에 쏘였어요",
+      "symptom": "꿀벌의침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 122,
+    "fields": {
+      "indata": "소변색이 초록색이에요",
+      "symptom": "녹색소변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 123,
+    "fields": {
+      "indata": "녹색쉬야",
+      "symptom": "녹색소변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 124,
+    "fields": {
+      "indata": "오줌이 녹색이에요",
+      "symptom": "녹색소변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 125,
+    "fields": {
+      "indata": "녹색오줌",
+      "symptom": "녹색소변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 126,
+    "fields": {
+      "indata": "소변이 녹색이에요",
+      "symptom": "녹색소변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 127,
+    "fields": {
+      "indata": "여드름",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 128,
+    "fields": {
+      "indata": "여드름이 있음",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 129,
+    "fields": {
+      "indata": "여드름이 생김",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 130,
+    "fields": {
+      "indata": "여드름이 생겼어요",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 131,
+    "fields": {
+      "indata": "여드름이 있어요",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 132,
+    "fields": {
+      "indata": "여드름이 났어요",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 133,
+    "fields": {
+      "indata": "여드름 남",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 134,
+    "fields": {
+      "indata": "피지종",
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 135,
+    "fields": {
+      "indata": "피부 종양",
+      "symptom": "농피증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 136,
+    "fields": {
+      "indata": "눈 긁음",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 137,
+    "fields": {
+      "indata": "눈가려움",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 138,
+    "fields": {
+      "indata": "눈을 긁힘",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 139,
+    "fields": {
+      "indata": "눈을 긁음",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 140,
+    "fields": {
+      "indata": "눈을 긁어요",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 141,
+    "fields": {
+      "indata": "눈을 긁혔어요",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 142,
+    "fields": {
+      "indata": "눈을 가려워해요",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 143,
+    "fields": {
+      "indata": "눈을 가려워함",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 144,
+    "fields": {
+      "indata": "눈 가려움증",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 145,
+    "fields": {
+      "indata": "안구 가려움",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 146,
+    "fields": {
+      "indata": "안구 가려움증",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 147,
+    "fields": {
+      "indata": "눈 아래쪽 뾰루지",
+      "symptom": "눈주위뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 148,
+    "fields": {
+      "indata": "눈 위쪽 뾰루지",
+      "symptom": "눈주위뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 149,
+    "fields": {
+      "indata": "눈 옆 뾰루지",
+      "symptom": "눈주위뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 150,
+    "fields": {
+      "indata": "눈 안쪽 검은색",
+      "symptom": "눈주위뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 151,
+    "fields": {
+      "indata": "오줌량 급증",
+      "symptom": "다뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 152,
+    "fields": {
+      "indata": "오줌량이 많아짐",
+      "symptom": "다뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 153,
+    "fields": {
+      "indata": "소변량 급증",
+      "symptom": "다뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 154,
+    "fields": {
+      "indata": "소변량이 많아짐",
+      "symptom": "다뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 155,
+    "fields": {
+      "indata": "오줌을 많이 싸요",
+      "symptom": "다뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 156,
+    "fields": {
+      "indata": "쉬를 많이 싸요",
+      "symptom": "다뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 157,
+    "fields": {
+      "indata": "눈에 다래끼",
+      "symptom": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 158,
+    "fields": {
+      "indata": "눈에 다래끼가 생김",
+      "symptom": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 159,
+    "fields": {
+      "indata": "다래끼가 생겼어요",
+      "symptom": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 160,
+    "fields": {
+      "indata": "다래끼가 생김",
+      "symptom": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 161,
+    "fields": {
+      "indata": "눈에 다래끼가 났어요",
+      "symptom": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 162,
+    "fields": {
+      "indata": "눈에 다래끼가 남",
+      "symptom": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 163,
+    "fields": {
+      "indata": "눈에 다래끼가 생겼어요",
+      "symptom": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 164,
+    "fields": {
+      "indata": "다래끼가 남",
+      "symptom": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 165,
+    "fields": {
+      "indata": "뒷다리 통증",
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 166,
+    "fields": {
+      "indata": "낑낑거림",
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 167,
+    "fields": {
+      "indata": "다리 통증",
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 168,
+    "fields": {
+      "indata": "다리통증",
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 169,
+    "fields": {
+      "indata": "낑낑거려요",
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 170,
+    "fields": {
+      "indata": "낑낑거려요",
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 171,
+    "fields": {
+      "indata": "앞다리 통증",
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 172,
+    "fields": {
+      "indata": "담에 걸린거 같음",
+      "symptom": "담"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 173,
+    "fields": {
+      "indata": "담 걸린거 같음",
+      "symptom": "담"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 174,
+    "fields": {
+      "indata": "담에 걸린거 같아요",
+      "symptom": "담"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 175,
+    "fields": {
+      "indata": "담 걸린거 같아요",
+      "symptom": "담"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 176,
+    "fields": {
+      "indata": "머리 기울림 안구진탕 선회 증상",
+      "symptom": "머리기울임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 177,
+    "fields": {
+      "indata": "머리를 기울임",
+      "symptom": "머리기울임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 178,
+    "fields": {
+      "indata": "머리를 비틀어요",
+      "symptom": "머리기울임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 179,
+    "fields": {
+      "indata": "머리를 꺽어요",
+      "symptom": "머리기울임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 180,
+    "fields": {
+      "indata": "목을 꺽어요",
+      "symptom": "머리기울임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 181,
+    "fields": {
+      "indata": "머리를 떨어요",
+      "symptom": "머리떨림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 182,
+    "fields": {
+      "indata": "머리를 흔들어요",
+      "symptom": "머리떨림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 183,
+    "fields": {
+      "indata": "머리가 다쳤어요",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 184,
+    "fields": {
+      "indata": "머리가 찢어졌어요",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 185,
+    "fields": {
+      "indata": "머리를 다쳤어요",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 186,
+    "fields": {
+      "indata": "머리를 다침",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 187,
+    "fields": {
+      "indata": "머리가 찢어짐",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 188,
+    "fields": {
+      "indata": "머리가 다침",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 189,
+    "fields": {
+      "indata": "두부외상",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 190,
+    "fields": {
+      "indata": "두부 외상",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 191,
+    "fields": {
+      "indata": "머리에서 피가나요",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 192,
+    "fields": {
+      "indata": "머리 출혈",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 193,
+    "fields": {
+      "indata": "머리에 출혈",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 194,
+    "fields": {
+      "indata": "머리에 출혈이 있어요",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 195,
+    "fields": {
+      "indata": "머리에서 피가 나요",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 196,
+    "fields": {
+      "indata": "차멀미",
+      "symptom": "멀미"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 197,
+    "fields": {
+      "indata": "차멀미를 해요",
+      "symptom": "멀미"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 198,
+    "fields": {
+      "indata": "차멀미를 하는거 같아요",
+      "symptom": "멀미"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 199,
+    "fields": {
+      "indata": "차에서 멀미를 해요",
+      "symptom": "멀미"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 200,
+    "fields": {
+      "indata": "기운이 없어요",
+      "symptom": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 201,
+    "fields": {
+      "indata": "무기력증",
+      "symptom": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 202,
+    "fields": {
+      "indata": "기운이 없습니다",
+      "symptom": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 203,
+    "fields": {
+      "indata": "기운이 없음",
+      "symptom": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 204,
+    "fields": {
+      "indata": "기력이 없어요",
+      "symptom": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 205,
+    "fields": {
+      "indata": "기운이 없어보여요",
+      "symptom": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 206,
+    "fields": {
+      "indata": "기력이 없음",
+      "symptom": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 207,
+    "fields": {
+      "indata": "기운이 없어요",
+      "symptom": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 208,
+    "fields": {
+      "indata": "피부 붉은점",
+      "symptom": "반점"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 209,
+    "fields": {
+      "indata": "피부에 반점",
+      "symptom": "반점"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 210,
+    "fields": {
+      "indata": "반점이 크게 생겼어요",
+      "symptom": "반점"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 211,
+    "fields": {
+      "indata": "반점이 생겼어요",
+      "symptom": "반점"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 212,
+    "fields": {
+      "indata": "반점이 생김",
+      "symptom": "반점"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 213,
+    "fields": {
+      "indata": "반점이 크게 생김",
+      "symptom": "반점"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 214,
+    "fields": {
+      "indata": "선천적으로 발달 이상이 있어요",
+      "symptom": "발달이상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 215,
+    "fields": {
+      "indata": "발달 이상이 있음",
+      "symptom": "발달이상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 216,
+    "fields": {
+      "indata": "발달 이상이 있어요",
+      "symptom": "발달이상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 217,
+    "fields": {
+      "indata": "열이 납니다",
+      "symptom": "발열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 218,
+    "fields": {
+      "indata": "발열이 남",
+      "symptom": "발열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 219,
+    "fields": {
+      "indata": "발열 증상이 있어요",
+      "symptom": "발열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 220,
+    "fields": {
+      "indata": "발열이 납니다",
+      "symptom": "발열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 221,
+    "fields": {
+      "indata": "열이 남",
+      "symptom": "발열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 222,
+    "fields": {
+      "indata": "열이 나요",
+      "symptom": "발열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 223,
+    "fields": {
+      "indata": "발작 함",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 224,
+    "fields": {
+      "indata": "경련발작",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 225,
+    "fields": {
+      "indata": "발작을 했어요",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 226,
+    "fields": {
+      "indata": "발작을 했습니다",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 227,
+    "fields": {
+      "indata": "경련발작을 해요",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 228,
+    "fields": {
+      "indata": "경련을 일으켜요",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 229,
+    "fields": {
+      "indata": "경련을 일으킴",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 230,
+    "fields": {
+      "indata": "발작을 해요",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 231,
+    "fields": {
+      "indata": "발작을 합니다",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 232,
+    "fields": {
+      "indata": "발작을 함",
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 233,
+    "fields": {
+      "indata": "소변을 잘 못 봄",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 234,
+    "fields": {
+      "indata": "배뇨 관련 증상",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 235,
+    "fields": {
+      "indata": "배뇨 곤란이 있어요",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 236,
+    "fields": {
+      "indata": "배뇨장애",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 237,
+    "fields": {
+      "indata": "배뇨 곤란이 있음",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 238,
+    "fields": {
+      "indata": "배뇨 장애",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 239,
+    "fields": {
+      "indata": "소변을 잘 못 봐요",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 240,
+    "fields": {
+      "indata": "소변을 잘 못 봄",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 241,
+    "fields": {
+      "indata": "소변을 잘 못 눠요",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 242,
+    "fields": {
+      "indata": "배뇨곤란이 있음",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 243,
+    "fields": {
+      "indata": "배뇨관련 증상",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 244,
+    "fields": {
+      "indata": "배뇨곤란",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 245,
+    "fields": {
+      "indata": "배뇨곤란이 있어요",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 246,
+    "fields": {
+      "indata": "눈이 백색",
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 247,
+    "fields": {
+      "indata": "눈동자 백색",
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 248,
+    "fields": {
+      "indata": "눈동자가 백색이에요",
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 249,
+    "fields": {
+      "indata": "눈동자가 뿌옇게 변했어요",
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 250,
+    "fields": {
+      "indata": "눈동자가 뿌옇게 변함",
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 251,
+    "fields": {
+      "indata": "눈이 뿌옇게 변함",
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 252,
+    "fields": {
+      "indata": "눈이 흐려요",
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 253,
+    "fields": {
+      "indata": "눈이 백색이에요",
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 254,
+    "fields": {
+      "indata": "눈이 뿌옇게 변했어요",
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 255,
+    "fields": {
+      "indata": "변비 증상",
+      "symptom": "변비"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 256,
+    "fields": {
+      "indata": "변비가 있어요",
+      "symptom": "변비"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 257,
+    "fields": {
+      "indata": "변비가 있음",
+      "symptom": "변비"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 258,
+    "fields": {
+      "indata": "배에서 소리가 들려요",
+      "symptom": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 259,
+    "fields": {
+      "indata": "배에서 가스소리가 들려요",
+      "symptom": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 260,
+    "fields": {
+      "indata": "배에서 물 소리가 들려요",
+      "symptom": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 261,
+    "fields": {
+      "indata": "걸을때 배에서 소리가 나요",
+      "symptom": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 262,
+    "fields": {
+      "indata": "배에서 소리가 나요",
+      "symptom": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 263,
+    "fields": {
+      "indata": "배에서 소리가 남",
+      "symptom": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 264,
+    "fields": {
+      "indata": "배에서 꾸르륵 소리",
+      "symptom": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 265,
+    "fields": {
+      "indata": "배에서 지속적으로 소리",
+      "symptom": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 266,
+    "fields": {
+      "indata": "배가 아파 보임",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 267,
+    "fields": {
+      "indata": "배가 아픔",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 268,
+    "fields": {
+      "indata": "복부가 아픔",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 269,
+    "fields": {
+      "indata": "배를 아파해요",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 270,
+    "fields": {
+      "indata": "복부를 아파해요",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 271,
+    "fields": {
+      "indata": "배가 아파 보여요",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 272,
+    "fields": {
+      "indata": "복부에 통증이 있는듯",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 273,
+    "fields": {
+      "indata": "배에 통증",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 274,
+    "fields": {
+      "indata": "배가 아파 보임",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 275,
+    "fields": {
+      "indata": "배 통증",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 276,
+    "fields": {
+      "indata": "배통증",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 277,
+    "fields": {
+      "indata": "복부통증",
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 278,
+    "fields": {
+      "indata": "복부가 볼록해요",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 279,
+    "fields": {
+      "indata": "복부가 부풀어 오름",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 280,
+    "fields": {
+      "indata": "복부팽만",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 281,
+    "fields": {
+      "indata": "복부 팽만",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 282,
+    "fields": {
+      "indata": "복부가 부풀어 올랐어요",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 283,
+    "fields": {
+      "indata": "배가 볼록해요",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 284,
+    "fields": {
+      "indata": "배가 부풀어 오름",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 285,
+    "fields": {
+      "indata": "배가 부풀어 올랐어요",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 286,
+    "fields": {
+      "indata": "배가 부었어요",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 287,
+    "fields": {
+      "indata": "배 빵빵",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 288,
+    "fields": {
+      "indata": "배가 빵빵해요",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 289,
+    "fields": {
+      "indata": "배가 빵빵함",
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 290,
+    "fields": {
+      "indata": "배에 혹이 났어요",
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 291,
+    "fields": {
+      "indata": "배에 뭐가 났어요",
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 292,
+    "fields": {
+      "indata": "배에 혹이 남",
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 293,
+    "fields": {
+      "indata": "배에 뭐가 만져져요",
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 294,
+    "fields": {
+      "indata": "배에 몽우리가 생겼어요",
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 295,
+    "fields": {
+      "indata": "배에 몽우리가 생김",
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 296,
+    "fields": {
+      "indata": "배에 몽우리가 짐",
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 297,
+    "fields": {
+      "indata": "배에 혹이 생겼어요",
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 298,
+    "fields": {
+      "indata": "배에 혹이 생김",
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 299,
+    "fields": {
+      "indata": "배에 물이찬거 같아요",
+      "symptom": "복수"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 300,
+    "fields": {
+      "indata": "배에 물이 찬거 같아요",
+      "symptom": "복수"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 301,
+    "fields": {
+      "indata": "배에 물이 찬거 같음",
+      "symptom": "복수"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 302,
+    "fields": {
+      "indata": "배에 물이 참",
+      "symptom": "복수"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 303,
+    "fields": {
+      "indata": "배에 물참",
+      "symptom": "복수"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 304,
+    "fields": {
+      "indata": "부정맥을 진단받음",
+      "symptom": "부정맥"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 305,
+    "fields": {
+      "indata": "부정맥을 진단받았어요",
+      "symptom": "부정맥"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 306,
+    "fields": {
+      "indata": "부정맥이 있음",
+      "symptom": "부정맥"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 307,
+    "fields": {
+      "indata": "부정맥이 있어요",
+      "symptom": "부정맥"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 308,
+    "fields": {
+      "indata": "빈뇨가 심해요",
+      "symptom": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 309,
+    "fields": {
+      "indata": "쉬를 자주 싸요",
+      "symptom": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 310,
+    "fields": {
+      "indata": "오줌을 자주 싸요",
+      "symptom": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 311,
+    "fields": {
+      "indata": "소변을 자주 봐요",
+      "symptom": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 312,
+    "fields": {
+      "indata": "소변횟수가 증가",
+      "symptom": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 313,
+    "fields": {
+      "indata": "소변을 많이 봐요",
+      "symptom": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 314,
+    "fields": {
+      "indata": "빈혈이 있음",
+      "symptom": "빈혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 315,
+    "fields": {
+      "indata": "빈혈기가 있음",
+      "symptom": "빈혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 316,
+    "fields": {
+      "indata": "빈혈기",
+      "symptom": "빈혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 317,
+    "fields": {
+      "indata": "빈혈이 있어요",
+      "symptom": "빈혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 318,
+    "fields": {
+      "indata": "피부에 뾰루지가 남",
+      "symptom": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 319,
+    "fields": {
+      "indata": "피부에 뾰루지",
+      "symptom": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 320,
+    "fields": {
+      "indata": "다리 뾰루지",
+      "symptom": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 321,
+    "fields": {
+      "indata": "뾰루지가 났어요",
+      "symptom": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 322,
+    "fields": {
+      "indata": "뾰루지가 남",
+      "symptom": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 323,
+    "fields": {
+      "indata": "뾰루지가 생겼어요",
+      "symptom": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 324,
+    "fields": {
+      "indata": "뾰루지가 생김",
+      "symptom": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 325,
+    "fields": {
+      "indata": "상상임신을 하는거같아요",
+      "symptom": "상상임신"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 326,
+    "fields": {
+      "indata": "발정이 났어요",
+      "symptom": "상상임신"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 327,
+    "fields": {
+      "indata": "마운팅을 해요",
+      "symptom": "상상임신"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 328,
+    "fields": {
+      "indata": "상상임신을 한거같아요",
+      "symptom": "상상임신"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 329,
+    "fields": {
+      "indata": "상상임신을 함",
+      "symptom": "상상임신"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 330,
+    "fields": {
+      "indata": "상상 임신",
+      "symptom": "상상임신"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 331,
+    "fields": {
+      "indata": "생리 출혈",
+      "symptom": "생리후출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 332,
+    "fields": {
+      "indata": "생리가 끝났는데 피가 계속 나요",
+      "symptom": "생리후출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 333,
+    "fields": {
+      "indata": "생리가 끝났는데 피가 나요",
+      "symptom": "생리후출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 334,
+    "fields": {
+      "indata": "생식기 부종",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 335,
+    "fields": {
+      "indata": "성기 혹",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 336,
+    "fields": {
+      "indata": "생식기 농",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 337,
+    "fields": {
+      "indata": "성기에 혹이 생겼어요",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 338,
+    "fields": {
+      "indata": "성기에 혹이 났어요",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 339,
+    "fields": {
+      "indata": "성기에 혹이 남",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 340,
+    "fields": {
+      "indata": "생식기에 혹이 생겼어요",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 341,
+    "fields": {
+      "indata": "생식기에 혹이 났어요",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 342,
+    "fields": {
+      "indata": "생식기에 혹이 남",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 343,
+    "fields": {
+      "indata": "생식기에 뭐가 생겼어요",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 344,
+    "fields": {
+      "indata": "생식기에 뭐가 났어요",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 345,
+    "fields": {
+      "indata": "생식기에 뭐가 남",
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 346,
+    "fields": {
+      "indata": "생식기가 이상해요",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 347,
+    "fields": {
+      "indata": "생식기가 이상함",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 348,
+    "fields": {
+      "indata": "생식기 모양이 이상함",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 349,
+    "fields": {
+      "indata": "생식기를 긁어요",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 350,
+    "fields": {
+      "indata": "생식기를 가려워해요",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 351,
+    "fields": {
+      "indata": "생식기를 핥아요",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 352,
+    "fields": {
+      "indata": "생식기를 핥음",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 353,
+    "fields": {
+      "indata": "생식기를 긁음",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 354,
+    "fields": {
+      "indata": "생식기 가려움",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 355,
+    "fields": {
+      "indata": "생식기 가려움증",
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 356,
+    "fields": {
+      "indata": "빙빙 돌아요",
+      "symptom": "선회증상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 357,
+    "fields": {
+      "indata": "빙빙 돔",
+      "symptom": "선회증상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 358,
+    "fields": {
+      "indata": "돌아요",
+      "symptom": "선회증상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 359,
+    "fields": {
+      "indata": "돔",
+      "symptom": "선회증상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 360,
+    "fields": {
+      "indata": "빙빙 돌아요",
+      "symptom": "선회증상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 361,
+    "fields": {
+      "indata": "빙빙 돔",
+      "symptom": "선회증상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 362,
+    "fields": {
+      "indata": "설사를 함",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 363,
+    "fields": {
+      "indata": "변이 묽어요",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 364,
+    "fields": {
+      "indata": "묽은 변",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 365,
+    "fields": {
+      "indata": "점액변",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 366,
+    "fields": {
+      "indata": "설사를 해요",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 367,
+    "fields": {
+      "indata": "무른변을 봐요",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 368,
+    "fields": {
+      "indata": "설사를 함",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 369,
+    "fields": {
+      "indata": "무른변을 봄",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 370,
+    "fields": {
+      "indata": "설사를 했어요",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 371,
+    "fields": {
+      "indata": "설사를 했음",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 372,
+    "fields": {
+      "indata": "무른변을 봤음",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 373,
+    "fields": {
+      "indata": "무른변을 봤어요",
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 374,
+    "fields": {
+      "indata": "소변에 이물질",
+      "symptom": "소변내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 375,
+    "fields": {
+      "indata": "소변 불순물",
+      "symptom": "소변내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 376,
+    "fields": {
+      "indata": "소변에 불순물이 섞여있어요",
+      "symptom": "소변내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 377,
+    "fields": {
+      "indata": "혈괴",
+      "symptom": "소변내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 378,
+    "fields": {
+      "indata": "소변 결석",
+      "symptom": "소변내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 379,
+    "fields": {
+      "indata": "습진이 있음",
+      "symptom": "습진"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 380,
+    "fields": {
+      "indata": "습진이 있어요",
+      "symptom": "습진"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 381,
+    "fields": {
+      "indata": "습진이 생겼어요",
+      "symptom": "습진"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 382,
+    "fields": {
+      "indata": "습진이 생김",
+      "symptom": "습진"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 383,
+    "fields": {
+      "indata": "습진이 있어요",
+      "symptom": "습진"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 384,
+    "fields": {
+      "indata": "습진이 생겼어요",
+      "symptom": "습진"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 385,
+    "fields": {
+      "indata": "습진이 있음",
+      "symptom": "습진"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 386,
+    "fields": {
+      "indata": "대변을 먹음",
+      "symptom": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 387,
+    "fields": {
+      "indata": "대변을 핥음",
+      "symptom": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 388,
+    "fields": {
+      "indata": "변을 핥음",
+      "symptom": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 389,
+    "fields": {
+      "indata": "변을 먹어요",
+      "symptom": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 390,
+    "fields": {
+      "indata": "식욕부진",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 391,
+    "fields": {
+      "indata": "식욕이 없어요",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 392,
+    "fields": {
+      "indata": "식욕이 없음",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 393,
+    "fields": {
+      "indata": "밥을 안먹어요",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 394,
+    "fields": {
+      "indata": "밥을 안먹음",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 395,
+    "fields": {
+      "indata": "밥을 안먹으려 함",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 396,
+    "fields": {
+      "indata": "밥을 안먹으려 해요",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 397,
+    "fields": {
+      "indata": "식욕을 잃음",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 398,
+    "fields": {
+      "indata": "심장이 빨리 뛰어요",
+      "symptom": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 399,
+    "fields": {
+      "indata": "심장이 너무 빨리 뛰어요",
+      "symptom": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 400,
+    "fields": {
+      "indata": "심장 소리가 빨라요",
+      "symptom": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 401,
+    "fields": {
+      "indata": "심장 소리가 빠름",
+      "symptom": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 402,
+    "fields": {
+      "indata": "심박수가 급증했어요",
+      "symptom": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 403,
+    "fields": {
+      "indata": "심박수가 높아졌어요",
+      "symptom": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 404,
+    "fields": {
+      "indata": "심박수가 너무 높아요",
+      "symptom": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 405,
+    "fields": {
+      "indata": "심장사상충 3기",
+      "symptom": "심장베이스종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 406,
+    "fields": {
+      "indata": "심장 사상충 3기",
+      "symptom": "심장베이스종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 407,
+    "fields": {
+      "indata": "심장사상충 4기",
+      "symptom": "심장베이스종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 408,
+    "fields": {
+      "indata": "심장 사상충 4기",
+      "symptom": "심장베이스종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 409,
+    "fields": {
+      "indata": "아토피가 있어요",
+      "symptom": "아토피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 410,
+    "fields": {
+      "indata": "아토피가 생겼어요",
+      "symptom": "아토피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 411,
+    "fields": {
+      "indata": "아토피가 있음",
+      "symptom": "아토피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 412,
+    "fields": {
+      "indata": "아토피가 생김",
+      "symptom": "아토피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 413,
+    "fields": {
+      "indata": "눈에 뭐가 들어갔어요",
+      "symptom": "안구내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 414,
+    "fields": {
+      "indata": "눈에 뭐가 들어감",
+      "symptom": "안구내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 415,
+    "fields": {
+      "indata": "눈에 이물질이 들어감",
+      "symptom": "안구내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 416,
+    "fields": {
+      "indata": "눈에 이물질이 들어갔어요",
+      "symptom": "안구내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 417,
+    "fields": {
+      "indata": "눈에 이물질이 있어요",
+      "symptom": "안구내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 418,
+    "fields": {
+      "indata": "눈 이물질",
+      "symptom": "안구내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 419,
+    "fields": {
+      "indata": "눈에 이물질",
+      "symptom": "안구내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 420,
+    "fields": {
+      "indata": "눈 주변이 빨갛게 변함",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 421,
+    "fields": {
+      "indata": "눈에 뭐가 났어요",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 422,
+    "fields": {
+      "indata": "눈이 부었어요",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 423,
+    "fields": {
+      "indata": "눈이 빨감",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 424,
+    "fields": {
+      "indata": "눈이 빨개요",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 425,
+    "fields": {
+      "indata": "눈이 충혈됐어요",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 426,
+    "fields": {
+      "indata": "눈이 충혈됨",
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 427,
+    "fields": {
+      "indata": "앞다리가 부어오름",
+      "symptom": "앞다리부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 428,
+    "fields": {
+      "indata": "앞다리에 뭐가 났어요",
+      "symptom": "앞다리부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 429,
+    "fields": {
+      "indata": "앞다리에 부종이 있어요",
+      "symptom": "앞다리부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 430,
+    "fields": {
+      "indata": "앞다리에 부종이 있습니다",
+      "symptom": "앞다리부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 431,
+    "fields": {
+      "indata": "앞다리에 부종이 있음",
+      "symptom": "앞다리부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 432,
+    "fields": {
+      "indata": "앞다리에 부종이 생김",
+      "symptom": "앞다리부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 433,
+    "fields": {
+      "indata": "요로결석",
+      "symptom": "요석증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 434,
+    "fields": {
+      "indata": "요로 결석",
+      "symptom": "요석증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 435,
+    "fields": {
+      "indata": "오줌을 흘려요",
+      "symptom": "요실금"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 436,
+    "fields": {
+      "indata": "배뇨실금",
+      "symptom": "요실금"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 437,
+    "fields": {
+      "indata": "오줌을 찔끔찔끔 지림",
+      "symptom": "요실금"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 438,
+    "fields": {
+      "indata": "운동을 안하려해요",
+      "symptom": "운동거부"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 439,
+    "fields": {
+      "indata": "운동을 하려하지 않아요",
+      "symptom": "운동거부"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 440,
+    "fields": {
+      "indata": "운동을 싫어해요",
+      "symptom": "운동거부"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 441,
+    "fields": {
+      "indata": "운동을 거부해요",
+      "symptom": "운동거부"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 442,
+    "fields": {
+      "indata": "운동을 거부함",
+      "symptom": "운동거부"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 443,
+    "fields": {
+      "indata": "유선주위 부어오름",
+      "symptom": "유선염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 444,
+    "fields": {
+      "indata": "유선 주위 부어오름",
+      "symptom": "유선염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 445,
+    "fields": {
+      "indata": "유선 주위 부풀어오름",
+      "symptom": "유선염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 446,
+    "fields": {
+      "indata": "유선주위 부풀어오름",
+      "symptom": "유선염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 447,
+    "fields": {
+      "indata": "초콜릿을 먹었어요",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 448,
+    "fields": {
+      "indata": "초콜릿을 먹었음",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 449,
+    "fields": {
+      "indata": "초콜릿을 삼켰음",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 450,
+    "fields": {
+      "indata": "이물질을 먹었어요",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 451,
+    "fields": {
+      "indata": "이물질을 섭취",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 452,
+    "fields": {
+      "indata": "이물질을 섭취함",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 453,
+    "fields": {
+      "indata": "이물질을 먹음",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 454,
+    "fields": {
+      "indata": "이물질을 삼킴",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 455,
+    "fields": {
+      "indata": "이물질을 삼켰어요",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 456,
+    "fields": {
+      "indata": "이상한걸 먹었어요",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 457,
+    "fields": {
+      "indata": "이상한걸 삼켰어요",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 458,
+    "fields": {
+      "indata": "이상한걸 삼킴",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 459,
+    "fields": {
+      "indata": "이상한걸 먹음",
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 460,
+    "fields": {
+      "indata": "혈당수치가 낮아요",
+      "symptom": "저혈당"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 461,
+    "fields": {
+      "indata": "혈당이 낮아요",
+      "symptom": "저혈당"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 462,
+    "fields": {
+      "indata": "혈당이 낮음",
+      "symptom": "저혈당"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 463,
+    "fields": {
+      "indata": "혈당수치가 낮음",
+      "symptom": "저혈당"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 464,
+    "fields": {
+      "indata": "혈당 수치가 낮음",
+      "symptom": "저혈당"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 465,
+    "fields": {
+      "indata": "혈당 수치가 낮아요",
+      "symptom": "저혈당"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 466,
+    "fields": {
+      "indata": "걸을 때 문제가 있어요",
+      "symptom": "절름발이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 467,
+    "fields": {
+      "indata": "다리를 절어요",
+      "symptom": "절름발이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 468,
+    "fields": {
+      "indata": "걸음걸이가 이상해요",
+      "symptom": "절름발이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 469,
+    "fields": {
+      "indata": "기생충에 물렸어요",
+      "symptom": "체외기생충"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 470,
+    "fields": {
+      "indata": "기생충에 물림",
+      "symptom": "체외기생충"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 471,
+    "fields": {
+      "indata": "기생충",
+      "symptom": "체외기생충"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 472,
+    "fields": {
+      "indata": "몸무게가 많이 줄었어요",
+      "symptom": "체외기생충"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 473,
+    "fields": {
+      "indata": "몸무게가 줄었어요",
+      "symptom": "체중감량"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 474,
+    "fields": {
+      "indata": "살이 많이 빠졌어요",
+      "symptom": "체중감량"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 475,
+    "fields": {
+      "indata": "살이 많이 빠짐",
+      "symptom": "체중감량"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 476,
+    "fields": {
+      "indata": "몸무게 감소",
+      "symptom": "체중감량"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 477,
+    "fields": {
+      "indata": "피를 흘림",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 478,
+    "fields": {
+      "indata": "출혈이 있어요",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 479,
+    "fields": {
+      "indata": "피가 나요",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 480,
+    "fields": {
+      "indata": "피가 남",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 481,
+    "fields": {
+      "indata": "출혈이 있음",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 482,
+    "fields": {
+      "indata": "피를 흘려요",
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 483,
+    "fields": {
+      "indata": "잇몸 검은 점",
+      "symptom": "치과질환"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 484,
+    "fields": {
+      "indata": "이가 부러졌어요",
+      "symptom": "치아골절"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 485,
+    "fields": {
+      "indata": "이빨이 부러졌어요",
+      "symptom": "치아골절"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 486,
+    "fields": {
+      "indata": "이빨이 부러짐",
+      "symptom": "치아골절"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 487,
+    "fields": {
+      "indata": "치아가 부러짐",
+      "symptom": "치아골절"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 488,
+    "fields": {
+      "indata": "치아가 부러졌어요",
+      "symptom": "치아골절"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 489,
+    "fields": {
+      "indata": "이빨 골절",
+      "symptom": "치아골절"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 490,
+    "fields": {
+      "indata": "코에 부종이 생김",
+      "symptom": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 491,
+    "fields": {
+      "indata": "코에 부종이 생겼어요",
+      "symptom": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 492,
+    "fields": {
+      "indata": "코에 뾰루지가 남",
+      "symptom": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 493,
+    "fields": {
+      "indata": "코에 뭐가 생겼어요",
+      "symptom": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 494,
+    "fields": {
+      "indata": "코에 부종",
+      "symptom": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 495,
+    "fields": {
+      "indata": "코에 뭐가 생김",
+      "symptom": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 496,
+    "fields": {
+      "indata": "코에 뭐가 났어요",
+      "symptom": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 497,
+    "fields": {
+      "indata": "코를 아파해요",
+      "symptom": "코통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 498,
+    "fields": {
+      "indata": "코를 아파함",
+      "symptom": "코통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 499,
+    "fields": {
+      "indata": "코에 통증",
+      "symptom": "코통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 500,
+    "fields": {
+      "indata": "코에 통증을 느낌",
+      "symptom": "코통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 501,
+    "fields": {
+      "indata": "코를 심하게 골아요",
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 502,
+    "fields": {
+      "indata": "코를 크게 골아요",
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 503,
+    "fields": {
+      "indata": "코골이가 심해요",
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 504,
+    "fields": {
+      "indata": "코골이가 심함",
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 505,
+    "fields": {
+      "indata": "코골이가 있어요",
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 506,
+    "fields": {
+      "indata": "코골이가 있음",
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 507,
+    "fields": {
+      "indata": "코로나인거 같아요",
+      "symptom": "코로나바이러스감염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 508,
+    "fields": {
+      "indata": "코로나인 것 같아요",
+      "symptom": "코로나바이러스감염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 509,
+    "fields": {
+      "indata": "코로나에 걸림",
+      "symptom": "코로나바이러스감염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 510,
+    "fields": {
+      "indata": "코로나에 걸렸어요",
+      "symptom": "코로나바이러스감염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 511,
+    "fields": {
+      "indata": "코에 뭐가 들어갔어요",
+      "symptom": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 512,
+    "fields": {
+      "indata": "코에 이물질",
+      "symptom": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 513,
+    "fields": {
+      "indata": "코가 막힘",
+      "symptom": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 514,
+    "fields": {
+      "indata": "코가 막혔어요",
+      "symptom": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 515,
+    "fields": {
+      "indata": "코에 뭐가 들어감",
+      "symptom": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 516,
+    "fields": {
+      "indata": "코에 뭐가 박힘",
+      "symptom": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 517,
+    "fields": {
+      "indata": "코에 뭐가 박혔어요",
+      "symptom": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 518,
+    "fields": {
+      "indata": "코막힘이 있어요",
+      "symptom": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 519,
+    "fields": {
+      "indata": "코피가 나요",
+      "symptom": "코피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 520,
+    "fields": {
+      "indata": "코피가 남",
+      "symptom": "코피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 521,
+    "fields": {
+      "indata": "코피를 흘림",
+      "symptom": "코피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 522,
+    "fields": {
+      "indata": "코피를 흘려요",
+      "symptom": "코피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 523,
+    "fields": {
+      "indata": "코피가 흘렀어요",
+      "symptom": "코피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 524,
+    "fields": {
+      "indata": "코에 피가 나요",
+      "symptom": "코피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 525,
+    "fields": {
+      "indata": "코피가 났어요",
+      "symptom": "코피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 526,
+    "fields": {
+      "indata": "코피를 보여요",
+      "symptom": "코피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 527,
+    "fields": {
+      "indata": "콧물이 나요",
+      "symptom": "콧물"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 528,
+    "fields": {
+      "indata": "콧물이 많이 남",
+      "symptom": "콧물"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 529,
+    "fields": {
+      "indata": "콧물이 많음",
+      "symptom": "콧물"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 530,
+    "fields": {
+      "indata": "콧물이 흘러요",
+      "symptom": "콧물"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 531,
+    "fields": {
+      "indata": "콧물을 보여요",
+      "symptom": "콧물"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 532,
+    "fields": {
+      "indata": "콧물을 보임",
+      "symptom": "콧물"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 533,
+    "fields": {
+      "indata": "털이 많이 빠져요",
+      "symptom": "탈모증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 534,
+    "fields": {
+      "indata": "털이 많이 빠짐",
+      "symptom": "탈모증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 535,
+    "fields": {
+      "indata": "털이 많이 빠졌어요",
+      "symptom": "탈모증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 536,
+    "fields": {
+      "indata": "탈모인거 같아요",
+      "symptom": "탈모증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 537,
+    "fields": {
+      "indata": "탈모 증상 같아요",
+      "symptom": "탈모증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 538,
+    "fields": {
+      "indata": "탈모 증상",
+      "symptom": "탈모증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 539,
+    "fields": {
+      "indata": "아파해요",
+      "symptom": "통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 540,
+    "fields": {
+      "indata": "아파함",
+      "symptom": "통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 541,
+    "fields": {
+      "indata": "몸 곳곳에 피멍",
+      "symptom": "피멍"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 542,
+    "fields": {
+      "indata": "몸에 피멍이 많아요",
+      "symptom": "피멍"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 543,
+    "fields": {
+      "indata": "온몸에 피멍",
+      "symptom": "피멍"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 544,
+    "fields": {
+      "indata": "피부가 건조해요",
+      "symptom": "피부갈라짐"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 545,
+    "fields": {
+      "indata": "피부가 건조함",
+      "symptom": "피부갈라짐"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 546,
+    "fields": {
+      "indata": "피부가 갈라졌어요",
+      "symptom": "피부갈라짐"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 547,
+    "fields": {
+      "indata": "피부가 갈라짐",
+      "symptom": "피부갈라짐"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 548,
+    "fields": {
+      "indata": "피부가 갈라져요",
+      "symptom": "피부갈라짐"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 549,
+    "fields": {
+      "indata": "피부가 긁혔어요",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 550,
+    "fields": {
+      "indata": "피부가 긁힘",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 551,
+    "fields": {
+      "indata": "피부에 흉이짐",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 552,
+    "fields": {
+      "indata": "피부에 흉짐",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 553,
+    "fields": {
+      "indata": "피부에 흉터가 생겼어요",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 554,
+    "fields": {
+      "indata": "피부에 흉터가 졌어요",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 555,
+    "fields": {
+      "indata": "피부 흉터",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 556,
+    "fields": {
+      "indata": "피부에 딱지",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 557,
+    "fields": {
+      "indata": "피부에 딱지가 짐",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 558,
+    "fields": {
+      "indata": "피부에 상처",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 559,
+    "fields": {
+      "indata": "피부에 지방종이 생겼어요",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 560,
+    "fields": {
+      "indata": "피부에 몽우리가 졌어요",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 561,
+    "fields": {
+      "indata": "피부에 몽우리가 생겼어요",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 562,
+    "fields": {
+      "indata": "피부에 몽우리가 생김",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 563,
+    "fields": {
+      "indata": "피부에 몽우리가 짐",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 564,
+    "fields": {
+      "indata": "지방종",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 565,
+    "fields": {
+      "indata": "피부에 부종이 생김",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 566,
+    "fields": {
+      "indata": "피부에 부종이 생겼어요",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 567,
+    "fields": {
+      "indata": "피부에 뭐가 생겼어요",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 568,
+    "fields": {
+      "indata": "피부에 부종",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 569,
+    "fields": {
+      "indata": "피부종양",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 570,
+    "fields": {
+      "indata": "피부 부종",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 571,
+    "fields": {
+      "indata": "지방종",
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 572,
+    "fields": {
+      "indata": "혹이 생김",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 573,
+    "fields": {
+      "indata": "혹이 남",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 574,
+    "fields": {
+      "indata": "혹이 생겼어요",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 575,
+    "fields": {
+      "indata": "혹이 났어요",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 576,
+    "fields": {
+      "indata": "혹",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 577,
+    "fields": {
+      "indata": "피부에 뭐가 생김",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 578,
+    "fields": {
+      "indata": "피부에 뭐가 났어요",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 579,
+    "fields": {
+      "indata": "혹",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 580,
+    "fields": {
+      "indata": "물혹",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 581,
+    "fields": {
+      "indata": "피부 염증",
+      "symptom": "피부염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 582,
+    "fields": {
+      "indata": "항문에서 피가 나와요",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 583,
+    "fields": {
+      "indata": "항문에서 피가 흘러요",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 584,
+    "fields": {
+      "indata": "항문에서 피가 나왔어요",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 585,
+    "fields": {
+      "indata": "항문에서 피가 흘렀어요",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 586,
+    "fields": {
+      "indata": "항문 출혈이 있음",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 587,
+    "fields": {
+      "indata": "항문에서 피가 나옴",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 588,
+    "fields": {
+      "indata": "항문에서 피가 나왔음",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 589,
+    "fields": {
+      "indata": "항문에 피가 남",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 590,
+    "fields": {
+      "indata": "항문에 피가 나요",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 591,
+    "fields": {
+      "indata": "항문에서 피가 나요",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 592,
+    "fields": {
+      "indata": "항문에서 피가 남",
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 593,
+    "fields": {
+      "indata": "숨을 헐떡여요",
+      "symptom": "헐떡임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 594,
+    "fields": {
+      "indata": "숨을 헐떡임",
+      "symptom": "헐떡임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 595,
+    "fields": {
+      "indata": "숨을 헐떡거림",
+      "symptom": "헐떡임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 596,
+    "fields": {
+      "indata": "호흡 곤란",
+      "symptom": "헐떡임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 597,
+    "fields": {
+      "indata": "호흡곤란",
+      "symptom": "헐떡임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 598,
+    "fields": {
+      "indata": "헐떡여요",
+      "symptom": "헐떡임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 599,
+    "fields": {
+      "indata": "헐떡거려요",
+      "symptom": "헐떡임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 600,
+    "fields": {
+      "indata": "헤드프레싱",
+      "symptom": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 601,
+    "fields": {
+      "indata": "벽에 머리를 눌러요",
+      "symptom": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 602,
+    "fields": {
+      "indata": "벽에 머리를 비빔",
+      "symptom": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 603,
+    "fields": {
+      "indata": "벽에 머리를 누름",
+      "symptom": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 604,
+    "fields": {
+      "indata": "벽에 머리를 비벼요",
+      "symptom": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 605,
+    "fields": {
+      "indata": "벽에 머리를 박아요",
+      "symptom": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 606,
+    "fields": {
+      "indata": "헤드 프레스",
+      "symptom": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 607,
+    "fields": {
+      "indata": "헤드프레스",
+      "symptom": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 608,
+    "fields": {
+      "indata": "혈뇨를 합니다",
+      "symptom": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 609,
+    "fields": {
+      "indata": "혈뇨를 함",
+      "symptom": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 610,
+    "fields": {
+      "indata": "혈뇨를 했음",
+      "symptom": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 611,
+    "fields": {
+      "indata": "혈뇨를 해요",
+      "symptom": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 612,
+    "fields": {
+      "indata": "소변에 피가 있어요",
+      "symptom": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 613,
+    "fields": {
+      "indata": "혈뇨를 했어요",
+      "symptom": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 614,
+    "fields": {
+      "indata": "혈뇨증상이 있어요",
+      "symptom": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 615,
+    "fields": {
+      "indata": "소변에서 피가 나와요",
+      "symptom": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 616,
+    "fields": {
+      "indata": "대변에 피가 섞였어요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 617,
+    "fields": {
+      "indata": "대변에서 피가 나와요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 618,
+    "fields": {
+      "indata": "대변에서  피가 보여요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 619,
+    "fields": {
+      "indata": "대변에서 피가 나왔어요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 620,
+    "fields": {
+      "indata": "대변에 피가 섞여서 나왔어요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 621,
+    "fields": {
+      "indata": "혈변을 봤어요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 622,
+    "fields": {
+      "indata": "혈변을 했어요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 623,
+    "fields": {
+      "indata": "혈변을 해요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 624,
+    "fields": {
+      "indata": "혈변을 함",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 625,
+    "fields": {
+      "indata": "혈변이 나왔어요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 626,
+    "fields": {
+      "indata": "혈변이 나옴",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 627,
+    "fields": {
+      "indata": "혈변을 보임",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 628,
+    "fields": {
+      "indata": "혈변을 보였어요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 629,
+    "fields": {
+      "indata": "혈변을 누었어요",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 630,
+    "fields": {
+      "indata": "혈변을 눔",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 631,
+    "fields": {
+      "indata": "혈변을 누었음",
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 632,
+    "fields": {
+      "indata": "숨쉬기를 힘들어해요",
+      "symptom": "호흡곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 633,
+    "fields": {
+      "indata": "피부 발진",
+      "symptom": "홍반"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 634,
+    "fields": {
+      "indata": "피부발진",
+      "symptom": "홍반"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 635,
+    "fields": {
+      "indata": "배변을 먹어요",
+      "symptom": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 636,
+    "fields": {
+      "indata": "배변을 먹었어요",
+      "symptom": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 637,
+    "fields": {
+      "indata": "대변을 먹어요",
+      "symptom": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 638,
+    "fields": {
+      "indata": "대변을 먹었어요",
+      "symptom": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 639,
+    "fields": {
+      "indata": "몸에 혹이 생겼어요",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 640,
+    "fields": {
+      "indata": "몸에 혹이 났어요",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 641,
+    "fields": {
+      "indata": "몸에 혹이 남",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 642,
+    "fields": {
+      "indata": "몸에 혹이 생김",
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 643,
+    "fields": {
+      "indata": "식욕이 떨어졌어요",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 644,
+    "fields": {
+      "indata": "식욕이 떨어짐",
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 645,
+    "fields": {
+      "indata": "머리를 자꾸 떨어요",
+      "symptom": "머리떨림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 646,
+    "fields": {
+      "indata": "호흡에 문제가 있어요",
+      "symptom": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 647,
+    "fields": {
+      "indata": "호흡에 문제가 있음",
+      "symptom": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 648,
+    "fields": {
+      "indata": "배뇨를 힘들어해요",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 649,
+    "fields": {
+      "indata": "배변을 힘들어해요",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 650,
+    "fields": {
+      "indata": "배뇨를 힘들어함",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 651,
+    "fields": {
+      "indata": "배변을 힘들어함",
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 652,
+    "fields": {
+      "indata": "켁켁거려요",
+      "symptom": "호흡곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 653,
+    "fields": {
+      "indata": "켁켁거림",
+      "symptom": "호흡곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 654,
+    "fields": {
+      "indata": "코골이를 해요",
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 655,
+    "fields": {
+      "indata": "코골이를 함",
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 656,
+    "fields": {
+      "indata": "코를 골아요",
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 657,
+    "fields": {
+      "indata": "힘들게 숨을 쉬어요",
+      "symptom": "호흡곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 658,
+    "fields": {
+      "indata": "힘들게 숨을 쉼",
+      "symptom": "호흡곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 659,
+    "fields": {
+      "indata": "숨이 가빠요",
+      "symptom": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 660,
+    "fields": {
+      "indata": "움직임에 문제가 있어요",
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 661,
+    "fields": {
+      "indata": "움직임에 문제가 있음",
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 662,
+    "fields": {
+      "indata": "귀에 문제가 있어요",
+      "symptom": "귀가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 663,
+    "fields": {
+      "indata": "귀에 문제가 있음",
+      "symptom": "귀가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 664,
+    "fields": {
+      "indata": "눈에 문제가 있어요",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 665,
+    "fields": {
+      "indata": "눈에 문제가 있음",
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 666,
+    "fields": {
+      "indata": "재채기를 해요",
+      "symptom": "재채기"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 667,
+    "fields": {
+      "indata": "재채기를 함",
+      "symptom": "재채기"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 668,
+    "fields": {
+      "indata": "피부에 문제가 있어요",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 669,
+    "fields": {
+      "indata": "피부에 문제가 있음",
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 670,
+    "fields": {
+      "indata": "열이 나고",
+      "symptom": "발열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 671,
+    "fields": {
+      "indata": "침 흘려요",
+      "symptom": "침흘림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 672,
+    "fields": {
+      "indata": "다리가 부어요",
+      "symptom": "관절종창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 673,
+    "fields": {
+      "indata": "척추를 아파해요",
+      "symptom": "척추통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 674,
+    "fields": {
+      "indata": "척추 통증이 심해요",
+      "symptom": "척추통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 675,
+    "fields": {
+      "indata": "척추를 아파함",
+      "symptom": "척추통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 676,
+    "fields": {
+      "indata": "물 많이 마심",
+      "symptom": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 677,
+    "fields": {
+      "indata": "물 많이 마셔요",
+      "symptom": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 678,
+    "fields": {
+      "indata": "너무 많이 먹어요",
+      "symptom": "식욕증가"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 679,
+    "fields": {
+      "indata": "식욕이 많아졌어요",
+      "symptom": "식욕증가"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 680,
+    "fields": {
+      "indata": "식욕이 증가했어요",
+      "symptom": "식욕증가"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 681,
+    "fields": {
+      "indata": "식욕이 증가함",
+      "symptom": "식욕증가"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 682,
+    "fields": {
+      "indata": "추워해요",
+      "symptom": "추위"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 683,
+    "fields": {
+      "indata": "추위를 타요",
+      "symptom": "추위"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 684,
+    "fields": {
+      "indata": "덜덜 떨어요",
+      "symptom": "추위"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 685,
+    "fields": {
+      "indata": "떨어요",
+      "symptom": "추위"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 686,
+    "fields": {
+      "indata": "체중이 늘어났어요",
+      "symptom": "체중증가"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 687,
+    "fields": {
+      "indata": "체중이 증가했어요",
+      "symptom": "체중증가"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 688,
+    "fields": {
+      "indata": "체중이 증가함",
+      "symptom": "체중증가"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 689,
+    "fields": {
+      "indata": "비듬이 생겼어요",
+      "symptom": "비듬"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 690,
+    "fields": {
+      "indata": "비듬이 생김",
+      "symptom": "비듬"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 691,
+    "fields": {
+      "indata": "비듬이 나와요",
+      "symptom": "비듬"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 692,
+    "fields": {
+      "indata": "피부를 긁어요",
+      "symptom": "가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 693,
+    "fields": {
+      "indata": "가려워해요",
+      "symptom": "가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 694,
+    "fields": {
+      "indata": "피부를 가려워해요",
+      "symptom": "가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 695,
+    "fields": {
+      "indata": "잔뇨감을 가져요",
+      "symptom": "잔뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 696,
+    "fields": {
+      "indata": "잔뇨가 있어요",
+      "symptom": "잔뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 697,
+    "fields": {
+      "indata": "잔뇨를 보여여",
+      "symptom": "잔뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 698,
+    "fields": {
+      "indata": "웅크려요",
+      "symptom": "웅크림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 699,
+    "fields": {
+      "indata": "웅크리고 있어요",
+      "symptom": "웅크림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 700,
+    "fields": {
+      "indata": "탈수 증상을 보여요",
+      "symptom": "탈수"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 701,
+    "fields": {
+      "indata": "탈수가 있어요",
+      "symptom": "탈수"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 702,
+    "fields": {
+      "indata": "헛구역질을 해요",
+      "symptom": "헛구역질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 703,
+    "fields": {
+      "indata": "토를 못해요",
+      "symptom": "헛구역질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 704,
+    "fields": {
+      "indata": "헛구역질을 함",
+      "symptom": "헛구역질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 705,
+    "fields": {
+      "indata": "눈곱이 많이 껴요",
+      "symptom": "눈곱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 706,
+    "fields": {
+      "indata": "눈곱이 껴요",
+      "symptom": "눈곱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 707,
+    "fields": {
+      "indata": "눈곱이 있어요",
+      "symptom": "눈곱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 708,
+    "fields": {
+      "indata": "땅을 파요",
+      "symptom": "땅파는행동"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 709,
+    "fields": {
+      "indata": "땅을 파는 습성이 있어요",
+      "symptom": "땅파는행동"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 710,
+    "fields": {
+      "indata": "불안해 해요",
+      "symptom": "불안"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 711,
+    "fields": {
+      "indata": "분리 불안이 있어요",
+      "symptom": "불안"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 712,
+    "fields": {
+      "indata": "물어 뜯어요",
+      "symptom": "물어뜯기"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 713,
+    "fields": {
+      "indata": "물건을 물어요",
+      "symptom": "물어뜯기"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 714,
+    "fields": {
+      "indata": "이빨이 흔들려요",
+      "symptom": "치아흔들림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 715,
+    "fields": {
+      "indata": "이빨이 흔들림",
+      "symptom": "치아흔들림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 716,
+    "fields": {
+      "indata": "이빨에 구멍이 났어요",
+      "symptom": "충치"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 717,
+    "fields": {
+      "indata": "이빨에 구멍 남",
+      "symptom": "충치"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 718,
+    "fields": {
+      "indata": "이빨이 갈색으로 변했어요",
+      "symptom": "충치"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 719,
+    "fields": {
+      "indata": "이빨이 갈색으로 변함",
+      "symptom": "충치"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 720,
+    "fields": {
+      "indata": "이빨이 검은색으로 변했어요",
+      "symptom": "충치"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 721,
+    "fields": {
+      "indata": "이빨이 검은색으로 변함",
+      "symptom": "충치"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 722,
+    "fields": {
+      "indata": "마른기침을 해요",
+      "symptom": "마른기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 723,
+    "fields": {
+      "indata": "마른 기침을 해요",
+      "symptom": "마른기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 724,
+    "fields": {
+      "indata": "입속에 종양이 보여요",
+      "symptom": "구강종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 725,
+    "fields": {
+      "indata": "입속에 종양이 있어요",
+      "symptom": "구강종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 726,
+    "fields": {
+      "indata": "입속에 검은색 종양이 보여요",
+      "symptom": "흑색종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 727,
+    "fields": {
+      "indata": "입속에 검은색 종양이 있어요",
+      "symptom": "흑색종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 728,
+    "fields": {
+      "indata": "물설사를 해요",
+      "symptom": "물설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 729,
+    "fields": {
+      "indata": "물설사를 했어요",
+      "symptom": "물설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 730,
+    "fields": {
+      "indata": "물설사를 함",
+      "symptom": "물설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 731,
+    "fields": {
+      "indata": "피부가 붉어졌어요",
+      "symptom": "홍반"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 732,
+    "fields": {
+      "indata": "피부 붉어짐",
+      "symptom": "홍반"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 733,
+    "fields": {
+      "indata": "각질이 생겨요",
+      "symptom": "각질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 734,
+    "fields": {
+      "indata": "각질 생김",
+      "symptom": "각질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 735,
+    "fields": {
+      "indata": "검은색 변을 누어요",
+      "symptom": "흑변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 736,
+    "fields": {
+      "indata": "검은색 변을 싸요",
+      "symptom": "흑변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 737,
+    "fields": {
+      "indata": "검은색 변을 봐요",
+      "symptom": "흑변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 738,
+    "fields": {
+      "indata": "흑변을 싸요",
+      "symptom": "흑변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 739,
+    "fields": {
+      "indata": "흑변을 봐요",
+      "symptom": "흑변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomTable",
+    "pk": 740,
+    "fields": {
+      "indata": "아프고",
+      "symptom": "통증"
+    }
+  }
+]

@@ -1,0 +1,905 @@
+[
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 1,
+    "fields": {
+      "symptom": "디스크"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 2,
+    "fields": {
+      "symptom": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 3,
+    "fields": {
+      "symptom": "거품토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 4,
+    "fields": {
+      "symptom": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 5,
+    "fields": {
+      "symptom": "안구진탕"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 6,
+    "fields": {
+      "symptom": "고열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 7,
+    "fields": {
+      "symptom": "고혈압"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 8,
+    "fields": {
+      "symptom": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 9,
+    "fields": {
+      "symptom": "농포"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 10,
+    "fields": {
+      "symptom": "구취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 11,
+    "fields": {
+      "symptom": "구토"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 12,
+    "fields": {
+      "symptom": "귀가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 13,
+    "fields": {
+      "symptom": "귀내부이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 14,
+    "fields": {
+      "symptom": "귀혈종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 15,
+    "fields": {
+      "symptom": "귀홍반"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 16,
+    "fields": {
+      "symptom": "귀지과다"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 17,
+    "fields": {
+      "symptom": "균형상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 18,
+    "fields": {
+      "symptom": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 19,
+    "fields": {
+      "symptom": "근육떨림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 20,
+    "fields": {
+      "symptom": "근육수축"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 21,
+    "fields": {
+      "symptom": "근육통"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 22,
+    "fields": {
+      "symptom": "기침과다"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 23,
+    "fields": {
+      "symptom": "기형"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 24,
+    "fields": {
+      "symptom": "꿀벌의침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 25,
+    "fields": {
+      "symptom": "녹색소변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 26,
+    "fields": {
+      "symptom": "농피증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 27,
+    "fields": {
+      "symptom": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 28,
+    "fields": {
+      "symptom": "눈주위뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 29,
+    "fields": {
+      "symptom": "다뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 30,
+    "fields": {
+      "symptom": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 31,
+    "fields": {
+      "symptom": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 32,
+    "fields": {
+      "symptom": "담"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 33,
+    "fields": {
+      "symptom": "머리기울임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 34,
+    "fields": {
+      "symptom": "머리떨림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 35,
+    "fields": {
+      "symptom": "외상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 36,
+    "fields": {
+      "symptom": "멀미"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 37,
+    "fields": {
+      "symptom": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 38,
+    "fields": {
+      "symptom": "반점"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 39,
+    "fields": {
+      "symptom": "발달이상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 40,
+    "fields": {
+      "symptom": "발열"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 41,
+    "fields": {
+      "symptom": "발작"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 42,
+    "fields": {
+      "symptom": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 43,
+    "fields": {
+      "symptom": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 44,
+    "fields": {
+      "symptom": "변비"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 45,
+    "fields": {
+      "symptom": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 46,
+    "fields": {
+      "symptom": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 47,
+    "fields": {
+      "symptom": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 48,
+    "fields": {
+      "symptom": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 49,
+    "fields": {
+      "symptom": "복수"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 50,
+    "fields": {
+      "symptom": "부정맥"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 51,
+    "fields": {
+      "symptom": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 52,
+    "fields": {
+      "symptom": "빈혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 53,
+    "fields": {
+      "symptom": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 54,
+    "fields": {
+      "symptom": "상상임신"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 55,
+    "fields": {
+      "symptom": "생리후출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 56,
+    "fields": {
+      "symptom": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 57,
+    "fields": {
+      "symptom": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 58,
+    "fields": {
+      "symptom": "선회증상"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 59,
+    "fields": {
+      "symptom": "설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 60,
+    "fields": {
+      "symptom": "소변내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 61,
+    "fields": {
+      "symptom": "습진"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 62,
+    "fields": {
+      "symptom": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 63,
+    "fields": {
+      "symptom": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 64,
+    "fields": {
+      "symptom": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 65,
+    "fields": {
+      "symptom": "심장베이스종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 66,
+    "fields": {
+      "symptom": "아토피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 67,
+    "fields": {
+      "symptom": "안구내이물질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 68,
+    "fields": {
+      "symptom": "앞다리부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 69,
+    "fields": {
+      "symptom": "요석증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 70,
+    "fields": {
+      "symptom": "요실금"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 71,
+    "fields": {
+      "symptom": "운동거부"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 72,
+    "fields": {
+      "symptom": "유선염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 73,
+    "fields": {
+      "symptom": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 74,
+    "fields": {
+      "symptom": "저혈당"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 75,
+    "fields": {
+      "symptom": "절름발이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 76,
+    "fields": {
+      "symptom": "체외기생충"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 77,
+    "fields": {
+      "symptom": "체중감량"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 78,
+    "fields": {
+      "symptom": "치과질환"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 79,
+    "fields": {
+      "symptom": "치아골절"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 80,
+    "fields": {
+      "symptom": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 81,
+    "fields": {
+      "symptom": "코통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 82,
+    "fields": {
+      "symptom": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 83,
+    "fields": {
+      "symptom": "코로나바이러스감염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 84,
+    "fields": {
+      "symptom": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 85,
+    "fields": {
+      "symptom": "코피"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 86,
+    "fields": {
+      "symptom": "콧물"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 87,
+    "fields": {
+      "symptom": "탈모증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 88,
+    "fields": {
+      "symptom": "통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 89,
+    "fields": {
+      "symptom": "피멍"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 90,
+    "fields": {
+      "symptom": "피부갈라짐"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 91,
+    "fields": {
+      "symptom": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 92,
+    "fields": {
+      "symptom": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 93,
+    "fields": {
+      "symptom": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 94,
+    "fields": {
+      "symptom": "피부염"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 95,
+    "fields": {
+      "symptom": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 96,
+    "fields": {
+      "symptom": "헐떡임"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 97,
+    "fields": {
+      "symptom": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 98,
+    "fields": {
+      "symptom": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 99,
+    "fields": {
+      "symptom": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 100,
+    "fields": {
+      "symptom": "호흡곤란"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 101,
+    "fields": {
+      "symptom": "홍반"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 102,
+    "fields": {
+      "symptom": "재채기"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 103,
+    "fields": {
+      "symptom": "침흘림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 104,
+    "fields": {
+      "symptom": "관절종창"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 105,
+    "fields": {
+      "symptom": "척추통증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 106,
+    "fields": {
+      "symptom": "식욕증가"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 107,
+    "fields": {
+      "symptom": "추위"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 108,
+    "fields": {
+      "symptom": "체중증가"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 109,
+    "fields": {
+      "symptom": "비듬"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 110,
+    "fields": {
+      "symptom": "가려움증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 111,
+    "fields": {
+      "symptom": "잔뇨"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 112,
+    "fields": {
+      "symptom": "웅크림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 113,
+    "fields": {
+      "symptom": "탈수"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 114,
+    "fields": {
+      "symptom": "헛구역질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 115,
+    "fields": {
+      "symptom": "눈곱"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 116,
+    "fields": {
+      "symptom": "땅파는행동"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 117,
+    "fields": {
+      "symptom": "불안"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 118,
+    "fields": {
+      "symptom": "물어뜯기"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 119,
+    "fields": {
+      "symptom": "치아흔들림"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 120,
+    "fields": {
+      "symptom": "충치"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 121,
+    "fields": {
+      "symptom": "마른기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 122,
+    "fields": {
+      "symptom": "구강종양"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 123,
+    "fields": {
+      "symptom": "흑색종"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 124,
+    "fields": {
+      "symptom": "물설사"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 125,
+    "fields": {
+      "symptom": "각질"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 126,
+    "fields": {
+      "symptom": "흑변"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 127,
+    "fields": {
+      "symptom": "기침"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 128,
+    "fields": {
+      "symptom": "수면부족"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 129,
+    "fields": {
+      "symptom": "분류불가"
+    }
+  }
+]
