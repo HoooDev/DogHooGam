@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django_pandas.io import read_frame
-from .models import SymptomTable, DiseaseTable, SymptomData
+from .models import SymptomTable, DiseaseTable, SymptomData, NotName
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from konlpy.tag import Kkma
@@ -13,19 +13,19 @@ from .apps import ChatbotsConfig
 
 # Create your views here.
 
-@api_view(['GET'])
-def datasave(request):
-    symptomtable = SymptomTable.objects.all()
-    data = read_frame(symptomtable)
-    # model = SentenceTransformer('jhgan/ko-sroberta-multitask')
-    data['embedding'] = pd.Series([[]] * len(data))
-    data['embedding'] = data['indata'].map(lambda x: list(ChatbotsConfig.model.encode(x)))
-    idx = 0
-    for symptom in symptomtable:
-        symptom.embedding = data['embedding'][idx]
-        idx += 1
-        symptom.save()    
-    return
+# @api_view(['GET'])
+# def datasave(request):
+#     symptomtable = SymptomTable.objects.all()
+#     data = read_frame(symptomtable)
+#     # model = SentenceTransformer('jhgan/ko-sroberta-multitask')
+#     data['embedding'] = pd.Series([[]] * len(data))
+#     data['embedding'] = data['indata'].map(lambda x: list(ChatbotsConfig.model.encode(x)))
+#     idx = 0
+#     for symptom in symptomtable:
+#         symptom.embedding = data['embedding'][idx]
+#         idx += 1
+#         symptom.save()    
+#     return
     
 @api_view(['GET'])
 def index(request):
@@ -38,18 +38,44 @@ def indata(request):
     st = []
     spelled_sent = spell_checker.check(sentence)
     checked_sent = spelled_sent.checked
-    for word, part in kkma.pos(checked_sent):
-        st.append(word)
-        if part == 'ECE':
+    flag = 0
+    lst = []
+    symptomtable = SymptomTable.objects.all()
+    data = read_frame(symptomtable)
+    notname = NotName.objects.all()
+    notnamedata = read_frame(notname)    
+    kkma_sentence = kkma.pos(checked_sent)
+    for i in range(len(kkma_sentence)):
+        print(kkma_sentence[i])
+        if flag == 1 and name == 1:
+            st.append(kkma_sentence[i][0])
+        elif flag == 1 and name == 0:
+            st.append(kkma_sentence[i-2][0])
+            st.append(kkma_sentence[i][0])
+            name = 1
+        if kkma_sentence[i][1] == 'JKS':
+            flag = 1
+            # if kkma_sentence[i-1][0] in lst:
+            #     name = 0
+            if notnamedata['name'].str.contains(kkma_sentence[i-1][0]).sum() >=1:
+                name = 0
+            else:
+                name = 1
+        
+        
+        if kkma_sentence[i][1] == 'ECE':
             sentences.append(' '.join(st))
             st = []
     sentences.append(' '.join(st))
     answers = []
+    print(sentences)
     for sentence in sentences:
+        spelled_sent = spell_checker.check(sentence)
+        checked_sent = spelled_sent.checked
         if sentence == '':
             continue
-        print(sentence)
-        max_val, question, answer = questions(sentence)
+        print(checked_sent)
+        max_val, question, answer = questions(checked_sent)
         print(max_val, question, answer)
         answers.append(answer)
     lst = []

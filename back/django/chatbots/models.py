@@ -23,3 +23,5 @@ class SymptomData(models.Model):
     disease = models.CharField(max_length=20)
     symptomexplane = models.CharField(max_length=200)
 
+class NotName(models.Model):
+    name = models.CharField(max_length=50)
