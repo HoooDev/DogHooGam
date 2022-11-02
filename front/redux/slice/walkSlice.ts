@@ -15,7 +15,7 @@ interface WalkState {
   start: number;
   end: number;
   path: any[];
-  distances: number[];
+  totalDist: number;
 }
 
 interface Location {
@@ -37,7 +37,7 @@ const initialState: WalkState = {
   start: Date.now(),
   end: Date.now(),
   path: [],
-  distances: []
+  totalDist: 0
 }; // 초기 상태 정의
 
 export const startWalking = createAsyncThunk<
@@ -76,11 +76,12 @@ export const nowWalking = createAsyncThunk<Any, Location>(
   }
 );
 
-export const finishWalking = createAsyncThunk<Any>(
+export const finishWalking = createAsyncThunk<Any, number>(
   // Types for ThunkAPI
   "walk/finishWalking",
-  async () => {
+  async (totalDist) => {
     try {
+      console.log(totalDist);
       // const res = await fetch(`/walk/stop`);
       // if (res.status === 400) {
       //   return (await res.json()) as MyKnownError;
@@ -116,8 +117,8 @@ const walkSlice = createSlice({
     pushPath: (state, { payload }) => {
       state.path.push(payload);
     },
-    setDistances: (state, { payload }) => {
-      state.path.push(payload);
+    setDistance: (state, { payload }) => {
+      state.totalDist = payload;
     }
   },
   extraReducers: (builder) => {
@@ -181,6 +182,7 @@ export const {
   setCurLocation,
   toggleSelectedDogs,
   clearSelectedDogs,
-  pushPath
+  pushPath,
+  setDistance
 } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서

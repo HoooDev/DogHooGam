@@ -18,11 +18,13 @@ const dogs = [
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted } = useSelector((state: RootState) => state.walk);
+  const { isWalkingStarted, totalDist } = useSelector(
+    (state: RootState) => state.walk
+  );
 
   useEffect(() => {
     return () => {
-      dispatch(finishWalking());
+      dispatch(finishWalking(totalDist));
       dispatch(clearSelectedDogs());
     };
   }, []);

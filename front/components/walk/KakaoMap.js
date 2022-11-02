@@ -5,18 +5,12 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  CustomOverlayMap,
-  Map,
-  MapMarker,
-  Polyline
-} from "react-kakao-maps-sdk";
+import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
 
 import gps from "../../public/icons/gps.svg";
 import styles from "./KakaoMap.module.scss";
 import Modal from "../common/Modal";
-import { nowWalking } from "../../redux/slice/walkSlice";
-import DistanceInfo from "./DistanceInfo";
+import { nowWalking, setDistance } from "../../redux/slice/walkSlice";
 
 let kakao;
 
@@ -55,7 +49,7 @@ const KakaoMap = () => {
     lng: 0
   });
   const [paths, setPaths] = useState([]);
-  const [distances, setDistances] = useState([]);
+  // const [distances, setDistances] = useState([]);
   const [clickLine, setClickLine] = useState();
   const [clickedArr, setClickedArr] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,14 +59,16 @@ const KakaoMap = () => {
   const handleClick = ({ lat, lng }) => {
     setPaths((prev) => [...prev, { lat, lng }]);
     if (clickLine) {
-      setDistances((prev) => [
-        ...prev,
-        Math.round(
-          clickLine.getLength() + clickedArr[clickedArr.length - 2].getLength()
-        )
-      ]);
+      if (clickedArr.length > 0) {
+        // 누적 총 거리
+        const lastDist = Math.round(
+          clickLine.getLength() + clickedArr[clickedArr.length - 1].getLength()
+        );
+        // setDistances((prev) => [...prev, lastDist]);
+        dispatch(setDistance(lastDist));
+      }
+      setClickedArr((prev) => [...prev, clickLine]);
     }
-    setClickedArr((prev) => [...prev, clickLine]);
   };
 
   const init = () => {
@@ -141,35 +137,6 @@ const KakaoMap = () => {
           strokeStyle="solid" // 선의 스타일입니다
           onCreate={setClickLine}
         />
-        {paths.length > 0 &&
-          paths.map((path, index) => (
-            <CustomOverlayMap
-              key={`dot-${path.lat},${path.lng},${index + 1}`}
-              position={path}
-              zIndex={1}
-            >
-              <span className="dot" />
-            </CustomOverlayMap>
-          ))}
-        {paths.length > 1 &&
-          distances.slice(1, distances.length).map((distance, index) => (
-            <CustomOverlayMap
-              key={`distance-${paths[index + 1].lat},${paths[index + 1].lng},${
-                index + 1
-              }`}
-              position={paths[index + 1]}
-              yAnchor={1}
-              zIndex={2}
-            >
-              {distances.length === index + 2 ? (
-                <DistanceInfo distance={distance} />
-              ) : (
-                <div className="dotOverlay">
-                  거리 <span className="number">{distance}</span>m
-                </div>
-              )}
-            </CustomOverlayMap>
-          ))}
 
         <div className={styles.map__marker}>
           <MapMarker
