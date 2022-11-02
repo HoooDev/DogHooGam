@@ -7,6 +7,7 @@ import back from "../../public/icons/back.svg";
 import arrowRight from "../../public/icons/arrowRight.svg";
 import addimg from "../../public/icons/addImg2.png";
 import sendFileToIPFS from "../api/web3/Web3";
+import addFeed from "../api/memory/addFeed";
 
 function Create() {
   const [imgFile, setImgFile] = useState(null);
@@ -20,7 +21,7 @@ function Create() {
   });
   const [apiFeed, setApiFeed] = useState<any>({
     content: "",
-    dogPk: null,
+    dogPk: 2,
     feedImg: "",
     lat: null,
     lng: null,
@@ -48,8 +49,9 @@ function Create() {
       feedImg: feedNft[0],
       transactionHash: feedNft[1]
     });
+    addFeed(apiFeed);
   };
-  console.log(apiFeed, "에이피아이피드");
+  // console.log(apiFeed, "에이피아이피드");
   return (
     <div className={`${styles.wrapper}`}>
       <div>
