@@ -18,13 +18,27 @@ const AfterSign = () => {
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [timerTime, setTimerTime] = useState(0);
   const [timerStart, setTimerStart] = useState(Date.now());
+  const [beforeTime, setBeforeTime] = useState(0);
 
   const startTimer = () => {
-    setTimerTime(timerTime);
-    setTimerStart(Date.now() - timerTime);
+    if (interval.current) {
+      clearInterval(interval.current);
+    }
+    setTimerStart(Date.now());
     interval.current = setInterval(() => {
       setTimerTime(Date.now() - timerStart);
     }, 10);
+  };
+
+  const restartTimer = () => {
+    if (interval.current) {
+      clearInterval(interval.current);
+    }
+    setBeforeTime(timerTime);
+    setTimerStart(Date.now());
+    interval.current = setInterval(() => {
+      setTimerTime(beforeTime + Date.now() - timerStart);
+    }, 100);
   };
 
   const stopTimer = () => {
@@ -38,7 +52,15 @@ const AfterSign = () => {
     setTimerTime(0);
   };
 
-  const onPlayToggle = () => {
+  const onPlayClick = () => {
+    restartTimer();
+    setIsPausing((prev) => !prev);
+  };
+
+  const onPuaseClick = () => {
+    if (interval.current) {
+      clearInterval(interval.current);
+    }
     stopTimer();
     setIsPausing((prev) => !prev);
   };
@@ -58,7 +80,9 @@ const AfterSign = () => {
   useEffect(() => {
     startTimer();
     return () => {
-      resetTimer();
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
     };
   }, []);
 
@@ -85,7 +109,7 @@ const AfterSign = () => {
           {!isPausing ? (
             <div
               className={`${styles.controller__pause} flex justify-center align-center`}
-              onClick={onPlayToggle}
+              onClick={onPuaseClick}
               aria-hidden="true"
             >
               <Image src={pause} alt="pause" />
@@ -93,7 +117,7 @@ const AfterSign = () => {
           ) : (
             <div
               className={`${styles.controller__play} flex justify-center align-center`}
-              onClick={onPlayToggle}
+              onClick={onPlayClick}
               aria-hidden="true"
             >
               <Image src={play} alt="play" />
