@@ -60,7 +60,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         response.setContentType("text/html;charset=UTF-8");
         response.addHeader("accessToken", accessToken);
         response.setContentType("application/json;charset=UTF-8");
-        targetUrl = UriComponentsBuilder.fromHttpUrl("https://dog-hoogam.site/home")
+        targetUrl = UriComponentsBuilder.fromHttpUrl("https://dog-hoogam.site/oauth/redirect")
         //targetUrl = UriComponentsBuilder.fromHttpUrl("https://k7c103.p.ssafy.io:3000/oauth/redirect")
         //targetUrl = UriComponentsBuilder.fromHttpUrl("http://k7c103.p.ssafy.io:3000/home")
         .queryParam("accessToken", accessToken)
