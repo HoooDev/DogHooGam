@@ -27,3 +27,4 @@ django_pandas
 numpy
 sentence_transformers
 konlpy
+pyconfig
