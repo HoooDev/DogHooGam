@@ -34,41 +34,56 @@ def index(request):
 def indata(request):
     sentence = request.data['data']
     kkma = Kkma()
-    sentences = []
-    st = []
     spelled_sent = spell_checker.check(sentence)
     checked_sent = spelled_sent.checked
-    flag = 0
-    lst = []
     symptomtable = SymptomTable.objects.all()
-    data = read_frame(symptomtable)
     notname = NotName.objects.all()
+    data = read_frame(symptomtable)
     notnamedata = read_frame(notname)    
+
+    sentences = []
+    st = []
+    lst = []
+
+    flag = 0
+
     kkma_sentence = kkma.pos(checked_sent)
+    no_st = []
     for i in range(len(kkma_sentence)):
-        print(kkma_sentence[i])
+        print(kkma_sentence[i], st)
+        no_st.append(kkma_sentence[i][0])
         if flag == 1 and name == 1:
             st.append(kkma_sentence[i][0])
         elif flag == 1 and name == 0:
+            print(st)
+            print(i)
             st.append(kkma_sentence[i-2][0])
+            st.append(kkma_sentence[i-1][0])
             st.append(kkma_sentence[i][0])
+            print(st)
             name = 1
         if kkma_sentence[i][1] == 'JKS':
             flag = 1
-            # if kkma_sentence[i-1][0] in lst:
-            #     name = 0
-            if notnamedata['name'].str.contains(kkma_sentence[i-1][0]).sum() >=1:
+            if notnamedata['name'].str.contains(kkma_sentence[i-1][0]).sum() >= 1:
                 name = 0
             else:
-                name = 1
-        
-        
+                name = 1        
         if kkma_sentence[i][1] == 'ECE':
-            sentences.append(' '.join(st))
-            st = []
-    sentences.append(' '.join(st))
-    answers = []
+            if flag == 0:
+                sentences.append(' '.join(no_st))
+                no_st = []
+            else:                
+                sentences.append(' '.join(st))
+                st = []
+                flag = 0
+    if flag == 0:
+        sentences.append(' '.join(no_st))
+    else:
+        
+        sentences.append(' '.join(st))
     print(sentences)
+    answers = []
+    intents = []
     for sentence in sentences:
         spelled_sent = spell_checker.check(sentence)
         checked_sent = spelled_sent.checked
