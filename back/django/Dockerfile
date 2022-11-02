@@ -1,9 +1,10 @@
 FROM python:3
-WORKDIR /usr/src/django
+
+RUN ls -al
 
 RUN pip install -r requirements.txt
 
-WORKDIR /usr/src/django/chatbots/ppy-hanspell
+RUN cd /chatbots/ppy-hanspell
 
 RUN la -al
 
