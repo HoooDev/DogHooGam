@@ -4,7 +4,7 @@
 /* eslint-disable prettier/prettier */
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
 
 import gps from "../../public/icons/gps.svg";
@@ -39,10 +39,9 @@ const positions = [
 
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
+  const { isPaused } = useSelector((state) => state.walk);
   const interval = useRef(null);
   const dispatch = useDispatch();
-  // const [lat, setLat] = useState(0);
-  // const [lng, setLng] = useState(0);
   const [map, setMap] = useState(null);
   const [center, setCenter] = useState({
     lat: 0,
@@ -101,6 +100,9 @@ const KakaoMap = () => {
   }, []);
 
   useEffect(() => {
+    if (interval.current) {
+      clearInterval(interval.current);
+    }
     interval.current = setInterval(() => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -113,9 +115,34 @@ const KakaoMap = () => {
       }
     }, 3000);
     return () => {
-      clearInterval(interval.current);
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
     };
   }, []);
+
+  useEffect(() => {
+    if (!isPaused) {
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
+      interval.current = setInterval(() => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const lat = position.coords.latitude; // 위도
+            const lng = position.coords.longitude; // 경도
+            setCenter({ lat, lng });
+            dispatch(nowWalking({ lat, lng }));
+            handleClick({ lat, lng });
+          });
+        }
+      }, 3000);
+    } else if (isPaused) {
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
+    }
+  }, [isPaused]);
 
   return (
     <div className={styles.wrapper}>

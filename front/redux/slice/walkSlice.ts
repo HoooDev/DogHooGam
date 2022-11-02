@@ -16,6 +16,7 @@ interface WalkState {
   end: number;
   path: any[];
   totalDist: number;
+  isPaused: boolean;
 }
 
 interface Location {
@@ -37,7 +38,8 @@ const initialState: WalkState = {
   start: Date.now(),
   end: Date.now(),
   path: [],
-  totalDist: 0
+  totalDist: 0,
+  isPaused: false
 }; // 초기 상태 정의
 
 export const startWalking = createAsyncThunk<
@@ -64,7 +66,7 @@ export const nowWalking = createAsyncThunk<Any, Location>(
   "walk/nowWalking",
   async (center) => {
     try {
-      console.log(center);
+      console.log(new Date().getTime(), center);
       // const res = await fetch(`/walk/now`);
       // if (res.status === 400) {
       //   return (await res.json()) as MyKnownError;
@@ -119,6 +121,12 @@ const walkSlice = createSlice({
     },
     setDistance: (state, { payload }) => {
       state.totalDist = payload;
+    },
+    restartWalking: (state) => {
+      state.isPaused = false;
+    },
+    pauseWalking: (state) => {
+      state.isPaused = true;
     }
   },
   extraReducers: (builder) => {
@@ -183,6 +191,8 @@ export const {
   toggleSelectedDogs,
   clearSelectedDogs,
   pushPath,
-  setDistance
+  setDistance,
+  pauseWalking,
+  restartWalking
 } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서

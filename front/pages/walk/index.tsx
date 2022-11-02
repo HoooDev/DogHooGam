@@ -7,7 +7,11 @@ import BeforeSign from "../../components/walk/BeforeSign";
 import AfterSign from "../../components/walk/AfterSign";
 import styles from "./index.module.scss";
 import type { AppDispatch, RootState } from "../../redux/store/index";
-import { finishWalking, clearSelectedDogs } from "../../redux/slice/walkSlice";
+import {
+  finishWalking,
+  clearSelectedDogs,
+  restartWalking
+} from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 
 const dogs = [
@@ -26,6 +30,7 @@ const Index: NextPage = () => {
     return () => {
       dispatch(finishWalking(totalDist));
       dispatch(clearSelectedDogs());
+      dispatch(restartWalking());
     };
   }, []);
 

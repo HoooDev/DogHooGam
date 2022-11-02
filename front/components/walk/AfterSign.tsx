@@ -7,48 +7,50 @@ import styles from "./AfterSign.module.scss";
 import pause from "../../public/icons/pause.svg";
 import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
-import { finishWalking } from "../../redux/slice/walkSlice";
+import {
+  finishWalking,
+  pauseWalking,
+  restartWalking
+} from "../../redux/slice/walkSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [isPausing, setIsPausing] = useState<boolean>(false);
-  const { totalDist } = useSelector((state: RootState) => state.walk);
-
+  const { totalDist, isPaused } = useSelector((state: RootState) => state.walk);
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
-
   const [time, setTime] = useState(0);
-  const [running, setRunning] = useState(true);
 
   useEffect(() => {
-    if (running) {
+    if (!isPaused) {
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
       interval.current = setInterval(() => {
-        setTime((prev) => prev + 10);
-      }, 10);
-    } else if (!running) {
+        setTime((prev) => prev + 100);
+      }, 100);
+    } else if (isPaused) {
       if (interval.current) {
         clearInterval(interval.current);
       }
     }
-    return () => {
-      if (interval.current) {
-        clearInterval(interval.current);
-      }
-    };
-  }, [running]);
+  }, [isPaused]);
 
   const onPlayClick = () => {
-    setRunning(true);
+    dispatch(restartWalking());
     setIsPausing((prev) => !prev);
   };
 
   const onPuaseClick = () => {
-    setRunning(false);
     setIsPausing((prev) => !prev);
+    dispatch(pauseWalking());
   };
   const onStopClick = () => {
+    onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
       dispatch(finishWalking(totalDist));
+    } else {
+      onPlayClick();
     }
   };
 
