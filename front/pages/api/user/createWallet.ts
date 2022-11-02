@@ -6,7 +6,7 @@ const createWallet = (userWalletAddress: any, userPersonalKey: any) => {
   const Token = window.localStorage.getItem("AccessToken");
 
   axios({
-    url: `https://k7c103.p.ssafy.io:8000/api/user/wallet`,
+    url: `https://dog-hoogam.site:8000/api/user/wallet`,
     method: "post",
     headers: { Authorization: `Bearer ${Token}` },
     params: {

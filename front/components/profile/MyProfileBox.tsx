@@ -15,11 +15,11 @@ function MyProfileBox() {
         <div className={`${styles.imgBox} `}>
           <img
             className={`${styles.myImg}`}
-            src={storeUser.profile.thumbnail_image_url}
+            src={storeUser.profileImg}
             alt="#"
           />
         </div>
-        <p className={`${styles.myNickName}`}>{storeUser.profile.nickname}</p>
+        <p className={`${styles.myNickName}`}>{storeUser.nickName}</p>
       </div>
       <MyWallet />
     </div>

@@ -19,7 +19,7 @@ function Redirect() {
       router.push("/");
     }
   });
-  return <div>{router.query.accessToken}</div>;
+  return <div />;
 }
 
 export default Redirect;
