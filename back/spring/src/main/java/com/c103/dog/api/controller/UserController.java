@@ -44,6 +44,7 @@ public class UserController {
         UserResponse userRes = UserResponse.builder()
                 .userId(user.getUserId())
                 .userPk(user.getPk())
+                .userWallerAddress(user.getWalletAddress())
                 .nickName(user.getNickName())
                 .profileImg(user.getProfileImg())
                 .role(user.getRole())
@@ -65,7 +66,6 @@ public class UserController {
 
         UserAddressResponse userAddressRes = UserAddressResponse.builder()
                 .userPk(user.getPk())
-                .userWallerAddress(user.getWalletAddress())
                 .userPersonalKey(user.getPersonalKey())
                 .build();
 
@@ -87,7 +87,6 @@ public class UserController {
 
         UserAddressResponse userAddressRes = UserAddressResponse.builder()
                 .userPk(user.getPk())
-                .userWallerAddress(user.getWalletAddress())
                 .userPersonalKey(user.getPersonalKey())
                 .build();
 
