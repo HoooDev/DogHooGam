@@ -12,11 +12,15 @@ interface WalkState {
   isWalkingStarted: boolean;
   others: any[];
   selectedDogs: any[];
+  start: number;
+  end: number;
+  path: any[];
+  totalDist: number;
 }
 
 interface Location {
   lat: number;
-  lon: number;
+  lng: number;
 }
 
 type Any = any;
@@ -29,7 +33,11 @@ const initialState: WalkState = {
   lon: 126.570667,
   isWalkingStarted: false,
   others: [],
-  selectedDogs: []
+  selectedDogs: [],
+  start: Date.now(),
+  end: Date.now(),
+  path: [],
+  totalDist: 0
 }; // 초기 상태 정의
 
 export const startWalking = createAsyncThunk<
@@ -54,8 +62,9 @@ export const startWalking = createAsyncThunk<
 export const nowWalking = createAsyncThunk<Any, Location>(
   // Types for ThunkAPI
   "walk/nowWalking",
-  async () => {
+  async (center) => {
     try {
+      console.log(center);
       // const res = await fetch(`/walk/now`);
       // if (res.status === 400) {
       //   return (await res.json()) as MyKnownError;
@@ -67,11 +76,12 @@ export const nowWalking = createAsyncThunk<Any, Location>(
   }
 );
 
-export const stopWalking = createAsyncThunk<Any>(
+export const finishWalking = createAsyncThunk<Any, number>(
   // Types for ThunkAPI
-  "walk/stopWalking",
-  async () => {
+  "walk/finishWalking",
+  async (totalDist) => {
     try {
+      console.log(totalDist);
       // const res = await fetch(`/walk/stop`);
       // if (res.status === 400) {
       //   return (await res.json()) as MyKnownError;
@@ -103,6 +113,12 @@ const walkSlice = createSlice({
     },
     clearSelectedDogs: (state) => {
       state.selectedDogs = [];
+    },
+    pushPath: (state, { payload }) => {
+      state.path.push(payload);
+    },
+    setDistance: (state, { payload }) => {
+      state.totalDist = payload;
     }
   },
   extraReducers: (builder) => {
@@ -116,6 +132,7 @@ const walkSlice = createSlice({
       state.success = true;
       state.error = null;
       state.isWalkingStarted = true;
+      state.start = Date.now();
     });
     builder.addCase(startWalking.rejected, (state, { payload }) => {
       state.loading = false;
@@ -132,6 +149,7 @@ const walkSlice = createSlice({
       state.loading = false;
       state.success = true;
       state.error = null;
+      // state.path.push(payload);
     });
     builder.addCase(nowWalking.rejected, (state, { payload }) => {
       state.loading = false;
@@ -139,18 +157,20 @@ const walkSlice = createSlice({
       state.error = payload;
     });
 
-    builder.addCase(stopWalking.pending, (state) => {
+    builder.addCase(finishWalking.pending, (state) => {
       state.loading = true;
       state.success = false;
       state.error = null;
     });
-    builder.addCase(stopWalking.fulfilled, (state) => {
+    builder.addCase(finishWalking.fulfilled, (state) => {
       state.loading = false;
       state.success = true;
       state.error = null;
       state.isWalkingStarted = false;
+      state.end = Date.now();
+      console.log((state.end - state.start) / 1000, "초 동안 산책했음");
     });
-    builder.addCase(stopWalking.rejected, (state, { payload }) => {
+    builder.addCase(finishWalking.rejected, (state, { payload }) => {
       state.loading = false;
       state.success = false;
       state.error = payload;
@@ -158,6 +178,11 @@ const walkSlice = createSlice({
   }
 });
 
-export const { setCurLocation, toggleSelectedDogs, clearSelectedDogs } =
-  walkSlice.actions; // 액션 생성함수
+export const {
+  setCurLocation,
+  toggleSelectedDogs,
+  clearSelectedDogs,
+  pushPath,
+  setDistance
+} = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서
