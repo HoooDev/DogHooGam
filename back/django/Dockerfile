@@ -3,7 +3,8 @@ WORKDIR /usr/src/django
 
 COPY . .
 
-ENV PIP_ROOT_USER_ACTION=ignore
+USER django
+
 RUN pip3 install --upgrade pip
 RUN pip install -r requirements.txt
 
