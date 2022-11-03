@@ -3,8 +3,8 @@ WORKDIR /usr/src/django
 
 COPY . .
 
-RUN sudo pip install --no-cache-dir --upgrade pip
-RUN sudo pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip --user
+RUN pip install -r requirements.txt --user
 
 RUN python manage.py makemigrations
 RUN python manage.py migrate
