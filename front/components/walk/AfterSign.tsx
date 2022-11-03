@@ -8,9 +8,9 @@ import pause from "../../public/icons/pause.svg";
 import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
 import {
-  clearSelectedDogs,
   finishWalking,
   pauseWalking,
+  resetWalking,
   restartWalking
 } from "../../redux/slice/walkSlice";
 import { AppDispatch, RootState } from "../../redux/store";
@@ -24,7 +24,7 @@ const AfterSign = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(clearSelectedDogs());
+      dispatch(resetWalking());
       dispatch(restartWalking());
     };
   }, []);

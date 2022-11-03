@@ -10,7 +10,7 @@ import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
 import gps from "../../public/icons/gps.svg";
 import styles from "./KakaoMap.module.scss";
 import Modal from "../common/Modal";
-import { nowWalking, setDistance } from "../../redux/slice/walkSlice";
+import { nowWalking, saveDistance } from "../../redux/slice/walkSlice";
 
 let kakao;
 
@@ -37,9 +37,29 @@ const positions = [
   }
 ];
 
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  if (lat1 === lat2 && lon1 === lon2) {
+    return 0;
+  }
+  const radlat1 = (Math.PI * lat1) / 180;
+  const radlat2 = (Math.PI * lat2) / 180;
+  const theta = lon1 - lon2;
+  const radtheta = (Math.PI * theta) / 180;
+  let dist =
+    Math.sin(radlat1) * Math.sin(radlat2) +
+    Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+  if (dist > 1) {
+    dist = 1;
+  }
+  dist = Math.acos(dist);
+  dist = (dist * 180) / Math.PI;
+  dist = dist * 60 * 1.1515;
+  return dist * 1.609344;
+}
+
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
-  const { isPaused } = useSelector((state) => state.walk);
+  const { isPaused, personId } = useSelector((state) => state.walk);
   const interval = useRef(null);
   const dispatch = useDispatch();
   const [map, setMap] = useState(null);
@@ -48,25 +68,21 @@ const KakaoMap = () => {
     lng: 0
   });
   const [paths, setPaths] = useState([]);
-  // const [distances, setDistances] = useState([]);
-  const [clickLine, setClickLine] = useState();
-  const [clickedArr, setClickedArr] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const { others } = useSelector((state) => state.walk);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const handleClick = ({ lat, lng }) => {
     setPaths((prev) => [...prev, { lat, lng }]);
-    if (clickLine) {
-      if (clickedArr.length > 0) {
-        // 누적 총 거리
-        const lastDist = Math.round(
-          clickLine.getLength() + clickedArr[clickedArr.length - 1].getLength()
-        );
-        // setDistances((prev) => [...prev, lastDist]);
-        dispatch(setDistance(lastDist));
-      }
-      setClickedArr((prev) => [...prev, clickLine]);
+    if (paths.length > 1) {
+      // 누적 총 거리
+      const dist = calculateDistance(
+        paths[paths.length - 1].lat,
+        paths[paths.length - 1].lng,
+        paths[paths.length - 2].lat,
+        paths[paths.length - 2].lng
+      );
+      dispatch(saveDistance(dist.toString()));
     }
   };
 
@@ -76,7 +92,7 @@ const KakaoMap = () => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
         setCenter({ lat, lng });
-        setPaths((prev) => [...prev, { lat, lng }]);
+        // setPaths((prev) => [...prev, { lat, lng }]);
         handleClick({ lat, lng });
       });
     } else {
@@ -109,7 +125,7 @@ const KakaoMap = () => {
           const lat = position.coords.latitude; // 위도
           const lng = position.coords.longitude; // 경도
           setCenter({ lat, lng });
-          dispatch(nowWalking({ lat, lng }));
+          dispatch(nowWalking({ lat, lng, personId }));
           handleClick({ lat, lng });
         });
       }
@@ -119,7 +135,7 @@ const KakaoMap = () => {
         clearInterval(interval.current);
       }
     };
-  }, []);
+  }, [handleClick, personId]);
 
   useEffect(() => {
     if (!isPaused) {
@@ -142,7 +158,7 @@ const KakaoMap = () => {
         clearInterval(interval.current);
       }
     }
-  }, [isPaused]);
+  }, [isPaused, handleClick, personId]);
 
   return (
     <div className={styles.wrapper}>
@@ -162,7 +178,6 @@ const KakaoMap = () => {
           strokeColor="#db4040" // 선의 색깔입니다
           strokeOpacity={1} // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
           strokeStyle="solid" // 선의 스타일입니다
-          onCreate={setClickLine}
         />
 
         <div className={styles.map__marker}>

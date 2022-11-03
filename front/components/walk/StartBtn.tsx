@@ -14,8 +14,10 @@ const StartBtn = () => {
     }
     dispatch(
       startWalking({
-        lat: 0,
-        lng: 0
+        dogPk: [3],
+        dogState: 0,
+        lat: 127.01,
+        lng: 64.01
       })
     );
   };

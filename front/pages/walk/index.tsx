@@ -9,8 +9,8 @@ import styles from "./index.module.scss";
 import type { AppDispatch, RootState } from "../../redux/store/index";
 import {
   finishWalking,
-  clearSelectedDogs,
-  restartWalking
+  restartWalking,
+  resetWalking
 } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 
@@ -29,7 +29,7 @@ const Index: NextPage = () => {
   useEffect(() => {
     return () => {
       dispatch(finishWalking(totalDist));
-      dispatch(clearSelectedDogs());
+      dispatch(resetWalking());
       dispatch(restartWalking());
     };
   }, []);
