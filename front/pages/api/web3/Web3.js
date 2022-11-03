@@ -6,12 +6,13 @@ const web3 = new Web3();
 web3.setProvider(
   new Web3.providers.HttpProvider(process.env.NEXT_PUBLIC_GETH_NODE)
 );
-
+// 코인베이스 주소 가져오기
 export const getAdminAdress = async () => {
   const res = await web3.eth.getCoinbase();
   return res;
 };
 
+// 지갑 만들기
 export const createAccount = async () => {
   const coinBase = await getAdminAdress();
   const createdObj = web3.eth.accounts.create();
@@ -40,6 +41,7 @@ export const createAccount = async () => {
   return [wallet.address, wallet.privateKey];
 };
 
+// NFT 만들기
 const sendFileToIPFS = async (e, file, text) => {
   e.preventDefault(process.env.NEXT_PUBLIC_GETH_NODE);
 
@@ -107,7 +109,7 @@ const sendFileToIPFS = async (e, file, text) => {
       .then(console.log("계정해제"));
     await NFTContract.methods
       .mintNFT(
-        "0x56b3de125f0885052181a83e9e6aa4a78f5215ab",
+        "0x56b3de125f0885052181a83e9e6aa4a78f5215ab", // 받는 지갑 주소
         `ipfs://${res.data.IpfsHash}`
       )
       .send({ from: process.env.NEXT_PUBLIC_COINBASE })

@@ -2,7 +2,6 @@ import axios from "axios";
 
 const getUser = () => {
   const Token = window.localStorage.getItem("AccessToken");
-
   axios({
     url: `https://dog-hoogam.site:8000/api/user`,
     method: "get",

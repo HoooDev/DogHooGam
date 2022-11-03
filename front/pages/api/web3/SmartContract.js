@@ -737,7 +737,7 @@ const TOKEN_ABI = [
 
 const NFT_CA = "0xe9408320A6b7097DAE0C146017e2Bb2dDF2e715a";
 
-const TOKEN_CA = "0xbffe8Ce2ef8B4C7324798d466A0e7F6b41d79eb3";
+const TOKEN_CA = "0x478D7DEE69D62AAE51787a5Ab958f3CaE0CB9263";
 // eslint-disable-next-line import/prefer-default-export
 export const NFTContract = new web3.eth.Contract(NFT_ABI, NFT_CA);
 export const TOKENContract = new web3.eth.Contract(TOKEN_ABI, TOKEN_CA);

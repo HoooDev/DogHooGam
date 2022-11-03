@@ -1,5 +1,6 @@
 import Image from "next/image";
 // import axios from "axios";
+import { useSelector } from "react-redux";
 import styles from "./MyWallet.module.scss";
 import walletLogo from "../../public/icons/walletLogo.png";
 import addImg from "../../public/icons/addImg.svg";
@@ -7,9 +8,9 @@ import { createAccount } from "../../pages/api/web3/Web3";
 import createWallet from "../../pages/api/user/createWallet";
 
 function MyWallet() {
+  const storeUser = useSelector((state: any) => state.user.userInfo);
   const dummy = false;
-  const walletAddress =
-    "0xa06989ee6270d06b5f00e9a4b3374460276bf6e83edcbe432e4f509fcad061fe";
+  const walletAddress = storeUser.userWallerAddress;
   const handleCopyClipBoard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -32,13 +33,13 @@ function MyWallet() {
       <div className={`${styles.walletIcon}`}>
         <Image src={walletLogo} />
       </div>
-      {dummy ? (
+      {storeUser ? (
         <div className={`${styles.walletTextBox}`}>
           <p className={`${styles.walletCoin}`}>보유코인 : 100 coin</p>
           <div className={`${styles.walletAddressBox}`}>
             <p className={`${styles.walletAddress1}`}>지갑주소 : </p>
             <p className={`${styles.walletAddress2}`}>
-              0xa06989ee6270d06b5f00e9a4b3374460276bf6e83edcbe432e4f509fcad061fe
+              {storeUser.userWallerAddress}
               <button
                 type="button"
                 className={`${styles.copyBtn}`}
