@@ -10,7 +10,9 @@ from rest_framework.response import Response
 from .serializers import SymptomSerializer
 from hanspell import spell_checker
 from .apps import ChatbotsConfig
-
+import json
+import pprint
+# from raw_api import validate_json
 # Create your views here.
 
 # @api_view(['GET'])
