@@ -37,15 +37,18 @@ public class WalkController {
     @ApiOperation(value = "산책 시작",notes = "강아지 여러마리 선택가능, 자기 ID 반환")
     public ResponseEntity<?> startWalk(@RequestBody PersonRequest personReq){
         try {
+            log.info("api 실행(info)");
+            log.debug("api 실행(debug)");
+
             String personId = walkService.startWalking(personReq);
 
             return ResponseEntity.status(HttpStatus.OK).body(personId);
 
         }catch (IllegalArgumentException e) {
-            e.getStackTrace();
+            log.info(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){
-            e.getStackTrace();
+            log.info(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
