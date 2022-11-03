@@ -35,6 +35,13 @@
         margin-top: 15px;
       }
     }
+    .notimessage{
+      background-color: rgb(189, 184, 184);
+      width: 100px;
+      padding: 5px 10px;
+      margin-inline: auto;
+      border-radius: 5px;
+    }
     .inputForm{
       position: fixed;
       bottom: 0;
@@ -45,12 +52,15 @@
       .input{
         outline: none;
         border: none;
-        width: 300px;
+        width: 320px;
+        resize: none;
+        padding: 10px 15px;
       }
       .button{
         border: none;
         background-color: #81B89D;
         color: $WHITE;
+        width: 70px;
       }
     }
   }
