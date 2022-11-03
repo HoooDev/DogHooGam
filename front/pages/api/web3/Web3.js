@@ -12,6 +12,16 @@ export const getAdminAdress = async () => {
   return res;
 };
 
+// 지갑 잔액 확인
+export const getBalance = async (address) => {
+  const res = await TOKENContract.methods
+    .balanceOf(address)
+    .call()
+    .then((balance) => balance);
+  console.log(res);
+  return res;
+};
+
 // 지갑 만들기
 export const createAccount = async () => {
   const coinBase = await getAdminAdress();

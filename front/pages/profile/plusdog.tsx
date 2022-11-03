@@ -4,13 +4,14 @@ import { useRef, useState } from "react";
 import styles from "./plusdog.module.scss";
 import defaultDog from "../../public/icons/defaultDog.svg";
 import sendFileToIPFS from "../api/web3/Web3";
+import addDog from "../api/dog/addDog";
 
 export interface nftDogType {
   dogName: string;
   dogNumber: string;
-  dogSpecies: string;
-  dogBirth: string;
-  dogChar: string;
+  dogBreed: string;
+  birthday: string;
+  dogCharacter: string;
 }
 
 function Plusdog() {
@@ -22,9 +23,18 @@ function Plusdog() {
   const [nftDog, setNftDog] = useState<nftDogType>({
     dogName: "",
     dogNumber: "",
-    dogSpecies: "",
-    dogBirth: "",
-    dogChar: ""
+    dogBreed: "",
+    birthday: "",
+    dogCharacter: ""
+  });
+  const [apiDog, setApiDog] = useState<any>({
+    birthday: "",
+    dogBreed: "",
+    dogCharacter: "",
+    dogImg: "",
+    dogName: "",
+    transactionHash: "",
+    dogNumber: ""
   });
   // const [nftImg, setNftImg] = useState(null)
 
@@ -49,11 +59,17 @@ function Plusdog() {
   };
 
   const makeNFT = async (e: any) => {
-    const dogImg = await sendFileToIPFS(e, imgFile, nftDog);
-    console.log(dogImg, "강아지 이미지 url 리턴");
+    const dogNft = await sendFileToIPFS(e, imgFile, nftDog);
+    console.log(dogNft[0], dogNft[1], "이미지, 트랜해쉬");
+    setApiDog({
+      ...apiDog,
+      dogImg: dogNft[0],
+      transactionHash: dogNft[1]
+    });
+    addDog(apiDog);
   };
 
-  console.log(nftDog);
+  // console.log(nftDog);
   return (
     <div className={`${styles.plusDog}`}>
       <form
@@ -99,6 +115,7 @@ function Plusdog() {
             className={`${styles.dogInput} notoReg`}
             onChange={(e) => {
               setNftDog({ ...nftDog, dogName: e.target.value });
+              setApiDog({ ...apiDog, dogName: e.target.value });
             }}
           />{" "}
           <hr />
@@ -108,6 +125,7 @@ function Plusdog() {
             className={`${styles.dogInput} notoReg`}
             onChange={(e) => {
               setNftDog({ ...nftDog, dogNumber: e.target.value });
+              setApiDog({ ...apiDog, dogNumber: e.target.value });
             }}
           />{" "}
           <hr />
@@ -116,7 +134,8 @@ function Plusdog() {
             type="text"
             className={`${styles.dogInput} notoReg`}
             onChange={(e) => {
-              setNftDog({ ...nftDog, dogSpecies: e.target.value });
+              setNftDog({ ...nftDog, dogBreed: e.target.value });
+              setApiDog({ ...apiDog, dogBreed: e.target.value });
             }}
           />{" "}
           <hr />
@@ -128,7 +147,8 @@ function Plusdog() {
               maxLength={4}
               className={`${styles.dogBirthInput} notoReg`}
               onChange={(e) => {
-                setNftDog({ ...nftDog, dogBirth: e.target.value });
+                setNftDog({ ...nftDog, birthday: e.target.value });
+                setApiDog({ ...apiDog, birthday: e.target.value });
               }}
             />
             <hr />
@@ -138,7 +158,8 @@ function Plusdog() {
             type="text"
             className={`${styles.dogInput} notoReg`}
             onChange={(e) => {
-              setNftDog({ ...nftDog, dogChar: e.target.value });
+              setNftDog({ ...nftDog, dogCharacter: e.target.value });
+              setApiDog({ ...apiDog, dogCharacter: e.target.value });
             }}
           />{" "}
           <hr />
