@@ -8,6 +8,7 @@ import pause from "../../public/icons/pause.svg";
 import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
 import {
+  clearSelectedDogs,
   finishWalking,
   pauseWalking,
   restartWalking
@@ -20,6 +21,13 @@ const AfterSign = () => {
   const { totalDist, isPaused } = useSelector((state: RootState) => state.walk);
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearSelectedDogs());
+      dispatch(restartWalking());
+    };
+  }, []);
 
   useEffect(() => {
     if (!isPaused) {
@@ -45,6 +53,7 @@ const AfterSign = () => {
     setIsPausing((prev) => !prev);
     dispatch(pauseWalking());
   };
+
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {

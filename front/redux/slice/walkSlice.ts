@@ -50,7 +50,7 @@ export const startWalking = createAsyncThunk<
   // Types for ThunkAPI
 >("walk/startWalking", async () => {
   try {
-    // const res = await fetch(`/walk/${location}`);
+    // const res = await axios(`/walk/${location}`);
     // if (res.status === 400) {
     //   // Return the known error for future handling
     //   return (await res.json()) as MyKnownError;
