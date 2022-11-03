@@ -1,7 +1,5 @@
 package com.c103.dog;
 
-import com.c103.dog.DB.entity.Dept;
-import com.c103.dog.DB.entity.DeptRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,9 +14,9 @@ import java.util.List;
 
 @SpringBootTest
 public class DateTest {
-
-    @Autowired
-    DeptRepository deptRepository;
+//
+//    @Autowired
+//    DeptRepository deptRepository;
 
 
     @Test
