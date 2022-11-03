@@ -113,17 +113,19 @@ public class WalkServiceImpl implements WalkService {
 
     @Override
     public List<Person> walkingDogList(PersonWalkingRequest personWalkingReq) {
+
+
         String pk = personWalkingReq.getPersonId();
         int lngArea = (int)((personWalkingReq.getLng() - STD_LNG)*1000);
         int latArea = (int)((personWalkingReq.getLat() - STD_LAT)*1000);
-
+        log.info("pk : {} ", pk);
         Person p = redisRepo.findById(pk).orElse(new Person());
         p.setId(pk);
         p.setLng(personWalkingReq.getLng());
         p.setLat(personWalkingReq.getLat());
         p.setLngArea(lngArea);
         p.setLatArea(latArea);
-
+        log.info("persion : {} ", p.toString());
         redisRepo.deleteById(pk);
         redisRepo.save(p);
 
@@ -133,7 +135,7 @@ public class WalkServiceImpl implements WalkService {
             if(Math.abs(std.getLatArea() - latArea) > 1 || Math.abs(std.getLngArea() - lngArea) > 1 ) continue;
             check.add(std);
         }
-
+        log.info("종료");
         return check;
 
     }
