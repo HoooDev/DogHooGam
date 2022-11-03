@@ -44,7 +44,7 @@ public class UserController {
         UserResponse userRes = UserResponse.builder()
                 .userId(user.getUserId())
                 .userPk(user.getPk())
-                .userWallerAddress(user.getWalletAddress())
+                .userWalletAddress(user.getWalletAddress())
                 .nickName(user.getNickName())
                 .profileImg(user.getProfileImg())
                 .role(user.getRole())

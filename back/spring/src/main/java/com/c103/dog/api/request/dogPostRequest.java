@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -23,9 +24,9 @@ public class dogPostRequest {
     @ApiModelProperty(name = "강아지 등록번호")
     private String dogNumber;
 
-    @ApiModelProperty(name="강아지 생일", example="2022-10-31 11:28")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime birthday;
+    @ApiModelProperty(name="강아지 생일", example="2022-10-31")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, timezone = "Asia/Seoul", pattern = "yyyy-MM-dd")
+    private LocalDate birthday;
 
     @ApiModelProperty(name="강아지 품종", example="시고르자브종")
     private String dogBreed;

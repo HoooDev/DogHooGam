@@ -13,7 +13,7 @@ public class UserResponse {
 
     private String nickName;
 
-    private String userWallerAddress;
+    private String userWalletAddress;
 
     private String profileImg;
 
