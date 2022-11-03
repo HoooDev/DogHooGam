@@ -47,12 +47,11 @@ public class DogController {
             User user = userService.getUserByUserId(userDetails.getUsername());
 
             log.info("userId : {} ", user.getUserId());
-
-            if (user == null) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "유저 없음"));
-            }
             dogPostResponse dogRes = dogPostResponse.of(dogService.registerDog(dog,user));
+
             return ResponseEntity.status(HttpStatus.OK).body(dogRes);
+
+
         }catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){

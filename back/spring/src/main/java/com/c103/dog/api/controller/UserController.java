@@ -37,10 +37,6 @@ public class UserController {
         SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
         User user = userService.getUserByUserId(userDetails.getUsername());
 
-        if(user == null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400,"유저 없음"));
-        }
-
         UserResponse userRes = UserResponse.builder()
                 .userId(user.getUserId())
                 .userPk(user.getPk())
@@ -60,10 +56,6 @@ public class UserController {
         SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
         User user = userService.getUserByUserId(userDetails.getUsername());
 
-        if (user == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "유저 없음"));
-        }
-
         UserAddressResponse userAddressRes = UserAddressResponse.builder()
                 .userPk(user.getPk())
                 .userPersonalKey(user.getPersonalKey())
@@ -79,9 +71,6 @@ public class UserController {
         SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
         User user = userService.getUserByUserId(userDetails.getUsername());
 
-        if (user == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "유저 없음"));
-        }
 
         User userEntity = userService.registerAddress(user,userAdd);
 

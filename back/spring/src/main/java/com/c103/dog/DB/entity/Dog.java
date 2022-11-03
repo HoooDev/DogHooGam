@@ -44,7 +44,7 @@ public class Dog {
     private boolean isHide;
 
     @ManyToOne
-    @JoinColumn(name = "uni_pk")
+    @JoinColumn(name = "user_pk")
     private User user;
 
 
