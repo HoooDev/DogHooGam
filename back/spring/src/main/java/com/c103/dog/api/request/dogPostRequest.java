@@ -20,6 +20,9 @@ public class dogPostRequest {
     @ApiModelProperty(name="강아지 이름", example="멈멈미")
     private String dogName;
 
+    @ApiModelProperty(name = "강아지 등록번호")
+    private String dogNumber;
+
     @ApiModelProperty(name="강아지 생일", example="2022-10-31 11:28")
     @JsonFormat(shape = JsonFormat.Shape.STRING, timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime birthday;

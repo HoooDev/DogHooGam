@@ -37,6 +37,8 @@ public class Dog {
 
     private String dogBreed;
 
+    private String dogNumber;
+
     private String dogCharacter;
 
     private boolean isHide;

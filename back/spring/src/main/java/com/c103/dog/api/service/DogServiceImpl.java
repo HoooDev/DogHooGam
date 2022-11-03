@@ -28,6 +28,7 @@ public class DogServiceImpl implements DogService{
         dogEntity.setUser(user);
         dogEntity.setTransactionHash(dog.getTransactionHash());
         dogEntity.setBirthday(Timestamp.valueOf(dog.getBirthday()));
+        dogEntity.setDogNumber(dog.getDogNumber());
 
         return dogRepository.save(dogEntity);
     }

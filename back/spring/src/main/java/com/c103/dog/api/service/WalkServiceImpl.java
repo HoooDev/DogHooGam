@@ -119,31 +119,21 @@ public class WalkServiceImpl implements WalkService {
         String pk = personWalkingReq.getPersonId();
         int lngArea = (int)((personWalkingReq.getLng() - STD_LNG)*1000);
         int latArea = (int)((personWalkingReq.getLat() - STD_LAT)*1000);
-        log.info("pk : {} ", pk);
         Person p = redisRepo.findById(pk).orElse(new Person());
         p.setId(pk);
         p.setLng(personWalkingReq.getLng());
         p.setLat(personWalkingReq.getLat());
         p.setLngArea(lngArea);
         p.setLatArea(latArea);
-        log.info("persion : {} ", p.toString());
         redisRepo.deleteById(pk);
-        log.info("삭제");
         redisRepo.save(p);
-        log.info("추가");
 
         List<Person> check = new ArrayList<>();
-        redisRepo.findAll();
-        log.info("1");
         List<Person> personList = redisRepo.findAll();
-        log.info("2");
+
         if(personList != null){
-            log.info("3");
-            log.info(personList.toString());
-            log.info("person size : {} ", personList.size());
 
             for(Person std : personList) {
-
                 if (std == null || Math.abs(std.getLatArea() - latArea) > 1 || Math.abs(std.getLngArea() - lngArea) > 1) continue;
                 check.add(std);
             }
