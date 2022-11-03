@@ -18,6 +18,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -127,14 +128,28 @@ public class WalkServiceImpl implements WalkService {
         p.setLatArea(latArea);
         log.info("persion : {} ", p.toString());
         redisRepo.deleteById(pk);
+        log.info("삭제");
         redisRepo.save(p);
+        log.info("추가");
 
         List<Person> check = new ArrayList<>();
+        redisRepo.findAll();
+        log.info("1");
         List<Person> personList = redisRepo.findAll();
-        for(Person std : personList){
-            if(Math.abs(std.getLatArea() - latArea) > 1 || Math.abs(std.getLngArea() - lngArea) > 1 ) continue;
-            check.add(std);
+        log.info("2");
+        if(personList != null){
+            log.info("3");
+            log.info(personList.toString());
+            log.info("person size : {} ", personList.size());
+
+            for(Person std : personList) {
+
+                if (std == null || Math.abs(std.getLatArea() - latArea) > 1 || Math.abs(std.getLngArea() - lngArea) > 1) continue;
+                check.add(std);
+            }
         }
+        log.info("4");
+
         log.info("종료");
         return check;
 

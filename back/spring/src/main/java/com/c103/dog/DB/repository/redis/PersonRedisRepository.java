@@ -6,6 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface PersonRedisRepository extends CrudRepository<Person, String> {
-
     List<Person> findAll();
 }
