@@ -34,7 +34,7 @@ def index(request):
     pass    
 @api_view(['GET'])
 def indata(request):
-    sentence = request.data['data']
+    sentence = request.GET['data']
     kkma = Kkma()
     spelled_sent = spell_checker.check(sentence)
     checked_sent = spelled_sent.checked
