@@ -36,9 +36,13 @@ public class WalkController {
     @PostMapping("")
     @ApiOperation(value = "산책 시작",notes = "강아지 여러마리 선택가능, 자기 ID 반환")
     public ResponseEntity<?> startWalk(@RequestBody PersonRequest personReq){
+
+        log.info("api 실행(info)");
+        log.debug("api 실행(debug)");
+        log.info(personReq.toString());
+
         try {
-            log.info("api 실행(info)");
-            log.debug("api 실행(debug)");
+
 
             String personId = walkService.startWalking(personReq);
 
