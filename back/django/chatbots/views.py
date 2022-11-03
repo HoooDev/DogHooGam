@@ -115,8 +115,8 @@ def indata(request):
 
 @api_view(['GET'])
 def select(request):
-    sym = request.data['symptom']
-    icd = request.data['icd']
+    sym = request.GET['symptom']
+    icd = request.GET['icd']
     diseasetable = DiseaseTable.objects.all()
     disease = read_frame(diseasetable)
     data = disease[(disease['ICD']==icd) & (disease['symptomdata'].str.contains(sym))]
