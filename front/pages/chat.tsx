@@ -1,50 +1,18 @@
 import { useRef, useState } from "react";
 import axios from "axios";
 import styles from "./chat.module.scss";
+// import { getChatbot1 } from "./api/chat/chat";
 
 function Chat() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [msg, setmsg] = useState<string>("");
 
   const startDate = new Date();
-  let startAMPM = "오전";
-  let startHours = startDate.getHours();
-  if (startHours > 12) {
-    startHours -= 12;
-    startAMPM = "오후";
-  }
-
   const startday = `${startDate.getFullYear()}년 ${
     startDate.getMonth() + 1
   }월 ${startDate.getDate()}일`;
-  const starttime = `${startAMPM} ${startHours}시 ${startDate.getMinutes()}분`;
-  const [chatbox, setChatbox] = useState([
-    {
-      id: 1,
-      sender: "noti",
-      content: startday
-    },
-    { id: 2, sender: "you", content: "무엇을 도와드릴까요?", time: starttime }
-  ]);
 
-  function getSelectResult(e: any) {
-    console.log(e);
-    axios({
-      url: `https://dog-hoogam.site/chatbot/indata/`,
-      method: "get",
-      data: { data: e }
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  function goMessage(e: any) {
-    e.preventDefault();
-    console.log(msg);
+  function getNowTime() {
     const nowDate = new Date();
     let AMPM = "오전";
     let nowHours = nowDate.getHours();
@@ -52,19 +20,67 @@ function Chat() {
       nowHours -= 12;
       AMPM = "오후";
     }
-    const nowTime = `${AMPM} ${nowHours}시 ${nowDate.getMinutes()}분`;
-    console.log(nowTime);
+    return `${AMPM} ${nowHours}시 ${nowDate.getMinutes()}분`;
+  }
+
+  const [chatbox, setChatbox] = useState([
+    {
+      id: 1,
+      sender: "noti",
+      content: startday
+    },
+    {
+      id: 2,
+      sender: "you",
+      content: "무엇을 도와드릴까요?",
+      time: getNowTime()
+    }
+  ]);
+
+  // async function getSelectResult(e: any) {
+  //   console.log(e);
+
+  //   axios({
+  //     url: `https://dog-hoogam.site/chatbot/indata`,
+  //     method: "get",
+  //     params: { data: e }
+  //   })
+  //     .then((res) => {
+  //       console.log(res);
+  //       return res.data[0];
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  function goMessage(e: any) {
+    e.preventDefault();
     const newChatbox = [...chatbox];
     newChatbox.push({
       id: chatbox.length + 1,
       sender: "me",
       content: msg,
-      time: nowTime
+      time: getNowTime()
     });
     setChatbox(newChatbox);
-    getSelectResult(msg);
+
+    axios({
+      url: `https://dog-hoogam.site/chatbot/indata`,
+      method: "get",
+      params: { data: msg }
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+
     if (textareaRef.current) {
       textareaRef.current.value = "";
+      setmsg("");
     }
   }
 
