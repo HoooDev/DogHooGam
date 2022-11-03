@@ -10,6 +10,7 @@ import com.c103.dog.DB.repository.redis.PersonRedisRepository;
 import com.c103.dog.api.request.PersonEndRequest;
 import com.c103.dog.api.request.PersonRequest;
 import com.c103.dog.api.request.PersonWalkingRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class WalkServiceImpl implements WalkService {
 
     private final double STD_LAT = 124;
@@ -97,7 +99,12 @@ public class WalkServiceImpl implements WalkService {
         p.setLatArea(latArea);
         p.setLngArea(lngArea);
 
-        return redisRepo.save(p).getId();
+        log.info(p.toString());
+
+        String id = redisRepo.save(p).getId();
+
+        log.info(id);
+        return id;
 
 
 

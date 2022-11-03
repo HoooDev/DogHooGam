@@ -1,6 +1,5 @@
 package com.c103.dog.DB.repository;
 
-import com.c103.dog.DB.entity.Dept;
 import com.c103.dog.DB.entity.Dog;
 import com.c103.dog.DB.entity.Feed;
 import org.springframework.data.jpa.repository.JpaRepository;
