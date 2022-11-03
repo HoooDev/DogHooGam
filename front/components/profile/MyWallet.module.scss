@@ -14,6 +14,7 @@
     width: vw(40px);
     height: vw(40px);
   }
+
   .walletTextBox {
     padding-top: vw(30px);
     padding-left: vw(20px);
@@ -70,6 +71,31 @@
       left: 44%;
       width: 40px;
       height: 40px;
+    }
+    .addWalletBtnText {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .addWalletBtnBox {
+      display: flex;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: auto;
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .addWalletBtn {
+      // display: flex;
+      width: 70px;
+      height: 70px;
+      margin: auto;
+      padding-top: 14%;
     }
     .walletTextBox {
       padding-top: 30px;

@@ -2,12 +2,12 @@ import { NextPage } from "next";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-import KakaoMap from "../../components/walk/KakaoMap";
+import KakaoMap from "../../components/walk/KakaoMap.js";
 import BeforeSign from "../../components/walk/BeforeSign";
 import AfterSign from "../../components/walk/AfterSign";
 import styles from "./index.module.scss";
 import type { AppDispatch, RootState } from "../../redux/store/index";
-import { stopWalking, clearSelectedDogs } from "../../redux/slice/walkSlice";
+import { finishWalking, clearSelectedDogs } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 
 const dogs = [
@@ -18,11 +18,13 @@ const dogs = [
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted } = useSelector((state: RootState) => state.walk);
+  const { isWalkingStarted, totalDist } = useSelector(
+    (state: RootState) => state.walk
+  );
 
   useEffect(() => {
     return () => {
-      dispatch(stopWalking());
+      dispatch(finishWalking(totalDist));
       dispatch(clearSelectedDogs());
     };
   }, []);
