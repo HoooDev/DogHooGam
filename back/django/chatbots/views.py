@@ -34,15 +34,24 @@ def index(request):
     pass    
 @api_view(['GET'])
 def indata(request):
+    # 데이터 받기
     sentence = request.GET['data']
+    # 형태소 분석기 framework
     kkma = Kkma()
+    
+    # 띄어쓰기 체크
     spelled_sent = spell_checker.check(sentence)
     checked_sent = spelled_sent.checked
+    
+    # 증상데이터, 입력 증상 테이블 불러오기
     symptomtable = SymptomTable.objects.all()
     notname = NotName.objects.all()
-    data = read_frame(symptomtable)
+    
+    # 테이블 pandas로 읽기
     notnamedata = read_frame(notname)    
-
+    data = read_frame(symptomtable)
+    
+    
     sentences = []
     st = []
     lst = []
@@ -52,17 +61,13 @@ def indata(request):
     kkma_sentence = kkma.pos(checked_sent)
     no_st = []
     for i in range(len(kkma_sentence)):
-        print(kkma_sentence[i], st)
         no_st.append(kkma_sentence[i][0])
         if flag == 1 and name == 1:
             st.append(kkma_sentence[i][0])
         elif flag == 1 and name == 0:
-            print(st)
-            print(i)
             st.append(kkma_sentence[i-2][0])
             st.append(kkma_sentence[i-1][0])
             st.append(kkma_sentence[i][0])
-            print(st)
             name = 1
         if kkma_sentence[i][1] == 'JKS':
             flag = 1
@@ -70,7 +75,7 @@ def indata(request):
                 name = 0
             else:
                 name = 1        
-        if kkma_sentence[i][1] == 'ECE':
+        if kkma_sentence[i][1] == 'ECE' or kkma_sentence[i][1] == 'JKM':
             if flag == 0:
                 sentences.append(' '.join(no_st))
                 no_st = []
