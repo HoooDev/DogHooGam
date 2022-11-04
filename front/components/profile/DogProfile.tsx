@@ -7,7 +7,7 @@ import { v4 } from "uuid";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
-import defaultDog from "../../public/icons/defaultDog.svg";
+// import defaultDog from "../../public/icons/defaultDog.svg";
 import styles from "./DogProfile.module.scss";
 import addImg from "../../public/icons/addImg.svg";
 // import getDogList from "../../pages/api/dog/getDogList";
