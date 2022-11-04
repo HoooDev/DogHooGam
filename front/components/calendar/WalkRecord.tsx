@@ -9,7 +9,7 @@ function WalkRecord() {
   const dummy = { time: "00:34:27", dist: "3.27", coin: 5 };
 
   return (
-    <div className={`${styles.wrapper}`}>
+    <div className={`${styles.wrapper}`} id="산책기록">
       <div className={`${styles.map}`}>
         <KakaoMap />
       </div>
