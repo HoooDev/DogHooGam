@@ -8,6 +8,7 @@ import com.c103.dog.common.auth.JwtAuthenticationFilter;
 import com.c103.dog.common.auth.SsafyUserDetails;
 import com.c103.dog.common.auth.SsafyUserDetailsService;
 import com.c103.dog.common.auth.oauth.CustomOAuth2UserService;
+import com.c103.dog.common.auth.oauth.OAuth2FailureHandler;
 import com.c103.dog.common.auth.oauth.OAuth2SuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -46,6 +47,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private CustomOAuth2UserService oAuth2UserService;
     @Autowired
     private OAuth2SuccessHandler successHandler;
+
+    @Autowired
+    private OAuth2FailureHandler failureHandler;
 
 
 
@@ -89,18 +93,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 토큰 기반 인증이므로 세션 사용 하지않음
                 .and()
-        //        .addFilter(new JwtAuthenticationFilter(authenticationManager(), userService)) //HTTP 요청에 JWT 토큰 인증 필터를 거치도록 필터를 추가
-                .authorizeRequests()
-                .antMatchers("/demori/**").authenticated()       //인증이 필요한 URL과 필요하지 않은 URL에 대하여 설정
+                  .authorizeRequests()
+                .antMatchers("/doohoogam/**").authenticated()       //인증이 필요한 URL과 필요하지 않은 URL에 대하여 설정
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
-                //.antMatchers("/api/**").hasAnyRole("ROLE_USER")
                 .anyRequest().permitAll()
                 .and().cors()
                 .and()
-                .addFilterBefore(new JwtAuthenticationFilter(authenticationManager(), userService),
-                        UsernamePasswordAuthenticationFilter.class)
                 .oauth2Login()
                 .successHandler(successHandler)
+                .failureHandler(failureHandler)
                 .userInfoEndpoint() // OAuth2 로그인 성공 후에 가져올 설정들
                 .userService(oAuth2UserService); // 서버에서 사용자 정보를 가져온 상태에서 추가로 진행하고자 하는 기능 명시
 

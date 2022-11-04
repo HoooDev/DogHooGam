@@ -42,12 +42,17 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         userEntity.setProfileImg((String) map.get("profileImg"));
         userEntity.setNickName((String) map.get("name"));
 
-
-        if(userRepository.findByUserId(userEntity.getUserId()) == null){
+        User loginUser = userRepository.findByUserId(userEntity.getUserId()).orElse(null);
+        if(loginUser == null){
             log.info("첫 로그인, 회원가입 진행");
             userRepository.save(userEntity);
         }else{
             log.info("로그인 된 유저, 자동으로 로그인");
+            if(!loginUser.getProfileImg().equals((String) map.get("profileImg"))) {
+                log.info("프로필 변경 감지, 프로필 변경");
+                loginUser.setProfileImg((String) map.get("profileImg"));
+                userRepository.save(loginUser);
+            }
         }
 
 
