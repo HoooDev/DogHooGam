@@ -58,8 +58,8 @@ public class MemoServiceImpl implements MemoService {
     }
 
     @Override
-    public List<Memo> findMemoByDay(int dogPk, String year, String month) {
-        return memoRepository.findMemoByDay(dogPk, year, month);
+    public List<Memo> findMemoByDay(User user, String year, String month) {
+        return memoRepository.findMemoByDay(user.getPk(), year, month);
     }
 
     @Override

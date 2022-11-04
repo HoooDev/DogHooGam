@@ -19,7 +19,7 @@ public interface MemoService {
 
     void deleteMemo(int memoPk);
 
-    List<Memo> findMemoByDay(int dogPk, String year, String month);
+    List<Memo> findMemoByDay(User user, String year, String month);
 
     List<Memo> findMemoByUser(User user);
 

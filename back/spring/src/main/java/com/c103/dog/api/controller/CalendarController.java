@@ -48,7 +48,7 @@ public class CalendarController {
     WalkService walkService;
 
     @GetMapping("/feed")
-    @ApiOperation(value = "캘린더 피드 리스트 읽기",notes = "강아지 별 년도, 달별에 포함되는 한달씩만 출력",response = FeedPostResponse.class)
+    @ApiOperation(value = "캘린더 피드 리스트 읽기",notes = "년도, 달별에 포함되는 한달씩만 출력",response = FeedPostResponse.class)
     public ResponseEntity<?> getCalenderFeedList(@ApiIgnore Authentication authentication, @RequestParam String year, @RequestParam String month){
         try {
             SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
@@ -79,10 +79,14 @@ public class CalendarController {
 
 
     @GetMapping("/memo")
-    @ApiOperation(value = "캘린더 메모 리스트 읽기",notes = "강아지 별 년도, 달별에 포함되는 한달씩만 출력",response = MemoResponse.class)
-    public ResponseEntity<?> getCalenderMemoList(@RequestParam String year, @RequestParam String month, @RequestParam int dogPk){
+    @ApiOperation(value = "캘린더 메모 리스트 읽기",notes = "년도, 달별에 포함되는 한달씩만 출력",response = MemoResponse.class)
+    public ResponseEntity<?> getCalenderMemoList(@ApiIgnore Authentication authentication, @RequestParam String year, @RequestParam String month, @RequestParam int dogPk){
         try {
-            List<Memo> memoList = memoService.findMemoByDay(dogPk,year,month);
+            SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
+            User user = userService.getUserByUserId(userDetails.getUsername());
+
+
+            List<Memo> memoList = memoService.findMemoByDay(user,year,month);
 
             List<MemoResponse> memoResList = new ArrayList<>();
             for(Memo m : memoList){
