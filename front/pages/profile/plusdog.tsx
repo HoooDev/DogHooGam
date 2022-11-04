@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./plusdog.module.scss";
 import defaultDog from "../../public/icons/defaultDog.svg";
 import sendFileToIPFS from "../api/web3/Web3";
@@ -15,6 +15,7 @@ export interface nftDogType {
 }
 
 function Plusdog() {
+  const [flag, setFlag] = useState(false);
   const walletRef = useRef<HTMLInputElement>(null);
   const walletAddress =
     "0xa06989ee6270d06b5f00e9a4b3374460276bf6e83edcbe432e4f509fcad061fe";
@@ -57,6 +58,9 @@ function Plusdog() {
       alert("지갑 주소를 불러왔습니다.");
     }
   };
+  // const addDogInfo = () => {
+  //   addDog(apiDog);
+  // };
 
   const makeNFT = async (e: any) => {
     const dogNft = await sendFileToIPFS(e, imgFile, nftDog);
@@ -66,8 +70,14 @@ function Plusdog() {
       dogImg: dogNft[0],
       transactionHash: dogNft[1]
     });
-    addDog(apiDog);
+    setFlag(true);
   };
+
+  useEffect(() => {
+    if (flag) {
+      addDog(apiDog);
+    }
+  }, [flag, apiDog]);
 
   // console.log(nftDog);
   return (

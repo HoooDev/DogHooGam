@@ -19,7 +19,7 @@ function MyWallet() {
     setWalletBalance(balance);
   };
   useEffect(() => {
-    if (storeUser.walletAddress) {
+    if (storeUser.userWalletAddress) {
       getWalletBalance();
     }
   }, []);

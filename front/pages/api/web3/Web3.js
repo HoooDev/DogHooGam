@@ -44,10 +44,10 @@ export const createAccount = async () => {
   };
   web3.eth.sendTransaction(tx).then((receipt) => receipt);
   // ERC-20 토큰 보내기 전 허용
-  await TOKENContract.methods.approve(coinBase, 10).send({ from: coinBase });
+  await TOKENContract.methods.approve(coinBase, 100).send({ from: coinBase });
   // 허용 한 후 ERC-20 토큰 전송 ( 로그인 시 10 잉크 (10잉크 -> 1피드) )
   await TOKENContract.methods
-    .transferFrom(coinBase, wallet.address, 10)
+    .transferFrom(coinBase, wallet.address, 100)
     .send({ from: coinBase });
   return [wallet.address, wallet.privateKey];
 };
