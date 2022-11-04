@@ -113,7 +113,7 @@ def indata(request):
         for r in range(len(a)):
             if a.iloc[r] not in icd:
                 icd.append(a.iloc[r])
-        symptomdata.ICD = json.dumps(icd)     
+        symptomdata.ICD = json.dumps(icd, ensure_ascii=False)     
         lst.append(symptomdata)
     serializer = SymptomSerializer(lst, many=True)    
     return Response(serializer.data)
@@ -132,8 +132,8 @@ def select(request):
     for i in range(len(data)):
         disease_name.append(data.iloc[i]['diseasename'])
         disease_explane.append(data.iloc[i]['explane'])
-    symptomdata.disease = disease_name
-    symptomdata.symptomexplane = disease_explane
+    symptomdata.disease = json.dumps(disease_name, ensure_ascii=False)
+    symptomdata.symptomexplane = json.dumps(disease_explane, ensure_ascii = False)
     
     lst.append(symptomdata)
     serializer = SymptomSerializer(lst, many=True)    
