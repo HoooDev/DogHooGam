@@ -57,7 +57,7 @@ public class TestController {
     @ApiOperation(value = "유저 아이디로 token 발급",notes = "헤드에 Authorization : Bearer + token")
     public ResponseEntity<?> getToken(@RequestParam String userId ){
         String token = JwtTokenUtil.getToken(userId);
-        return ResponseEntity.status(HttpStatus.OK).body(token);
+        return ResponseEntity.status(HttpStatus.OK).body("Bearer "+token);
     }
 
     @PostMapping("/walk")

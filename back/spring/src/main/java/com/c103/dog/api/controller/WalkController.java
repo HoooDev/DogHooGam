@@ -90,7 +90,7 @@ public class WalkController {
     @PostMapping("/end")
     @ApiOperation(value = "산책 종료",notes = "자기 위치 삭제 후 산책 기록 저장")
     public ResponseEntity<?> walkingEndDog(@RequestBody PersonEndRequest walkReq){
-
+        log.info("산책 종료 실행");
         try {
 
             if(walkService.endWalking(walkReq)){

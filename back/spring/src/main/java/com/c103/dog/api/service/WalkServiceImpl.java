@@ -147,7 +147,9 @@ public class WalkServiceImpl implements WalkService {
 
     @Override
     public boolean endWalking(PersonEndRequest walkReq) {
+        log.info("체크");
         Person p = redisRepo.findById(walkReq.getPersonId()).orElse(null);
+        log.info(p.toString());
         redisRepo.deleteById(walkReq.getPersonId());
 
         if(p ==  null){
@@ -162,8 +164,6 @@ public class WalkServiceImpl implements WalkService {
 
 
         List<Dog> dogList = dogRepository.findAllById(p.getDogPk());
-
-
 
         for(Dog dog : dogList){
             walk.setDog(dog);

@@ -38,9 +38,15 @@ public class FeedController {
 
     @PostMapping("")
     @ApiOperation(value = "피드 등록하기",notes = "ntf 발행된 해쉬와 사진 주소로  강아지별 피드 등록,",response = FeedPostResponse.class)
-    public ResponseEntity<?> registerFeed(@RequestBody FeedPostRequest feedReq){
+    public ResponseEntity<?> registerFeed(@ApiIgnore Authentication authentication, @RequestBody FeedPostRequest feedReq){
         try {
-            FeedPostResponse feedRes = FeedPostResponse.of(feedService.registerFeed(feedReq));
+
+            SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
+            User user = userService.getUserByUserId(userDetails.getUsername());
+
+            log.info("userId : {} ", user.getUserId());
+
+            FeedPostResponse feedRes = FeedPostResponse.of(feedService.registerFeed(feedReq, user));
             return ResponseEntity.status(HttpStatus.OK).body(feedRes);
         }catch (IllegalArgumentException e) {
             e.getStackTrace();

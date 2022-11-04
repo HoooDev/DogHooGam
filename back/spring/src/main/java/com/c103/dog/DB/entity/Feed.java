@@ -1,5 +1,6 @@
 package com.c103.dog.DB.entity;
 
+import com.c103.dog.common.util.Position;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +10,9 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 @Entity
 @Data
@@ -36,8 +40,20 @@ public class Feed {
     @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
     private Timestamp createDate;
 
+    private String dogPkList;
+
     @ManyToOne
     @JoinColumn(name = "dog_pk")
-    private Dog dog;
+    private User user;
+
+    public List<Integer> stringToLine(){
+
+        List<Integer> result = new ArrayList<>();
+        StringTokenizer st = new StringTokenizer(this.dogPkList, ",");
+        while(st.hasMoreTokens()){
+            result.add(Integer.parseInt(st.nextToken()));
+        }
+        return result;
+    }
 
 }

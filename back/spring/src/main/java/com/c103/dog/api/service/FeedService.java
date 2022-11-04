@@ -7,7 +7,7 @@ import com.c103.dog.api.request.FeedPostRequest;
 import java.util.List;
 
 public interface FeedService {
-    Feed registerFeed(FeedPostRequest feedReq);
+    Feed registerFeed(FeedPostRequest feedReq, User user);
 
     Feed getByFeedPk(int feedPk);
 

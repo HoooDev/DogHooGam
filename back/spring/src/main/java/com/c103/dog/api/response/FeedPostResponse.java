@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @Builder
@@ -33,6 +34,8 @@ public class FeedPostResponse {
     @ApiModelProperty(name="문구", example="문구입니다~")
     private String content;
 
+    private List<Integer> dogPkList;
+
     private boolean isHide;
 
     @ApiModelProperty(name="생성 날짜", example="yyyy-MM-dd HH:mm")
@@ -42,6 +45,7 @@ public class FeedPostResponse {
     public static FeedPostResponse of(Feed feed){
         FeedPostResponse feedRes = FeedPostResponse.builder()
                 .pk(feed.getPk())
+                .dogPkList(feed.stringToLine())
                 .transactionHash(feed.getTransactionHash())
                 .feedImg(feed.getFeedImg())
                 .lat(feed.getLat())
