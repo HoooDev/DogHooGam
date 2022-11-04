@@ -14,6 +14,7 @@ export const getAdminAdress = async () => {
 
 // 지갑 잔액 확인
 export const getBalance = async (address) => {
+  console.log(address, "지갑주소");
   const res = await TOKENContract.methods
     .balanceOf(address)
     .call()

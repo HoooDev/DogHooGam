@@ -15,11 +15,11 @@ function MyWallet() {
   const [walletBalance, setWalletBalance] = useState(0);
 
   const getWalletBalance = async () => {
-    const balance = await getBalance(walletAddress);
+    const balance = await getBalance(storeUser.userWalletAddress);
     setWalletBalance(balance);
   };
   useEffect(() => {
-    if (storeUser) {
+    if (storeUser.walletAddress) {
       getWalletBalance();
     }
   }, []);
@@ -47,7 +47,7 @@ function MyWallet() {
       <div className={`${styles.walletIcon}`}>
         <Image src={walletLogo} />
       </div>
-      {storeUser.userWallerAddress ? (
+      {storeUser.userWalletAddress ? (
         <div className={`${styles.walletTextBox}`}>
           <p
             className={`${styles.walletCoin}`}
@@ -55,7 +55,7 @@ function MyWallet() {
           <div className={`${styles.walletAddressBox}`}>
             <p className={`${styles.walletAddress1}`}>지갑주소 : </p>
             <p className={`${styles.walletAddress2}`}>
-              {storeUser.userWallerAddress}
+              {storeUser.userWalletAddress}
               <button
                 type="button"
                 className={`${styles.copyBtn}`}
