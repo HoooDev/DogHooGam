@@ -11,7 +11,7 @@ import com.c103.dog.api.request.MemoUpdateRequest;
 import java.util.List;
 
 public interface MemoService {
-    Memo registerMemo(MemoPostRequest memoPostReq);
+    Memo registerMemo(MemoPostRequest memoPostReq, User user);
 
     Memo getByMemoPk(int memoPk);
 

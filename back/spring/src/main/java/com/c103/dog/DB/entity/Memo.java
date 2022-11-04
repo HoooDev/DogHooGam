@@ -29,8 +29,8 @@ public class Memo {
     private Timestamp memoDate;
 
     @ManyToOne
-    @JoinColumn(name = "dog_pk")
-    private Dog dog;
+    @JoinColumn(name = "user_pk")
+    private User user;
 
     @CreationTimestamp
     @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")

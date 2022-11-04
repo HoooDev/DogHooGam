@@ -12,9 +12,6 @@ import java.time.LocalDateTime;
 @ApiModel(value = "MemoPostRequest",description = "메모 등록 요청")
 public class MemoPostRequest {
 
-    @ApiModelProperty(name="dogPk", example="1" , dataType = "강아지 PK")
-    private int dogPk;
-
     private String title;
 
     private String content;
