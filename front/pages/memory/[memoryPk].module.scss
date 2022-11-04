@@ -1,22 +1,26 @@
-
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     margin-top: 40px;
-    .Nav{
+    .Nav {
       margin-inline: 25px;
     }
-    .detail{
+    .detail {
       margin-top: 50px;
-      .img{
+      .imgBox {
         width: $PHONE-VW;
         height: 300px;
+        .img {
+          width: 100%;
+          height: 100%;
+          border-radius: 15px;
+        }
       }
-      .content{
+      .content {
         margin-top: 50px;
       }
-      .time{
+      .time {
         margin-top: 20px;
-        color: #A8A8A8;
+        color: #a8a8a8;
       }
     }
   }

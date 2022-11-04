@@ -13,16 +13,11 @@ function Create() {
   const [flag, setFlag] = useState(false);
   const [imgFile, setImgFile] = useState(null);
   const [uploadimg, setUploadimg] = useState<any>(null);
-  // const [nftImg, setNftImg] = useState<any>(null);
-  // const [tranHash, setTranHash] = useState<any>(null);
   const [nftFeed, setNftFeed] = useState({
     content: ""
-    // dogPk: null,
-    // dogName: ""
   });
   const [apiFeed, setApiFeed] = useState<any>({
     content: "",
-    dogPk: 16,
     feedImg: "",
     lat: null,
     lng: null,
@@ -56,6 +51,7 @@ function Create() {
   useEffect(() => {
     if (flag) {
       addFeed(apiFeed);
+      router.push("/memory");
     }
   }, [flag, apiFeed]);
 
