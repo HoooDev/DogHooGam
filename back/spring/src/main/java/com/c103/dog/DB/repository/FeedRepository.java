@@ -2,6 +2,7 @@ package com.c103.dog.DB.repository;
 
 import com.c103.dog.DB.entity.Dog;
 import com.c103.dog.DB.entity.Feed;
+import com.c103.dog.DB.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,4 +17,6 @@ public interface FeedRepository extends JpaRepository<Feed, Integer> {
     List<Feed> findFeedByDay(int dogPk , String year, String month);
 
     List<Feed> findByDog(Dog d);
+
+    List<Feed> findByUser(User user);
 }

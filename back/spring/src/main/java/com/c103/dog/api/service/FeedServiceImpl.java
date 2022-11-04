@@ -60,15 +60,7 @@ public class FeedServiceImpl implements FeedService{
 
     @Override
     public List<Feed> findFeedByUser(User user) {
-        List<Dog> dogList = dogRepository.findByUser(user);
-
-        List<Feed> feedList = new ArrayList<>();
-
-        for(Dog d : dogList){
-            List<Feed> f = feedRepository.findByDog(d);
-            feedList.addAll(f);
-        }
-
+        List<Feed> feedList = feedRepository.findByUser(user);
         return feedList;
     }
 
