@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const getUser = () => {
+const getDogList = () => {
   const Token = window.localStorage.getItem("AccessToken");
   axios({
-    url: `https://dog-hoogam.site:8000/api/user`,
+    url: "https://dog-hoogam.site:8000/api/dog",
     method: "get",
     headers: { Authorization: `Bearer ${Token}` }
   })
@@ -19,4 +19,4 @@ const getUser = () => {
     });
 };
 
-export default getUser;
+export default getDogList;

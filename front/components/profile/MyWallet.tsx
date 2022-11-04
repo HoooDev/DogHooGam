@@ -1,15 +1,29 @@
 import Image from "next/image";
 // import axios from "axios";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import styles from "./MyWallet.module.scss";
 import walletLogo from "../../public/icons/walletLogo.png";
 import addImg from "../../public/icons/addImg.svg";
-import { createAccount } from "../../pages/api/web3/Web3";
+import { createAccount, getBalance } from "../../pages/api/web3/Web3";
 import createWallet from "../../pages/api/user/createWallet";
 
 function MyWallet() {
-  const dummy = false;
-  const walletAddress =
-    "0xa06989ee6270d06b5f00e9a4b3374460276bf6e83edcbe432e4f509fcad061fe";
+  const storeUser = useSelector((state: any) => state.user.userInfo);
+  // const dummy = false;
+  const walletAddress = storeUser.userWallerAddress;
+  const [walletBalance, setWalletBalance] = useState(0);
+
+  const getWalletBalance = async () => {
+    const balance = await getBalance(storeUser.userWalletAddress);
+    setWalletBalance(balance);
+  };
+  useEffect(() => {
+    if (storeUser.userWalletAddress) {
+      getWalletBalance();
+    }
+  }, []);
+
   const handleCopyClipBoard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -25,20 +39,23 @@ function MyWallet() {
   const createUserWallet = async () => {
     const [userWalletAddress, userWalletKey] = await createAccount();
     console.log(userWalletAddress, userWalletKey);
-    await createWallet(userWalletAddress, userWalletKey);
+    createWallet(userWalletAddress, userWalletKey);
   };
+
   return (
     <div className={`${styles.myWalletBox}`}>
       <div className={`${styles.walletIcon}`}>
         <Image src={walletLogo} />
       </div>
-      {dummy ? (
+      {storeUser.userWalletAddress ? (
         <div className={`${styles.walletTextBox}`}>
-          <p className={`${styles.walletCoin}`}>보유코인 : 100 coin</p>
+          <p
+            className={`${styles.walletCoin}`}
+          >{`보유코인 : ${walletBalance} INK`}</p>
           <div className={`${styles.walletAddressBox}`}>
             <p className={`${styles.walletAddress1}`}>지갑주소 : </p>
             <p className={`${styles.walletAddress2}`}>
-              0xa06989ee6270d06b5f00e9a4b3374460276bf6e83edcbe432e4f509fcad061fe
+              {storeUser.userWalletAddress}
               <button
                 type="button"
                 className={`${styles.copyBtn}`}
