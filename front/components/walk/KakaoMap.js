@@ -10,7 +10,11 @@ import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
 import gps from "../../public/icons/gps.svg";
 import styles from "./KakaoMap.module.scss";
 import Modal from "../common/Modal";
-import { nowWalking, saveDistance } from "../../redux/slice/walkSlice";
+import {
+  saveDistance,
+  pushPaths,
+  nowWalkingApi
+} from "../../redux/slice/walkSlice";
 
 let kakao;
 
@@ -37,7 +41,7 @@ const positions = [
   }
 ];
 
-function calculateDistance(lat1, lon1, lat2, lon2) {
+const calculateDistance = (lat1, lon1, lat2, lon2) => {
   if (lat1 === lat2 && lon1 === lon2) {
     return 0;
   }
@@ -55,25 +59,25 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   dist = (dist * 180) / Math.PI;
   dist = dist * 60 * 1.1515;
   return dist * 1.609344;
-}
+};
 
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
-  const { isPaused, personId } = useSelector((state) => state.walk);
-  const interval = useRef(null);
+  const { isPaused, paths } = useSelector((state) => state.walk);
+  const timeout = useRef(null);
   const dispatch = useDispatch();
   const [map, setMap] = useState(null);
   const [center, setCenter] = useState({
     lat: 0,
     lng: 0
   });
-  const [paths, setPaths] = useState([]);
+  // const [paths, setPaths] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const { others } = useSelector((state) => state.walk);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const handleClick = ({ lat, lng }) => {
-    setPaths((prev) => [...prev, { lat, lng }]);
+    dispatch(pushPaths({ lat, lng }));
     if (paths.length > 1) {
       // 누적 총 거리
       const dist = calculateDistance(
@@ -91,8 +95,8 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
+        dispatch(pushPaths({ lat, lng }));
         setCenter({ lat, lng });
-        // setPaths((prev) => [...prev, { lat, lng }]);
         handleClick({ lat, lng });
       });
     } else {
@@ -116,49 +120,62 @@ const KakaoMap = () => {
   }, []);
 
   useEffect(() => {
-    if (interval.current) {
-      clearInterval(interval.current);
+    if (timeout.current) {
+      clearTimeout(timeout.current);
     }
-    interval.current = setInterval(() => {
+    timeout.current = setTimeout(() => {
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
           const lat = position.coords.latitude; // 위도
           const lng = position.coords.longitude; // 경도
+          nowWalkingApi();
+          dispatch(pushPaths({ lat, lng }));
           setCenter({ lat, lng });
-          dispatch(nowWalking({ lat, lng, personId }));
           handleClick({ lat, lng });
         });
       }
     }, 3000);
     return () => {
-      if (interval.current) {
-        clearInterval(interval.current);
+      if (timeout.current) {
+        clearTimeout(timeout.current);
       }
     };
-  }, [handleClick, personId]);
+  }, [handleClick]);
 
   useEffect(() => {
     if (!isPaused) {
-      if (interval.current) {
-        clearInterval(interval.current);
+      if (timeout.current) {
+        clearTimeout(timeout.current);
       }
-      interval.current = setInterval(() => {
+      timeout.current = setTimeout(() => {
+        if (timeout.current) {
+          clearTimeout(timeout.current);
+        }
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude; // 위도
             const lng = position.coords.longitude; // 경도
+            nowWalkingApi();
+            dispatch(pushPaths({ lat, lng }));
             setCenter({ lat, lng });
-            dispatch(nowWalking({ lat, lng }));
             handleClick({ lat, lng });
           });
         }
       }, 3000);
     } else if (isPaused) {
-      if (interval.current) {
-        clearInterval(interval.current);
+      if (timeout.current) {
+        clearTimeout(timeout.current);
       }
     }
-  }, [isPaused, handleClick, personId]);
+    return () => {
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
+    };
+  }, [isPaused, handleClick]);
 
   return (
     <div className={styles.wrapper}>

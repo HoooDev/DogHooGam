@@ -9,16 +9,20 @@ import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
 import {
   finishWalking,
+  finishWalkingApi,
   pauseWalking,
   resetWalking,
-  restartWalking
+  restartWalking,
+  saveTime
 } from "../../redux/slice/walkSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [isPausing, setIsPausing] = useState<boolean>(false);
-  const { totalDist, isPaused } = useSelector((state: RootState) => state.walk);
+  const { totalDist, isPaused, personId, paths } = useSelector(
+    (state: RootState) => state.walk
+  );
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [time, setTime] = useState(0);
 
@@ -35,7 +39,10 @@ const AfterSign = () => {
         clearInterval(interval.current);
       }
       interval.current = setInterval(() => {
-        setTime((prev) => prev + 100);
+        setTime((prev) => {
+          saveTime(prev + 100);
+          return prev + 100;
+        });
       }, 100);
     } else if (isPaused) {
       if (interval.current) {
@@ -54,10 +61,39 @@ const AfterSign = () => {
     dispatch(pauseWalking());
   };
 
+  // const beforeCapture = () => {
+  //   let maxLat = 0;
+  //   let maxLng = 0;
+  //   let minLat = 100;
+  //   let minLng = 1000;
+  //   paths.forEach((path) => {
+  //     if (maxLat < path.lat) {
+  //       maxLat = path.lat;
+  //     }
+  //     if (maxLng < path.lng) {
+  //       maxLng = path.lng;
+  //     }
+  //     if (minLat > path.lat) {
+  //       minLat = path.lat;
+  //     }
+  //     if (minLng > path.lng) {
+  //       minLng = path.lng;
+  //     }
+  //   });
+  // };
+
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
-      dispatch(finishWalking(totalDist));
+      finishWalkingApi({
+        coin: 0,
+        distance: 0,
+        personId,
+        walkPath: paths
+      });
+      dispatch(finishWalking());
+      dispatch(restartWalking());
+      dispatch(resetWalking());
     } else {
       onPlayClick();
     }

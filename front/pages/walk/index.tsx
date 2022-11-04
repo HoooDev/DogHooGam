@@ -10,7 +10,8 @@ import type { AppDispatch, RootState } from "../../redux/store/index";
 import {
   finishWalking,
   restartWalking,
-  resetWalking
+  resetWalking,
+  finishWalkingApi
 } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 
@@ -22,15 +23,23 @@ const dogs = [
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted, totalDist } = useSelector(
+  const { isWalkingStarted, personId, paths } = useSelector(
     (state: RootState) => state.walk
   );
 
   useEffect(() => {
     return () => {
-      dispatch(finishWalking(totalDist));
-      dispatch(resetWalking());
+      if (personId) {
+        finishWalkingApi({
+          coin: 0,
+          distance: 0,
+          personId,
+          walkPath: paths
+        });
+        dispatch(finishWalking());
+      }
       dispatch(restartWalking());
+      dispatch(resetWalking());
     };
   }, []);
 

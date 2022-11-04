@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./StartBtn.module.scss";
-import { startWalking } from "../../redux/slice/walkSlice";
+import { startWalking, startWalkingApi } from "../../redux/slice/walkSlice";
 import type { AppDispatch, RootState } from "../../redux/store/index";
 
 const StartBtn = () => {
@@ -12,14 +12,24 @@ const StartBtn = () => {
     if (selectedDogs.length === 0) {
       return alert("산책 전 반려견을 선택해주세요.");
     }
-    dispatch(
-      startWalking({
-        dogPk: [3],
-        dogState: 0,
-        lat: 127.01,
-        lng: 64.01
-      })
-    );
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const lat = position.coords.latitude; // 위도
+        const lng = position.coords.longitude; // 경도
+        startWalkingApi({
+          dogPk: [3],
+          dogState: 0,
+          lat,
+          lng
+        })
+          .then((res) => {
+            dispatch(startWalking(res.data));
+          })
+          .catch(() => console.error);
+      });
+    } else {
+      alert("지도 정보를 허용해주세요!");
+    }
   };
   return (
     <div className={`${styles.wrapper} flex justify-center`}>
