@@ -2,6 +2,7 @@ package com.c103.dog.api.controller;
 
 import com.c103.dog.DB.entity.Feed;
 import com.c103.dog.DB.entity.Memo;
+import com.c103.dog.DB.entity.User;
 import com.c103.dog.DB.entity.Walk;
 import com.c103.dog.api.response.FeedPostResponse;
 import com.c103.dog.api.response.MemoResponse;
@@ -10,6 +11,7 @@ import com.c103.dog.api.service.FeedService;
 import com.c103.dog.api.service.MemoService;
 import com.c103.dog.api.service.UserService;
 import com.c103.dog.api.service.WalkService;
+import com.c103.dog.common.auth.SsafyUserDetails;
 import com.c103.dog.common.response.BaseResponseBody;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,10 +19,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,9 +49,12 @@ public class CalendarController {
 
     @GetMapping("/feed")
     @ApiOperation(value = "캘린더 피드 리스트 읽기",notes = "강아지 별 년도, 달별에 포함되는 한달씩만 출력",response = FeedPostResponse.class)
-    public ResponseEntity<?> getCalenderFeedList(@RequestParam String year, @RequestParam String month, @RequestParam int dogPk){
+    public ResponseEntity<?> getCalenderFeedList(@ApiIgnore Authentication authentication, @RequestParam String year, @RequestParam String month){
         try {
-            List<Feed> feedList = feedService.findFeedByDay(dogPk,year,month);
+            SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
+            User user = userService.getUserByUserId(userDetails.getUsername());
+
+            List<Feed> feedList = feedService.findFeedByDay(user,year,month);
 
             List<FeedPostResponse> feedResList = new ArrayList<>();
             for(Feed f : feedList){

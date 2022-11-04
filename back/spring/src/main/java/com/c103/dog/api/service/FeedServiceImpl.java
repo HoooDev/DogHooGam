@@ -54,8 +54,8 @@ public class FeedServiceImpl implements FeedService{
     }
 
     @Override
-    public List<Feed> findFeedByDay(int dogPk, String year, String month){
-        return feedRepository.findFeedByDay(dogPk, year, month);
+    public List<Feed> findFeedByDay(User user, String year, String month){
+        return feedRepository.findFeedByDay(user.getPk(), year, month);
     }
 
     @Override

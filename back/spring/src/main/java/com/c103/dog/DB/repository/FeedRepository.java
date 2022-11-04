@@ -12,11 +12,9 @@ import java.util.List;
 @Repository
 public interface FeedRepository extends JpaRepository<Feed, Integer> {
 
-    @Query(value = "SELECT * from feed f where (year(f.create_date) = :year and month(f.create_date) = :month and f.dog_pk = :dogPk)",
+    @Query(value = "SELECT * from feed f where (year(f.create_date) = :year and month(f.create_date) = :month and f.user_pk = :userPk)",
             nativeQuery = true)
-    List<Feed> findFeedByDay(int dogPk , String year, String month);
-
-    List<Feed> findByDog(Dog d);
+    List<Feed> findFeedByDay(int userPk , String year, String month);
 
     List<Feed> findByUser(User user);
 }

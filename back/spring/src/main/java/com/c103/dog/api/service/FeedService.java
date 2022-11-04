@@ -13,7 +13,7 @@ public interface FeedService {
 
     void updateByHide(Feed feed);
 
-    List<Feed> findFeedByDay(int dogPk, String year, String month);
+    List<Feed> findFeedByDay(User user, String year, String month);
 
     List<Feed> findFeedByUser(User user);
 }

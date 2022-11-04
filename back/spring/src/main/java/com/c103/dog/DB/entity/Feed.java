@@ -43,7 +43,7 @@ public class Feed {
     private String dogPkList;
 
     @ManyToOne
-    @JoinColumn(name = "dog_pk")
+    @JoinColumn(name = "user_pk")
     private User user;
 
     public List<Integer> stringToLine(){
