@@ -1,6 +1,6 @@
 FROM node:14-alpine
 
-ARG NEXT_PUBLIC_KAKAO_API_KEY
+ARG NEXT_PUBLIC_KAKAO_KEY
 
 WORKDIR /usr/src/next
 
