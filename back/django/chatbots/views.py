@@ -54,43 +54,72 @@ def indata(request):
     
     sentences = []
     st = []
-    lst = []
-
-    flag = 0
-
     kkma_sentence = kkma.pos(checked_sent)
     no_st = []
-    for i in range(len(kkma_sentence)):
-        no_st.append(kkma_sentence[i][0])
-        if flag == 1 and name == 1:
-            st.append(kkma_sentence[i][0])
-        elif flag == 1 and name == 0:
-            st.append(kkma_sentence[i-2][0])
-            st.append(kkma_sentence[i-1][0])
-            st.append(kkma_sentence[i][0])
-            name = 1
-        if kkma_sentence[i][1] == 'JKS':
-            flag = 1
-            if notnamedata['name'].str.contains(kkma_sentence[i-1][0]).sum() >= 1:
-                name = 0
-            else:
-                name = 1        
-        if kkma_sentence[i][1] == 'ECE' or kkma_sentence[i][1] == 'JKM':
-            if flag == 0:
-                sentences.append(' '.join(no_st))
-                no_st = []
-            else:                
-                sentences.append(' '.join(st))
-                st = []
-                flag = 0
-    if flag == 0:
-        sentences.append(' '.join(no_st))
-    else:
-        
-        sentences.append(' '.join(st))
-    print(sentences)
+    lst = []
+    flag = 0
+    sym = 0
+    noname = 0
     answers = []
     intents = []
+    # for i in range(len(kkma_sentence)):
+    #     no_st.append(kkma_sentence[i][0])
+    #     if flag == 1 and name == 1:
+    #         st.append(kkma_sentence[i][0])
+    #     elif flag == 1 and name == 0:
+    #         st.append(kkma_sentence[i-2][0])
+    #         st.append(kkma_sentence[i-1][0])
+    #         st.append(kkma_sentence[i][0])
+    #         name = 1
+    #     if kkma_sentence[i][1] == 'JKS':
+    #         flag = 1
+    #         if notnamedata['name'].str.contains(kkma_sentence[i-1][0]).sum() >= 1:
+    #             name = 0
+    #         else:
+    #             name = 1        
+    #     if kkma_sentence[i][1] == 'ECE' or kkma_sentence[i][1] == 'JKM':
+    #         if flag == 0:
+    #             sentences.append(' '.join(no_st))
+    #             no_st = []
+    #         else:                
+    #             sentences.append(' '.join(st))
+    #             st = []
+    #             flag = 0
+    # if flag == 0:
+    #     sentences.append(' '.join(no_st))
+    # else:
+        
+    #     sentences.append(' '.join(st))
+    # print(sentences)
+    for i in range(len(kkma_sentence)):
+        print(no_st)
+        print(kkma_sentence[i][0], kkma_sentence[i][1])
+        no_st.append(kkma_sentence[i][0])
+        if kkma_sentence[i][1][0] == 'N':
+            if notnamedata['name'].str.contains(kkma_sentence[i][0]).sum() >= 1:
+                sym = 1
+                lst.append(kkma_sentence[i][0])
+        elif sym == 1:
+                lst.append(kkma_sentence[i][0])
+        print(lst)
+        if kkma_sentence[i][1] == 'ECE' \
+        or (kkma_sentence[i][1] == 'JKM' and (kkma_sentence[i][0] == '과' or kkma_sentence[i][0] == '와'))\
+        or kkma_sentence[i][1] == 'JC':
+            if sym == 1:
+                sentences.append(''.join(lst))
+                lst = []
+            
+            else:
+                sentences.append(' '.join(no_st))
+            no_st = []
+            sym = 0
+    print(lst)
+    if sym == 1:
+        sentences.append(' '.join(lst))
+    else:
+        sentences.append(' '.join(no_st))
+    print(sentences)
+
     for sentence in sentences:
         spelled_sent = spell_checker.check(sentence)
         checked_sent = spelled_sent.checked
@@ -101,7 +130,6 @@ def indata(request):
         print(max_val, question, answer)
         answers.append(answer)
     lst = []
-    dic = dict()
     diseasetable = DiseaseTable.objects.all()
     disease = read_frame(diseasetable)
     for i in answers:
@@ -125,6 +153,7 @@ def select(request):
     diseasetable = DiseaseTable.objects.all()
     disease = read_frame(diseasetable)
     data = disease[(disease['ICD']==icd) & (disease['symptomdata'].str.contains(sym))]
+    print(data)
     symptomdata = SymptomData.objects.get(symptom=sym)
     lst = []
     disease_name = []
