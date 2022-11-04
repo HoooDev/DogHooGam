@@ -25,7 +25,7 @@ pandas
 sklearn
 django_pandas
 numpy
-# sentence_transformers
+sentence_transformers
 konlpy
 pyconfig
 psycopg2

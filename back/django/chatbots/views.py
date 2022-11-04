@@ -35,7 +35,7 @@ def index(request):
 @api_view(['GET'])
 def indata(request):
     # 데이터 받기
-    sentence = request.GET['data']
+    sentence = request.data['data']
     # 형태소 분석기 framework
     kkma = Kkma()
     
@@ -113,7 +113,7 @@ def indata(request):
         for r in range(len(a)):
             if a.iloc[r] not in icd:
                 icd.append(a.iloc[r])
-        symptomdata.ICD = icd     
+        symptomdata.ICD = json.dumps(icd)     
         lst.append(symptomdata)
     serializer = SymptomSerializer(lst, many=True)    
     return Response(serializer.data)

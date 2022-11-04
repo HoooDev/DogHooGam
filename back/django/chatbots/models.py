@@ -4,12 +4,15 @@ from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
 # Create your models here.
+class IcdData(models.Model):
+    ICD = models.CharField(max_length=50)
 
 class SymptomTable(models.Model):
     indata = models.CharField(max_length=100)
     symptom = models.TextField()
     embedding = models.TextField()
-      
+    choose_icd = models.ManyToManyField(IcdData)
+    
 
 class DiseaseTable(models.Model):
     ICD = models.CharField(max_length=100)
@@ -25,3 +28,4 @@ class SymptomData(models.Model):
 
 class NotName(models.Model):
     name = models.CharField(max_length=50)
+
