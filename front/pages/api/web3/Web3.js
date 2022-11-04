@@ -6,12 +6,24 @@ const web3 = new Web3();
 web3.setProvider(
   new Web3.providers.HttpProvider(process.env.NEXT_PUBLIC_GETH_NODE)
 );
-
+// 코인베이스 주소 가져오기
 export const getAdminAdress = async () => {
   const res = await web3.eth.getCoinbase();
   return res;
 };
 
+// 지갑 잔액 확인
+export const getBalance = async (address) => {
+  console.log(address, "지갑주소");
+  const res = await TOKENContract.methods
+    .balanceOf(address)
+    .call()
+    .then((balance) => balance);
+  console.log(res);
+  return res;
+};
+
+// 지갑 만들기
 export const createAccount = async () => {
   const coinBase = await getAdminAdress();
   const createdObj = web3.eth.accounts.create();
@@ -32,14 +44,15 @@ export const createAccount = async () => {
   };
   web3.eth.sendTransaction(tx).then((receipt) => receipt);
   // ERC-20 토큰 보내기 전 허용
-  await TOKENContract.methods.approve(coinBase, 10).send({ from: coinBase });
+  await TOKENContract.methods.approve(coinBase, 100).send({ from: coinBase });
   // 허용 한 후 ERC-20 토큰 전송 ( 로그인 시 10 잉크 (10잉크 -> 1피드) )
   await TOKENContract.methods
-    .transferFrom(coinBase, wallet.address, 10)
+    .transferFrom(coinBase, wallet.address, 100)
     .send({ from: coinBase });
   return [wallet.address, wallet.privateKey];
 };
 
+// NFT 만들기
 const sendFileToIPFS = async (e, file, text) => {
   e.preventDefault(process.env.NEXT_PUBLIC_GETH_NODE);
 
@@ -107,7 +120,7 @@ const sendFileToIPFS = async (e, file, text) => {
       .then(console.log("계정해제"));
     await NFTContract.methods
       .mintNFT(
-        "0x56b3de125f0885052181a83e9e6aa4a78f5215ab",
+        "0x56b3de125f0885052181a83e9e6aa4a78f5215ab", // 받는 지갑 주소
         `ipfs://${res.data.IpfsHash}`
       )
       .send({ from: process.env.NEXT_PUBLIC_COINBASE })

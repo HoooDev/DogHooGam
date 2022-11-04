@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
@@ -10,6 +10,7 @@ import sendFileToIPFS from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
 
 function Create() {
+  const [flag, setFlag] = useState(false);
   const [imgFile, setImgFile] = useState(null);
   const [uploadimg, setUploadimg] = useState<any>(null);
   // const [nftImg, setNftImg] = useState<any>(null);
@@ -21,7 +22,7 @@ function Create() {
   });
   const [apiFeed, setApiFeed] = useState<any>({
     content: "",
-    dogPk: 2,
+    dogPk: 16,
     feedImg: "",
     lat: null,
     lng: null,
@@ -49,8 +50,15 @@ function Create() {
       feedImg: feedNft[0],
       transactionHash: feedNft[1]
     });
-    addFeed(apiFeed);
+    setFlag(true);
   };
+
+  useEffect(() => {
+    if (flag) {
+      addFeed(apiFeed);
+    }
+  }, [flag, apiFeed]);
+
   // console.log(apiFeed, "에이피아이피드");
   return (
     <div className={`${styles.wrapper}`}>
