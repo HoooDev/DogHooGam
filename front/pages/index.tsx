@@ -35,9 +35,7 @@ const Index: NextPage = () => {
         className={`${styles.button} flex align-center fs-20 notoMid`}
         type="button"
         onClick={() => {
-          router.push(
-            "https://dog-hoogam.site:8000/oauth2/authorization/kakao"
-          );
+          router.push("/oauth2/authorization/kakao");
         }}
       >
         <div className={`${styles.kakao}`}>
