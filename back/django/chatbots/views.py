@@ -35,7 +35,7 @@ def index(request):
 @api_view(['GET'])
 def indata(request):
     # 데이터 받기
-    sentence = request.data['data']
+    sentence = request.GET['data']
     # 형태소 분석기 framework
     kkma = Kkma()
     
