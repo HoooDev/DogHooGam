@@ -12,8 +12,6 @@ import java.util.List;
 @Getter
 @ApiModel(value = "feedPostRequest",description = "강아지 신분증 등록 요청")
 public class FeedPostRequest {
-    @ApiModelProperty(name="dogPk", example="1" , dataType = "int")
-    private List<Integer> dogPk;
 
     @ApiModelProperty(name="NFT 해쉬코드", example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN...")
     private String transactionHash;
@@ -30,12 +28,4 @@ public class FeedPostRequest {
     @ApiModelProperty(name="문구", example="문구입니다~")
     private String content;
 
-    public String lineToString(){
-        StringBuilder sb = new StringBuilder();
-        for(int p : this.dogPk){
-            System.out.println(p);
-            sb.append(p).append(",");
-        }
-        return sb.toString();
-    }
 }

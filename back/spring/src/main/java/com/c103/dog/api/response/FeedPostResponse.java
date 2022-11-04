@@ -34,7 +34,6 @@ public class FeedPostResponse {
     @ApiModelProperty(name="문구", example="문구입니다~")
     private String content;
 
-    private List<Integer> dogPkList;
 
     private boolean isHide;
 
@@ -45,7 +44,6 @@ public class FeedPostResponse {
     public static FeedPostResponse of(Feed feed){
         FeedPostResponse feedRes = FeedPostResponse.builder()
                 .pk(feed.getPk())
-                .dogPkList(feed.stringToLine())
                 .transactionHash(feed.getTransactionHash())
                 .feedImg(feed.getFeedImg())
                 .lat(feed.getLat())

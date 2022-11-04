@@ -40,20 +40,10 @@ public class Feed {
     @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
     private Timestamp createDate;
 
-    private String dogPkList;
 
     @ManyToOne
     @JoinColumn(name = "user_pk")
     private User user;
 
-    public List<Integer> stringToLine(){
-
-        List<Integer> result = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(this.dogPkList, ",");
-        while(st.hasMoreTokens()){
-            result.add(Integer.parseInt(st.nextToken()));
-        }
-        return result;
-    }
 
 }

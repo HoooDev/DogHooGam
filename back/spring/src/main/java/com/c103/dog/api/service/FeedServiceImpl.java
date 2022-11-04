@@ -27,7 +27,6 @@ public class FeedServiceImpl implements FeedService{
 
         Feed feedEntity = new Feed();
         feedEntity.setTransactionHash(feedReq.getTransactionHash());
-        feedEntity.setDogPkList(feedReq.lineToString());
         feedEntity.setLat(feedReq.getLat());
         feedEntity.setLng(feedReq.getLng());
         feedEntity.setContent(feedReq.getContent());
