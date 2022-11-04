@@ -37,50 +37,55 @@ function Chat() {
     }
   ]);
 
-  // async function getSelectResult(e: any) {
-  //   console.log(e);
-
-  //   axios({
-  //     url: `https://dog-hoogam.site/chatbot/indata`,
-  //     method: "get",
-  //     params: { data: e }
-  //   })
-  //     .then((res) => {
-  //       console.log(res);
-  //       return res.data[0];
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  function goMessage(e: any) {
-    e.preventDefault();
-    const newChatbox = [...chatbox];
-    newChatbox.push({
-      id: chatbox.length + 1,
-      sender: "me",
-      content: msg,
-      time: getNowTime()
-    });
-    setChatbox(newChatbox);
+  function getSelectResult(e: any) {
+    console.log(e);
 
     axios({
       url: `https://dog-hoogam.site/chatbot/indata`,
       method: "get",
-      params: { data: msg }
+      params: { data: e }
     })
       .then((res) => {
         console.log(res);
+        console.log(chatbox);
+
+        setChatbox((prev) => [
+          ...prev,
+          {
+            id: Date.now(),
+            sender: "you",
+            content: res.data[0].symptom,
+            time: getNowTime()
+          }
+        ]);
       })
       .catch((err) => {
         console.log(err);
       });
+  }
 
+  function goMessage(e: any) {
+    e.preventDefault();
+    setChatbox((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        sender: "me",
+        content: msg,
+        time: getNowTime()
+      }
+    ]);
+    getSelectResult(msg);
 
     if (textareaRef.current) {
       textareaRef.current.value = "";
       setmsg("");
+    }
+  }
+
+  function checkEnter(e: any) {
+    if (e.key === "Enter") {
+      goMessage(e);
     }
   }
 
@@ -130,6 +135,7 @@ function Chat() {
           ref={textareaRef}
           className={`${styles.input} notoMid fs-12`}
           placeholder="질문을 입력해주세요."
+          onKeyUp={(e) => checkEnter(e)}
           id="chatInput"
           onChange={(e) => setmsg(e.target.value)}
         />
