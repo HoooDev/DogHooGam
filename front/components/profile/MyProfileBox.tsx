@@ -1,18 +1,25 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+// import Image from "next/image";
+import { useSelector } from "react-redux";
 import styles from "./MyProfileBox.module.scss";
-import defaultUser from "../../public/icons/defaultUser.png";
+// import defaultUser from "../../public/icons/defaultUser.png";
 import MyWallet from "./MyWallet";
 
 function MyProfileBox() {
+  const storeUser = useSelector((state: any) => state.user.userInfo);
+
+  console.log(storeUser);
   return (
     <div className={`${styles.myProfileBox}`}>
       <div className={`${styles.profileBox} flex`}>
         <div className={`${styles.imgBox} `}>
-          <div className={`${styles.myImg}`}>
-            <Image src={defaultUser} alt="#" />
-          </div>
+          <img
+            className={`${styles.myImg}`}
+            src={storeUser.profileImg}
+            alt="#"
+          />
         </div>
-        <p className={`${styles.myNickName}`}>윤더가든</p>
+        <p className={`${styles.myNickName}`}>{storeUser.nickName}</p>
       </div>
       <MyWallet />
     </div>

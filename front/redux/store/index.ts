@@ -18,6 +18,7 @@ import storage from "redux-persist/lib/storage";
 // import logger from "redux-logger";
 import { createWrapper, MakeStore } from "next-redux-wrapper";
 import walkSlice from "../slice/walkSlice";
+import userSlice from "../slice/userSlice";
 
 const persistConfig = {
   key: "root",
@@ -26,7 +27,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  walk: walkSlice
+  walk: walkSlice,
+  user: userSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
