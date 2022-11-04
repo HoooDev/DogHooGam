@@ -2,6 +2,7 @@ package com.c103.dog.api.controller;
 
 import com.c103.dog.DB.entity.User;
 import com.c103.dog.DB.repository.UserRepository;
+import com.c103.dog.api.request.TestEndRequest;
 import com.c103.dog.api.request.UserAddressRequest;
 import com.c103.dog.api.response.MemoResponse;
 import com.c103.dog.api.response.UserAddressResponse;
@@ -57,5 +58,13 @@ public class TestController {
     public ResponseEntity<?> getToken(@RequestParam String userId ){
         String token = JwtTokenUtil.getToken(userId);
         return ResponseEntity.status(HttpStatus.OK).body(token);
+    }
+
+    @PostMapping("/walk")
+    @ApiOperation(value = "walk test",notes = "헤드에 Authorization : Bearer + token")
+    public ResponseEntity<?> postWalk(@RequestBody TestEndRequest testEndRequest){
+
+        System.out.println(testEndRequest.getWww().toString());
+        return null;
     }
 }

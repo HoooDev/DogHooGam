@@ -1,5 +1,6 @@
 package com.c103.dog.api.request;
 
+import com.c103.dog.common.util.Position;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -18,13 +19,13 @@ public class PersonEndRequest {
 
     private double distance;
 
-    private List<double[]> walkPath;
+    private List<Position> walkPath;
 
     public String lineToString(){
         StringBuilder sb = new StringBuilder();
-        for(double [] a : this.walkPath){
-            System.out.println(a[0] + " " + a[1]);
-            sb.append(a[0]).append(",").append(a[1]).append(",");
+        for(Position p : this.walkPath){
+            System.out.println(p.getLat() + " " + p.getLng());
+            sb.append(p.getLat()).append(",").append(p.getLng()).append(",");
         }
         return sb.toString();
     }

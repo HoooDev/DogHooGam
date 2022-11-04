@@ -2,6 +2,7 @@ package com.c103.dog.api.response;
 
 import com.c103.dog.DB.entity.Memo;
 import com.c103.dog.DB.entity.Walk;
+import com.c103.dog.common.util.Position;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
@@ -23,7 +24,7 @@ public class WalkResponse {
 
     private int coin;
 
-    private List<double[]> walkPath;
+    private List<Position> walkPath;
 
 
     public static WalkResponse of(Walk walk){

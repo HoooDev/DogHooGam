@@ -1,5 +1,6 @@
 package com.c103.dog.DB.entity;
 
+import com.c103.dog.common.util.Position;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,12 +39,12 @@ public class Walk {
     @JoinColumn(name = "dog_pk")
     private Dog dog;
 
-    public List<double[]> stringToLine(){
+    public List<Position> stringToLine(){
 
-        List<double[]> result = new ArrayList<>();
+        List<Position> result = new ArrayList<>();
         StringTokenizer st = new StringTokenizer(walkPath, ",");
         while(st.hasMoreTokens()){
-            result.add(new double[] {Double.parseDouble(st.nextToken()),Double.parseDouble(st.nextToken())});
+            result.add(new Position(Double.parseDouble(st.nextToken()),Double.parseDouble(st.nextToken())));
         }
         return result;
     }
