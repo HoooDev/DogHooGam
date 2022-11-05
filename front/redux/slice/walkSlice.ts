@@ -13,10 +13,7 @@ interface WalkState {
   success: boolean;
   error: any;
   isWalkingStarted: boolean;
-  others: any[];
   selectedDogs: any[];
-  // start: number;
-  // end: number;
   totalDist: string;
   isPaused: boolean;
   personId: string;
@@ -26,6 +23,7 @@ interface WalkState {
   };
   paths: Location[];
   time: number;
+  others: any[];
 }
 
 const initialState: WalkState = {
@@ -33,10 +31,7 @@ const initialState: WalkState = {
   success: false,
   error: null,
   isWalkingStarted: false,
-  others: [],
   selectedDogs: [],
-  // start: 0,
-  // end: 0,
   totalDist: "0.00",
   isPaused: false,
   personId: "",
@@ -45,7 +40,8 @@ const initialState: WalkState = {
     lng: 0
   },
   paths: [],
-  time: 0
+  time: 0,
+  others: []
 }; // 초기 상태 정의
 
 export const startWalkingApi = async (data: any) => {
@@ -69,10 +65,9 @@ const walkSlice = createSlice({
   reducers: {
     startWalking: (state, { payload }) => {
       state.isWalkingStarted = true;
+      console.log("이때 저장", payload);
       state.personId = payload;
     },
-    // nowWalking: (state, { payload }) => {
-    // },
     finishWalking: (state) => {
       state.isWalkingStarted = false;
     },
@@ -91,8 +86,6 @@ const walkSlice = createSlice({
       state.error = null;
       state.others = [];
       state.selectedDogs = [];
-      state.start = 0;
-      state.end = 0;
       state.totalDist = "0.00";
       state.isPaused = false;
       state.personId = "";

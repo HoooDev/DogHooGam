@@ -23,7 +23,7 @@ const StartBtn = () => {
           lng
         })
           .then((res) => {
-            dispatch(startWalking(res.data));
+            dispatch(startWalking(res));
           })
           .catch(() => console.error);
       });

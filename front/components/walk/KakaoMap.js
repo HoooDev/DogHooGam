@@ -22,24 +22,24 @@ if (typeof window !== "undefined") {
   kakao = window.kakao;
 }
 
-const positions = [
-  {
-    title: "카카오",
-    latlng: { lat: 33.450705, lng: 126.570677 }
-  },
-  {
-    title: "생태연못",
-    latlng: { lat: 33.450936, lng: 126.569477 }
-  },
-  {
-    title: "텃밭",
-    latlng: { lat: 33.450879, lng: 126.56994 }
-  },
-  {
-    title: "근린공원",
-    latlng: { lat: 33.451393, lng: 126.570738 }
-  }
-];
+// const positions = [
+//   {
+//     title: "카카오",
+//     latlng: { lat: 33.450705, lng: 126.570677 }
+//   },
+//   {
+//     title: "생태연못",
+//     latlng: { lat: 33.450936, lng: 126.569477 }
+//   },
+//   {
+//     title: "텃밭",
+//     latlng: { lat: 33.450879, lng: 126.56994 }
+//   },
+//   {
+//     title: "근린공원",
+//     latlng: { lat: 33.451393, lng: 126.570738 }
+//   }
+// ];
 
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
   if (lat1 === lat2 && lon1 === lon2) {
@@ -63,7 +63,8 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
-  const { isPaused, paths } = useSelector((state) => state.walk);
+  const [positions, setPositions] = useState([]);
+  const { isPaused, paths, personId } = useSelector((state) => state.walk);
   const timeout = useRef(null);
   const dispatch = useDispatch();
   const [map, setMap] = useState(null);
@@ -78,7 +79,7 @@ const KakaoMap = () => {
 
   const handleClick = ({ lat, lng }) => {
     dispatch(pushPaths({ lat, lng }));
-    if (paths.length > 1) {
+    if (paths?.length > 1) {
       // 누적 총 거리
       const dist = calculateDistance(
         paths[paths.length - 1].lat,
@@ -119,6 +120,31 @@ const KakaoMap = () => {
     init();
   }, []);
 
+  const walking = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const lat = position.coords.latitude; // 위도
+        const lng = position.coords.longitude; // 경도
+        nowWalkingApi({ lat, lng, personId })
+          .then((res) => {
+            res.forEach((element) => {
+              const tmp = {
+                title: element.dogPk,
+                latlng: { lat: element.lat, lng: element.lng }
+              };
+              setPositions((prev) => [...prev, ...tmp]);
+            });
+            dispatch(pushPaths({ lat, lng }));
+            setCenter({ lat, lng });
+            handleClick({ lat, lng });
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      });
+    }
+  };
+
   useEffect(() => {
     if (timeout.current) {
       clearTimeout(timeout.current);
@@ -127,16 +153,7 @@ const KakaoMap = () => {
       if (timeout.current) {
         clearTimeout(timeout.current);
       }
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          const lat = position.coords.latitude; // 위도
-          const lng = position.coords.longitude; // 경도
-          nowWalkingApi();
-          dispatch(pushPaths({ lat, lng }));
-          setCenter({ lat, lng });
-          handleClick({ lat, lng });
-        });
-      }
+      walking();
     }, 3000);
     return () => {
       if (timeout.current) {
@@ -154,16 +171,7 @@ const KakaoMap = () => {
         if (timeout.current) {
           clearTimeout(timeout.current);
         }
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition((position) => {
-            const lat = position.coords.latitude; // 위도
-            const lng = position.coords.longitude; // 경도
-            nowWalkingApi();
-            dispatch(pushPaths({ lat, lng }));
-            setCenter({ lat, lng });
-            handleClick({ lat, lng });
-          });
-        }
+        walking();
       }, 3000);
     } else if (isPaused) {
       if (timeout.current) {
@@ -175,7 +183,7 @@ const KakaoMap = () => {
         clearTimeout(timeout.current);
       }
     };
-  }, [isPaused, handleClick]);
+  }, [isPaused, handleClick, walking]);
 
   return (
     <div className={styles.wrapper}>

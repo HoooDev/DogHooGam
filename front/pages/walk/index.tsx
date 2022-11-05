@@ -37,9 +37,9 @@ const Index: NextPage = () => {
           walkPath: paths
         });
         dispatch(finishWalking());
+        dispatch(restartWalking());
+        dispatch(resetWalking());
       }
-      dispatch(restartWalking());
-      dispatch(resetWalking());
     };
   }, []);
 

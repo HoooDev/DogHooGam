@@ -26,12 +26,14 @@ const AfterSign = () => {
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [time, setTime] = useState(0);
 
-  useEffect(() => {
-    return () => {
-      dispatch(resetWalking());
-      dispatch(restartWalking());
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     if (personId) {
+  //       dispatch(resetWalking());
+  //       dispatch(restartWalking());
+  //     }
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (!isPaused) {
