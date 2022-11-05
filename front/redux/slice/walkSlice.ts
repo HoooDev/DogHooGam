@@ -97,6 +97,14 @@ const walkSlice = createSlice({
       state.time = 0;
     },
     pushPaths: (state, { payload }) => {
+      if (state.paths.length > 1) {
+        const lastPosition = state.paths[state.paths.length - 1];
+        if (
+          lastPosition.lat === payload.lat &&
+          lastPosition.lng === payload.lng
+        )
+          return;
+      }
       state.paths.push(payload);
     },
     saveDistance: (state, { payload }) => {
