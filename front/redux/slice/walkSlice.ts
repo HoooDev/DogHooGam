@@ -123,62 +123,6 @@ const walkSlice = createSlice({
       state.time = payload;
     }
   }
-  // extraReducers: (builder) => {
-  //   builder.addCase(startWalking.pending, (state) => {
-  //     state.loading = true;
-  //     state.success = false;
-  //     state.error = null;
-  //   });
-  //   builder.addCase(startWalking.fulfilled, (state, { payload }) => {
-  //     state.loading = false;
-  //     state.success = true;
-  //     state.error = null;
-  //     state.isWalkingStarted = true;
-  //     state.start = Date.now();
-  //     state.personId = payload;
-  //     console.log("이때 저장", payload, current(state.selectedDogs));
-  //   });
-  //   builder.addCase(startWalking.rejected, (state, { payload }) => {
-  //     state.loading = false;
-  //     state.success = false;
-  //     state.error = payload;
-  //   });
-
-  //   builder.addCase(nowWalking.pending, (state) => {
-  //     state.loading = true;
-  //     state.success = false;
-  //     state.error = null;
-  //   });
-  //   builder.addCase(nowWalking.fulfilled, (state) => {
-  //     state.loading = false;
-  //     state.success = true;
-  //     state.error = null;
-  //   });
-  //   builder.addCase(nowWalking.rejected, (state, { payload }) => {
-  //     state.loading = false;
-  //     state.success = false;
-  //     state.error = payload;
-  //   });
-
-  //   builder.addCase(finishWalking.pending, (state) => {
-  //     state.loading = true;
-  //     state.success = false;
-  //     state.error = null;
-  //   });
-  //   builder.addCase(finishWalking.fulfilled, (state) => {
-  //     state.loading = false;
-  //     state.success = true;
-  //     state.error = null;
-  //     state.isWalkingStarted = false;
-  //     state.end = Date.now();
-  //     console.log((state.end - state.start) / 1000, "초 동안 산책했음");
-  //   });
-  //   builder.addCase(finishWalking.rejected, (state, { payload }) => {
-  //     state.loading = false;
-  //     state.success = false;
-  //     state.error = payload;
-  //   });
-  // }
 });
 
 export const {
