@@ -65,7 +65,6 @@ const walkSlice = createSlice({
   reducers: {
     startWalking: (state, { payload }) => {
       state.isWalkingStarted = true;
-      console.log("이때 저장", payload);
       state.personId = payload;
     },
     finishWalking: (state) => {

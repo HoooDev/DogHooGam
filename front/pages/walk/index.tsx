@@ -46,14 +46,16 @@ const Index: NextPage = () => {
   return (
     <div className={styles.wrapper}>
       {isWalkingStarted ? <KakaoMap /> : <div className={styles.hidden} />}
-      {!isWalkingStarted && (
-        <div className="flex justify-center">
-          {dogs.map((dog) => (
-            <DogSelectCard key={dog.id} id={dog.id} name={dog.name} />
-          ))}
-        </div>
-      )}
-      {!isWalkingStarted ? <BeforeSign /> : <AfterSign />}
+      <div className={styles.container}>
+        {!isWalkingStarted && (
+          <div className={`${styles.dogSelectedCards} flex justify-center`}>
+            {dogs.map((dog) => (
+              <DogSelectCard key={dog.id} id={dog.id} name={dog.name} />
+            ))}
+          </div>
+        )}
+        {!isWalkingStarted ? <BeforeSign /> : <AfterSign />}
+      </div>
     </div>
   );
 };
