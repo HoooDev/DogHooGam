@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable prefer-template */
 /* eslint-disable no-bitwise */
 /* eslint-disable no-shadow */
@@ -75,7 +76,7 @@ const KakaoMap = () => {
   });
   // const [paths, setPaths] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const { others } = useSelector((state) => state.walk);
+  const [isSending, setIsSending] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const handleClick = ({ lat, lng }) => {
@@ -126,6 +127,7 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
+        console.log("산책중 api");
         nowWalkingApi({ lat, lng, personId })
           .then((res) => {
             const newPositions = [];
@@ -149,44 +151,42 @@ const KakaoMap = () => {
   };
 
   useEffect(() => {
+    if (isSending) return;
+    walking();
+    setIsSending(true);
     if (timeout.current) {
       clearTimeout(timeout.current);
     }
     timeout.current = setTimeout(() => {
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
-      walking();
+      setIsSending(false);
     }, 3000);
     return () => {
       if (timeout.current) {
         clearTimeout(timeout.current);
       }
     };
-  }, [handleClick]);
+  }, [isSending, handleClick]);
 
   useEffect(() => {
+    if (isSending) return;
     if (!isPaused) {
+      walking();
+      setIsSending(true);
       if (timeout.current) {
         clearTimeout(timeout.current);
       }
       timeout.current = setTimeout(() => {
-        if (timeout.current) {
-          clearTimeout(timeout.current);
-        }
-        walking();
+        setIsSending(false);
       }, 3000);
     } else if (isPaused) {
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
+      setIsSending(true);
     }
     return () => {
       if (timeout.current) {
         clearTimeout(timeout.current);
       }
     };
-  }, [isPaused, handleClick, walking]);
+  }, [isSending, isPaused, handleClick, walking]);
 
   return (
     <div className={styles.wrapper}>

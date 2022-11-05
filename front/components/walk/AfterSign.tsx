@@ -42,10 +42,10 @@ const AfterSign = () => {
       }
       interval.current = setInterval(() => {
         setTime((prev) => {
-          saveTime(prev + 100);
-          return prev + 100;
+          saveTime(prev + 10);
+          return prev + 10;
         });
-      }, 100);
+      }, 10);
     } else if (isPaused) {
       if (interval.current) {
         clearInterval(interval.current);
