@@ -7,84 +7,97 @@ import styles from "./AfterSign.module.scss";
 import pause from "../../public/icons/pause.svg";
 import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
-import { finishWalking } from "../../redux/slice/walkSlice";
+import {
+  finishWalking,
+  finishWalkingApi,
+  pauseWalking,
+  resetWalking,
+  restartWalking,
+  saveTime
+} from "../../redux/slice/walkSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [isPausing, setIsPausing] = useState<boolean>(false);
-  const { totalDist } = useSelector((state: RootState) => state.walk);
-
+  const { totalDist, isPaused, personId, paths } = useSelector(
+    (state: RootState) => state.walk
+  );
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
-  const [timerTime, setTimerTime] = useState(0);
-  const [timerStart, setTimerStart] = useState(Date.now());
-  const [beforeTime, setBeforeTime] = useState(0);
+  const [time, setTime] = useState(0);
 
-  const startTimer = () => {
-    if (interval.current) {
-      clearInterval(interval.current);
+  useEffect(() => {
+    return () => {
+      dispatch(resetWalking());
+      dispatch(restartWalking());
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isPaused) {
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
+      interval.current = setInterval(() => {
+        setTime((prev) => {
+          saveTime(prev + 100);
+          return prev + 100;
+        });
+      }, 100);
+    } else if (isPaused) {
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
     }
-    setTimerStart(Date.now());
-    interval.current = setInterval(() => {
-      setTimerTime(Date.now() - timerStart);
-    }, 10);
-  };
-
-  const restartTimer = () => {
-    if (interval.current) {
-      clearInterval(interval.current);
-    }
-    setBeforeTime(timerTime);
-    setTimerStart(Date.now());
-    interval.current = setInterval(() => {
-      setTimerTime(beforeTime + Date.now() - timerStart);
-    }, 100);
-  };
-
-  const stopTimer = () => {
-    if (interval.current) {
-      clearInterval(interval.current);
-    }
-  };
-
-  const resetTimer = () => {
-    setTimerStart(0);
-    setTimerTime(0);
-  };
+  }, [isPaused]);
 
   const onPlayClick = () => {
-    restartTimer();
+    dispatch(restartWalking());
     setIsPausing((prev) => !prev);
   };
 
   const onPuaseClick = () => {
-    if (interval.current) {
-      clearInterval(interval.current);
-    }
-    stopTimer();
     setIsPausing((prev) => !prev);
+    dispatch(pauseWalking());
   };
+
+  // const beforeCapture = () => {
+  //   let maxLat = 0;
+  //   let maxLng = 0;
+  //   let minLat = 100;
+  //   let minLng = 1000;
+  //   paths.forEach((path) => {
+  //     if (maxLat < path.lat) {
+  //       maxLat = path.lat;
+  //     }
+  //     if (maxLng < path.lng) {
+  //       maxLng = path.lng;
+  //     }
+  //     if (minLat > path.lat) {
+  //       minLat = path.lat;
+  //     }
+  //     if (minLng > path.lng) {
+  //       minLng = path.lng;
+  //     }
+  //   });
+  // };
+
   const onStopClick = () => {
+    onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
-      dispatch(finishWalking(totalDist));
-      resetTimer();
+      finishWalkingApi({
+        coin: 0,
+        distance: 0,
+        personId,
+        walkPath: paths
+      });
+      dispatch(finishWalking());
+      dispatch(restartWalking());
+      dispatch(resetWalking());
+    } else {
+      onPlayClick();
     }
   };
-  const seconds = `0${(Math.floor(timerTime / 1000) % 60).toString(10)}`.slice(
-    -2
-  );
-  const minutes = `0${(Math.floor(timerTime / 60000) % 60).toString(10)}`.slice(
-    -2
-  );
-
-  useEffect(() => {
-    startTimer();
-    return () => {
-      if (interval.current) {
-        clearInterval(interval.current);
-      }
-    };
-  }, []);
 
   return (
     <div className={`${styles.wrapper}`}>
@@ -99,7 +112,8 @@ const AfterSign = () => {
         </div>
         <div className={`${styles.time} flex column align-center`}>
           <div className={`${styles.time__num} fs-20`}>
-            {minutes} : {seconds}
+            {`0${(Math.floor(time / 60000) % 60).toString(10)}`.slice(-2)}:
+            {`0${(Math.floor(time / 1000) % 60).toString(10)}`.slice(-2)}
           </div>
           <div className={`${styles.time__unit} fs-12`}>시간(분)</div>
         </div>

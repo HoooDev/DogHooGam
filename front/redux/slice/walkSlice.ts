@@ -1,108 +1,82 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
-
-interface WalkState {
-  loading: boolean;
-  success: boolean;
-  error: any;
-  lat: number;
-  lon: number;
-  isWalkingStarted: boolean;
-  others: any[];
-  selectedDogs: any[];
-  start: number;
-  end: number;
-  path: any[];
-  totalDist: number;
-}
+import { createSlice } from "@reduxjs/toolkit";
+import axios from "../../pages/api/index";
 
 interface Location {
   lat: number;
   lng: number;
 }
 
-type Any = any;
+interface WalkState {
+  loading: boolean;
+  success: boolean;
+  error: any;
+  isWalkingStarted: boolean;
+  others: any[];
+  selectedDogs: any[];
+  // start: number;
+  // end: number;
+  totalDist: string;
+  isPaused: boolean;
+  personId: string;
+  center: {
+    lat: number;
+    lng: number;
+  };
+  paths: Location[];
+  time: number;
+}
 
 const initialState: WalkState = {
   loading: false,
   success: false,
   error: null,
-  lat: 33.450701,
-  lon: 126.570667,
   isWalkingStarted: false,
   others: [],
   selectedDogs: [],
-  start: Date.now(),
-  end: Date.now(),
-  path: [],
-  totalDist: 0
+  // start: 0,
+  // end: 0,
+  totalDist: "0.00",
+  isPaused: false,
+  personId: "",
+  center: {
+    lat: 0,
+    lng: 0
+  },
+  paths: [],
+  time: 0
 }; // 초기 상태 정의
 
-export const startWalking = createAsyncThunk<
-  // Return type of the payload creator
-  Any,
-  // First argument to the payload creator
-  Location
-  // Types for ThunkAPI
->("walk/startWalking", async () => {
-  try {
-    // const res = await fetch(`/walk/${location}`);
-    // if (res.status === 400) {
-    //   // Return the known error for future handling
-    //   return (await res.json()) as MyKnownError;
-    // }
-    // return (await res.json()) as any;
-  } catch (error) {
-    console.error(error);
-  }
-});
+export const startWalkingApi = async (data: any) => {
+  const res = await axios.post("/walk", data);
+  return res.data;
+};
 
-export const nowWalking = createAsyncThunk<Any, Location>(
-  // Types for ThunkAPI
-  "walk/nowWalking",
-  async (center) => {
-    try {
-      console.log(center);
-      // const res = await fetch(`/walk/now`);
-      // if (res.status === 400) {
-      //   return (await res.json()) as MyKnownError;
-      // }
-      // return (await res.json()) as any;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-);
+export const nowWalkingApi = async (data: any) => {
+  const res = await axios.post("/walk/waking", data);
+  return res.data;
+};
 
-export const finishWalking = createAsyncThunk<Any, number>(
-  // Types for ThunkAPI
-  "walk/finishWalking",
-  async (totalDist) => {
-    try {
-      console.log(totalDist);
-      // const res = await fetch(`/walk/stop`);
-      // if (res.status === 400) {
-      //   return (await res.json()) as MyKnownError;
-      // }
-      // return (await res.json()) as any;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-);
+export const finishWalkingApi = async (data: any) => {
+  const res = await axios.post("/walk/end", data);
+  return res.data;
+};
 
 const walkSlice = createSlice({
   name: "walk",
   initialState,
   reducers: {
-    setCurLocation: (state, { payload }) => {
-      state.lat = payload.lat;
-      state.lon = payload.lon;
+    startWalking: (state, { payload }) => {
+      state.isWalkingStarted = true;
+      state.personId = payload;
+    },
+    // nowWalking: (state, { payload }) => {
+    // },
+    finishWalking: (state) => {
+      state.isWalkingStarted = false;
     },
     toggleSelectedDogs: (state, { payload }) => {
-      console.log(state.selectedDogs);
       if (state.selectedDogs.find((dog) => dog.id === payload.id)) {
         state.selectedDogs = state.selectedDogs.filter(
           (dog) => dog.id !== payload.id
@@ -111,78 +85,110 @@ const walkSlice = createSlice({
         state.selectedDogs.push(payload);
       }
     },
-    clearSelectedDogs: (state) => {
+    resetWalking: (state) => {
+      state.loading = false;
+      state.success = false;
+      state.error = null;
+      state.others = [];
       state.selectedDogs = [];
+      state.start = 0;
+      state.end = 0;
+      state.totalDist = "0.00";
+      state.isPaused = false;
+      state.personId = "";
+      state.center = {
+        lat: 0,
+        lng: 0
+      };
+      state.paths = [];
+      state.time = 0;
     },
-    pushPath: (state, { payload }) => {
-      state.path.push(payload);
+    pushPaths: (state, { payload }) => {
+      state.paths.push(payload);
     },
-    setDistance: (state, { payload }) => {
-      state.totalDist = payload;
+    saveDistance: (state, { payload }) => {
+      let tmp = state.totalDist + payload;
+      tmp = parseFloat(tmp.toString()).toFixed(2);
+      tmp = parseFloat(tmp).toFixed(2);
+      state.totalDist = tmp;
+    },
+    restartWalking: (state) => {
+      state.isPaused = false;
+    },
+    pauseWalking: (state) => {
+      state.isPaused = true;
+    },
+    saveTime: (state, { payload }) => {
+      state.time = payload;
     }
-  },
-  extraReducers: (builder) => {
-    builder.addCase(startWalking.pending, (state) => {
-      state.loading = true;
-      state.success = false;
-      state.error = null;
-    });
-    builder.addCase(startWalking.fulfilled, (state) => {
-      state.loading = false;
-      state.success = true;
-      state.error = null;
-      state.isWalkingStarted = true;
-      state.start = Date.now();
-    });
-    builder.addCase(startWalking.rejected, (state, { payload }) => {
-      state.loading = false;
-      state.success = false;
-      state.error = payload;
-    });
-
-    builder.addCase(nowWalking.pending, (state) => {
-      state.loading = true;
-      state.success = false;
-      state.error = null;
-    });
-    builder.addCase(nowWalking.fulfilled, (state) => {
-      state.loading = false;
-      state.success = true;
-      state.error = null;
-      // state.path.push(payload);
-    });
-    builder.addCase(nowWalking.rejected, (state, { payload }) => {
-      state.loading = false;
-      state.success = false;
-      state.error = payload;
-    });
-
-    builder.addCase(finishWalking.pending, (state) => {
-      state.loading = true;
-      state.success = false;
-      state.error = null;
-    });
-    builder.addCase(finishWalking.fulfilled, (state) => {
-      state.loading = false;
-      state.success = true;
-      state.error = null;
-      state.isWalkingStarted = false;
-      state.end = Date.now();
-      console.log((state.end - state.start) / 1000, "초 동안 산책했음");
-    });
-    builder.addCase(finishWalking.rejected, (state, { payload }) => {
-      state.loading = false;
-      state.success = false;
-      state.error = payload;
-    });
   }
+  // extraReducers: (builder) => {
+  //   builder.addCase(startWalking.pending, (state) => {
+  //     state.loading = true;
+  //     state.success = false;
+  //     state.error = null;
+  //   });
+  //   builder.addCase(startWalking.fulfilled, (state, { payload }) => {
+  //     state.loading = false;
+  //     state.success = true;
+  //     state.error = null;
+  //     state.isWalkingStarted = true;
+  //     state.start = Date.now();
+  //     state.personId = payload;
+  //     console.log("이때 저장", payload, current(state.selectedDogs));
+  //   });
+  //   builder.addCase(startWalking.rejected, (state, { payload }) => {
+  //     state.loading = false;
+  //     state.success = false;
+  //     state.error = payload;
+  //   });
+
+  //   builder.addCase(nowWalking.pending, (state) => {
+  //     state.loading = true;
+  //     state.success = false;
+  //     state.error = null;
+  //   });
+  //   builder.addCase(nowWalking.fulfilled, (state) => {
+  //     state.loading = false;
+  //     state.success = true;
+  //     state.error = null;
+  //   });
+  //   builder.addCase(nowWalking.rejected, (state, { payload }) => {
+  //     state.loading = false;
+  //     state.success = false;
+  //     state.error = payload;
+  //   });
+
+  //   builder.addCase(finishWalking.pending, (state) => {
+  //     state.loading = true;
+  //     state.success = false;
+  //     state.error = null;
+  //   });
+  //   builder.addCase(finishWalking.fulfilled, (state) => {
+  //     state.loading = false;
+  //     state.success = true;
+  //     state.error = null;
+  //     state.isWalkingStarted = false;
+  //     state.end = Date.now();
+  //     console.log((state.end - state.start) / 1000, "초 동안 산책했음");
+  //   });
+  //   builder.addCase(finishWalking.rejected, (state, { payload }) => {
+  //     state.loading = false;
+  //     state.success = false;
+  //     state.error = payload;
+  //   });
+  // }
 });
 
 export const {
-  setCurLocation,
+  startWalking,
+  finishWalking,
   toggleSelectedDogs,
-  clearSelectedDogs,
-  pushPath,
-  setDistance
+  pushPaths,
+  saveDistance,
+  pauseWalking,
+  restartWalking,
+  resetWalking,
+  saveTime
 } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서

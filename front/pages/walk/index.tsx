@@ -7,7 +7,12 @@ import BeforeSign from "../../components/walk/BeforeSign";
 import AfterSign from "../../components/walk/AfterSign";
 import styles from "./index.module.scss";
 import type { AppDispatch, RootState } from "../../redux/store/index";
-import { finishWalking, clearSelectedDogs } from "../../redux/slice/walkSlice";
+import {
+  finishWalking,
+  restartWalking,
+  resetWalking,
+  finishWalkingApi
+} from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 
 const dogs = [
@@ -18,14 +23,23 @@ const dogs = [
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted, totalDist } = useSelector(
+  const { isWalkingStarted, personId, paths } = useSelector(
     (state: RootState) => state.walk
   );
 
   useEffect(() => {
     return () => {
-      dispatch(finishWalking(totalDist));
-      dispatch(clearSelectedDogs());
+      if (personId) {
+        finishWalkingApi({
+          coin: 0,
+          distance: 0,
+          personId,
+          walkPath: paths
+        });
+        dispatch(finishWalking());
+      }
+      dispatch(restartWalking());
+      dispatch(resetWalking());
     };
   }, []);
 
