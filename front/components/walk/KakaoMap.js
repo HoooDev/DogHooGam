@@ -16,7 +16,6 @@ import {
   pushPaths,
   nowWalkingApi
 } from "../../redux/slice/walkSlice";
-import redCircle from "../../public/icons/redCircle.svg";
 
 let kakao;
 
@@ -213,7 +212,7 @@ const KakaoMap = () => {
             position={center}
             onClick={toggleModal}
             image={{
-              src: redCircle, // 마커이미지의 주소입니다
+              src: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Red_Point.gif", // 마커이미지의 주소입니다
               size: {
                 width: 64,
                 height: 69
