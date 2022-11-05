@@ -15,6 +15,7 @@ import {
   pushPaths,
   nowWalkingApi
 } from "../../redux/slice/walkSlice";
+import redCircle from "../../public/icons/redCircle.svg";
 
 let kakao;
 
@@ -127,13 +128,15 @@ const KakaoMap = () => {
         const lng = position.coords.longitude; // 경도
         nowWalkingApi({ lat, lng, personId })
           .then((res) => {
+            const newPositions = [];
             res.forEach((element) => {
               const tmp = {
                 title: element.dogPk,
                 latlng: { lat: element.lat, lng: element.lng }
               };
-              setPositions((prev) => [...prev, ...tmp]);
+              newPositions.push(tmp);
             });
+            setPositions(newPositions);
             dispatch(pushPaths({ lat, lng }));
             setCenter({ lat, lng });
             handleClick({ lat, lng });
@@ -210,7 +213,7 @@ const KakaoMap = () => {
             position={center}
             onClick={toggleModal}
             image={{
-              src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png", // 마커이미지의 주소입니다
+              src: redCircle, // 마커이미지의 주소입니다
               size: {
                 width: 64,
                 height: 69
