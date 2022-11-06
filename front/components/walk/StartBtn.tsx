@@ -7,7 +7,9 @@ import type { AppDispatch, RootState } from "../../redux/store/index";
 
 const StartBtn = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { selectedDogs } = useSelector((state: RootState) => state.walk);
+  const { selectedDogs, dogState } = useSelector(
+    (state: RootState) => state.walk
+  );
   const onWalkStartClick = () => {
     if (selectedDogs.length === 0) {
       return alert("산책 전 반려견을 선택해주세요.");
@@ -18,7 +20,7 @@ const StartBtn = () => {
         const lng = position.coords.longitude; // 경도
         startWalkingApi({
           dogPk: [3],
-          dogState: 0,
+          dogState,
           lat,
           lng
         })

@@ -24,6 +24,7 @@ interface WalkState {
   paths: Location[];
   time: number;
   others: any[];
+  dogState: number;
 }
 
 const initialState: WalkState = {
@@ -41,7 +42,8 @@ const initialState: WalkState = {
   },
   paths: [],
   time: 0,
-  others: []
+  others: [],
+  dogState: 0
 }; // 초기 상태 정의
 
 export const startWalkingApi = async (data: any) => {
@@ -94,6 +96,8 @@ const walkSlice = createSlice({
       };
       state.paths = [];
       state.time = 0;
+      state.others = [];
+      state.dogState = 0;
     },
     pushPaths: (state, { payload }) => {
       if (state.paths.length > 1) {
@@ -107,7 +111,7 @@ const walkSlice = createSlice({
       state.paths.push(payload);
     },
     saveDistance: (state, { payload }) => {
-      let tmp = state.totalDist + payload;
+      let tmp = +state.totalDist + payload;
       tmp = parseFloat(tmp.toString()).toFixed(2);
       tmp = parseFloat(tmp).toFixed(2);
       state.totalDist = tmp;
@@ -120,6 +124,9 @@ const walkSlice = createSlice({
     },
     saveTime: (state, { payload }) => {
       state.time = payload;
+    },
+    toggleDogState: (state, { payload }) => {
+      state.dogState = payload;
     }
   }
 });
@@ -133,6 +140,7 @@ export const {
   pauseWalking,
   restartWalking,
   resetWalking,
-  saveTime
+  saveTime,
+  toggleDogState
 } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서

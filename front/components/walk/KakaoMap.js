@@ -65,7 +65,9 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
   const [positions, setPositions] = useState([]);
-  const { isPaused, paths, personId } = useSelector((state) => state.walk);
+  const { isPaused, paths, personId, dogState } = useSelector(
+    (state) => state.walk
+  );
   const timeout = useRef(null);
   const dispatch = useDispatch();
   const [map, setMap] = useState(null);
@@ -73,24 +75,38 @@ const KakaoMap = () => {
     lat: 0,
     lng: 0
   });
-  // const [paths, setPaths] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOtherModalOpen, setIsOtherModalOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const toggleOtherModal = () => setIsOtherModalOpen(!isOtherModalOpen);
 
+  useEffect(() => {
+    if (isModalOpen) {
+      // axios.get();
+    }
+  }, [isModalOpen]);
+
+  useEffect(() => {
+    if (isOtherModalOpen) {
+      // axios.get();
+    }
+  }, [isOtherModalOpen]);
+
   const handleClick = ({ lat, lng }) => {
+    const lastPos = paths[paths.length - 1];
+    if (paths.length > 1 && lastPos.lat === lat && lastPos.lng) return;
     dispatch(pushPaths({ lat, lng }));
     if (paths?.length > 1) {
-      // 누적 총 거리
+      // 최근 움직인 거리
       const dist = calculateDistance(
         paths[paths.length - 1].lat,
         paths[paths.length - 1].lng,
-        paths[paths.length - 2].lat,
-        paths[paths.length - 2].lng
+        lat,
+        lng
       );
-      dispatch(saveDistance(dist.toString()));
+      console.log("dist", dist);
+      dispatch(saveDistance(dist));
     }
   };
 
@@ -128,6 +144,9 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
+        const lastPos = paths[paths.length - 1];
+        if (paths.length > 1 && lastPos.lat === lat && lastPos.lng === lng)
+          return;
         console.log("산책중 api");
         nowWalkingApi({ lat, lng, personId })
           .then((res) => {
@@ -135,7 +154,8 @@ const KakaoMap = () => {
             res.forEach((element) => {
               const tmp = {
                 title: element.dogPk,
-                latlng: { lat: element.lat, lng: element.lng }
+                latlng: { lat: element.lat, lng: element.lng },
+                dogState: element.dogState
               };
               newPositions.push(tmp);
             });
@@ -161,12 +181,7 @@ const KakaoMap = () => {
     timeout.current = setTimeout(() => {
       setIsSending(false);
     }, 3000);
-    return () => {
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
-    };
-  }, [isSending, handleClick]);
+  }, [isSending]);
 
   useEffect(() => {
     if (isSending) return;
@@ -182,12 +197,7 @@ const KakaoMap = () => {
     } else if (isPaused) {
       setIsSending(true);
     }
-    return () => {
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
-    };
-  }, [isSending, isPaused, handleClick, walking]);
+  }, [isSending, isPaused, walking]);
 
   return (
     <div className={styles.wrapper}>
@@ -198,7 +208,7 @@ const KakaoMap = () => {
       <Map
         className={styles.map}
         center={center}
-        level={5}
+        level={1}
         onCreate={(map) => setMap(map)}
       >
         <Polyline
@@ -214,15 +224,18 @@ const KakaoMap = () => {
             position={center}
             onClick={toggleModal}
             image={{
-              src: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Red_Point.gif", // 마커이미지의 주소입니다
+              src:
+                dogState === 0
+                  ? "https://lab.ssafy.com/s07-final/S07P31C103/uploads/bd9a02e70f2fa3d9f84a7fd9ab8b7b0c/realGreen.png"
+                  : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png", // 마커이미지의 주소입니다
               size: {
-                width: 64,
-                height: 69
+                width: 40,
+                height: 40
               }, // 마커이미지의 크기입니다
               options: {
                 offset: {
-                  x: 27,
-                  y: 69
+                  x: 20,
+                  y: 40
                 } // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
               }
             }}
@@ -235,10 +248,13 @@ const KakaoMap = () => {
               onClick={toggleOtherModal}
               position={position.latlng} // 마커를 표시할 위치
               image={{
-                src: "https://cdn-icons-png.flaticon.com/128/2171/2171990.png", // 마커이미지의 주소입니다
+                src:
+                  position.dogState === 0
+                    ? "https://lab.ssafy.com/s07-final/S07P31C103/uploads/bd9a02e70f2fa3d9f84a7fd9ab8b7b0c/realGreen.png"
+                    : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png", // 마커이미지의 주소입니다
                 size: {
-                  width: 36,
-                  height: 36
+                  width: 40,
+                  height: 40
                 } // 마커이미지의 크기입니다
               }}
               title={position.title} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
