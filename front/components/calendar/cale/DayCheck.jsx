@@ -6,7 +6,7 @@ import MakeCalendar from "./MakeCalendar";
 // import "react-calendar/dist/Calendar.css"; // css import
 
 const today = new Date();
-console.log(today);
+// console.log(today);
 // 초기 상태
 const initialState = {
   year: today.getFullYear(),
@@ -30,7 +30,7 @@ function DayCheck() {
   const onIncreases = () => {
     dispatch({ type: "INCREMENT" });
   };
-  console.log(state);
+  // console.log(state);
   return (
     <div className="Calendar">
       <div className="header">
@@ -53,13 +53,13 @@ function DayCheck() {
       <table>
         <thead>
           <tr>
-            <td className="text-center fs-20 notoBold">일</td>
-            <td className="text-center fs-20 notoBold">월</td>
-            <td className="text-center fs-20 notoBold">화</td>
-            <td className="text-center fs-20 notoBold">수</td>
-            <td className="text-center fs-20 notoBold">목</td>
-            <td className="text-center fs-20 notoBold">금</td>
-            <td className="text-center fs-20 notoBold">토</td>
+            <td className="text-center fs-16 notoBold">일</td>
+            <td className="text-center fs-16 notoBold">월</td>
+            <td className="text-center fs-16 notoBold">화</td>
+            <td className="text-center fs-16 notoBold">수</td>
+            <td className="text-center fs-16 notoBold">목</td>
+            <td className="text-center fs-16 notoBold">금</td>
+            <td className="text-center fs-16 notoBold">토</td>
           </tr>
         </thead>
         <tbody>{MakeCalendar({ year, month, firstDay, lastDate })}</tbody>

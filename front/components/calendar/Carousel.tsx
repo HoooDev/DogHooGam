@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import styles from "./Todo.module.scss"; // 투두 css
 import styles2 from "./WalkRecord.module.scss"; // 산책기록 css
 

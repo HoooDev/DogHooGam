@@ -1,6 +1,6 @@
 import styles from "./WalkRecord.module.scss";
 
-import KakaoMap from "../walk/KakaoMap"; // 산책하기 카카오맵 일단 넣었습니당
+// import KakaoMap from "../walk/KakaoMap"; // 산책하기 카카오맵 일단 넣었습니당
 
 // 더미이미지
 // import map from "../../public/image/map.png";
@@ -11,7 +11,8 @@ function WalkRecord() {
   return (
     <div className={`${styles.wrapper}`} id="산책기록">
       <div className={`${styles.map}`}>
-        <KakaoMap />
+        {/* <KakaoMap /> */}
+        산책기록자리
       </div>
       <div className={`${styles.bottom} flex`}>
         <div className={`${styles.sub1} notoBold fs-24`}>시간</div>
