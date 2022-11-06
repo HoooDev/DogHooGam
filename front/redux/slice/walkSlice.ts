@@ -61,6 +61,11 @@ export const finishWalkingApi = async (data: any) => {
   return res.data;
 };
 
+export const getMyDogs = async () => {
+  const res = await axios.get("/dog");
+  return res.data;
+};
+
 const walkSlice = createSlice({
   name: "walk",
   initialState,

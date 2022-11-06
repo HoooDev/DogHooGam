@@ -11,7 +11,8 @@ import {
   finishWalking,
   restartWalking,
   resetWalking,
-  finishWalkingApi
+  finishWalkingApi,
+  getMyDogs
 } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 
@@ -26,6 +27,10 @@ const Index: NextPage = () => {
   const { isWalkingStarted, personId, paths } = useSelector(
     (state: RootState) => state.walk
   );
+
+  useEffect(() => {
+    dispatch(getMyDogs());
+  }, []);
 
   useEffect(() => {
     return () => {
