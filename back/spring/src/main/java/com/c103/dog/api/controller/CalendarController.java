@@ -80,7 +80,7 @@ public class CalendarController {
 
     @GetMapping("/memo")
     @ApiOperation(value = "캘린더 메모 리스트 읽기",notes = "년도, 달별에 포함되는 한달씩만 출력",response = MemoResponse.class)
-    public ResponseEntity<?> getCalenderMemoList(@ApiIgnore Authentication authentication, @RequestParam String year, @RequestParam String month, @RequestParam int dogPk){
+    public ResponseEntity<?> getCalenderMemoList(@ApiIgnore Authentication authentication, @RequestParam String year, @RequestParam String month){
         try {
             SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
             User user = userService.getUserByUserId(userDetails.getUsername());

@@ -131,9 +131,9 @@ public class DogController {
         }
     }
 
-    @GetMapping("/list")
+    @PostMapping("/list")
     @ApiOperation(value = "강아지 여러개 리스트 조회",notes = "")
-    public ResponseEntity<?> getDog(@RequestParam List<Integer> dogPk){
+    public ResponseEntity<?> getDog(@RequestBody List<Integer> dogPk){
         try {
 
             List<dogPostResponse> dogs = new ArrayList<>();
