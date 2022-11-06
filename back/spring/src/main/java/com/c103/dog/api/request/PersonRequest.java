@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @ApiModel(value = "WalkRequest",description = "산책 시작 요청")
 public class PersonRequest {
-    @ApiModelProperty(name="dogPk", example="1" , value = "List로 여러 마리 개 pk")
+    @ApiModelProperty(name="dogPk", value = "List로 여러 마리 개 pk")
     private List<Integer> dogPk;
 
     @ApiModelProperty(name="위도", example="127.01")

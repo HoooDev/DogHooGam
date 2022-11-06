@@ -126,10 +126,12 @@ public class WalkServiceImpl implements WalkService {
         p.setLngArea(lngArea);
         p.setLatArea(latArea);
         redisRepo.deleteById(pk);
+        List<Person> personList = redisRepo.findAll();
+
         redisRepo.save(p);
 
+
         List<Person> check = new ArrayList<>();
-        List<Person> personList = redisRepo.findAll();
 
         if(personList != null){
 

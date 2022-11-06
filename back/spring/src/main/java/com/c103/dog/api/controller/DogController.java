@@ -113,4 +113,43 @@ public class DogController {
         }
     }
 
+    @GetMapping("/{dogPk}")
+    @ApiOperation(value = "강아지 단건 조회",notes = "")
+    public ResponseEntity<?> getDog(@PathVariable int dogPk){
+        try {
+
+            Dog dog = dogService.getByDogPk(dogPk);
+
+            if (dog == null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "강아지 없음"));
+            }
+            return ResponseEntity.status(HttpStatus.OK).body(dogPostResponse.of(dog));
+
+        }catch (Exception e){
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
+        }
+    }
+
+    @GetMapping("/list")
+    @ApiOperation(value = "강아지 여러개 리스트 조회",notes = "")
+    public ResponseEntity<?> getDog(@RequestParam List<Integer> dogPk){
+        try {
+
+            List<dogPostResponse> dogs = new ArrayList<>();
+
+            for(int pk : dogPk) {
+                dogs.add(dogPostResponse.of(dogService.getByDogPk(pk)));
+            }
+
+            return ResponseEntity.status(HttpStatus.OK).body(dogs);
+
+        }catch (Exception e){
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
+        }
+    }
+
+
+
 }

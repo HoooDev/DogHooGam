@@ -4,6 +4,7 @@ import com.c103.dog.DB.entity.Dog;
 import com.c103.dog.DB.entity.User;
 import com.c103.dog.DB.repository.DogRepository;
 import com.c103.dog.api.request.dogPostRequest;
+import com.c103.dog.error.Exception.custom.SomethingNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +41,7 @@ public class DogServiceImpl implements DogService{
 
     @Override
     public Dog getByDogPk(int dogPk) {
-        return dogRepository.getById(dogPk);
+        return dogRepository.findById(dogPk).orElseThrow(() -> new SomethingNotFoundException(dogPk + "를 찾을수 없습니다"));
     }
 
     @Override
