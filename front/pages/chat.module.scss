@@ -32,6 +32,10 @@
           padding-block: 10px;
           cursor: pointer;
         }
+        .diseaseTitle{
+          color: #81b89d;
+          margin-block: 30px 10px;
+        }
       }
       .time {
         align-self: flex-end;
@@ -79,6 +83,18 @@
         resize: none;
         padding: 10px 15px;
       }
+      .input::-webkit-scrollbar{
+        width: 6px;
+    }
+    
+    .input::-webkit-scrollbar-thumb{
+        height: 17%;
+        background-color: rgba(255,255,255,1);
+        border-radius: 10px;    
+    }
+    .input::-webkit-scrollbar-track{
+        background-color: rgba(0,0,0,0);
+    }
       .button {
         border: none;
         background-color: #81b89d;
@@ -88,21 +104,21 @@
     }
 
 
-    .chatBox::-webkit-scrollbar{
-      width: 6px;
+  .chatBox::-webkit-scrollbar{
+    width: 6px;
   }
   
   /* 스크롤바 막대 설정*/
   .chatBox::-webkit-scrollbar-thumb{
-      height: 17%;
-      background-color: rgba(255,255,255,1);
-      /* 스크롤바 둥글게 설정    */
-      border-radius: 10px;    
+    height: 17%;
+    background-color: rgba(255,255,255,1);
+    /* 스크롤바 둥글게 설정    */
+    border-radius: 10px;    
   }
   
   /* 스크롤바 뒷 배경 설정*/
   .chatBox::-webkit-scrollbar-track{
-      background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
   }
   }
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
-
+import Image from "next/image";
 import styles from "./MainMemory.module.scss";
+import memory from "../../public/image/memory.svg";
 
 function MainMemory() {
   return (
@@ -20,7 +21,9 @@ function MainMemory() {
           강아지와 함께 추억 만들어보세요
         </h1>
       </div>
-      <div className={`${styles.MainTabImg}`} />
+      <div className={`${styles.MainTabImg}`}>
+        <Image src={memory} alt="#" />
+      </div>
     </div>
   );
 }

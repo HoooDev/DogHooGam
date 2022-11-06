@@ -29,7 +29,9 @@ function Chat() {
       sender: "noti",
       content: startday,
       ICD: [],
-      symtptom: ""
+      symtptom: "",
+      disease: [],
+      symptomexplane: []
     },
     {
       id: 2,
@@ -37,7 +39,9 @@ function Chat() {
       content: "무엇을 도와드릴까요?",
       time: getNowTime(),
       ICD: [],
-      symtptom: ""
+      symtptom: "",
+      disease: [],
+      symptomexplane: []
     }
   ]);
 
@@ -69,7 +73,9 @@ function Chat() {
               content: "질문을 잘 이해하지 못했습니다. \n다시 질문해주세요!",
               time: getNowTime(),
               ICD: [],
-              symtptom: ""
+              symtptom: "",
+              disease: [],
+              symptomexplane: []
             }
           ]);
         } else {
@@ -81,7 +87,9 @@ function Chat() {
               content: `현재 강아지는 ${res.data[0].symptom} 증상이 의심됩니다!`,
               time: getNowTime(),
               ICD: JSON.parse(res.data[0].ICD),
-              symtptom: res.data[0].symptom
+              symtptom: res.data[0].symptom,
+              disease: [],
+              symptomexplane: []
             }
           ]);
         }
@@ -101,7 +109,9 @@ function Chat() {
         content: msg,
         time: getNowTime(),
         ICD: [],
-        symtptom: ""
+        symtptom: "",
+        disease: [],
+        symptomexplane: []
       }
     ]);
     getSelectResult(msg);
@@ -119,16 +129,39 @@ function Chat() {
   }
 
   function selectSymptom(e: any) {
-    console.log(e.target.id);
-    console.log(e.target.innerText);
-
+    setChatbox((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        sender: "me",
+        content: `'${e.target.id}'에 대한 \n'${e.target.innerText}'에 대해 궁금해요`,
+        time: getNowTime(),
+        ICD: [],
+        symtptom: "",
+        disease: [],
+        symptomexplane: []
+      }
+    ]);
     axios({
       url: `https://dog-hoogam.site/chatbot/select`,
       method: "get",
       params: { symptom: e.target.id, icd: e.target.innerText }
     })
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data[0]);
+        setChatbox((prev) => [
+          ...prev,
+          {
+            id: Date.now(),
+            sender: "you",
+            content: `'${e.target.id}'에 대한 \n'${e.target.innerText}'으로는`,
+            time: getNowTime(),
+            ICD: [],
+            symtptom: "",
+            disease: JSON.parse(res.data[0].disease),
+            symptomexplane: JSON.parse(res.data[0].symptomexplane)
+          }
+        ]);
       })
       .catch((err) => {
         console.log(err);
@@ -141,6 +174,16 @@ function Chat() {
         {chatbox.map((message) => {
           if (message.sender === "you") {
             const ICDlist = message.ICD;
+            const DiseaseList = [];
+            if (message.disease.length > 0) {
+              for (let i = 0; i < message.disease.length; i += 1) {
+                DiseaseList.push([
+                  message.disease[i],
+                  message.symptomexplane[i]
+                ]);
+              }
+            }
+            console.log(DiseaseList);
             return (
               <div
                 className={`${styles.botmessage} flex align-center`}
@@ -148,7 +191,7 @@ function Chat() {
               >
                 <h1 className={`${styles.text} notoMid fs-14`}>
                   {message.content}
-                  {ICDlist.length > 2 ? (
+                  {ICDlist.length > 0 ? (
                     <div>
                       <h1>자세한 내용을 알고 싶으면 항목을 선택해주세요!</h1>
                       <div className="flex column align-center">
@@ -164,6 +207,29 @@ function Chat() {
                             >
                               {item}
                             </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ) : null}
+                  {message.disease.length > 0 ? (
+                    <div>
+                      <h1>다음과 같은 질병 정보가 있습니다.</h1>
+                      <div>
+                        {DiseaseList.map((item) => {
+                          return (
+                            <div key={Date.now()}>
+                              <h1
+                                className={`${styles.diseaseTitle} fs-18 notoBold`}
+                              >
+                                {item[0]}
+                              </h1>
+                              <h1
+                                className={`${styles.diseaseContent} fs-16 notoBold`}
+                              >
+                                {item[1]}
+                              </h1>
+                            </div>
                           );
                         })}
                       </div>
