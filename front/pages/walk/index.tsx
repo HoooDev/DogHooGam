@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import KakaoMap from "../../components/walk/KakaoMap.js";
 import BeforeSign from "../../components/walk/BeforeSign";
@@ -16,20 +16,30 @@ import {
 } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 
-const dogs = [
-  { id: 1, name: "뭉크1" },
-  { id: 2, name: "뭉크2" },
-  { id: 3, name: "뭉크3" }
-];
+interface Dog {
+  birthday: string;
+  dogBreed: string;
+  dogCharacter: string;
+  dogImg: string;
+  dogName: string;
+  hide: boolean;
+  pk: number;
+  transactionHash: string;
+}
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { isWalkingStarted, personId, paths } = useSelector(
     (state: RootState) => state.walk
   );
+  const [myDogs, setMyDogs] = useState<Dog[]>([]);
 
   useEffect(() => {
-    dispatch(getMyDogs());
+    getMyDogs()
+      .then((res) => {
+        setMyDogs(res);
+      })
+      .catch(() => console.error);
   }, []);
 
   useEffect(() => {
@@ -54,8 +64,8 @@ const Index: NextPage = () => {
       <div className={styles.container}>
         {!isWalkingStarted && (
           <div className={`${styles.dogSelectedCards} flex justify-center`}>
-            {dogs.map((dog) => (
-              <DogSelectCard key={dog.id} id={dog.id} name={dog.name} />
+            {myDogs.map((dog) => (
+              <DogSelectCard key={dog.pk} id={dog.pk} name={dog.dogName} />
             ))}
           </div>
         )}
