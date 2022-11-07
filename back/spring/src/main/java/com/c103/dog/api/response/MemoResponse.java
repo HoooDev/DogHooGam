@@ -14,8 +14,6 @@ public class MemoResponse {
 
     private int pk;
 
-    private String title;
-
     private String content;
 
     @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
@@ -24,7 +22,6 @@ public class MemoResponse {
     public static MemoResponse of(Memo memo){
         MemoResponse memoRes = MemoResponse.builder()
                 .pk(memo.getPk())
-                .title(memo.getTitle())
                 .content(memo.getContent())
                 .memoDate(memo.getMemoDate())
                 .build();

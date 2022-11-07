@@ -21,8 +21,6 @@ public class Memo {
     @Column(name = "memo_pk")
     private int pk;
 
-    private String title;
-
     private String content;
 
     @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd")

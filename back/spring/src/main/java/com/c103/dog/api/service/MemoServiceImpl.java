@@ -9,13 +9,18 @@ import com.c103.dog.DB.repository.FeedRepository;
 import com.c103.dog.DB.repository.MemoRepository;
 import com.c103.dog.api.request.MemoPostRequest;
 import com.c103.dog.api.request.MemoUpdateRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
+@Slf4j
 public class MemoServiceImpl implements MemoService {
     @Autowired
     DogRepository dogRepository;
@@ -27,10 +32,12 @@ public class MemoServiceImpl implements MemoService {
     public Memo registerMemo(MemoPostRequest memoPostReq, User user) throws IllegalArgumentException {
 
         Memo memoEntity = new Memo();
-
-        memoEntity.setContent(memoPostReq.getContent());
-        memoEntity.setMemoDate(Timestamp.valueOf(memoPostReq.getMemoDate()));
-        memoEntity.setTitle(memoPostReq.getTitle());
+        memoEntity.setContent(memoEntity.getContent());
+        memoEntity.setMemoDate(Timestamp.valueOf(LocalDateTime.of(
+                LocalDate.of(memoPostReq.getYear(),memoPostReq.getMonth(),memoPostReq.getDay())
+                , LocalTime.NOON
+        )));
+        //memoEntity.setMemoDate(Timestamp.valueOf(memoPostReq.getMemoDate()));
         memoEntity.setUser(user);
 
         return memoRepository.save(memoEntity);
@@ -45,7 +52,6 @@ public class MemoServiceImpl implements MemoService {
     public Memo updateMemo(MemoUpdateRequest memoUpdateReq) throws IllegalArgumentException{
         Memo memo = memoRepository.getById(memoUpdateReq.getMemoPk());
 
-        memo.setTitle(memoUpdateReq.getTitle());
         memo.setContent(memoUpdateReq.getContent());
 
         return memoRepository.save(memo);
