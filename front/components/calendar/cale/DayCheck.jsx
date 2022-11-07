@@ -1,4 +1,5 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
+import axios from "axios";
 import calendarReducer from "./reducer/CalendarReducer";
 import MakeCalendar from "./MakeCalendar";
 
@@ -12,6 +13,10 @@ const initialState = {
   year: today.getFullYear(),
   month: today.getMonth()
 };
+const realMonth = initialState.month + 1;
+console.log(today);
+console.log(initialState.month + 1);
+console.log(initialState.year);
 
 function DayCheck() {
   const [state, dispatch] = useReducer(calendarReducer, initialState);
@@ -30,6 +35,28 @@ function DayCheck() {
   const onIncreases = () => {
     dispatch({ type: "INCREMENT" });
   };
+
+  const [memo, setMemo] = useState([]);
+
+  useEffect(() => {
+    const Token = window.localStorage.getItem("AccessToken");
+    axios({
+      url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${realMonth}&year=${initialState.year}`,
+      method: "get",
+      headers: { Authorization: `Bearer ${Token}` }
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res.data);
+          setMemo(res.data);
+        }
+        return [];
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(memo);
   // console.log(state);
   return (
     <div className="Calendar">
