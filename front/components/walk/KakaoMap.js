@@ -47,7 +47,7 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
   const [positions, setPositions] = useState([]);
-  const { isPaused, paths, personId, dogState, myDogs } = useSelector(
+  const { isPaused, paths, personId, myDogs } = useSelector(
     (state) => state.walk
   );
   const timeout = useRef(null);
@@ -232,9 +232,10 @@ const KakaoMap = () => {
             onClick={toggleModal}
             image={{
               src:
-                dogState === 0
-                  ? "https://lab.ssafy.com/s07-final/S07P31C103/uploads/bd9a02e70f2fa3d9f84a7fd9ab8b7b0c/realGreen.png"
-                  : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png", // 마커이미지의 주소입니다
+                // dogState === 0
+                //   ? "https://lab.ssafy.com/s07-final/S07P31C103/uploads/bd9a02e70f2fa3d9f84a7fd9ab8b7b0c/realGreen.png"
+                //   : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png", // 마커이미지의 주소입니다
+                "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png",
               size: {
                 width: 40,
                 height: 40
