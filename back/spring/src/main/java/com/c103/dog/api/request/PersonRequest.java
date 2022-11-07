@@ -21,4 +21,6 @@ public class PersonRequest {
     @ApiModelProperty(name="개 상태", example="0" , value = "0, 1, 2 등등")
     private int dogState;
 
+
+
 }

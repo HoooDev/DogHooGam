@@ -29,6 +29,8 @@ public class Walk {
 
     private int coin;
 
+    private String dogPkList;
+
     private String walkPath;
 
     @CreationTimestamp

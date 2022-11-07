@@ -26,5 +26,13 @@ public class Person {
     private int latArea; // 경도
     private int lngArea;
 
+    public String dogPktoString(){
+        StringBuilder sb = new StringBuilder();
+        for(int pk : this.dogPk){
+            sb.append(pk).append(",");
+        }
+        return sb.toString();
+    }
+
 
 }
