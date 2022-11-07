@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./MainMemory.module.scss";
-import memory from "../../public/image/memory.svg";
+import memory from "../../public/images/memory.svg";
 
 function MainMemory() {
   return (

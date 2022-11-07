@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import styles from "./MainWalk.module.scss";
-import walking from "../../public/image/walk.svg";
+import walking from "../../public/images/walk.svg";
 
 function MainWalk() {
   return (

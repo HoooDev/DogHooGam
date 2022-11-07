@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./MainChatbot.module.scss";
-import chatbot from "../../public/image/chatbot.svg";
+import chatbot from "../../public/images/chatbot.svg";
 
 function MainChatbot() {
   return (

@@ -233,21 +233,21 @@ function Chat() {
                           }
                           return (
                             <div key={DiseaseList.indexOf(item)}>
-                              <div className="flex align-center">
-                                <button
-                                  className={`${styles.arrowicon}`}
-                                  type="button"
-                                  name={item[0]}
-                                  onClick={(e) => openDisease(e)}
-                                >
+                              <button
+                                className="flex align-center"
+                                type="button"
+                                name={item[0]}
+                                onClick={(e) => openDisease(e)}
+                              >
+                                <div className={`${styles.arrowicon}`}>
                                   <Image src={arrowRight} alt="#" />
-                                </button>
+                                </div>
                                 <h1
-                                  className={`${styles.diseaseTitle} fs-18 notoBold`}
+                                  className={`${styles.diseaseTitle} fs-16 notoBold`}
                                 >
                                   {item[0]}
                                 </h1>
-                              </div>
+                              </button>
 
                               <h1
                                 className={`${styles.diseaseContent} fs-14 notoBold`}
