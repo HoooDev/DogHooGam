@@ -15,19 +15,7 @@ import pprint
 # from raw_api import validate_json
 # Create your views here.
 
-# @api_view(['GET'])
-# def datasave(request):
-#     symptomtable = SymptomTable.objects.all()
-#     data = read_frame(symptomtable)
-#     # model = SentenceTransformer('jhgan/ko-sroberta-multitask')
-#     data['embedding'] = pd.Series([[]] * len(data))
-#     data['embedding'] = data['indata'].map(lambda x: list(ChatbotsConfig.model.encode(x)))
-#     idx = 0
-#     for symptom in symptomtable:
-#         symptom.embedding = data['embedding'][idx]
-#         idx += 1
-#         symptom.save()    
-#     return
+
     
 @api_view(['GET'])
 def index(request):
@@ -62,43 +50,29 @@ def indata(request):
     noname = 0
     answers = []
     intents = []
-    # for i in range(len(kkma_sentence)):
-    #     no_st.append(kkma_sentence[i][0])
-    #     if flag == 1 and name == 1:
-    #         st.append(kkma_sentence[i][0])
-    #     elif flag == 1 and name == 0:
-    #         st.append(kkma_sentence[i-2][0])
-    #         st.append(kkma_sentence[i-1][0])
-    #         st.append(kkma_sentence[i][0])
-    #         name = 1
-    #     if kkma_sentence[i][1] == 'JKS':
-    #         flag = 1
-    #         if notnamedata['name'].str.contains(kkma_sentence[i-1][0]).sum() >= 1:
-    #             name = 0
-    #         else:
-    #             name = 1        
-    #     if kkma_sentence[i][1] == 'ECE' or kkma_sentence[i][1] == 'JKM':
-    #         if flag == 0:
-    #             sentences.append(' '.join(no_st))
-    #             no_st = []
-    #         else:                
-    #             sentences.append(' '.join(st))
-    #             st = []
-    #             flag = 0
-    # if flag == 0:
-    #     sentences.append(' '.join(no_st))
-    # else:
-        
-    #     sentences.append(' '.join(st))
-    # print(sentences)
     for i in range(len(kkma_sentence)):
         print(no_st)
         print(kkma_sentence[i][0], kkma_sentence[i][1])
+        if kkma_sentence[i][1][0] == 'N':
+            if notnamedata['name'].str.contains(kkma_sentence[i][0]).sum() ==0:
+                continue
+        if kkma_sentence[i][1] == 'JKS':
+            if len(no_st) == 0:
+                continue
+            else:
+                no_st.append(kkma_sentence[i][0])
+                continue
+
         no_st.append(kkma_sentence[i][0])
+        print(no_st)
+        
         if kkma_sentence[i][1][0] == 'N':
             if notnamedata['name'].str.contains(kkma_sentence[i][0]).sum() >= 1:
                 sym = 1
                 lst.append(kkma_sentence[i][0])
+        elif kkma_sentence[i][0] == '열이':
+            sym = 1
+            lst.append(kkma_sentence[i][0])
         elif sym == 1:
                 lst.append(kkma_sentence[i][0])
         print(lst)
