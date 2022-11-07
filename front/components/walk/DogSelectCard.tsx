@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSelectedDogs } from "../../redux/slice/walkSlice";
 
@@ -14,11 +14,13 @@ const DogSelectCard = ({ id, name }: { id: number; name: string }) => {
     dispatch(toggleSelectedDogs({ id, name }));
   };
 
-  if (selectedDogs.find((dog) => dog.id === id)) {
-    iconRef.current?.classList.add(`${styles.borderColor__MAIN}`);
-  } else {
-    iconRef.current?.classList.remove(`${styles.borderColor__MAIN}`);
-  }
+  useEffect(() => {
+    if (selectedDogs.find((dog) => dog.id === id)) {
+      iconRef.current?.classList.add(`${styles.borderColor__MAIN}`);
+    } else {
+      iconRef.current?.classList.remove(`${styles.borderColor__MAIN}`);
+    }
+  }, [selectedDogs]);
 
   return (
     <div
@@ -30,7 +32,7 @@ const DogSelectCard = ({ id, name }: { id: number; name: string }) => {
         <FootprintSvg fill="#d9d9d9" />
       </div>
       <div
-        className={`${styles.dogSelectCard__name} flex justify-center fs-14`}
+        className={`${styles.dogSelectCard__name} flex justify-center fs-12`}
       >
         {name}
       </div>

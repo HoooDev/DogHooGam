@@ -1,6 +1,6 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
-    margin-bottom: 6px;
+    margin-bottom: 16px;
     .dogSelectCard__icon {
       padding: 6px;
       margin-inline: 10px;
@@ -12,6 +12,7 @@
       background-color: $WHITE;
     }
     .dogSelectCard__name {
+      color: $WHITE;
     }
     .borderColor__MAIN {
       border-color: $MAIN;
