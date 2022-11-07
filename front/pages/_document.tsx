@@ -3,6 +3,7 @@ import Script from "next/script";
 
 const { NEXT_PUBLIC_KAKAO_KEY } = process.env;
 
+console.log(NEXT_PUBLIC_KAKAO_KEY);
 export default function Document() {
   return (
     <Html>
