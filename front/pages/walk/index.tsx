@@ -19,7 +19,7 @@ import DogSelectCard from "../../components/walk/DogSelectCard";
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted, personId, paths, myDogs } = useSelector(
+  const { isWalkingStarted, myDogs, personId, paths } = useSelector(
     (state: RootState) => state.walk
   );
   useEffect(() => {

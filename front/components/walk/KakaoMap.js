@@ -14,7 +14,8 @@ import Modal from "../common/Modal";
 import {
   saveDistance,
   pushPaths,
-  nowWalkingApi
+  nowWalkingApi,
+  getOtherDogs
 } from "../../redux/slice/walkSlice";
 
 let kakao;
@@ -22,25 +23,6 @@ let kakao;
 if (typeof window !== "undefined") {
   kakao = window.kakao;
 }
-
-// const positions = [
-//   {
-//     title: "카카오",
-//     latlng: { lat: 33.450705, lng: 126.570677 }
-//   },
-//   {
-//     title: "생태연못",
-//     latlng: { lat: 33.450936, lng: 126.569477 }
-//   },
-//   {
-//     title: "텃밭",
-//     latlng: { lat: 33.450879, lng: 126.56994 }
-//   },
-//   {
-//     title: "근린공원",
-//     latlng: { lat: 33.451393, lng: 126.570738 }
-//   }
-// ];
 
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
   if (lat1 === lat2 && lon1 === lon2) {
@@ -78,20 +60,26 @@ const KakaoMap = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOtherModalOpen, setIsOtherModalOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [other, setOther] = useState({});
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const toggleOtherModal = () => setIsOtherModalOpen(!isOtherModalOpen);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      // axios.get();
+  const toggleOtherModal = (pk) => {
+    setIsOtherModalOpen(!isOtherModalOpen);
+    if (pk) {
+      setOther(pk);
     }
-  }, [isModalOpen]);
+  };
 
   useEffect(() => {
     if (isOtherModalOpen) {
-      // axios.get();
+      if (!other) return;
+      getOtherDogs(other)
+        .then((res) => {
+          console.log(res);
+          setOther(res);
+        })
+        .catch(() => console.log);
     }
-  }, [isOtherModalOpen]);
+  }, [isOtherModalOpen, other]);
 
   const handleClick = ({ lat, lng }) => {
     const lastPos = paths[paths.length - 1];
@@ -147,7 +135,6 @@ const KakaoMap = () => {
           console.log(lat, lng);
           nowWalkingApi({ lat, lng, personId })
             .then((res) => {
-              console.log("성공", res);
               const newPositions = [];
               res.forEach((element) => {
                 newPositions.push({
@@ -162,7 +149,6 @@ const KakaoMap = () => {
               handleClick({ lat, lng });
             })
             .catch((err) => {
-              console.log("실패");
               console.error(err);
             });
         },
@@ -211,17 +197,19 @@ const KakaoMap = () => {
   return (
     <div className={styles.wrapper}>
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
-        {myDogs.map((dog) => (
+        {myDogs?.map((dog) => (
           <div key={dog.pk}>
             <div>생일 : {dog.birthday}</div>
             <div>견종 : {dog.dogBreed}</div>
             <div>성격 : {dog.dogCharacter}</div>
-            <div>
-              <Image />
-            </div>
+            {/* <div><Image /></div> */}
             <div>이름 : {dog.dogName}</div>
           </div>
         ))}
+      </Modal>
+
+      <Modal isOpen={isOtherModalOpen} onClose={toggleOtherModal}>
+        <div>{other}</div>
       </Modal>
 
       <Map
@@ -262,9 +250,9 @@ const KakaoMap = () => {
         </div>
 
         {positions.map((position, index) => (
-          <div key={`${position.title}-${position.latlng},${index + 1}`}>
+          <div key={`${position.dogName}-${position.latlng},${index + 1}`}>
             <MapMarker
-              onClick={toggleOtherModal}
+              onClick={() => toggleOtherModal(position.dogPk)}
               position={position.latlng} // 마커를 표시할 위치
               image={{
                 src:
@@ -276,11 +264,8 @@ const KakaoMap = () => {
                   height: 40
                 } // 마커이미지의 크기입니다
               }}
-              title={position.title} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+              // title={position.dogName} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
             />
-            <Modal isOpen={isOtherModalOpen} onClose={toggleOtherModal}>
-              <div>{position.title}</div>
-            </Modal>
           </div>
         ))}
       </Map>

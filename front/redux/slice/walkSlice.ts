@@ -79,6 +79,12 @@ export const getMyDogs = async () => {
   return res.data;
 };
 
+export const getOtherDogs = async (dogPk: number) => {
+  const res = await axios.get(`/dog/${dogPk}`);
+  console.log("redux", res);
+  return res.data;
+};
+
 const walkSlice = createSlice({
   name: "walk",
   initialState,
