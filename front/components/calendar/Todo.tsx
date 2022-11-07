@@ -19,7 +19,7 @@ function Todo() {
 
   const arr: string[] = ["산책하기", "씻기기", "예방접종", "밥먹기"];
   // const arr: string[] = [];
-  console.log(arr);
+  // console.log(arr);
 
   const onChange = (e: any) => {
     setText(e.target.value);
@@ -55,9 +55,12 @@ function Todo() {
         console.log(err);
       });
   };
-  // 메시지 전송하는 부분 구현
-  // setText(''); // 메시지 전송 후 input 빈값으로 수정
-  // inputRef?.current?.focus(); // 메시지 전송 후 input 포커스
+  // const onClickDel = () => {
+  //   const Token = window.localStorage.getItem("AccessToken");
+  //   axios({
+
+  //   })
+  // }
 
   const handleKeyPress = (e: any) => {
     if (e.key === "Enter") {
@@ -69,13 +72,11 @@ function Todo() {
       <div>
         {arr.length !== 0 &&
           arr.map((value: string): any => (
-            <>
-              <div key={v4()} className={`${styles.list} notoBold fs-20`}>
-                {value}
-              </div>
+            <div key={v4()} className={`${styles.list} flex notoBold fs-20`}>
+              <div className={`${styles.text}`}>{value}</div>
               <Image src={done} alt="완료" />
               <Image src={close} alt="삭제" />
-            </>
+            </div>
           ))}
       </div>
       <input
