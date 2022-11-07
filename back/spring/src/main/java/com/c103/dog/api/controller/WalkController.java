@@ -57,7 +57,7 @@ public class WalkController {
         }
     }
 
-    @PostMapping("/waking")
+    @PostMapping("/walking")
     @ApiOperation(value = "산책 중",notes = "산책 시작 api에서 받은 id 값으로 자기 위치 갱신 후 주변 강아지 좌표 봔환")
     public ResponseEntity<?> walkingDog(@RequestBody PersonWalkingRequest personWalkingReq){
         try {
@@ -68,13 +68,7 @@ public class WalkController {
             for (Person p : personList) {
                 personResList.add(PersonResponse.of(p));
             }
-
-            if(personResList.size() == 0){
-                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(BaseResponseBody.of(204, "데이터 없음"));
-            }else{
-                return ResponseEntity.status(HttpStatus.OK).body(personResList);
-            }
-
+            return ResponseEntity.status(HttpStatus.OK).body(personResList);
         }catch (IllegalArgumentException e) {
             e.getStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
