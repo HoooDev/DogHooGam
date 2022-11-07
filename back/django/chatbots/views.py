@@ -51,12 +51,13 @@ def indata(request):
     answers = []
     intents = []
     for i in range(len(kkma_sentence)):
-        print(no_st)
         print(kkma_sentence[i][0], kkma_sentence[i][1])
         if kkma_sentence[i][1][0] == 'N':
             if notnamedata['name'].str.contains(kkma_sentence[i][0]).sum() ==0:
                 continue
         if kkma_sentence[i][1] == 'JKS':
+            if len(lst) != 0:
+                lst.append(kkma_sentence[i][0])
             if len(no_st) == 0:
                 continue
             else:
@@ -64,8 +65,6 @@ def indata(request):
                 continue
 
         no_st.append(kkma_sentence[i][0])
-        print(no_st)
-        
         if kkma_sentence[i][1][0] == 'N':
             if notnamedata['name'].str.contains(kkma_sentence[i][0]).sum() >= 1:
                 sym = 1
@@ -75,32 +74,29 @@ def indata(request):
             lst.append(kkma_sentence[i][0])
         elif sym == 1:
                 lst.append(kkma_sentence[i][0])
-        print(lst)
         if kkma_sentence[i][1] == 'ECE' \
         or (kkma_sentence[i][1] == 'JKM' and (kkma_sentence[i][0] == '과' or kkma_sentence[i][0] == '와'))\
         or kkma_sentence[i][1] == 'JC':
             if sym == 1:
-                sentences.append(''.join(lst))
+                sentences.append(' '.join(lst))
                 lst = []
             
             else:
                 sentences.append(' '.join(no_st))
             no_st = []
             sym = 0
-    print(lst)
     if sym == 1:
         sentences.append(' '.join(lst))
     else:
         sentences.append(' '.join(no_st))
     print(sentences)
-
     for sentence in sentences:
-        spelled_sent = spell_checker.check(sentence)
-        checked_sent = spelled_sent.checked
+        
         if sentence == '':
             continue
-        print(checked_sent)
-        max_val, question, answer = questions(checked_sent)
+        
+        print(sentence)
+        max_val, question, answer = questions(sentence)
         print(max_val, question, answer)
         answers.append(answer)
     lst = []
