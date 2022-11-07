@@ -1,15 +1,8 @@
 /* eslint-disable no-param-reassign */
 import axios from "axios";
 
-// let token;
-
-// if (typeof window !== "undefined") {
-//   // Perform localStorage action
-//   token = localStorage?.getItem("AccessToken");
-// }
-
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
+  baseURL: "https://dog-hoogam.site:8000/api",
   timeout: 1000
 });
 
