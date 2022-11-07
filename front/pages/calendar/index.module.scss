@@ -56,7 +56,7 @@
 //       color: $MAIN;
 //     }
 //   }
-  
+
 //   .cal {
 //     margin-top: vw(44px);
 //   }
@@ -82,95 +82,33 @@
 //   }
 // }
 
-
-
-
-
-
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
-    .profile {
-      height: 246px;
-      background-color: #FFF8EA;
-    }
-    .procom {
-      // width: 380px;
-      justify-content: space-between;
-      margin-left: 22px;
-      padding-top: 36px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 120px;
-      gap: 15px;
+    // margin-top: 40px;
+
+    .calendar {
+      // width: 380px;0
+      margin: auto;
+      // margin-left: 40px;
+      // margin-bottom: 40px;
     }
 
-    .selbox {
-      position: relative;
-      top: 44px;
-      width: 340px;
-      height: 74px;
-      justify-content: center;
-      background-color: $WHITE;
-      border: 1px solid;
-      border-radius: 15px;
-      margin: auto;
+    .tab {
+      display: grid;
+      grid-template-columns: repeat(3, 90px);
+      place-items: center center;
+      // width: 350px;
+      // margin: auto;
+      // align-items: center;
+      color: $GRAY_5B;
       button {
         background-color: $WHITE;
         border: 0;
       }
-
-      .seltxt1 {
-        margin-right: 20px;
-      }
-  
-      .seltxt2 {
-        margin-left: 15px;
-        margin-right: 15px;
-      }
-  
-      .seltxt3 {
-        margin-left: 15px;
-      }
-  
-      .selecttxt1 {
-        margin-right: 20px;
-        color: $MAIN;
-      }
-  
-      .selecttxt2 {
-        margin-left: 15px;
-        margin-right: 15px;
-        color: $MAIN;
-      }
-  
-      .selecttxt3 {
-        margin-left: 15px;
-        color: $MAIN;
-      }
     }
-    
-    .cal {
-      margin-top: 44px;
-    }
-
-    .month {
-      margin-left: 28px;
-      margin-right: 16px;
-    }
-
-    .dayname {
-      color: $GRAY-5F;
-      width: 300px;
-      justify-content: space-around;
-      text-align: center;
-    }
-
-    .date {
-      color: $GRAY-5F;
-      width: 300px;
-      justify-content: space-around;
-      margin-top: 8px;
-      text-align: center;
+    .memo,
+    .record {
+      color: $MAIN;
     }
   }
 }
