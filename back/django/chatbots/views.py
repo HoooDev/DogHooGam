@@ -102,17 +102,22 @@ def indata(request):
     lst = []
     diseasetable = DiseaseTable.objects.all()
     disease = read_frame(diseasetable)
-    for i in answers:
-        symptomdata = SymptomData.objects.get(symptom=i)
-        a = disease[disease['symptomdata'].str.contains(i)]['ICD']
-        b = disease[disease['symptomdata'].str.contains(i)]['diseasename']
-        icd = []
-        dis = []
-        for r in range(len(a)):
-            if a.iloc[r] not in icd:
-                icd.append(a.iloc[r])
-        symptomdata.ICD = json.dumps(icd, ensure_ascii=False)     
+    if len(answers) == 0:
+        symptomdata = SymptomData.objects.get(symptom='분류불가')
         lst.append(symptomdata)
+        
+    else:
+        for i in answers:
+            symptomdata = SymptomData.objects.get(symptom=i)
+            a = disease[disease['symptomdata'].str.contains(i)]['ICD']
+            b = disease[disease['symptomdata'].str.contains(i)]['diseasename']
+            icd = []
+            dis = []
+            for r in range(len(a)):
+                if a.iloc[r] not in icd:
+                    icd.append(a.iloc[r])
+            symptomdata.ICD = json.dumps(icd, ensure_ascii=False)     
+            lst.append(symptomdata)
     serializer = SymptomSerializer(lst, many=True)    
     return Response(serializer.data)
 

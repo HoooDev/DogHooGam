@@ -3407,5 +3407,12 @@
     "fields": {
       "name": "잠"
     }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 488,
+    "fields": {
+      "name": "산책"
+    }
   }
 ]
