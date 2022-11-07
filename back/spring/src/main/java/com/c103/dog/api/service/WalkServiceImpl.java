@@ -131,19 +131,21 @@ public class WalkServiceImpl implements WalkService {
         redisRepo.save(p);
 
 
-        List<Person> check = new ArrayList<>();
+//        List<Person> check = new ArrayList<>();
+//
+//        if(personList != null){
+//
+//            for(Person std : personList) {
+//                if (std == null || Math.abs(std.getLatArea() - latArea) > 1 || Math.abs(std.getLngArea() - lngArea) > 1) continue;
+//                check.add(std);
+//            }
+//        }
+//        log.info("4");
+//
+//        log.info("종료");
+//        return check;
 
-        if(personList != null){
-
-            for(Person std : personList) {
-                if (std == null || Math.abs(std.getLatArea() - latArea) > 1 || Math.abs(std.getLngArea() - lngArea) > 1) continue;
-                check.add(std);
-            }
-        }
-        log.info("4");
-
-        log.info("종료");
-        return check;
+        return personList;
 
     }
 
