@@ -58,7 +58,11 @@ function Todo() {
     }
   };
   return (
+<<<<<<< HEAD
     <div className={`${styles.wrapper} flex`} id="메모">
+=======
+    <div className={`${styles.wrapper}`}>
+>>>>>>> 16a4555ceb0c60080cee28fa2a37f83bcc02ae25
       {arr.length !== 0 &&
         arr.map((value: string): any => (
           <div key={v4()} className={`${styles.list} notoBold fs-20`}>
