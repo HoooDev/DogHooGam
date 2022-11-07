@@ -1,12 +1,19 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
-    height: calc(100vh - 110px);
+    position: relative;
+    height: calc(100vh - 115px);
     position: relative;
     background-color: $GRAY_BA;
-    .hidden {
-      position: relative;
-      height: 55vh;
-      visibility: hidden;
+    .container {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      .hidden {
+        position: relative;
+        visibility: hidden;
+      }
+      .dogSelectedCards {
+      }
     }
   }
 }
