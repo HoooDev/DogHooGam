@@ -160,7 +160,7 @@ public class WalkServiceImpl implements WalkService {
 //        log.info("종료");
 //        return check;
 
-        return personList;
+        return check;
 
     }
 
