@@ -1,6 +1,7 @@
 package com.c103.dog.api.service;
 
 import com.c103.dog.DB.entity.Feed;
+import com.c103.dog.DB.entity.User;
 import com.c103.dog.DB.entity.Walk;
 import com.c103.dog.DB.entity.redis.Person;
 import com.c103.dog.api.request.PersonEndRequest;
@@ -17,9 +18,9 @@ public interface WalkService {
 
     List<Person> walkingDogList(PersonWalkingRequest personWalkingReq);
 
-    boolean endWalking(PersonEndRequest walkReq);
+    boolean endWalking(PersonEndRequest walkReq, User user);
 
     Walk getByWalkPk(int walkPk);
 
-    List<Walk> findWalkByDay(int dogPk, String year, String month);
+    List<Walk> findWalkByDay(User user, String year, String month);
 }

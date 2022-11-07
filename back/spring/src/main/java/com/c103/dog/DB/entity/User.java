@@ -49,4 +49,7 @@ public class User {
     @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     private List<Memo> memoList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    private List<Walk> walkList = new ArrayList<>();
+
 }

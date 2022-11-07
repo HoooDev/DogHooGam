@@ -111,9 +111,14 @@ public class CalendarController {
 
     @GetMapping("/walk")
     @ApiOperation(value = "캘린더 산책 리스트 읽기",notes = "강아지 별 년도, 달별에 포함되는 한달씩만 출력",response = WalkResponse.class)
-    public ResponseEntity<?> getCalenderWalkList(@RequestParam String year, @RequestParam String month, @RequestParam int dogPk){
+    public ResponseEntity<?> getCalenderWalkList(@ApiIgnore Authentication authentication, @RequestParam String year, @RequestParam String month, @RequestParam int dogPk){
         try {
-            List<Walk> memoList = walkService.findWalkByDay(dogPk,year,month);
+
+            SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
+            User user = userService.getUserByUserId(userDetails.getUsername());
+
+
+            List<Walk> memoList = walkService.findWalkByDay(user,year,month);
 
             List<WalkResponse> walkResList = new ArrayList<>();
             for(Walk w : memoList){

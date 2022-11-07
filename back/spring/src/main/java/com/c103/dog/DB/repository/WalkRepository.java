@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface WalkRepository extends JpaRepository<Walk, Integer> {
 
-    @Query(value = "SELECT * from walk w where (year(w.create_date) = :year and month(w.create_date) = :month and w.dog_pk = :dogPk)",
+    @Query(value = "SELECT * from walk w where (year(w.create_date) = :year and month(w.create_date) = :month and w.user_pk = :userPk)",
             nativeQuery = true)
-    List<Walk> findWalkByDay(int dogPk, String year, String month);
+    List<Walk> findWalkByDay(int userPk, String year, String month);
 }

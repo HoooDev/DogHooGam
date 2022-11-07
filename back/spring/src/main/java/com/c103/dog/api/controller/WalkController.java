@@ -2,6 +2,7 @@ package com.c103.dog.api.controller;
 
 
 import com.c103.dog.DB.entity.Feed;
+import com.c103.dog.DB.entity.User;
 import com.c103.dog.DB.entity.Walk;
 import com.c103.dog.DB.entity.redis.Person;
 import com.c103.dog.api.request.PersonEndRequest;
@@ -10,7 +11,9 @@ import com.c103.dog.api.request.PersonWalkingRequest;
 import com.c103.dog.api.response.FeedPostResponse;
 import com.c103.dog.api.response.PersonResponse;
 import com.c103.dog.api.response.WalkResponse;
+import com.c103.dog.api.service.UserService;
 import com.c103.dog.api.service.WalkService;
+import com.c103.dog.common.auth.SsafyUserDetails;
 import com.c103.dog.common.response.BaseResponseBody;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,7 +21,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +36,9 @@ public class WalkController {
 
     @Autowired
     WalkService walkService;
+
+    @Autowired
+    UserService userService;
 
 
     @PostMapping("")
@@ -83,11 +91,14 @@ public class WalkController {
 
     @PostMapping("/end")
     @ApiOperation(value = "산책 종료",notes = "자기 위치 삭제 후 산책 기록 저장")
-    public ResponseEntity<?> walkingEndDog(@RequestBody PersonEndRequest walkReq){
+    public ResponseEntity<?> walkingEndDog(@ApiIgnore Authentication authentication,  @RequestBody PersonEndRequest walkReq){
         log.info("산책 종료 실행");
         try {
 
-            if(walkService.endWalking(walkReq)){
+            SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
+            User user = userService.getUserByUserId(userDetails.getUsername());
+
+            if(walkService.endWalking(walkReq,user)){
                 return ResponseEntity.status(HttpStatus.OK).body(BaseResponseBody.of(200, "산책 종료 저장 성공"));
             }else{
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(BaseResponseBody.of(400, "저장 실패"));

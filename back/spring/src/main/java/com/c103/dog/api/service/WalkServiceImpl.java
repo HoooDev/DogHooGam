@@ -2,6 +2,7 @@ package com.c103.dog.api.service;
 
 import com.c103.dog.DB.entity.Dog;
 import com.c103.dog.DB.entity.Feed;
+import com.c103.dog.DB.entity.User;
 import com.c103.dog.DB.entity.Walk;
 import com.c103.dog.DB.entity.redis.Person;
 import com.c103.dog.DB.repository.DogRepository;
@@ -165,7 +166,7 @@ public class WalkServiceImpl implements WalkService {
     }
 
     @Override
-    public boolean endWalking(PersonEndRequest walkReq) {
+    public boolean endWalking(PersonEndRequest walkReq, User user) {
         log.info("체크");
         Person p = redisRepo.findById(walkReq.getPersonId()).orElse(null);
         log.info(p.toString());
@@ -180,14 +181,10 @@ public class WalkServiceImpl implements WalkService {
         walk.setWalkPath(walkReq.lineToString());
         walk.setCoin(walkReq.getCoin());
         walk.setDistance(walkReq.getDistance());
+        walk.setUser(user);
+        walkRepository.save(walk);
 
 
-        List<Dog> dogList = dogRepository.findAllById(p.getDogPk());
-
-        for(Dog dog : dogList){
-            walk.setDog(dog);
-            walkRepository.save(walk);
-        }
         return true;
     }
 
@@ -197,7 +194,7 @@ public class WalkServiceImpl implements WalkService {
     }
 
     @Override
-    public List<Walk> findWalkByDay(int dogPk, String year, String month) {
-        return walkRepository.findWalkByDay(dogPk, year, month);
+    public List<Walk> findWalkByDay(User user, String year, String month) {
+        return walkRepository.findWalkByDay(user.getPk(), year, month);
     }
 }

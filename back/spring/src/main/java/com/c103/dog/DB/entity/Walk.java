@@ -36,8 +36,8 @@ public class Walk {
     private Timestamp createDate;
 
     @ManyToOne
-    @JoinColumn(name = "dog_pk")
-    private Dog dog;
+    @JoinColumn(name = "user_pk")
+    private User user;
 
     public List<Position> stringToLine(){
 
