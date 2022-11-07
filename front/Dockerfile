@@ -6,7 +6,7 @@ WORKDIR /usr/src/next
 
 RUN npm i --global pm2
 
-COPY . .
+COPY ./package*.json ./
 
 RUN npm i
 
