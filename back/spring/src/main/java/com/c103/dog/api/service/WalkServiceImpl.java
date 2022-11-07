@@ -115,7 +115,10 @@ public class WalkServiceImpl implements WalkService {
     @Override
     public List<Person> walkingDogList(PersonWalkingRequest personWalkingReq) {
 
-
+        log.info("산책중");
+        log.info("//////////////////////////////////////////////////////////////");
+        log.info("//////////////////////////////////////////////////////////////");
+        log.info("//////////////////////////////////////////////////////////////");
         String pk = personWalkingReq.getPersonId();
         int lngArea = (int)((personWalkingReq.getLng() - STD_LNG)*1000);
         int latArea = (int)((personWalkingReq.getLat() - STD_LAT)*1000);

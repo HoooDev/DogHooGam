@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@RedisHash(value = "people", timeToLive = 30)
+@RedisHash(value = "people", timeToLive = 3000)
 @ToString
 @NoArgsConstructor
 public class Person {
