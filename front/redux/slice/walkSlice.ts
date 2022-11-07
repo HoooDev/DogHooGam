@@ -8,6 +8,17 @@ interface Location {
   lng: number;
 }
 
+interface Dog {
+  birthday: string;
+  dogBreed: string;
+  dogCharacter: string;
+  dogImg: string;
+  dogName: string;
+  hide: boolean;
+  pk: number;
+  transactionHash: string;
+}
+
 interface WalkState {
   loading: boolean;
   success: boolean;
@@ -25,6 +36,7 @@ interface WalkState {
   time: number;
   others: any[];
   dogState: number;
+  myDogs: Dog[];
 }
 
 const initialState: WalkState = {
@@ -43,7 +55,8 @@ const initialState: WalkState = {
   paths: [],
   time: 0,
   others: [],
-  dogState: 0
+  dogState: 0,
+  myDogs: []
 }; // 초기 상태 정의
 
 export const startWalkingApi = async (data: any) => {
@@ -52,7 +65,7 @@ export const startWalkingApi = async (data: any) => {
 };
 
 export const nowWalkingApi = async (data: any) => {
-  const res = await axios.post("/walk/waking", data);
+  const res = await axios.post("/walk/walking", data);
   return res.data;
 };
 
@@ -73,6 +86,7 @@ const walkSlice = createSlice({
     startWalking: (state, { payload }) => {
       state.isWalkingStarted = true;
       state.personId = payload;
+      console.log(payload);
     },
     finishWalking: (state) => {
       state.isWalkingStarted = false;
@@ -132,6 +146,9 @@ const walkSlice = createSlice({
     },
     toggleDogState: (state, { payload }) => {
       state.dogState = payload;
+    },
+    setMyDogs: (state, { payload }) => {
+      state.myDogs = payload;
     }
   }
 });
@@ -146,6 +163,7 @@ export const {
   restartWalking,
   resetWalking,
   saveTime,
-  toggleDogState
+  toggleDogState,
+  setMyDogs
 } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서

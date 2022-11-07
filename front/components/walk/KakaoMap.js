@@ -65,7 +65,7 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
   const [positions, setPositions] = useState([]);
-  const { isPaused, paths, personId, dogState } = useSelector(
+  const { isPaused, paths, personId, dogState, myDogs } = useSelector(
     (state) => state.walk
   );
   const timeout = useRef(null);
@@ -105,7 +105,6 @@ const KakaoMap = () => {
         lat,
         lng
       );
-      console.log("dist", dist);
       dispatch(saveDistance(dist));
     }
   };
@@ -141,33 +140,37 @@ const KakaoMap = () => {
 
   const walking = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude; // 위도
-        const lng = position.coords.longitude; // 경도
-        const lastPos = paths[paths.length - 1];
-        if (paths.length > 1 && lastPos.lat === lat && lastPos.lng === lng)
-          return;
-        console.log("산책중 api");
-        nowWalkingApi({ lat, lng, personId })
-          .then((res) => {
-            const newPositions = [];
-            res.forEach((element) => {
-              const tmp = {
-                title: element.dogPk,
-                latlng: { lat: element.lat, lng: element.lng },
-                dogState: element.dogState
-              };
-              newPositions.push(tmp);
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude; // 위도
+          const lng = position.coords.longitude; // 경도
+          console.log(lat, lng);
+          nowWalkingApi({ lat, lng, personId })
+            .then((res) => {
+              console.log("성공", res);
+              const newPositions = [];
+              res.forEach((element) => {
+                newPositions.push({
+                  title: element.dogPk,
+                  latlng: { lat: element.lat, lng: element.lng },
+                  dogState: element.dogState
+                });
+              });
+              setPositions(newPositions);
+              dispatch(pushPaths({ lat, lng }));
+              setCenter({ lat, lng });
+              handleClick({ lat, lng });
+            })
+            .catch((err) => {
+              console.log("실패");
+              console.error(err);
             });
-            setPositions(newPositions);
-            dispatch(pushPaths({ lat, lng }));
-            setCenter({ lat, lng });
-            handleClick({ lat, lng });
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-      });
+        },
+        () => console.error,
+        {
+          enableHighAccuracy: true
+        }
+      );
     }
   };
 
@@ -180,6 +183,9 @@ const KakaoMap = () => {
     }
     timeout.current = setTimeout(() => {
       setIsSending(false);
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
     }, 3000);
   }, [isSending]);
 
@@ -196,13 +202,26 @@ const KakaoMap = () => {
       }, 3000);
     } else if (isPaused) {
       setIsSending(true);
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
     }
   }, [isSending, isPaused, walking]);
 
   return (
     <div className={styles.wrapper}>
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
-        <div>내정보</div>
+        {myDogs.map((dog) => (
+          <div key={dog.pk}>
+            <div>생일 : {dog.birthday}</div>
+            <div>견종 : {dog.dogBreed}</div>
+            <div>성격 : {dog.dogCharacter}</div>
+            <div>
+              <Image />
+            </div>
+            <div>이름 : {dog.dogName}</div>
+          </div>
+        ))}
       </Modal>
 
       <Map
