@@ -26,6 +26,8 @@ public class WalkResponse {
 
     private List<Position> walkPath;
 
+    private List<Integer> dogPkList;
+
 
     public static WalkResponse of(Walk walk){
         WalkResponse walkRes = WalkResponse.builder()
@@ -33,6 +35,7 @@ public class WalkResponse {
                 .distance(walk.getDistance())
                 .coin(walk.getCoin())
                 .walkPath(walk.stringToLine())
+                .dogPkList(walk.pkToList())
                 .build();
         return walkRes;
     }

@@ -50,4 +50,14 @@ public class Walk {
         }
         return result;
     }
+
+    public List<Integer> pkToList(){
+
+        List<Integer> result = new ArrayList<>();
+        StringTokenizer st = new StringTokenizer(walkPath, ",");
+        while(st.hasMoreTokens()){
+            result.add(Integer.parseInt(st.nextToken()));
+        }
+        return result;
+    }
 }
