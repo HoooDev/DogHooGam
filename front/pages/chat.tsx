@@ -1,7 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
+import Image from "next/image";
 import styles from "./chat.module.scss";
 // import { getChatbot1 } from "./api/chat/chat";
+import arrowRight from "../public/icons/arrowRight.svg";
 
 function Chat() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -125,6 +127,8 @@ function Chat() {
   function checkEnter(e: any) {
     if (e.key === "Enter") {
       goMessage(e);
+    } else {
+      setmsg(e.target.value);
     }
   }
 
@@ -174,7 +178,7 @@ function Chat() {
         {chatbox.map((message) => {
           if (message.sender === "you") {
             const ICDlist = message.ICD;
-            const DiseaseList = [];
+            const DiseaseList: any[] = [];
             if (message.disease.length > 0) {
               for (let i = 0; i < message.disease.length; i += 1) {
                 DiseaseList.push([
@@ -183,7 +187,6 @@ function Chat() {
                 ]);
               }
             }
-            console.log(DiseaseList);
             return (
               <div
                 className={`${styles.botmessage} flex align-center`}
@@ -217,15 +220,39 @@ function Chat() {
                       <h1>다음과 같은 질병 정보가 있습니다.</h1>
                       <div>
                         {DiseaseList.map((item) => {
+                          function openDisease(e: any) {
+                            console.log(e.currentTarget.name);
+                            const Target: HTMLElement | null =
+                              document.getElementById(e.currentTarget.name);
+                            console.log(Target?.hidden);
+                            if (Target?.hidden) {
+                              Target.hidden = false;
+                            } else {
+                              (Target as HTMLElement).hidden = true;
+                            }
+                          }
                           return (
-                            <div key={Date.now()}>
+                            <div key={DiseaseList.indexOf(item)}>
+                              <div className="flex align-center">
+                                <button
+                                  className={`${styles.arrowicon}`}
+                                  type="button"
+                                  name={item[0]}
+                                  onClick={(e) => openDisease(e)}
+                                >
+                                  <Image src={arrowRight} alt="#" />
+                                </button>
+                                <h1
+                                  className={`${styles.diseaseTitle} fs-18 notoBold`}
+                                >
+                                  {item[0]}
+                                </h1>
+                              </div>
+
                               <h1
-                                className={`${styles.diseaseTitle} fs-18 notoBold`}
-                              >
-                                {item[0]}
-                              </h1>
-                              <h1
-                                className={`${styles.diseaseContent} fs-16 notoBold`}
+                                className={`${styles.diseaseContent} fs-14 notoBold`}
+                                id={item[0]}
+                                hidden
                               >
                                 {item[1]}
                               </h1>
@@ -278,7 +305,6 @@ function Chat() {
           placeholder="질문을 입력해주세요."
           onKeyUp={(e) => checkEnter(e)}
           id="chatInput"
-          onChange={(e) => setmsg(e.target.value)}
         />
         <button
           className={`${styles.button}`}

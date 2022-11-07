@@ -34,7 +34,19 @@
         }
         .diseaseTitle{
           color: #81b89d;
-          margin-block: 30px 10px;
+          margin-block: 10px 10px;
+        }
+        .diseaseContent{
+          line-height: 20px;
+          letter-spacing: 1px;
+          word-spacing: 2px;
+        }
+        .arrowicon{
+          width: 20px;
+          height: 20px;
+          margin-right: 5px;
+          border: none;
+          background-color: $WHITE;
         }
       }
       .time {
