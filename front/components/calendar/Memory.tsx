@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./Memory.module.scss";
 
 // 더미 이미지
-import dog from "../../public/images/dog.jpeg";
+import dog from "../../public/image/dog.jpeg";
 
 function Memory() {
   return (
