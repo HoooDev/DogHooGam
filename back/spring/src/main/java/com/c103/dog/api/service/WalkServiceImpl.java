@@ -131,7 +131,9 @@ public class WalkServiceImpl implements WalkService {
         redisRepo.deleteById(pk);
         List<Person> personList = redisRepo.findAll();
 
-        redisRepo.save(p);
+        Person save = redisRepo.save(p);
+
+        log.info(save.toString());
 
 
 //        List<Person> check = new ArrayList<>();
