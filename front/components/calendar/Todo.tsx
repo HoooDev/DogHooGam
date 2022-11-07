@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import Image from "next/image";
 import axios from "axios";
 import { useRef, useState } from "react";
