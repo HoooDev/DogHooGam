@@ -133,7 +133,8 @@ public class WalkServiceImpl implements WalkService {
 
         Person save = redisRepo.save(p);
 
-        log.info(save.toString());
+        log.info("본인 정보 : "  + save.toString());
+        log.info("personList.size : " + personList.size() );
 
 
 //        List<Person> check = new ArrayList<>();
