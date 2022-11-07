@@ -234,7 +234,7 @@ function Chat() {
                           return (
                             <div key={DiseaseList.indexOf(item)}>
                               <button
-                                className="flex align-center"
+                                className={`${styles.resultButton} flex align-center`}
                                 type="button"
                                 name={item[0]}
                                 onClick={(e) => openDisease(e)}

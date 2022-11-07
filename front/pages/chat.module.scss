@@ -32,22 +32,28 @@
             padding-block: 10px;
             cursor: pointer;
           }
-          .diseaseTitle {
+          .resultButton{
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+           .diseaseTitle {
             color: #81b89d;
             margin-block: 10px 10px;
           }
-          .diseaseContent {
-            padding-inline: 20px;
-            line-height: 18px;
-            letter-spacing: 1px;
-          }
+          
           .arrowicon {
             width: 13px;
             height: 13px;
             margin-right: 5px;
             border: none;
             background-color: $WHITE;
+          } 
           }
+          .diseaseContent {
+            padding-inline: 20px;
+            line-height: 18px;
+            letter-spacing: 1px;
+          }
+          
         }
         .time {
           align-self: flex-end;
