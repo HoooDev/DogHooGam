@@ -84,10 +84,14 @@ const KakaoMap = () => {
   const handleClick = ({ lat, lng }) => {
     const lastPos = paths[paths.length - 1];
     if (paths.length > 1 && lastPos.lat === lat && lastPos.lng) return;
-    const xDiff = lat - lastPos.lat;
-    const yDiff = lng - lastPos.lng;
+    let xDiff = 0;
+    let yDiff = 0;
+    if (lastPos) {
+      xDiff = lat - lastPos.lat;
+      yDiff = lng - lastPos.lng;
+    }
     const tmp = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-    if (tmp > 0.00004) {
+    if (tmp > 0.00008) {
       dispatch(pushPaths({ lat, lng }));
     }
     if (paths?.length > 1) {
