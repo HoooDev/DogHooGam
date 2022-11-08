@@ -8,8 +8,6 @@ import AfterSign from "../../components/walk/AfterSign";
 import styles from "./index.module.scss";
 import type { AppDispatch, RootState } from "../../redux/store/index";
 import {
-  finishWalking,
-  restartWalking,
   resetWalking,
   finishWalkingApi,
   getMyDogs,
@@ -33,9 +31,7 @@ const Index: NextPage = () => {
 
   useEffect(() => {
     return () => {
-      finishWalkingApi();
-      dispatch(finishWalking());
-      dispatch(restartWalking());
+      dispatch(finishWalkingApi());
     };
   }, []);
 

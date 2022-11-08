@@ -73,17 +73,10 @@ export const nowWalkingApi = async (data: any) => {
 
 type Any = any;
 
-// export const finishWalkingApi = async (data: any) => {
-//   console.log("산책 끝낫다 api 요청", data);
-//   const res = await axios.post("/walk/end", data);
-//   return res.data;
-// };
-
 export const finishWalkingApi = createAsyncThunk<Any>(
   // Types for ThunkAPI
   "walk/finishWalking",
   async (_, { getState }) => {
-    console.log("떵크");
     const state: any = getState();
     try {
       const res = await axios.post("/walk/end", {
@@ -91,7 +84,6 @@ export const finishWalkingApi = createAsyncThunk<Any>(
         dist: state.walk.totalDist,
         walkPath: state.walk.paths
       });
-      console.log(res);
       return res.data;
     } catch (error) {
       console.error(error);
@@ -182,9 +174,22 @@ const walkSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(finishWalkingApi.fulfilled, (state, { payload }) => {
-      state.loading = false;
-      console.log("payload", payload);
+    builder.addCase(finishWalkingApi.fulfilled, (state) => {
+      state.isWalkingStarted = false;
+      state.selectedDogs = [];
+      state.totalDist = "0.00";
+      state.isPaused = false;
+      state.personId = "";
+      state.center = {
+        lat: 0,
+        lng: 0
+      };
+      state.paths = [];
+      state.time = 0;
+      state.others = [];
+      state.dogState = 0;
+      state.myDogs = [];
+      state.coin = 0;
     });
   }
 });
