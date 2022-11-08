@@ -17,6 +17,8 @@ public class RedisTest {
     @Test
     void test() {
 
+        repo.deleteAll();
+
 //        double a = 35.0321664;
 //        double b = 126.7157848;
 //        //35.0321664,126.7157848

@@ -178,7 +178,7 @@ public class WalkServiceImpl implements WalkService {
 
 
         Walk walk = new Walk();
-        walk.setDogPkList(p.dogPktoString());
+        walk.setDogPkList(p == null?null:p.dogPktoString());
         walk.setWalkPath(walkReq.lineToString());
         walk.setCoin(walkReq.getCoin());
         walk.setDistance(walkReq.getDistance());
