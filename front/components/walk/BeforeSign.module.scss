@@ -1,71 +1,84 @@
+.wrapper {
+  height: vw(160px);
+  border-top-left-radius: vw(20px);
+  border-top-right-radius: vw(20px);
+  background-color: $WHITE;
+  .icons {
+    width: vw(300px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: vw(30px) 0 vw(20px) 0;
+    place-items: center center;
+    color: $BLACK;
+    .opacity {
+      opacity: 0.5;
+    }
+    .greenMoon {
+      display: grid;
+      grid-template-rows: vw(40px) vw(20px);
+      place-items: center center;
+      .greenMoon__icon {
+        place-items: center center;
+        width: vw(40px);
+        height: vw(40px);
+        margin-bottom: vw(10px);
+      }
+      .greenMoon__text {
+        place-items: center center;
+        font-size: vw(16px);
+      }
+    }
+    .redMoon {
+      display: grid;
+      grid-template-rows: vw(40px) vw(20px);
+      place-items: center center;
+      .redMoon__icon {
+        place-items: center center;
+        width: vw(40px);
+        height: vw(40px);
+        margin-bottom: vw(10px);
+      }
+      .redMoon__text {
+        place-items: center center;
+        font-size: vw(16px);
+      }
+    }
+  }
+}
+
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     height: 160px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background-color: $WHITE;
     .icons {
       width: 300px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
       padding: 30px 0 20px 0;
-      place-items: center center;
-      color: $BLACK;
       .opacity {
-        opacity: 0.5;
       }
       .greenMoon {
-        display: grid;
         grid-template-rows: 40px 20px;
-        place-items: center center;
         .greenMoon__icon {
-          place-items: center center;
           width: 40px;
           height: 40px;
           margin-bottom: 10px;
         }
         .greenMoon__text {
-          place-items: center center;
+          font-size: (16px);
         }
       }
       .redMoon {
-        display: grid;
         grid-template-rows: 40px 20px;
-        place-items: center center;
         .redMoon__icon {
-          place-items: center center;
           width: 40px;
           height: 40px;
           margin-bottom: 10px;
         }
         .redMoon__text {
-          place-items: center center;
+          font-size: (16px);
         }
       }
-      // .distance {
-      //   .distance__num {
-      //     margin-bottom: 10px;
-      //   }
-      //   .distance__unit {
-      //   }
-      // }
-      // .coin {
-      //   padding: 0 40px;
-      //   border-inline: 1px solid $GRAY_BA;
-      //   .coin__num {
-      //     margin-bottom: 10px;
-      //   }
-      //   .coin__unit {
-      //   }
-      // }
-      // .time {
-      //   .time__num {
-      //     margin-bottom: 10px;
-      //   }
-      //   .time__unit {
-      //   }
-      // }
     }
   }
 }

@@ -43,7 +43,7 @@ const BeforeSign = () => {
           <div className={styles.greenMoon__icon}>
             <Image src={greenMoon} alt="greenMoon" />
           </div>
-          <div className={styles.greenMoon__text}>착해요</div>
+          <div className={`${styles.greenMoon__text} fs-16`}>착해요</div>
         </div>
 
         <div
@@ -55,7 +55,7 @@ const BeforeSign = () => {
           <div className={styles.redMoon__icon}>
             <Image src={redMoon} alt="redMoon" />
           </div>
-          <div className={styles.redMoon__text}>나빠요</div>
+          <div className={`${styles.redMoon__text} fs-16`}>나빠요</div>
         </div>
       </div>
       {/* <div className={`${styles.distance} flex column align-center`}>
