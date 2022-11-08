@@ -87,7 +87,7 @@ const KakaoMap = () => {
     const xDiff = lat - lastPos.lat;
     const yDiff = lng - lastPos.lng;
     const tmp = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-    if (tmp > 0.00002) {
+    if (tmp > 0.00004) {
       dispatch(pushPaths({ lat, lng }));
     }
     if (paths?.length > 1) {
@@ -233,7 +233,7 @@ const KakaoMap = () => {
       >
         <Polyline
           path={paths}
-          strokeWeight={10} // 선의 두께입니다
+          strokeWeight={5} // 선의 두께입니다
           strokeColor="#db4040" // 선의 색깔입니다
           strokeOpacity={1} // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
           strokeStyle="solid" // 선의 스타일입니다
