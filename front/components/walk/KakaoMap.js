@@ -91,7 +91,7 @@ const KakaoMap = () => {
       yDiff = lng - lastPos.lng;
     }
     const tmp = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-    if (tmp > 0.00008) {
+    if (tmp > 0.00004) {
       dispatch(pushPaths({ lat, lng }));
     }
     if (paths?.length > 1) {
@@ -159,7 +159,7 @@ const KakaoMap = () => {
                 });
               });
               setPositions(newPositions);
-              dispatch(pushPaths({ lat, lng }));
+              // dispatch(pushPaths({ lat, lng }));
               setCenter({ lat, lng });
               handleClick({ lat, lng });
             })
