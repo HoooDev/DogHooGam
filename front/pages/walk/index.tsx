@@ -19,7 +19,7 @@ import DogSelectCard from "../../components/walk/DogSelectCard";
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted, myDogs, personId, paths } = useSelector(
+  const { isWalkingStarted, myDogs, paths, totalDist } = useSelector(
     (state: RootState) => state.walk
   );
   useEffect(() => {
@@ -32,15 +32,11 @@ const Index: NextPage = () => {
 
   useEffect(() => {
     return () => {
-      if (personId) {
-        console.log("personId", personId);
-        finishWalkingApi({
-          coin: 0,
-          distance: 0,
-          personId,
-          walkPath: paths
-        });
-      }
+      finishWalkingApi({
+        coin: 0,
+        distance: parseFloat(totalDist),
+        walkPath: paths
+      });
       dispatch(finishWalking());
       dispatch(restartWalking());
       dispatch(resetWalking());

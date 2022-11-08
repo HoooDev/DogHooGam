@@ -20,7 +20,7 @@ import { AppDispatch, RootState } from "../../redux/store";
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
   // const [isPausing, setIsPausing] = useState<boolean>(false);
-  const { totalDist, isPaused, personId, paths } = useSelector(
+  const { totalDist, isPaused, paths } = useSelector(
     (state: RootState) => state.walk
   );
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
@@ -87,14 +87,11 @@ const AfterSign = () => {
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
-      if (personId) {
-        finishWalkingApi({
-          coin: 0,
-          distance: 0,
-          personId,
-          walkPath: paths
-        });
-      }
+      finishWalkingApi({
+        coin: 0,
+        distance: parseFloat(totalDist),
+        walkPath: paths
+      });
       dispatch(finishWalking());
       dispatch(restartWalking());
       dispatch(resetWalking());
