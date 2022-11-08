@@ -74,7 +74,6 @@ const KakaoMap = () => {
       if (!other) return;
       getOtherDogs(other)
         .then((res) => {
-          console.log(res);
           setOther(res);
         })
         .catch(() => console.log);
@@ -140,6 +139,7 @@ const KakaoMap = () => {
   }, []);
 
   const walking = () => {
+    if (isSending) return;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -175,28 +175,10 @@ const KakaoMap = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (isSending) return;
-  //   walking();
-  //   setIsSending(true);
-  //   if (timeout.current) {
-  //     clearTimeout(timeout.current);
-  //   }
-  //   timeout.current = setTimeout(() => {
-  //     setIsSending(false);
-  //     if (timeout.current) {
-  //       clearTimeout(timeout.current);
-  //     }
-  //   }, 3000);
-  // }, [isSending]);
-
   useEffect(() => {
-    // console.log(isSending, isPaused);
-    if (isSending) return;
     if (!isPaused) {
-      console.log("산책중 api");
-      walking();
-      setIsSending(true);
+      walking(); // api 호출
+      setIsSending(true); // API 플래그
       if (timeout.current) {
         clearTimeout(timeout.current);
       }
@@ -205,11 +187,8 @@ const KakaoMap = () => {
       }, 3000);
     } else if (isPaused) {
       setIsSending(true);
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
     }
-  }, [isSending, isPaused, walking]);
+  }, [isPaused, walking]);
 
   return (
     <div className={styles.wrapper}>
