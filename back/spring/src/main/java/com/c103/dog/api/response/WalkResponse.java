@@ -24,6 +24,7 @@ public class WalkResponse {
 
     private int coin;
 
+    @Column(columnDefinition = "LONGTEXT")
     private List<Position> walkPath;
 
     private List<Integer> dogPkList;

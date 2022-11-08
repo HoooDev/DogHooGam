@@ -32,7 +32,7 @@ public class MemoServiceImpl implements MemoService {
     public Memo registerMemo(MemoPostRequest memoPostReq, User user) throws IllegalArgumentException {
 
         Memo memoEntity = new Memo();
-        memoEntity.setContent(memoEntity.getContent());
+        memoEntity.setContent(memoPostReq.getContent());
         memoEntity.setMemoDate(Timestamp.valueOf(LocalDateTime.of(
                 LocalDate.of(memoPostReq.getYear(),memoPostReq.getMonth(),memoPostReq.getDay())
                 , LocalTime.NOON
