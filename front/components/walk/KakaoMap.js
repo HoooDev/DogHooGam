@@ -102,6 +102,8 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
+        // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
+        // const lng = parseFloat(position.coords.longitude.toFixed(5));
         dispatch(pushPaths({ lat, lng }));
         setCenter({ lat, lng });
         handleClick({ lat, lng });
@@ -116,6 +118,8 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
+        // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
+        // const lng = parseFloat(position.coords.longitude.toFixed(5));
         map.setCenter(new kakao.maps.LatLng(lat, lng));
         setCenter({ lat, lng });
       });
@@ -132,6 +136,8 @@ const KakaoMap = () => {
         (position) => {
           const lat = position.coords.latitude; // 위도
           const lng = position.coords.longitude; // 경도
+          // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
+          // const lng = parseFloat(position.coords.longitude.toFixed(5));
           console.log(lat, lng);
           nowWalkingApi({ lat, lng, personId })
             .then((res) => {

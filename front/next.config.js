@@ -10,7 +10,6 @@ const nextConfig = {
     prependData: `
             @import "_variables.scss";
             @import "_utils.scss";
-
           `
   }
 };

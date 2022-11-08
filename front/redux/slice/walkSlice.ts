@@ -92,7 +92,6 @@ const walkSlice = createSlice({
     startWalking: (state, { payload }) => {
       state.isWalkingStarted = true;
       state.personId = payload;
-      console.log(payload);
     },
     finishWalking: (state) => {
       state.isWalkingStarted = false;

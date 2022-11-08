@@ -3,8 +3,8 @@ import "../styles/_typography.scss";
 import "../styles/font.css";
 import "../styles/_common.scss";
 // eslint-disable-next-line import/no-unresolved
-import "../components/calendar/cale/DayCheck.scss";
-import "../components/calendar/cale/MakeCalendar.scss";
+// import "../components/calendar/cale/DayCheck.scss";
+// import "../components/calendar/cale/MakeCalendar.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { PersistGate } from "redux-persist/integration/react";
