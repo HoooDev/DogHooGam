@@ -32,6 +32,7 @@ const Index: NextPage = () => {
 
   useEffect(() => {
     return () => {
+      console.log("personId", personId);
       if (personId) {
         finishWalkingApi({
           coin: 0,
@@ -39,10 +40,10 @@ const Index: NextPage = () => {
           personId,
           walkPath: paths
         });
-        dispatch(finishWalking());
-        dispatch(restartWalking());
-        dispatch(resetWalking());
       }
+      dispatch(finishWalking());
+      dispatch(restartWalking());
+      dispatch(resetWalking());
     };
   }, []);
 
