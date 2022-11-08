@@ -33,16 +33,17 @@ const Index: NextPage = () => {
   useEffect(() => {
     return () => {
       if (personId) {
+        console.log("personId", personId);
         finishWalkingApi({
           coin: 0,
           distance: 0,
           personId,
           walkPath: paths
         });
-        dispatch(finishWalking());
-        dispatch(restartWalking());
-        dispatch(resetWalking());
       }
+      dispatch(finishWalking());
+      dispatch(restartWalking());
+      dispatch(resetWalking());
     };
   }, []);
 
