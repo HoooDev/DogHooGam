@@ -112,10 +112,10 @@ public class WalkServiceImpl implements WalkService {
         String id = redisRepo.save(p).getId();
 
         log.info("personId 저장 시작");
+        log.info("userId : {} ", user.getUserId());
         PersonId personId = new PersonId();
-        personId.setPersonId(user.getUserId());
+        personId.setUserId(user.getUserId());
         personId.setPersonId(id);
-
         PersonId now = personIdRedisRepository.save(personId);
         log.info("PersonId : " + now.toString());
 
@@ -184,9 +184,10 @@ public class WalkServiceImpl implements WalkService {
         log.info("체크");
         PersonId personId = personIdRedisRepository.findById(user.getUserId())
                 .orElseThrow(() -> new SomethingNotFoundException(user.getUserId() + "의 산책 정보를 찾을 수 없음"));
+        log.info("PersonId : " + personId.toString());
+
         personIdRedisRepository.deleteById(user.getUserId());
 
-        log.info("PersonId : " + personId.toString());
 
 
         Person p = redisRepo.findById(personId.getPersonId()).orElse(new Person());
