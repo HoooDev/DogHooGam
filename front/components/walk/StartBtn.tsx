@@ -2,26 +2,40 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./StartBtn.module.scss";
-import { startWalking } from "../../redux/slice/walkSlice";
+import { startWalking, startWalkingApi } from "../../redux/slice/walkSlice";
 import type { AppDispatch, RootState } from "../../redux/store/index";
 
 const StartBtn = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted, selectedDogs } = useSelector(
+  const { selectedDogs, dogState, myDogs } = useSelector(
     (state: RootState) => state.walk
   );
   const onWalkStartClick = () => {
     if (selectedDogs.length === 0) {
       return alert("산책 전 반려견을 선택해주세요.");
     }
-    dispatch(
-      startWalking({
-        lat: 0,
-        lng: 0
-      })
-    );
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const lat = position.coords.latitude; // 위도
+        const lng = position.coords.longitude; // 경도
+        // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
+        // const lng = parseFloat(position.coords.longitude.toFixed(5)); // 경도
+        const dogPkList = myDogs.map((dog) => dog.pk);
+        startWalkingApi({
+          dogPk: dogPkList,
+          dogState,
+          lat,
+          lng
+        })
+          .then((res) => {
+            dispatch(startWalking(res));
+          })
+          .catch(() => console.error);
+      });
+    } else {
+      alert("지도 정보를 허용해주세요!");
+    }
   };
-  console.log(isWalkingStarted);
   return (
     <div className={`${styles.wrapper} flex justify-center`}>
       <div

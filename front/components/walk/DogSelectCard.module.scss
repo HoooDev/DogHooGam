@@ -1,20 +1,37 @@
+.wrapper {
+  margin-bottom: vw(16px);
+  .dogSelectCard__icon {
+    padding: vw(6px);
+    margin-inline: vw(10px);
+    margin-bottom: vw(6px);
+    border-width: vw(4px);
+    border-style: solid;
+    border-color: $WHITE;
+    border-radius: 50%;
+    background-color: $WHITE;
+  }
+  .dogSelectCard__name {
+    font-size: vw(12px);
+    color: $WHITE;
+  }
+  .borderColor__MAIN {
+    border-color: $MAIN;
+  }
+}
+
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
-    margin-bottom: 6px;
+    margin-bottom: 16px;
     .dogSelectCard__icon {
       padding: 6px;
       margin-inline: 10px;
       margin-bottom: 6px;
       border-width: 4px;
-      border-style: solid;
-      border-color: $WHITE;
-      border-radius: 50%;
-      background-color: $WHITE;
     }
     .dogSelectCard__name {
+      font-size: 12px;
     }
     .borderColor__MAIN {
-      border-color: $MAIN;
     }
   }
 }

@@ -1,0 +1,93 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  height: 80px;
+}
+
+.Calendar {
+  // margin-block: 50px;
+}
+
+button {
+  background-color: $WHITE;
+  border: 0;
+}
+
+table {
+  width: 80%;
+  height: 200px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-inline: auto;
+}
+
+table tbody tr {
+  border-top: 0.5px solid #c4c9d0;
+}
+
+table,
+th,
+td {
+  vertical-align: top;
+}
+
+table tbody tr td {
+  margin-left: 20px;
+}
+
+table tbody td {
+  width: 10%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+td:first-child {
+  color: #94959d;
+}
+td:first-child h1 {
+  color: #94959d;
+}
+td:last-child h1 {
+  color: #94959d;
+}
+
+td:last-child {
+  color: #94959d;
+}
+
+table tbody td div {
+  height: 100px;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  overflow: auto;
+}
+
+div::-webkit-scrollbar {
+  width: 10px;
+}
+div::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+div::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
+table tbody td:hover {
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+
+.diff {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
