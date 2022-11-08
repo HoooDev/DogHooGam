@@ -13,12 +13,13 @@ const initialState = {
   year: today.getFullYear(),
   month: today.getMonth()
 };
-const realMonth = initialState.month + 1;
+// const realMonth = initialState.month + 1;
 console.log(today);
 console.log(initialState.month + 1);
 console.log(initialState.year);
 
 function DayCheck() {
+  const [memo, setMemo] = useState([]);
   const [state, dispatch] = useReducer(calendarReducer, initialState);
   // 날짜 관련
   const { year, month } = state;
@@ -29,19 +30,10 @@ function DayCheck() {
   // Month 감소
   const onDecreases = () => {
     dispatch({ type: "DECREMENT" });
-  };
-
-  // Month 증가
-  const onIncreases = () => {
-    dispatch({ type: "INCREMENT" });
-  };
-
-  const [memo, setMemo] = useState([]);
-
-  useEffect(() => {
+    console.log(state);
     const Token = window.localStorage.getItem("AccessToken");
     axios({
-      url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${realMonth}&year=${initialState.year}`,
+      url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${state.month}&year=${state.year}`,
       method: "get",
       headers: { Authorization: `Bearer ${Token}` }
     })
@@ -55,7 +47,31 @@ function DayCheck() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  };
+
+  // Month 증가
+  const onIncreases = () => {
+    dispatch({ type: "INCREMENT" });
+  };
+
+  useEffect(() => {
+    const Token = window.localStorage.getItem("AccessToken");
+    axios({
+      url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${state.month}&year=${state.year}`,
+      method: "get",
+      headers: { Authorization: `Bearer ${Token}` }
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res.data);
+          setMemo(res.data);
+        }
+        return [];
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [state.month, state.year]);
   console.log(memo);
   // console.log(state);
   return (
