@@ -86,8 +86,10 @@ def indata(request):
             no_st = []
             sym = 0
     if sym == 1:
+        print('증상잇을떄')
         sentences.append(' '.join(lst))
     else:
+        print('증상없을떄')
         sentences.append(' '.join(no_st))
     print(sentences)
     for sentence in sentences:

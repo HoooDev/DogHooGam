@@ -899,6 +899,13 @@
     "model": "chatbots.SymptomData",
     "pk": 129,
     "fields": {
+      "symptom": "두통"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 130,
+    "fields": {
       "symptom": "분류불가"
     }
   }
