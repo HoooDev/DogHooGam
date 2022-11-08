@@ -30,6 +30,7 @@ function MemoryList() {
   //   { id: 6 },
   //   { id: 7 }
   // ];
+  console.log(feeds);
   return (
     <div className={`${styles.wrapper}`}>
       {feeds.map((feed: { pk: any; feedId: any; feedImg: any }) => {
