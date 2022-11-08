@@ -115,7 +115,7 @@ const KakaoMap = () => {
         // const lng = parseFloat(position.coords.longitude.toFixed(5));
         dispatch(pushPaths({ lat, lng }));
         setCenter({ lat, lng });
-        handleClick({ lat, lng });
+        // handleClick({ lat, lng });
       });
     } else {
       alert("지도 정보를 허용해주세요!");

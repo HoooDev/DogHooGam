@@ -32,8 +32,8 @@ const Index: NextPage = () => {
 
   useEffect(() => {
     return () => {
-      console.log("personId", personId);
       if (personId) {
+        console.log("personId", personId);
         finishWalkingApi({
           coin: 0,
           distance: 0,
