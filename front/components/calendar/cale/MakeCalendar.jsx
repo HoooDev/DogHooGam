@@ -1,5 +1,7 @@
 // import React, { useState } from "react";
-// import "./MakeCalendar.scss";
+// eslint-disable-next-line import/no-unresolved
+import styles1 from "./DayCheck.module.scss";
+import styles2 from "./MakeCalendar.module.scss";
 
 import { transString } from "./CalcDate";
 
@@ -59,7 +61,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const now = prevLastDate - firstDay + i;
           const idx = returnIdx("PREV", year, month, now);
           result2.push(
-            <td className="diff day" key={idx}>
+            <td className={`${styles1.diff} ${styles2.day}`} key={idx}>
               <h1>{now}</h1>
               {/* {myDay.includes(`${year}.${month}.${now}`) ? (
                 <img className="checkStamp" src={stamp} alt="#" />
@@ -73,7 +75,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const idx = returnIdx("", year, month, now);
 
           result2.push(
-            <td className="day" key={idx}>
+            <td className={`${styles2.day} ${styles1.caltd}`} key={idx}>
               <h1>{now}</h1>
               {/* {myDay.includes(`${year}.${month + 1}.${now}`) ? (
                 <img className="checkStamp" src={stamp} alt="#" />
@@ -91,7 +93,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const idx = returnIdx("", year, month, now);
 
           result2.push(
-            <td className="day" key={idx}>
+            <td className={`${styles2.day} ${styles1.caltd}`} key={idx}>
               <h1>{now}</h1>
               {/* {myDay.includes(`${year}.${month + 1}.${now}`) ? (
                 <img className="checkStamp" src={stamp} alt="#" />
@@ -105,7 +107,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const idx = returnIdx("NEXT", year, month, now);
 
           result2.push(
-            <td className="diff day" key={idx}>
+            <td className={`${styles1.diff} ${styles2.day}`} key={idx}>
               <h1>{now}</h1>
               {/* {myDay.includes(`${year}.${month}.${now}`) ? (
                 <img className="checkStamp" src={stamp} alt="#" />

@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
+import styles from "./DayCheck.module.scss";
 import calendarReducer from "./reducer/CalendarReducer";
 import MakeCalendar from "./MakeCalendar";
 
@@ -52,9 +53,7 @@ function DayCheck() {
   // Month 증가
   const onIncreases = () => {
     dispatch({ type: "INCREMENT" });
-  };
-
-  useEffect(() => {
+    console.log(state);
     const Token = window.localStorage.getItem("AccessToken");
     axios({
       url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${state.month}&year=${state.year}`,
@@ -71,15 +70,36 @@ function DayCheck() {
       .catch((err) => {
         console.log(err);
       });
-  }, [state.month, state.year]);
+  };
+
+  useEffect(() => {
+    const Token = window.localStorage.getItem("AccessToken");
+    axios({
+      url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${
+        initialState.month + 1
+      }&year=${initialState.year}`,
+      method: "get",
+      headers: { Authorization: `Bearer ${Token}` }
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res.data);
+          setMemo(res.data);
+        }
+        return [];
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   console.log(memo);
   // console.log(state);
   return (
     <div className="Calendar">
-      <div className="header">
+      <div className={`${styles.header}`}>
         <button
           type="button"
-          className="move fs-20 notoBold"
+          className={`${styles.move} fs-20 notoBold`}
           onClick={onDecreases}
         >
           &lt;
@@ -87,25 +107,27 @@ function DayCheck() {
         <h1 className="fs-20 notoBold mx-4">{yearMonth}</h1>
         <button
           type="button"
-          className="move fs-20 notoBold"
+          className={`${styles.move} fs-20 notoBold`}
           onClick={onIncreases}
         >
           &gt;
         </button>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <td className="text-center fs-16 notoBold">일</td>
-            <td className="text-center fs-16 notoBold">월</td>
-            <td className="text-center fs-16 notoBold">화</td>
-            <td className="text-center fs-16 notoBold">수</td>
-            <td className="text-center fs-16 notoBold">목</td>
-            <td className="text-center fs-16 notoBold">금</td>
-            <td className="text-center fs-16 notoBold">토</td>
+      <table className={`${styles.caltable}`}>
+        <thead className={`${styles.calthead}`}>
+          <tr className={`${styles.caltr}`}>
+            <td className={`${styles.caltd} text-center fs-18 notoBold`}>일</td>
+            <td className={`${styles.caltd} text-center fs-18 notoBold`}>월</td>
+            <td className={`${styles.caltd} text-center fs-18 notoBold`}>화</td>
+            <td className={`${styles.caltd} text-center fs-18 notoBold`}>수</td>
+            <td className={`${styles.caltd} text-center fs-18 notoBold`}>목</td>
+            <td className={`${styles.caltd} text-center fs-18 notoBold`}>금</td>
+            <td className={`${styles.caltd} text-center fs-18 notoBold`}>토</td>
           </tr>
         </thead>
-        <tbody>{MakeCalendar({ year, month, firstDay, lastDate })}</tbody>
+        <tbody className={`${styles.calbody}`}>
+          {MakeCalendar({ year, month, firstDay, lastDate })}
+        </tbody>
       </table>
     </div>
   );
