@@ -98,7 +98,6 @@ export const getMyDogs = async () => {
 
 export const getOtherDogs = async (dogPk: number) => {
   const res = await axios.get(`/dog/${dogPk}`);
-  console.log("redux", res);
   return res.data;
 };
 
@@ -153,6 +152,9 @@ const walkSlice = createSlice({
     },
     saveDistance: (state, { payload }) => {
       let tmp = +state.totalDist + payload;
+      // 성도 계산식
+      const coin = 0;
+      state.coin = coin;
       tmp = parseFloat(tmp.toString()).toFixed(2);
       tmp = parseFloat(tmp).toFixed(2);
       state.totalDist = tmp;
