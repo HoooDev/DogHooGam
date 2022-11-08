@@ -9,13 +9,11 @@ function Detail() {
   const [feed, setFeed] = useState({});
   const router = useRouter();
   const Id = router.query.memoryPk;
-  console.log(Id);
 
   useEffect(() => {
     getOneFeed(Id)
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data, "하나?");
           setFeed(res.data);
         }
         return [];
@@ -32,13 +30,14 @@ function Detail() {
   // };
   return (
     <div className={`${styles.wrapper}`}>
-      <h1 className={`${styles.Nav} fs-20 notoBold`}>추억 남기기</h1>
+      {/* <h1 className={`${styles.Nav} fs-20 notoBold`}>추억 남기기</h1> */}
       <div className={`${styles.detail}`}>
         <div className={`${styles.imgBox}`}>
           <img className={`${styles.img}`} src={feed.feedImg} alt="#" />
         </div>
+        {/* <p>{feed.transactionHash}</p> */}
 
-        <h1 className={`${styles.content} fs-22 notoBold`}>{feed.content}</h1>
+        <h1 className={`${styles.content} fs-20 notoBold`}>{feed.content}</h1>
         <h1 className={`${styles.time} fs-16 notoBold`}>{feed.createDate}</h1>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import Web3 from "web3";
 import axios from "axios";
-import { NFTContract, TOKENContract } from "./SmartContract";
+import { NFTContract, TOKENContract, TokenCA } from "./SmartContract";
 
 const web3 = new Web3();
 web3.setProvider(
@@ -53,13 +53,49 @@ export const createAccount = async () => {
 };
 
 // NFT 만들기
-const sendFileToIPFS = async (e, file, text) => {
+const sendFileToIPFS = async (e, file, text, value, address, userKey) => {
   e.preventDefault(process.env.NEXT_PUBLIC_GETH_NODE);
 
-  console.log(file);
+  console.log(value);
   let ImgHash;
   let getImg;
   let tranHash;
+  const coinBase = await getAdminAdress();
+
+  // ERC-20 토큰 보내기 전 허용
+  const data = await TOKENContract.methods.approve(coinBase, value).encodeABI();
+  console.log(data);
+  const txData = {
+    from: address,
+    gasPrice: web3.utils.toWei("42", "gwei"),
+    gas: web3.utils.toHex("320000"),
+    to: coinBase,
+    value: "0x",
+    data
+  };
+  console.log(txData);
+
+  const tx = await web3.eth.accounts
+    .signTransaction(txData, userKey)
+    .then((ress) => ress);
+  // .catch(console.log("12"));
+  console.log(tx, "txtx");
+
+  const sendTx = await web3.eth
+    .sendSignedTransaction(tx.rawTransaction)
+    .then((ress) => ress)
+    .catch((err) => {
+      console.log(err);
+      console.log(tx.rawTransaction, "로우");
+    });
+  console.log(sendTx, "센드");
+
+  const txHash = await TOKENContract.methods
+    .transferFrom(address, coinBase, value)
+    .send({ from: coinBase })
+    .then((ress) => ress.transactionHash);
+  // .catch((err) => console.log(err));
+
   if (file) {
     try {
       const formData = new FormData();
@@ -79,26 +115,24 @@ const sendFileToIPFS = async (e, file, text) => {
       ImgHash = `ipfs://${resFile.data.IpfsHash}`;
       getImg = resFile.data.IpfsHash;
       console.log(ImgHash);
-      await web3.eth.personal
-        .unlockAccount(
-          process.env.NEXT_PUBLIC_COINBASE,
-          process.env.NEXT_PUBLIC_COINBASE_PASSWORD,
-          15000
-        )
-        .then(console.log("계정해제"));
+      await web3.eth.personal.unlockAccount(
+        process.env.NEXT_PUBLIC_COINBASE,
+        process.env.NEXT_PUBLIC_COINBASE_PASSWORD,
+        15000
+      );
       // Take a look at your Pinata Pinned section, you will see a new file added to you list.
     } catch (error) {
       console.log("Error sending File to IPFS: ");
       console.log(error);
     }
 
-    const data = JSON.stringify({
+    const nftData = JSON.stringify({
       description: text, // NFT 설명
       imageHash: ImgHash, // IPFS에 올린 이미지 주소
       name: `(유저이름)의 강아지 - ${text.dogName} `, //
       imageUrl: `https://gateway.pinata.cloud/ipfs/${getImg}`
     });
-    console.log(data);
+    console.log(nftData);
     const config = {
       method: "post",
       url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
@@ -107,7 +141,7 @@ const sendFileToIPFS = async (e, file, text) => {
         pinata_api_key: `${process.env.NEXT_PUBLIC_PINATA_API_KEY}`,
         pinata_secret_api_key: `${process.env.NEXT_PUBLIC_PINATA_API_SECRET}`
       },
-      data
+      nftData
     };
     const res = await axios(config);
     console.log(res.data.IpfsHash, "res데이터");
@@ -120,23 +154,13 @@ const sendFileToIPFS = async (e, file, text) => {
       .then(console.log("계정해제"));
     await NFTContract.methods
       .mintNFT(
-        "0x56b3de125f0885052181a83e9e6aa4a78f5215ab", // 받는 지갑 주소
+        address, // 받는 지갑 주소
         `ipfs://${res.data.IpfsHash}`
       )
       .send({ from: process.env.NEXT_PUBLIC_COINBASE })
       .then((response) => console.log(response, "nft 리스폰스"));
-
-    const tx = {
-      from: process.env.NEXT_PUBLIC_COINBASE, // 보내는 주소
-      to: "0x56b3de125f0885052181a83e9e6aa4a78f5215ab", // 받는 주소
-      value: 1e18 // 1코인 송금
-    };
-    // eslint-disable-next-line no-shadow
-    await web3.eth.sendTransaction(tx).then((res) => {
-      tranHash = res.blockHash;
-    });
   }
-  return [`https://gateway.pinata.cloud/ipfs/${getImg}`, tranHash];
+  return [`https://gateway.pinata.cloud/ipfs/${getImg}`, tranHash, txHash];
 };
 
 export default sendFileToIPFS;

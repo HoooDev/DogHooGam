@@ -12,9 +12,10 @@
       .createbutton {
         width: 100px;
         height: 30px;
-        background-color: $WHITE;
+        border-radius: 15px;
+        background-color: $MAIN;
         border: none;
-        color: rgb(146, 146, 253);
+        color: $WHITE;
       }
     }
     .inputForm {
@@ -25,11 +26,11 @@
         background-color: rgb(153, 148, 148);
         width: 100px;
         height: 100px;
-        .preview{
+        .preview {
           width: 100%;
           height: 100%;
         }
-        .noimg{
+        .noimg {
           width: 100%;
           height: 100%;
           background-color: $WHITE;
