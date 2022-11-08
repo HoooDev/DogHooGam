@@ -14,7 +14,7 @@ import java.util.List;
 public interface WalkService {
     
 
-    String startWalking(PersonRequest personReq);
+    String startWalking(PersonRequest personReq,User user);
 
     List<Person> walkingDogList(PersonWalkingRequest personWalkingReq);
 

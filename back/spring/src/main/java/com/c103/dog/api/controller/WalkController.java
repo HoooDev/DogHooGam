@@ -43,7 +43,7 @@ public class WalkController {
 
     @PostMapping("")
     @ApiOperation(value = "산책 시작",notes = "강아지 여러마리 선택가능, 자기 ID 반환")
-    public ResponseEntity<?> startWalk(@RequestBody PersonRequest personReq){
+    public ResponseEntity<?> startWalk(@ApiIgnore Authentication authentication,@RequestBody PersonRequest personReq){
 
         log.info("api 실행(info)");
         log.debug("api 실행(debug)");
@@ -52,7 +52,10 @@ public class WalkController {
         try {
 
 
-            String personId = walkService.startWalking(personReq);
+            SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
+            User user = userService.getUserByUserId(userDetails.getUsername());
+
+            String personId = walkService.startWalking(personReq, user);
 
             return ResponseEntity.status(HttpStatus.OK).body(personId);
 
@@ -70,6 +73,8 @@ public class WalkController {
     public ResponseEntity<?> walkingDog(@RequestBody PersonWalkingRequest personWalkingReq){
         try {
             log.info("산책 중 시작");
+
+
             List<Person> personList = walkService.walkingDogList(personWalkingReq);
 
             List<PersonResponse> personResList = new ArrayList<>();

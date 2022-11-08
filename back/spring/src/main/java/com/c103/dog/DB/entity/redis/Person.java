@@ -3,14 +3,11 @@ package com.c103.dog.DB.entity.redis;
 import lombok.*;
 import org.springframework.data.redis.core.RedisHash;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@RedisHash(value = "people", timeToLive = 3000)
+@RedisHash(value = "people", timeToLive = -1)
 @ToString
 @NoArgsConstructor
 public class Person {

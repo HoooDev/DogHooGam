@@ -12,8 +12,6 @@ import java.util.StringTokenizer;
 @Getter
 @ApiModel(value = "PersonEndRequest",description = "산책 종료")
 public class PersonEndRequest {
-    @ApiModelProperty(name="산책Pk", example="dsffefef")
-    private String personId;
 
     private int coin;
 

@@ -5,12 +5,15 @@ import com.c103.dog.DB.entity.Feed;
 import com.c103.dog.DB.entity.User;
 import com.c103.dog.DB.entity.Walk;
 import com.c103.dog.DB.entity.redis.Person;
+import com.c103.dog.DB.entity.redis.PersonId;
 import com.c103.dog.DB.repository.DogRepository;
 import com.c103.dog.DB.repository.WalkRepository;
+import com.c103.dog.DB.repository.redis.PersonIdRedisRepository;
 import com.c103.dog.DB.repository.redis.PersonRedisRepository;
 import com.c103.dog.api.request.PersonEndRequest;
 import com.c103.dog.api.request.PersonRequest;
 import com.c103.dog.api.request.PersonWalkingRequest;
+import com.c103.dog.error.Exception.custom.SomethingNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +42,9 @@ public class WalkServiceImpl implements WalkService {
 
     @Autowired
     PersonRedisRepository redisRepo;
+
+    @Autowired
+    PersonIdRedisRepository personIdRedisRepository;
 
     public LocalTime toTime(int time) {
 
@@ -89,7 +95,7 @@ public class WalkServiceImpl implements WalkService {
 
 
     @Override
-    public String startWalking(PersonRequest personReq) {
+    public String startWalking(PersonRequest personReq,User user) {
         int lngArea = (int)((personReq.getLng() - STD_LNG)*1000);
         int latArea = (int)((personReq.getLat() - STD_LAT)*1000);
 
@@ -104,6 +110,12 @@ public class WalkServiceImpl implements WalkService {
         log.info(p.toString());
 
         String id = redisRepo.save(p).getId();
+
+        PersonId personId = new PersonId();
+        personId.setPersonId(user.getUserId());
+        personId.setPersonId(id);
+
+        personIdRedisRepository.save(personId);
 
         log.info(id);
         return id;
@@ -168,17 +180,22 @@ public class WalkServiceImpl implements WalkService {
     @Override
     public boolean endWalking(PersonEndRequest walkReq, User user) {
         log.info("체크");
-        Person p = redisRepo.findById(walkReq.getPersonId()).orElse(null);
-        log.info(p.toString());
-        redisRepo.deleteById(walkReq.getPersonId());
+        PersonId personId = personIdRedisRepository.findById(user.getUserId())
+                .orElseThrow(() -> new SomethingNotFoundException(user.getUserId() + "의 산책 정보를 찾을 수 없음"));
+        personIdRedisRepository.deleteById(user.getUserId());
 
-        if(p ==  null){
+
+        Person p = redisRepo.findById(personId.getPersonId()).orElse(new Person());
+        log.info(p.toString());
+        redisRepo.deleteById(personId.getPersonId());
+
+        if(p.getId() == null){
             return false;
         }
 
 
         Walk walk = new Walk();
-        walk.setDogPkList(p == null?null:p.dogPktoString());
+        walk.setDogPkList(p.dogPktoString());
         walk.setWalkPath(walkReq.lineToString());
         walk.setCoin(walkReq.getCoin());
         walk.setDistance(walkReq.getDistance());
