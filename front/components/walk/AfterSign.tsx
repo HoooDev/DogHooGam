@@ -11,7 +11,6 @@ import {
   finishWalking,
   finishWalkingApi,
   pauseWalking,
-  resetWalking,
   restartWalking,
   saveTime
 } from "../../redux/slice/walkSlice";
@@ -20,9 +19,7 @@ import { AppDispatch, RootState } from "../../redux/store";
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
   // const [isPausing, setIsPausing] = useState<boolean>(false);
-  const { totalDist, isPaused, paths } = useSelector(
-    (state: RootState) => state.walk
-  );
+  const { totalDist, isPaused } = useSelector((state: RootState) => state.walk);
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [time, setTime] = useState(0);
 
@@ -87,14 +84,9 @@ const AfterSign = () => {
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
-      finishWalkingApi({
-        coin: 0,
-        distance: parseFloat(totalDist),
-        walkPath: paths
-      });
+      finishWalkingApi();
       dispatch(finishWalking());
       dispatch(restartWalking());
-      dispatch(resetWalking());
     } else {
       onPlayClick();
     }

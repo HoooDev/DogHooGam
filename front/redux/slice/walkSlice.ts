@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../../pages/api/index";
 
 interface Location {
@@ -37,6 +37,7 @@ interface WalkState {
   others: any[];
   dogState: number;
   myDogs: Dog[];
+  coin: number;
 }
 
 const initialState: WalkState = {
@@ -56,7 +57,8 @@ const initialState: WalkState = {
   time: 0,
   others: [],
   dogState: 0,
-  myDogs: []
+  myDogs: [],
+  coin: 0
 }; // 초기 상태 정의
 
 export const startWalkingApi = async (data: any) => {
@@ -69,11 +71,33 @@ export const nowWalkingApi = async (data: any) => {
   return res.data;
 };
 
-export const finishWalkingApi = async (data: any) => {
-  console.log("산책 끝낫다 api 요청", data);
-  const res = await axios.post("/walk/end", data);
-  return res.data;
-};
+type Any = any;
+
+// export const finishWalkingApi = async (data: any) => {
+//   console.log("산책 끝낫다 api 요청", data);
+//   const res = await axios.post("/walk/end", data);
+//   return res.data;
+// };
+
+export const finishWalkingApi = createAsyncThunk<Any>(
+  // Types for ThunkAPI
+  "walk/finishWalking",
+  async (_, { getState }) => {
+    console.log("떵크");
+    const state: any = getState();
+    try {
+      const res = await axios.post("/walk/end", {
+        coin: state.walk.coin,
+        dist: state.walk.totalDist,
+        walkPath: state.walk.paths
+      });
+      console.log(res);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
 
 export const getMyDogs = async () => {
   const res = await axios.get("/dog");
@@ -156,6 +180,12 @@ const walkSlice = createSlice({
     setMyDogs: (state, { payload }) => {
       state.myDogs = payload;
     }
+  },
+  extraReducers: (builder) => {
+    builder.addCase(finishWalkingApi.fulfilled, (state, { payload }) => {
+      state.loading = false;
+      console.log("payload", payload);
+    });
   }
 });
 
