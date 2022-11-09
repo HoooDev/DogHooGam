@@ -33,9 +33,11 @@ const WalkSlider = ({ dogs }) => {
             {/* <div className={styles.dogCard__img}>
               <Image src={dog.dogImg} alt={dog.dogName} />
             </div> */}
-            <div className={styles.dogCard__name}>{dog.dogName}</div>
-            <div className={styles.dogCard__breed}>{dog.dogBreed}</div>
-            <div className={styles.dogCard__char}>{dog.dogCharacter}</div>
+            <div className={styles.dogCard__name}>이름 : {dog.dogName}</div>
+            <div className={styles.dogCard__breed}>견종 : {dog.dogBreed}</div>
+            <div className={styles.dogCard__char}>
+              성격 : {dog.dogCharacter}
+            </div>
           </div>
         ))}
       </Slider>

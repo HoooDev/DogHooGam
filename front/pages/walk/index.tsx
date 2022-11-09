@@ -36,9 +36,10 @@ const Index: NextPage = () => {
       <div className={styles.container}>
         {!isWalkingStarted && (
           <div className={`${styles.dogSelectedCards} flex justify-center`}>
-            {myDogs?.map((dog) => (
-              <DogSelectCard key={dog.pk} id={dog.pk} name={dog.dogName} />
-            ))}
+            {myDogs.length > 0 &&
+              myDogs.map((dog) => (
+                <DogSelectCard key={dog.pk} id={dog.pk} name={dog.dogName} />
+              ))}
           </div>
         )}
         {!isWalkingStarted ? <BeforeSign /> : <AfterSign />}
