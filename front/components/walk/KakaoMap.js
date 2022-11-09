@@ -197,15 +197,17 @@ const KakaoMap = () => {
   return (
     <div className={styles.wrapper}>
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
-        {myDogs?.map((dog) => (
-          <div key={dog.pk}>
-            <div>생일 : {dog.birthday}</div>
-            <div>견종 : {dog.dogBreed}</div>
-            <div>성격 : {dog.dogCharacter}</div>
-            {/* <div><Image /></div> */}
-            <div>이름 : {dog.dogName}</div>
-          </div>
-        ))}
+        <div className={styles.myModal}>
+          {myDogs?.map((dog) => (
+            <div key={dog.pk}>
+              {/* <div>생일 : {dog.birthday}</div> */}
+              <div>견종 : {dog.dogBreed}</div>
+              <div>성격 : {dog.dogCharacter}</div>
+              {/* <div><Image /></div> */}
+              <div>이름 : {dog.dogName}</div>
+            </div>
+          ))}
+        </div>
       </Modal>
 
       <Modal isOpen={isOtherModalOpen} onClose={toggleOtherModal}>
