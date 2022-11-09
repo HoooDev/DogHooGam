@@ -1,27 +1,28 @@
 /* eslint-disable consistent-return */
 import Image from "next/image";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { v4 } from "uuid";
 import styles from "./Todo.module.scss";
-
 import close from "../../public/icons/close.svg";
 import done from "../../public/icons/done.svg";
 
+
 function Todo() {
   const [text, setText] = useState("");
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  const [todos, setTodos] = useState<string[]>([]);
-  // const time = date.toLocaleDateString("ko-kr");
-  // console.log(time);
+  const memos = useSelector((state) => state.calendar.memos);
+  const dayEvent = useSelector((state) => state.calendar.selectDay);
+  const year = dayEvent.year;
+  const month = dayEvent.month;
+  const day = dayEvent.day;
+  const [todos, setTodos] = useState([]);
+  
 
-  // const arr: string[] = ["산책하기", "씻기기", "예방접종", "밥먹기"];
-  // const arr: string[] = [];
-  // console.log(arr);
-
+  useEffect(()=>{
+    setTodos(memos.res[day])
+  },[day])
+  
   const onChange = (e: any) => {
     setText(e.target.value);
   };
@@ -45,7 +46,6 @@ function Todo() {
       .then((res) => {
         if (res.status === 200) {
           console.log("success");
-          setTodos((prev) => [...prev, text]);
           setText("");
         }
         return [];
@@ -69,14 +69,18 @@ function Todo() {
   return (
     <div className={`${styles.wrapper} flex`} id="메모">
       <div>
-        {todos.length !== 0 &&
-          todos.map((value: string): any => (
-            <div key={v4()} className={`${styles.list} flex notoBold fs-20`}>
-              <div className={`${styles.text}`}>{value}</div>
+        { todos.length > 0 ?
+        <div>
+          {todos.map((memo)=>{
+            console.log(memo);
+            return (<div className={`${styles.list} flex notoBold fs-20`} key={v4()}>
+              <div className={`${styles.text}`}>{memo.content}</div>
               <Image src={done} alt="완료" />
               <Image src={close} alt="삭제" />
-            </div>
-          ))}
+            </div>)
+          })}
+        </div>  : null
+      }
       </div>
       <input
         value={text}

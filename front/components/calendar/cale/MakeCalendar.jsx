@@ -32,15 +32,14 @@ const returnIdx = (order, year, month, day) => {
 const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
   const dispatch = useDispatch();
   function daySelect(e) {
-    console.log(e.target.innerText);
-    const newDay = Number(e.target.innerText);
-    // 이함수에서 그 리덕스 변경
-    dispatch(setSelectDay({ year, month: month + 1, newDay }));
+    console.log(e.currentTarget.children[0].innerText);
+    const newDay = Number(e.currentTarget.children[0].innerText);
+    dispatch(setSelectDay({ year, month: month + 1, day: newDay }));
   }
 
   const result = [];
-  const dayEvent = useSelector((state) => state.calendar);
-  console.log(dayEvent);
+  const dayEvent = useSelector((state) => state.calendar.memos.res);
+  const selectDay = useSelector((state) => state.calendar.selectDay);
   const makeDay = (week) => {
     const result2 = [];
     // 첫 주
@@ -54,9 +53,6 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           result2.push(
             <td className={`${styles1.diff} ${styles2.day}`} key={idx}>
               <h1>{now}</h1>
-              {/* { 리덕스에 날짜 [now]배열에 메모가있으면 ? (
-                <img className="checkStamp" src={노란점?} alt="#" />
-              ) : null} */}
             </td>
           );
         }
@@ -64,15 +60,24 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
         else {
           const now = i - firstDay;
           const idx = returnIdx("", year, month, now);
+          let dayTag
 
-          result2.push(
-            <td className={`${styles2.day} ${styles1.caltd}`} key={idx}>
-              <h1>{now}</h1>
-              {/* { 리덕스에 날짜 [now]배열에 메모가있으면 ? (
-                <img className="checkStamp" src={노란점?} alt="#" />
-              ) : null} */}
+          if (selectDay.year === year && selectDay.month === month+1 && selectDay.day === now) {
+            dayTag = <td className={`${styles2.selectDay} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
+              <button className={`${styles2.dayButton}`} type="button">
+                {now}
+              </button>
+              {dayEvent[now].length > 0 ? <div className="flex justify-center"><div className={`${styles2.isMemo}`} /></div> : null}
             </td>
-          );
+          } else {
+            dayTag = <td className={`${styles2.day} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
+              <button className={`${styles2.dayButton}`} type="button">
+                {now}
+              </button>
+              {dayEvent[now].length > 0 ? <div className="flex justify-center"><div className={`${styles2.isMemo}`} /></div> : null}
+            </td>
+          }
+          result2.push(dayTag);
         }
       }
     } else {
@@ -83,16 +88,23 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const now = i - firstDay + 1;
           const idx = returnIdx("", year, month, now);
 
-          result2.push(
-            <td className={`${styles2.day} ${styles1.caltd}`} key={idx}>
-              <button type="button" onClick={(e) => daySelect(e)}>
+          let dayTag
+          if (selectDay.year === year && selectDay.month === month+1 && selectDay.day === now) {
+            dayTag = <td className={`${styles2.selectDay} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
+              <button className={`${styles2.dayButton}`} type="button">
                 {now}
               </button>
-              {/* { 리덕스에 날짜 [now]배열에 메모가있으면 ? (
-                <img className="checkStamp" src={노란점?} alt="#" />
-              ) : null} */}
+              {dayEvent[now].length > 0 ? <div className="flex justify-center"><div className={`${styles2.isMemo}`} /></div> : null}
             </td>
-          );
+          } else {
+            dayTag = <td className={`${styles2.day} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
+              <button className={`${styles2.dayButton}`} type="button">
+                {now}
+              </button>
+              {dayEvent[now].length > 0 ? <div className="flex justify-center"><div className={`${styles2.isMemo}`} /></div> : null}
+            </td>
+          }
+          result2.push(dayTag);
         }
         // 다음 달 날짜
         else {
