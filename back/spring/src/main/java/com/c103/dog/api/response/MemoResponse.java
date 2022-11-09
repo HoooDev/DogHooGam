@@ -16,14 +16,17 @@ public class MemoResponse {
 
     private String content;
 
-    @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd")
     private Timestamp memoDate;
+
+    private boolean isDone;
 
     public static MemoResponse of(Memo memo){
         MemoResponse memoRes = MemoResponse.builder()
                 .pk(memo.getPk())
                 .content(memo.getContent())
                 .memoDate(memo.getMemoDate())
+                .isDone(memo.isDone())
                 .build();
         return memoRes;
     }

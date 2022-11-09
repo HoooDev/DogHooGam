@@ -30,6 +30,8 @@ public class Memo {
     @JoinColumn(name = "user_pk")
     private User user;
 
+    private boolean isDone;
+
     @CreationTimestamp
     @JsonFormat(timezone = "Asia/Seoul", pattern = "yyyy-MM-dd HH:mm")
     private Timestamp createDate;

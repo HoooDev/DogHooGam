@@ -37,6 +37,7 @@ public class MemoServiceImpl implements MemoService {
                 LocalDate.of(memoPostReq.getYear(),memoPostReq.getMonth(),memoPostReq.getDay())
                 , LocalTime.NOON
         )));
+        memoEntity.setDone(false);
         //memoEntity.setMemoDate(Timestamp.valueOf(memoPostReq.getMemoDate()));
         memoEntity.setUser(user);
 

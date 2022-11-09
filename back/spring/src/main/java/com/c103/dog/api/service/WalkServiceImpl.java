@@ -188,7 +188,7 @@ public class WalkServiceImpl implements WalkService {
 
         personIdRedisRepository.deleteById(user.getUserId());
 
-
+        log.info(walkReq.lineToString());
 
         Person p = redisRepo.findById(personId.getPersonId()).orElse(new Person());
         log.info(p.toString());

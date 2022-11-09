@@ -21,7 +21,7 @@ public class RedisTest {
 
     @Test
     void test() {
-
+        personIdRedisRepository.deleteById("121231@");
         PersonId personId = new PersonId();
         personId.setUserId("1");
         personId.setPersonId("1");
