@@ -17,7 +17,9 @@ import { AppDispatch, RootState } from "../../redux/store";
 
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { totalDist, isPaused } = useSelector((state: RootState) => state.walk);
+  const { totalDist, isPaused, coin } = useSelector(
+    (state: RootState) => state.walk
+  );
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [time, setTime] = useState(0);
 
@@ -66,7 +68,7 @@ const AfterSign = () => {
           <div className={`${styles.distance__unit} fs-12`}>거리(km)</div>
         </div>
         <div className={`${styles.coin} flex column align-center`}>
-          <div className={`${styles.coin__num} fs-20`}>0</div>
+          <div className={`${styles.coin__num} fs-20`}>{coin}</div>
           <div className={`${styles.coin__unit} fs-12`}>coin</div>
         </div>
         <div className={`${styles.time} flex column align-center`}>
