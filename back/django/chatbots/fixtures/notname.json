@@ -738,14 +738,14 @@
     "model": "chatbots.NotName",
     "pk": 106,
     "fields": {
-      "name": "쉬야"
+      "name": "쉬"
     }
   },
   {
     "model": "chatbots.NotName",
     "pk": 107,
     "fields": {
-      "name": "녹색쉬야"
+      "name": "녹색쉬"
     }
   },
   {

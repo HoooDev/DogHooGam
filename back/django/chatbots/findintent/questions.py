@@ -25,7 +25,7 @@ def questions(sentence):
     for i in range(len(data)):
         data['emb'][i] = string_to_list(data['embedding'][i])
     data['distance'] = data['emb'].map(lambda x: cosine_similarity([embeddings[0]], [x]).squeeze())
-    if data['distance'].max() < 0.85:
+    if data['distance'].max() < 0.65:
         return (data['distance'].max(), data.loc[data['distance'].idxmax()]['indata'], '분류불가')
     else:
         return (data['distance'].max(), data.loc[data['distance'].idxmax()]['indata'], data.loc[data['distance'].idxmax()]['symptom'])

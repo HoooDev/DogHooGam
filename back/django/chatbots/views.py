@@ -69,7 +69,7 @@ def indata(request):
             if notnamedata['name'].str.contains(kkma_sentence[i][0]).sum() >= 1:
                 sym = 1
                 lst.append(kkma_sentence[i][0])
-        elif kkma_sentence[i][0] == '열이':
+        elif kkma_sentence[i][0] == '열이' :
             sym = 1
             lst.append(kkma_sentence[i][0])
         elif sym == 1:
@@ -90,7 +90,8 @@ def indata(request):
         sentences.append(' '.join(lst))
     else:
         print('증상없을떄')
-        sentences.append(' '.join(no_st))
+        if len(no_st) != 1 or len(no_st[0]) != 1:
+            sentences.append(' '.join(no_st))
     print(sentences)
     for sentence in sentences:
         
