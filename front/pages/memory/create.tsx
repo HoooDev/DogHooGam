@@ -66,7 +66,7 @@ function Create() {
       e,
       imgFile,
       nftFeed,
-      100,
+      123456789,
       storeUser.userWalletAddress,
       userKey
     );

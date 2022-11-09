@@ -1,6 +1,6 @@
 import Web3 from "web3";
 import axios from "axios";
-import { NFTContract, TOKENContract, TokenCA } from "./SmartContract";
+import { NFTContract, TOKENContract, TOKEN_CA } from "./SmartContract";
 
 const web3 = new Web3();
 web3.setProvider(
@@ -14,12 +14,10 @@ export const getAdminAdress = async () => {
 
 // 지갑 잔액 확인
 export const getBalance = async (address) => {
-  console.log(address, "지갑주소");
   const res = await TOKENContract.methods
     .balanceOf(address)
     .call()
     .then((balance) => balance);
-  console.log(res);
   return res;
 };
 
@@ -56,45 +54,64 @@ export const createAccount = async () => {
 const sendFileToIPFS = async (e, file, text, value, address, userKey) => {
   e.preventDefault(process.env.NEXT_PUBLIC_GETH_NODE);
 
-  console.log(value);
   let ImgHash;
   let getImg;
   let tranHash;
   const coinBase = await getAdminAdress();
 
   // ERC-20 토큰 보내기 전 허용
-  const data = await TOKENContract.methods.approve(coinBase, value).encodeABI();
-  console.log(data);
-  const txData = {
-    from: address,
-    gasPrice: web3.utils.toWei("42", "gwei"),
-    gas: web3.utils.toHex("320000"),
-    to: coinBase,
-    value: "0x",
-    data
-  };
-  console.log(txData);
+  if (value !== 0) {
+    console.log(value);
+    const data = await TOKENContract.methods
+      .approve(coinBase, value)
+      .encodeABI();
 
-  const tx = await web3.eth.accounts
-    .signTransaction(txData, userKey)
-    .then((ress) => ress);
-  // .catch(console.log("12"));
-  console.log(tx, "txtx");
+    console.log(data);
+    const txData = {
+      from: address,
+      gasPrice: web3.utils.toWei("42", "gwei"),
+      gas: web3.utils.toHex("320000"),
+      to: TOKEN_CA,
+      value: "0x",
+      data
+    };
+    console.log(txData);
 
-  const sendTx = await web3.eth
-    .sendSignedTransaction(tx.rawTransaction)
-    .then((ress) => ress)
-    .catch((err) => {
-      console.log(err);
-      console.log(tx.rawTransaction, "로우");
-    });
-  console.log(sendTx, "센드");
+    const tx = await web3.eth.accounts
+      .signTransaction(txData, userKey)
+      .then((ress) => ress);
+    // .catch(console.log("12"));
+    console.log(tx, "txtx");
 
-  const txHash = await TOKENContract.methods
-    .transferFrom(address, coinBase, value)
-    .send({ from: coinBase })
-    .then((ress) => ress.transactionHash);
-  // .catch((err) => console.log(err));
+    const sendTx = await web3.eth
+      .sendSignedTransaction(tx.rawTransaction)
+      .then((ress) => ress);
+    console.log(sendTx, "센드");
+
+    await TOKENContract.methods
+      .transferFrom(
+        address,
+        "0x52aEdCe8c99d769C9896A518Cb5927744F5da32b",
+        value
+      )
+      .send({ from: coinBase })
+      .then((res) => res.transactionHash);
+
+    // const amountToBn = web3.utils.toBN(`${value}`);
+    // console.log(amountToBn);
+    // await TOKENContract.methods
+    //   .approve(address, value)
+    //   .send({ from: coinBase });
+
+    // await TOKENContract.methods
+    //   .transferFrom(
+    //     address,
+    //     "0x52aEdCe8c99d769C9896A518Cb5927744F5da32b",
+    //     amountToBn
+    //   )
+    //   .send({ from: coinBase });
+    // .catch((err) => console.log(err));
+  }
 
   if (file) {
     try {
