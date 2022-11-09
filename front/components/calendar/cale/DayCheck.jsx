@@ -1,5 +1,8 @@
-import React, { useEffect, useReducer, useState } from "react";
-import axios from "axios";
+/* eslint-disable no-shadow */
+import React, { useReducer } from "react";
+// import axios from "axios";
+import { useSelector } from "react-redux";
+
 import styles from "./DayCheck.module.scss";
 import calendarReducer from "./reducer/CalendarReducer";
 import MakeCalendar from "./MakeCalendar";
@@ -20,79 +23,81 @@ console.log(initialState.month + 1);
 console.log(initialState.year);
 
 function DayCheck() {
-  const [memo, setMemo] = useState([]);
+  // const [memo, setMemo] = useState([]);
   const [state, dispatch] = useReducer(calendarReducer, initialState);
   // 날짜 관련
   const { year, month } = state;
   const yearMonth = `${year}.${month + 1}`;
   const lastDate = parseInt(new Date(year, month + 1, 0).getDate(), 10);
   const firstDay = parseInt(new Date(year, month, 1).getDay(), 10);
+  const { memos } = useSelector((state) => state.calendar);
+  console.log(memos);
 
   // Month 감소
   const onDecreases = () => {
     dispatch({ type: "DECREMENT" });
     console.log(state);
-    const Token = window.localStorage.getItem("AccessToken");
-    axios({
-      url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${state.month}&year=${state.year}`,
-      method: "get",
-      headers: { Authorization: `Bearer ${Token}` }
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res.data);
-          setMemo(res.data);
-        }
-        return [];
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // const Token = window.localStorage.getItem("AccessToken");
+    // axios({
+    //   url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${state.month}&year=${state.year}`,
+    //   method: "get",
+    //   headers: { Authorization: `Bearer ${Token}` }
+    // })
+    //   .then((res) => {
+    //     if (res.status === 200) {
+    //       console.log(res.data);
+    //       setMemo(res.data);
+    //     }
+    //     return [];
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   // Month 증가
   const onIncreases = () => {
     dispatch({ type: "INCREMENT" });
-    console.log(state);
-    const Token = window.localStorage.getItem("AccessToken");
-    axios({
-      url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${state.month}&year=${state.year}`,
-      method: "get",
-      headers: { Authorization: `Bearer ${Token}` }
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res.data);
-          setMemo(res.data);
-        }
-        return [];
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // console.log(state);
+    // const Token = window.localStorage.getItem("AccessToken");
+    // axios({
+    //   url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${state.month}&year=${state.year}`,
+    //   method: "get",
+    //   headers: { Authorization: `Bearer ${Token}` }
+    // })
+    //   .then((res) => {
+    //     if (res.status === 200) {
+    //       console.log(res.data);
+    //       setMemo(res.data);
+    //     }
+    //     return [];
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
-  useEffect(() => {
-    const Token = window.localStorage.getItem("AccessToken");
-    axios({
-      url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${
-        initialState.month + 1
-      }&year=${initialState.year}`,
-      method: "get",
-      headers: { Authorization: `Bearer ${Token}` }
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res.data);
-          setMemo(res.data);
-        }
-        return [];
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  console.log(memo);
+  // useEffect(() => {
+  //   const Token = window.localStorage.getItem("AccessToken");
+  //   axios({
+  //     url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${
+  //       initialState.month + 1
+  //     }&year=${initialState.year}`,
+  //     method: "get",
+  //     headers: { Authorization: `Bearer ${Token}` }
+  //   })
+  //     .then((res) => {
+  //       if (res.status === 200) {
+  //         console.log(res.data);
+  //         setMemo(res.data);
+  //       }
+  //       return [];
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
+  // console.log(memo);
   // console.log(state);
   return (
     <div className="Calendar">
