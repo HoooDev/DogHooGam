@@ -8,10 +8,8 @@ import pause from "../../public/icons/pause.svg";
 import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
 import {
-  finishWalking,
   finishWalkingApi,
   pauseWalking,
-  resetWalking,
   restartWalking,
   saveTime
 } from "../../redux/slice/walkSlice";
@@ -19,21 +17,9 @@ import { AppDispatch, RootState } from "../../redux/store";
 
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const [isPausing, setIsPausing] = useState<boolean>(false);
-  const { totalDist, isPaused, personId, paths } = useSelector(
-    (state: RootState) => state.walk
-  );
+  const { totalDist, isPaused } = useSelector((state: RootState) => state.walk);
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [time, setTime] = useState(0);
-
-  // useEffect(() => {
-  //   return () => {
-  //     if (personId) {
-  //       dispatch(resetWalking());
-  //       dispatch(restartWalking());
-  //     }
-  //   };
-  // }, []);
 
   useEffect(() => {
     if (!isPaused) {
@@ -55,47 +41,18 @@ const AfterSign = () => {
 
   const onPlayClick = () => {
     dispatch(restartWalking());
-    setIsPausing((prev) => !prev);
+    // setIsPausing((prev) => !prev);
   };
 
   const onPuaseClick = () => {
-    setIsPausing((prev) => !prev);
+    // setIsPausing((prev) => !prev);
     dispatch(pauseWalking());
   };
-
-  // const beforeCapture = () => {
-  //   let maxLat = 0;
-  //   let maxLng = 0;
-  //   let minLat = 100;
-  //   let minLng = 1000;
-  //   paths.forEach((path) => {
-  //     if (maxLat < path.lat) {
-  //       maxLat = path.lat;
-  //     }
-  //     if (maxLng < path.lng) {
-  //       maxLng = path.lng;
-  //     }
-  //     if (minLat > path.lat) {
-  //       minLat = path.lat;
-  //     }
-  //     if (minLng > path.lng) {
-  //       minLng = path.lng;
-  //     }
-  //   });
-  // };
 
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
-      finishWalkingApi({
-        coin: 0,
-        distance: 0,
-        personId,
-        walkPath: paths
-      });
-      dispatch(finishWalking());
-      dispatch(restartWalking());
-      dispatch(resetWalking());
+      dispatch(finishWalkingApi());
     } else {
       onPlayClick();
     }
@@ -122,7 +79,7 @@ const AfterSign = () => {
       </div>
       <div className={`${styles.controller} flex justify-center`}>
         <div className={`${styles.controller__content} flex fs-16`}>
-          {!isPausing ? (
+          {!isPaused ? (
             <div
               className={`${styles.controller__pause} flex justify-center align-center`}
               onClick={onPuaseClick}

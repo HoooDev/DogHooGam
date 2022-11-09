@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../../pages/api/index";
 
 interface Location {
@@ -37,6 +37,7 @@ interface WalkState {
   others: any[];
   dogState: number;
   myDogs: Dog[];
+  coin: number;
 }
 
 const initialState: WalkState = {
@@ -56,7 +57,8 @@ const initialState: WalkState = {
   time: 0,
   others: [],
   dogState: 0,
-  myDogs: []
+  myDogs: [],
+  coin: 0
 }; // 초기 상태 정의
 
 export const startWalkingApi = async (data: any) => {
@@ -69,10 +71,25 @@ export const nowWalkingApi = async (data: any) => {
   return res.data;
 };
 
-export const finishWalkingApi = async (data: any) => {
-  const res = await axios.post("/walk/end", data);
-  return res.data;
-};
+type Any = any;
+
+export const finishWalkingApi = createAsyncThunk<Any>(
+  // Types for ThunkAPI
+  "walk/finishWalking",
+  async (_, { getState }) => {
+    const state: any = getState();
+    try {
+      const res = await axios.post("/walk/end", {
+        coin: state.walk.coin,
+        distance: state.walk.totalDist,
+        walkPath: state.walk.paths
+      });
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
 
 export const getMyDogs = async () => {
   const res = await axios.get("/dog");
@@ -81,8 +98,13 @@ export const getMyDogs = async () => {
 
 export const getOtherDogs = async (dogPk: number) => {
   const res = await axios.get(`/dog/${dogPk}`);
-  console.log("redux", res);
   return res.data;
+};
+
+const calCoin = (d: number): number => {
+  const y = 20;
+  if (d >= y) return d * 0.5;
+  return d * 0.1;
 };
 
 const walkSlice = createSlice({
@@ -92,7 +114,6 @@ const walkSlice = createSlice({
     startWalking: (state, { payload }) => {
       state.isWalkingStarted = true;
       state.personId = payload;
-      console.log(payload);
     },
     finishWalking: (state) => {
       state.isWalkingStarted = false;
@@ -106,24 +127,24 @@ const walkSlice = createSlice({
         state.selectedDogs.push(payload);
       }
     },
-    resetWalking: (state) => {
-      state.loading = false;
-      state.success = false;
-      state.error = null;
-      state.others = [];
-      state.selectedDogs = [];
-      state.totalDist = "0.00";
-      state.isPaused = false;
-      state.personId = "";
-      state.center = {
-        lat: 0,
-        lng: 0
-      };
-      state.paths = [];
-      state.time = 0;
-      state.others = [];
-      state.dogState = 0;
-    },
+    // resetWalking: (state) => {
+    //   state.loading = false;
+    //   state.success = false;
+    //   state.error = null;
+    //   state.others = [];
+    //   state.selectedDogs = [];
+    //   state.totalDist = "0.00";
+    //   state.isPaused = false;
+    //   state.personId = "";
+    //   state.center = {
+    //     lat: 0,
+    //     lng: 0
+    //   };
+    //   state.paths = [];
+    //   state.time = 0;
+    //   state.others = [];
+    //   state.dogState = 0;
+    // },
     pushPaths: (state, { payload }) => {
       if (state.paths.length > 1) {
         const lastPosition = state.paths[state.paths.length - 1];
@@ -137,6 +158,7 @@ const walkSlice = createSlice({
     },
     saveDistance: (state, { payload }) => {
       let tmp = +state.totalDist + payload;
+      state.coin = calCoin(tmp);
       tmp = parseFloat(tmp.toString()).toFixed(2);
       tmp = parseFloat(tmp).toFixed(2);
       state.totalDist = tmp;
@@ -156,6 +178,24 @@ const walkSlice = createSlice({
     setMyDogs: (state, { payload }) => {
       state.myDogs = payload;
     }
+  },
+  extraReducers: (builder) => {
+    builder.addCase(finishWalkingApi.fulfilled, (state) => {
+      state.isWalkingStarted = false;
+      state.selectedDogs = [];
+      state.totalDist = "0.00";
+      state.isPaused = false;
+      state.personId = "";
+      state.center = {
+        lat: 0,
+        lng: 0
+      };
+      state.paths = [];
+      state.time = 0;
+      state.others = [];
+      state.dogState = 0;
+      state.coin = 0;
+    });
   }
 });
 
@@ -167,7 +207,7 @@ export const {
   saveDistance,
   pauseWalking,
   restartWalking,
-  resetWalking,
+  // resetWalking,
   saveTime,
   toggleDogState,
   setMyDogs

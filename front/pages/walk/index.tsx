@@ -8,9 +8,6 @@ import AfterSign from "../../components/walk/AfterSign";
 import styles from "./index.module.scss";
 import type { AppDispatch, RootState } from "../../redux/store/index";
 import {
-  finishWalking,
-  restartWalking,
-  resetWalking,
   finishWalkingApi,
   getMyDogs,
   setMyDogs
@@ -19,7 +16,7 @@ import DogSelectCard from "../../components/walk/DogSelectCard";
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted, myDogs, personId, paths } = useSelector(
+  const { isWalkingStarted, myDogs } = useSelector(
     (state: RootState) => state.walk
   );
   useEffect(() => {
@@ -28,21 +25,8 @@ const Index: NextPage = () => {
         dispatch(setMyDogs(res));
       })
       .catch(() => console.error);
-  }, []);
-
-  useEffect(() => {
     return () => {
-      if (personId) {
-        finishWalkingApi({
-          coin: 0,
-          distance: 0,
-          personId,
-          walkPath: paths
-        });
-        dispatch(finishWalking());
-        dispatch(restartWalking());
-        dispatch(resetWalking());
-      }
+      dispatch(finishWalkingApi());
     };
   }, []);
 

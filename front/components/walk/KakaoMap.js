@@ -6,7 +6,13 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
+import {
+  // CustomOverlayMap,
+  Map,
+  MapMarker,
+  Polyline,
+  ZoomControl
+} from "react-kakao-maps-sdk";
 
 import gps from "../../public/icons/gps.svg";
 import styles from "./KakaoMap.module.scss";
@@ -53,6 +59,7 @@ const KakaoMap = () => {
   const timeout = useRef(null);
   const dispatch = useDispatch();
   const [map, setMap] = useState(null);
+  const [level, setLevel] = useState(1);
   const [center, setCenter] = useState({
     lat: 0,
     lng: 0
@@ -61,30 +68,26 @@ const KakaoMap = () => {
   const [isOtherModalOpen, setIsOtherModalOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [other, setOther] = useState({});
+  // const [isOpen, setIsOpen] = useState(false);
+  const [pk, setPk] = useState();
+
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const toggleOtherModal = (pk) => {
-    setIsOtherModalOpen(!isOtherModalOpen);
-    if (pk) {
-      setOther(pk);
-    }
-  };
+  const toggleOtherModal = () => setIsOtherModalOpen(!isOtherModalOpen);
 
   useEffect(() => {
     if (isOtherModalOpen) {
-      if (!other) return;
-      getOtherDogs(other)
-        .then((res) => {
-          console.log(res);
-          setOther(res);
-        })
-        .catch(() => console.log);
+      if (pk) {
+        getOtherDogs(pk)
+          .then((res) => {
+            console.log(res);
+            setOther(res);
+          })
+          .catch(() => console.log);
+      }
     }
-  }, [isOtherModalOpen, other]);
+  }, [isOtherModalOpen, pk]);
 
   const handleClick = ({ lat, lng }) => {
-    const lastPos = paths[paths.length - 1];
-    if (paths.length > 1 && lastPos.lat === lat && lastPos.lng) return;
-    dispatch(pushPaths({ lat, lng }));
     if (paths?.length > 1) {
       // 최근 움직인 거리
       const dist = calculateDistance(
@@ -93,7 +96,23 @@ const KakaoMap = () => {
         lat,
         lng
       );
+      if (dist > 0.05) {
+        return;
+      }
       dispatch(saveDistance(dist));
+    }
+
+    const lastPos = paths[paths.length - 1];
+    if (paths.length > 1 && lastPos.lat === lat && lastPos.lng) return;
+    let xDiff = 0;
+    let yDiff = 0;
+    if (lastPos) {
+      xDiff = lat - lastPos.lat;
+      yDiff = lng - lastPos.lng;
+    }
+    const tmp = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+    if (tmp > 0.00004) {
+      dispatch(pushPaths({ lat, lng }));
     }
   };
 
@@ -102,9 +121,11 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
+        // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
+        // const lng = parseFloat(position.coords.longitude.toFixed(5));
         dispatch(pushPaths({ lat, lng }));
         setCenter({ lat, lng });
-        handleClick({ lat, lng });
+        // handleClick({ lat, lng });
       });
     } else {
       alert("지도 정보를 허용해주세요!");
@@ -116,6 +137,8 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
+        // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
+        // const lng = parseFloat(position.coords.longitude.toFixed(5));
         map.setCenter(new kakao.maps.LatLng(lat, lng));
         setCenter({ lat, lng });
       });
@@ -127,24 +150,20 @@ const KakaoMap = () => {
   }, []);
 
   const walking = () => {
+    if (isSending) return;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const lat = position.coords.latitude; // 위도
           const lng = position.coords.longitude; // 경도
+          // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
+          // const lng = parseFloat(position.coords.longitude.toFixed(5));
           console.log(lat, lng);
           nowWalkingApi({ lat, lng, personId })
             .then((res) => {
-              const newPositions = [];
-              res.forEach((element) => {
-                newPositions.push({
-                  title: element.dogPk,
-                  latlng: { lat: element.lat, lng: element.lng },
-                  dogState: element.dogState
-                });
-              });
-              setPositions(newPositions);
-              dispatch(pushPaths({ lat, lng }));
+              console.log(res);
+              setPositions(res);
+              // dispatch(pushPaths({ lat, lng }));
               setCenter({ lat, lng });
               handleClick({ lat, lng });
             })
@@ -161,25 +180,9 @@ const KakaoMap = () => {
   };
 
   useEffect(() => {
-    if (isSending) return;
-    walking();
-    setIsSending(true);
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
-    timeout.current = setTimeout(() => {
-      setIsSending(false);
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
-    }, 3000);
-  }, [isSending]);
-
-  useEffect(() => {
-    if (isSending) return;
     if (!isPaused) {
-      walking();
-      setIsSending(true);
+      walking(); // api 호출
+      setIsSending(true); // API 플래그
       if (timeout.current) {
         clearTimeout(timeout.current);
       }
@@ -188,39 +191,40 @@ const KakaoMap = () => {
       }, 3000);
     } else if (isPaused) {
       setIsSending(true);
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
     }
-  }, [isSending, isPaused, walking]);
+  }, [isPaused, walking]);
 
   return (
     <div className={styles.wrapper}>
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
-        {myDogs?.map((dog) => (
-          <div key={dog.pk}>
-            <div>생일 : {dog.birthday}</div>
-            <div>견종 : {dog.dogBreed}</div>
-            <div>성격 : {dog.dogCharacter}</div>
-            {/* <div><Image /></div> */}
-            <div>이름 : {dog.dogName}</div>
-          </div>
-        ))}
+        <div className={styles.myModal}>
+          {myDogs?.map((dog) => (
+            <div key={dog.pk}>
+              {/* <div>생일 : {dog.birthday}</div> */}
+              <div>견종 : {dog.dogBreed}</div>
+              <div>성격 : {dog.dogCharacter}</div>
+              {/* <div><Image /></div> */}
+              <div>이름 : {dog.dogName}</div>
+            </div>
+          ))}
+        </div>
       </Modal>
 
       <Modal isOpen={isOtherModalOpen} onClose={toggleOtherModal}>
-        <div>{other}</div>
+        <div>{JSON.stringify(other)}</div>
       </Modal>
 
       <Map
         className={styles.map}
         center={center}
-        level={1}
+        level={level}
         onCreate={(map) => setMap(map)}
+        onZoomChanged={(map) => setLevel(map.getLevel())}
       >
+        <ZoomControl />
         <Polyline
           path={paths}
-          strokeWeight={3} // 선의 두께입니다
+          strokeWeight={5} // 선의 두께입니다
           strokeColor="#db4040" // 선의 색깔입니다
           strokeOpacity={1} // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
           strokeStyle="solid" // 선의 스타일입니다
@@ -251,10 +255,15 @@ const KakaoMap = () => {
         </div>
 
         {positions.map((position, index) => (
-          <div key={`${position.dogName}-${position.latlng},${index + 1}`}>
+          <div key={`${position.lat}-${position.lng},${index + 1}`}>
             <MapMarker
-              onClick={() => toggleOtherModal(position.dogPk)}
-              position={position.latlng} // 마커를 표시할 위치
+              onClick={() => {
+                toggleOtherModal();
+                if (position.dogPk) {
+                  setPk(position.dogPk[0]);
+                }
+              }}
+              position={{ lat: position.lat, lng: position.lng }} // 마커를 표시할 위치
               image={{
                 src:
                   position.dogState === 0
@@ -267,6 +276,53 @@ const KakaoMap = () => {
               }}
               // title={position.dogName} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
             />
+
+            {/* {isOpen && (
+              <CustomOverlayMap position={position.latlng}>
+                <div className="wrap">
+                  <div className="info">
+                    <div className="title">
+                      카카오 스페이스닷원
+                      <div
+                        className="close"
+                        onClick={() => setIsOpen(false)}
+                        title="닫기"
+                        aria-hidden="true"
+                      ></div>
+                    </div>
+                    <div className="body">
+                      <div className="img">
+                        <img
+                          src="//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+                          width="73"
+                          height="70"
+                          alt="카카오 스페이스닷원"
+                        />
+                      </div>
+                      <div className="desc">
+                        <div className="ellipsis">
+                          제주특별자치도 제주시 첨단로 242
+                        </div>
+                        <div className="jibun ellipsis">
+                          (우) 63309 (지번) 영평동 2181
+                        </div>
+                        <div>
+                          <a
+                            href="https://www.kakaocorp.com/main"
+                            target="_blank"
+                            className="link"
+                            rel="noreferrer"
+                          >
+                            홈페이지
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                ;
+              </CustomOverlayMap>
+            )} */}
           </div>
         ))}
       </Map>
