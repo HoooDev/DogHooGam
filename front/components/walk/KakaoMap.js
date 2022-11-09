@@ -23,6 +23,7 @@ import {
   nowWalkingApi,
   getOtherDogs
 } from "../../redux/slice/walkSlice";
+import WalkSlider from "./WalkSlider";
 
 let kakao;
 
@@ -53,7 +54,7 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
   const [positions, setPositions] = useState([]);
-  const { isPaused, paths, personId, myDogs } = useSelector(
+  const { isPaused, paths, personId, selectedDogs } = useSelector(
     (state) => state.walk
   );
   const timeout = useRef(null);
@@ -67,17 +68,33 @@ const KakaoMap = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOtherModalOpen, setIsOtherModalOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [mySelectedDogs, setMySelectedDogs] = useState([]);
   const [other, setOther] = useState({});
   // const [isOpen, setIsOpen] = useState(false);
-  const [pk, setPk] = useState();
+  const [pks, setPks] = useState([]);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const toggleOtherModal = () => setIsOtherModalOpen(!isOtherModalOpen);
 
   useEffect(() => {
+    if (isModalOpen) {
+      const pks = [];
+      selectedDogs.forEach((dog) => {
+        pks.push(dog.id);
+      });
+      getOtherDogs(pks)
+        .then((res) => {
+          console.log(res);
+          setMySelectedDogs(res);
+        })
+        .catch(() => console.log);
+    }
+  }, [isModalOpen]);
+
+  useEffect(() => {
     if (isOtherModalOpen) {
-      if (pk) {
-        getOtherDogs(pk)
+      if (pks && pks.length > 0) {
+        getOtherDogs(pks)
           .then((res) => {
             console.log(res);
             setOther(res);
@@ -85,7 +102,7 @@ const KakaoMap = () => {
           .catch(() => console.log);
       }
     }
-  }, [isOtherModalOpen, pk]);
+  }, [isOtherModalOpen, pks]);
 
   const handleClick = ({ lat, lng }) => {
     if (paths?.length > 1) {
@@ -162,7 +179,8 @@ const KakaoMap = () => {
           nowWalkingApi({ lat, lng, personId })
             .then((res) => {
               console.log(res);
-              setPositions(res);
+              const tmp = res.filter((item) => item.dogPk !== null);
+              setPositions(tmp);
               // dispatch(pushPaths({ lat, lng }));
               setCenter({ lat, lng });
               handleClick({ lat, lng });
@@ -197,21 +215,11 @@ const KakaoMap = () => {
   return (
     <div className={styles.wrapper}>
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
-        <div className={styles.myModal}>
-          {myDogs?.map((dog) => (
-            <div key={dog.pk}>
-              {/* <div>생일 : {dog.birthday}</div> */}
-              <div>견종 : {dog.dogBreed}</div>
-              <div>성격 : {dog.dogCharacter}</div>
-              {/* <div><Image /></div> */}
-              <div>이름 : {dog.dogName}</div>
-            </div>
-          ))}
-        </div>
+        {mySelectedDogs.length > 0 && <WalkSlider dogs={mySelectedDogs} />}
       </Modal>
 
       <Modal isOpen={isOtherModalOpen} onClose={toggleOtherModal}>
-        <div>{JSON.stringify(other)}</div>
+        {other.length > 0 && <WalkSlider dogs={other} />}
       </Modal>
 
       <Map
@@ -260,7 +268,7 @@ const KakaoMap = () => {
               onClick={() => {
                 toggleOtherModal();
                 if (position.dogPk) {
-                  setPk(position.dogPk[0]);
+                  setPks(position.dogPk);
                 }
               }}
               position={{ lat: position.lat, lng: position.lng }} // 마커를 표시할 위치
@@ -276,53 +284,6 @@ const KakaoMap = () => {
               }}
               // title={position.dogName} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
             />
-
-            {/* {isOpen && (
-              <CustomOverlayMap position={position.latlng}>
-                <div className="wrap">
-                  <div className="info">
-                    <div className="title">
-                      카카오 스페이스닷원
-                      <div
-                        className="close"
-                        onClick={() => setIsOpen(false)}
-                        title="닫기"
-                        aria-hidden="true"
-                      ></div>
-                    </div>
-                    <div className="body">
-                      <div className="img">
-                        <img
-                          src="//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
-                          width="73"
-                          height="70"
-                          alt="카카오 스페이스닷원"
-                        />
-                      </div>
-                      <div className="desc">
-                        <div className="ellipsis">
-                          제주특별자치도 제주시 첨단로 242
-                        </div>
-                        <div className="jibun ellipsis">
-                          (우) 63309 (지번) 영평동 2181
-                        </div>
-                        <div>
-                          <a
-                            href="https://www.kakaocorp.com/main"
-                            target="_blank"
-                            className="link"
-                            rel="noreferrer"
-                          >
-                            홈페이지
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                ;
-              </CustomOverlayMap>
-            )} */}
           </div>
         ))}
       </Map>
