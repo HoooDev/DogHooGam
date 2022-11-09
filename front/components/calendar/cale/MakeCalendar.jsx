@@ -1,10 +1,12 @@
 // import React, { useState } from "react";
 // eslint-disable-next-line import/no-unresolved
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styles1 from "./DayCheck.module.scss";
 import styles2 from "./MakeCalendar.module.scss";
 
 import { transString } from "./CalcDate";
+
+import { setSelectDay } from "../../../redux/slice/calendarSlice";
 
 /*
  * 현재 날짜를 key값 형식으로 변환
@@ -28,10 +30,12 @@ const returnIdx = (order, year, month, day) => {
 };
 
 const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
-  // 리덕스에 선택한 년,월,날짜 저장 기본값은 오늘날짜
+  const dispatch = useDispatch();
   function daySelect(e) {
-    console.log(e);
+    console.log(e.target.innerText);
+    const newDay = Number(e.target.innerText);
     // 이함수에서 그 리덕스 변경
+    dispatch(setSelectDay({ year, month: month + 1, newDay }));
   }
 
   const result = [];

@@ -11,7 +11,11 @@ import DayCheck from "../../components/calendar/cale/DayCheck";
 import Todo from "../../components/calendar/Todo";
 import WalkRecord from "../../components/calendar/WalkRecord";
 // import CompoCard from "../../components/calendar/CompoCard";
-import { getCalendarMemoApi, setMemos } from "../../redux/slice/calendarSlice";
+import {
+  getCalendarMemoApi,
+  setMemos,
+  setSelectDay
+} from "../../redux/slice/calendarSlice";
 import line from "../../public/icons/Line 1.svg";
 
 const CalendarPage: NextPage = () => {
@@ -26,14 +30,18 @@ const CalendarPage: NextPage = () => {
     // console.log(e.target.innerText)
     setTab(e.target.innerText);
   }
-
+  const today = new Date();
+  const year = today.getFullYear(); // 년도
+  const month = today.getMonth() + 1; // 월
+  const day = today.getDate(); // 날짜
   const dispatch = useDispatch();
-
+  // 리덕스에 선택한 년,월,날짜 저장 기본값은 오늘날짜
   useEffect(() => {
-    getCalendarMemoApi(11, 2022)
+    getCalendarMemoApi(month, year)
       .then((res) => {
         // setMemos(res);
         dispatch(setMemos({ res }));
+        dispatch(setSelectDay({ year, month, day }));
       })
       .catch(() => console.error);
   }, []);

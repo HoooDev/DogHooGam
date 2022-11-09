@@ -19,6 +19,7 @@ interface CalendarState {
   };
   pk: number;
   memos: any[];
+  selectDay: number;
 }
 
 const initialState: CalendarState = {
@@ -36,7 +37,8 @@ const initialState: CalendarState = {
     year: 0
   },
   pk: 0,
-  memos: []
+  memos: [],
+  selectDay: 0
 };
 
 export const getCalendarMemoApi = async (month: number, year: number) => {
@@ -50,9 +52,12 @@ const calendarSlice = createSlice({
   reducers: {
     setMemos: (state, action) => {
       state.memos = action.payload;
+    },
+    setSelectDay: (state, action) => {
+      state.selectDay = action.payload;
     }
   }
 });
 
-export const { setMemos } = calendarSlice.actions; // 액션 생성함수
+export const { setMemos, setSelectDay } = calendarSlice.actions; // 액션 생성함수
 export default calendarSlice.reducer; // 리듀서
