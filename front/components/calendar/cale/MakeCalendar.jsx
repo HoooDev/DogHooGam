@@ -38,7 +38,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
   }
 
   const result = [];
-  const dayEvent = useSelector((state) => state.calendar.memos.res);
+  const dayEvent = useSelector((state) => state.calendar.memos);
   const selectDay = useSelector((state) => state.calendar.selectDay);
   const makeDay = (week) => {
     const result2 = [];
@@ -62,7 +62,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const idx = returnIdx("", year, month, now);
           let dayTag
 
-          if (selectDay.year === year && selectDay.month === month+1 && selectDay.day === now) {
+          if (selectDay.year === year && selectDay.month === month + 1 && selectDay.day === now) {
             dayTag = <td className={`${styles2.selectDay} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
               <button className={`${styles2.dayButton}`} type="button">
                 {now}
@@ -89,7 +89,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const idx = returnIdx("", year, month, now);
 
           let dayTag
-          if (selectDay.year === year && selectDay.month === month+1 && selectDay.day === now) {
+          if (selectDay.year === year && selectDay.month === month + 1 && selectDay.day === now) {
             dayTag = <td className={`${styles2.selectDay} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
               <button className={`${styles2.dayButton}`} type="button">
                 {now}

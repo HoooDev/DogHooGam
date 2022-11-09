@@ -40,7 +40,7 @@ const CalendarPage: NextPage = () => {
     getCalendarMemoApi(month, year)
       .then((res) => {
         // setMemos(res);
-        dispatch(setMemos({ res }));
+        dispatch(setMemos(res));
         dispatch(setSelectDay({ year, month, day }));
       })
       .catch(() => console.error);

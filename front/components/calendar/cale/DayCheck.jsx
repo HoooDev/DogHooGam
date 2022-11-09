@@ -34,8 +34,7 @@ function DayCheck() {
   const yearMonth = `${year}.${month + 1}`;
   const lastDate = parseInt(new Date(year, month + 1, 0).getDate(), 10);
   const firstDay = parseInt(new Date(year, month, 1).getDay(), 10);
-  const { memos } = useSelector((state) => state.calendar);
-  console.log(memos);
+
 
   // Month 감소
   const onDecreases = () => {
@@ -48,13 +47,12 @@ function DayCheck() {
     dispatch({ type: "INCREMENT" });
   };
 
-  console.log(state);
   const dispatch2 = useDispatch();
 
   useEffect(() => {
     getCalendarMemoApi(state.month + 1, state.year)
       .then((res) => {
-        dispatch2(setMemos({ res }));
+        dispatch2(setMemos(res));
       })
       .catch(() => console.error);
   }, [state]);
