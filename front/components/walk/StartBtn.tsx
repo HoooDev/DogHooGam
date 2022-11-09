@@ -7,7 +7,7 @@ import type { AppDispatch, RootState } from "../../redux/store/index";
 
 const StartBtn = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { selectedDogs, dogState, myDogs } = useSelector(
+  const { selectedDogs, dogState } = useSelector(
     (state: RootState) => state.walk
   );
   const onWalkStartClick = () => {
@@ -20,7 +20,8 @@ const StartBtn = () => {
         const lng = position.coords.longitude; // 경도
         // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
         // const lng = parseFloat(position.coords.longitude.toFixed(5)); // 경도
-        const dogPkList = myDogs.map((dog) => dog.pk);
+        // const dogPkList = myDogs.map((dog) => dog.pk);
+        const dogPkList = selectedDogs.map((dog) => dog.id);
         startWalkingApi({
           dogPk: dogPkList,
           dogState,
