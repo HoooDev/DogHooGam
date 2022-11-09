@@ -6,6 +6,38 @@
   height: 100vh;
   background-color: #FFF8EA;
   text-align: center;
+  .introImg{
+    width: vw(200px);
+    height: vw(200px);
+    margin-inline: auto;
+    padding-top: vw(100px);
+  }
+  .intro{
+    margin-top: vw(100px);
+    .text{
+      margin-block: vw(20px);
+      width: vw(200px);
+      text-align: end;
+      margin-inline: auto;
+    }
+  }
+  .button{
+    height: vw(50px);
+    width: vw(280px);
+    margin-inline: auto;
+    margin-top: vw(100px);
+    background-color: #F9E000;
+    border: none;
+    border-radius: 10px;
+    
+    .kakao{
+      margin-left: vw(20px);
+      margin-right: vw(30px);
+      height: vw(35px);
+      width: vw(35px);
+    }
+  }
+  
 }
 
 // 390 보다 클 때

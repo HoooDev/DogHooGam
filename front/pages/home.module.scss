@@ -1,4 +1,8 @@
 .wrapper {
+  padding-top: vw(25px);
+  .mainTab{
+    margin-top: vw(50px);
+  }
 }
 
 @media screen and (min-width: $PHONE-VW) {
@@ -7,6 +11,5 @@
     .mainTab{
       margin-top: 50px;
     }
-    
   }
 }
