@@ -920,6 +920,13 @@
     "model": "chatbots.SymptomData",
     "pk": 132,
     "fields": {
+      "symptom": "염증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 133,
+    "fields": {
       "symptom": "분류불가"
     }
   }
