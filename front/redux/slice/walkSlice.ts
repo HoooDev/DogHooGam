@@ -81,7 +81,7 @@ export const finishWalkingApi = createAsyncThunk<Any>(
     try {
       const res = await axios.post("/walk/end", {
         coin: state.walk.coin,
-        dist: state.walk.totalDist,
+        distance: state.walk.totalDist,
         walkPath: state.walk.paths
       });
       return res.data;
@@ -121,24 +121,24 @@ const walkSlice = createSlice({
         state.selectedDogs.push(payload);
       }
     },
-    resetWalking: (state) => {
-      state.loading = false;
-      state.success = false;
-      state.error = null;
-      state.others = [];
-      state.selectedDogs = [];
-      state.totalDist = "0.00";
-      state.isPaused = false;
-      state.personId = "";
-      state.center = {
-        lat: 0,
-        lng: 0
-      };
-      state.paths = [];
-      state.time = 0;
-      state.others = [];
-      state.dogState = 0;
-    },
+    // resetWalking: (state) => {
+    //   state.loading = false;
+    //   state.success = false;
+    //   state.error = null;
+    //   state.others = [];
+    //   state.selectedDogs = [];
+    //   state.totalDist = "0.00";
+    //   state.isPaused = false;
+    //   state.personId = "";
+    //   state.center = {
+    //     lat: 0,
+    //     lng: 0
+    //   };
+    //   state.paths = [];
+    //   state.time = 0;
+    //   state.others = [];
+    //   state.dogState = 0;
+    // },
     pushPaths: (state, { payload }) => {
       if (state.paths.length > 1) {
         const lastPosition = state.paths[state.paths.length - 1];
@@ -204,7 +204,7 @@ export const {
   saveDistance,
   pauseWalking,
   restartWalking,
-  resetWalking,
+  // resetWalking,
   saveTime,
   toggleDogState,
   setMyDogs
