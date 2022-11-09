@@ -6,7 +6,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
+import { Map, MapMarker, Polyline, ZoomControl } from "react-kakao-maps-sdk";
 
 import gps from "../../public/icons/gps.svg";
 import styles from "./KakaoMap.module.scss";
@@ -53,6 +53,7 @@ const KakaoMap = () => {
   const timeout = useRef(null);
   const dispatch = useDispatch();
   const [map, setMap] = useState(null);
+  const [level, setLevel] = useState(1);
   const [center, setCenter] = useState({
     lat: 0,
     lng: 0
@@ -81,6 +82,20 @@ const KakaoMap = () => {
   }, [isOtherModalOpen, other]);
 
   const handleClick = ({ lat, lng }) => {
+    if (paths?.length > 1) {
+      // 최근 움직인 거리
+      const dist = calculateDistance(
+        paths[paths.length - 1].lat,
+        paths[paths.length - 1].lng,
+        lat,
+        lng
+      );
+      if (dist > 0.05) {
+        return;
+      }
+      dispatch(saveDistance(dist));
+    }
+
     const lastPos = paths[paths.length - 1];
     if (paths.length > 1 && lastPos.lat === lat && lastPos.lng) return;
     let xDiff = 0;
@@ -92,16 +107,6 @@ const KakaoMap = () => {
     const tmp = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
     if (tmp > 0.00004) {
       dispatch(pushPaths({ lat, lng }));
-    }
-    if (paths?.length > 1) {
-      // 최근 움직인 거리
-      const dist = calculateDistance(
-        paths[paths.length - 1].lat,
-        paths[paths.length - 1].lng,
-        lat,
-        lng
-      );
-      dispatch(saveDistance(dist));
     }
   };
 
@@ -211,9 +216,11 @@ const KakaoMap = () => {
       <Map
         className={styles.map}
         center={center}
-        level={1}
+        level={level}
         onCreate={(map) => setMap(map)}
+        onZoomChanged={(map) => setLevel(map.getLevel())}
       >
+        <ZoomControl />
         <Polyline
           path={paths}
           strokeWeight={5} // 선의 두께입니다
