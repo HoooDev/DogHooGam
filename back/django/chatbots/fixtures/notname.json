@@ -3797,7 +3797,7 @@
     "model": "chatbots.NotName",
     "pk": 543,
     "fields": {
-      "name": "생리후출혈"
+      "name": "생리"
     }
   },
   {

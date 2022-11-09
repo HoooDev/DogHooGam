@@ -381,7 +381,7 @@
     "model": "chatbots.SymptomData",
     "pk": 55,
     "fields": {
-      "symptom": "생리후출혈"
+      "symptom": "생리출혈"
     }
   },
   {

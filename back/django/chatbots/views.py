@@ -68,7 +68,7 @@ def indata(request):
 
         no_st.append(kkma_sentence[i][0])
         if kkma_sentence[i][1][0] == 'N':
-            if notnamedata['name'].str.contains(kkma_sentence[i][0]).sum() >= 1:
+            if len(notnamedata[notnamedata['name'] == kkma_sentence[i][0]]):
                 sym = 1
                 lst.append(kkma_sentence[i][0])
         elif kkma_sentence[i][0] == '열이' :
