@@ -19,7 +19,7 @@ import { AppDispatch, RootState } from "../../redux/store";
 
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const [isPausing, setIsPausing] = useState<boolean>(false);
+  // const [isPausing, setIsPausing] = useState<boolean>(false);
   const { totalDist, isPaused, personId, paths } = useSelector(
     (state: RootState) => state.walk
   );
@@ -55,11 +55,11 @@ const AfterSign = () => {
 
   const onPlayClick = () => {
     dispatch(restartWalking());
-    setIsPausing((prev) => !prev);
+    // setIsPausing((prev) => !prev);
   };
 
   const onPuaseClick = () => {
-    setIsPausing((prev) => !prev);
+    // setIsPausing((prev) => !prev);
     dispatch(pauseWalking());
   };
 
@@ -87,12 +87,14 @@ const AfterSign = () => {
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
-      finishWalkingApi({
-        coin: 0,
-        distance: 0,
-        personId,
-        walkPath: paths
-      });
+      if (personId) {
+        finishWalkingApi({
+          coin: 0,
+          distance: 0,
+          personId,
+          walkPath: paths
+        });
+      }
       dispatch(finishWalking());
       dispatch(restartWalking());
       dispatch(resetWalking());
@@ -122,7 +124,7 @@ const AfterSign = () => {
       </div>
       <div className={`${styles.controller} flex justify-center`}>
         <div className={`${styles.controller__content} flex fs-16`}>
-          {!isPausing ? (
+          {!isPaused ? (
             <div
               className={`${styles.controller__pause} flex justify-center align-center`}
               onClick={onPuaseClick}

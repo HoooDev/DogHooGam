@@ -74,7 +74,6 @@ const KakaoMap = () => {
       if (!other) return;
       getOtherDogs(other)
         .then((res) => {
-          console.log(res);
           setOther(res);
         })
         .catch(() => console.log);
@@ -84,7 +83,16 @@ const KakaoMap = () => {
   const handleClick = ({ lat, lng }) => {
     const lastPos = paths[paths.length - 1];
     if (paths.length > 1 && lastPos.lat === lat && lastPos.lng) return;
-    dispatch(pushPaths({ lat, lng }));
+    let xDiff = 0;
+    let yDiff = 0;
+    if (lastPos) {
+      xDiff = lat - lastPos.lat;
+      yDiff = lng - lastPos.lng;
+    }
+    const tmp = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+    if (tmp > 0.00004) {
+      dispatch(pushPaths({ lat, lng }));
+    }
     if (paths?.length > 1) {
       // 최근 움직인 거리
       const dist = calculateDistance(
@@ -106,7 +114,7 @@ const KakaoMap = () => {
         // const lng = parseFloat(position.coords.longitude.toFixed(5));
         dispatch(pushPaths({ lat, lng }));
         setCenter({ lat, lng });
-        handleClick({ lat, lng });
+        // handleClick({ lat, lng });
       });
     } else {
       alert("지도 정보를 허용해주세요!");
@@ -131,6 +139,7 @@ const KakaoMap = () => {
   }, []);
 
   const walking = () => {
+    if (isSending) return;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -150,7 +159,7 @@ const KakaoMap = () => {
                 });
               });
               setPositions(newPositions);
-              dispatch(pushPaths({ lat, lng }));
+              // dispatch(pushPaths({ lat, lng }));
               setCenter({ lat, lng });
               handleClick({ lat, lng });
             })
@@ -167,25 +176,9 @@ const KakaoMap = () => {
   };
 
   useEffect(() => {
-    if (isSending) return;
-    walking();
-    setIsSending(true);
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
-    timeout.current = setTimeout(() => {
-      setIsSending(false);
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
-    }, 3000);
-  }, [isSending]);
-
-  useEffect(() => {
-    if (isSending) return;
     if (!isPaused) {
-      walking();
-      setIsSending(true);
+      walking(); // api 호출
+      setIsSending(true); // API 플래그
       if (timeout.current) {
         clearTimeout(timeout.current);
       }
@@ -194,11 +187,8 @@ const KakaoMap = () => {
       }, 3000);
     } else if (isPaused) {
       setIsSending(true);
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
     }
-  }, [isSending, isPaused, walking]);
+  }, [isPaused, walking]);
 
   return (
     <div className={styles.wrapper}>
@@ -226,7 +216,7 @@ const KakaoMap = () => {
       >
         <Polyline
           path={paths}
-          strokeWeight={3} // 선의 두께입니다
+          strokeWeight={5} // 선의 두께입니다
           strokeColor="#db4040" // 선의 색깔입니다
           strokeOpacity={1} // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
           strokeStyle="solid" // 선의 스타일입니다

@@ -70,6 +70,7 @@ export const nowWalkingApi = async (data: any) => {
 };
 
 export const finishWalkingApi = async (data: any) => {
+  console.log("산책 끝낫다 api 요청", data);
   const res = await axios.post("/walk/end", data);
   return res.data;
 };
