@@ -52,7 +52,9 @@ function Chat() {
   useEffect(() => {
     console.log(1234);
     if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      scrollRef.current.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   }, [chatbox]);
 
@@ -65,8 +67,8 @@ function Chat() {
       params: { data: e }
     })
       .then((res) => {
-        console.log(res.data[0]);
-        if (res.data[0].symptom === "분류불가") {
+        console.log(res);
+        if (res.data.length === 1 && res.data[0].symptom === "분류불가") {
           setChatbox((prev) => [
             ...prev,
             {
@@ -81,19 +83,23 @@ function Chat() {
             }
           ]);
         } else {
-          setChatbox((prev) => [
-            ...prev,
-            {
-              id: Date.now(),
-              sender: "you",
-              content: `현재 강아지는 ${res.data[0].symptom} 증상이 의심됩니다!`,
-              time: getNowTime(),
-              ICD: JSON.parse(res.data[0].ICD),
-              symtptom: res.data[0].symptom,
-              disease: [],
-              symptomexplane: []
+          for (let i = 0; i < res.data.length; i += 1) {
+            if (res.data[i].symptom !== "분류불가") {
+              setChatbox((prev) => [
+                ...prev,
+                {
+                  id: Date.now(),
+                  sender: "you",
+                  content: `현재 강아지는 ${res.data[i].symptom} 증상이 의심됩니다!`,
+                  time: getNowTime(),
+                  ICD: JSON.parse(res.data[i].ICD),
+                  symtptom: res.data[i].symptom,
+                  disease: [],
+                  symptomexplane: []
+                }
+              ]);
             }
-          ]);
+          }
         }
       })
       .catch((err) => {
@@ -152,7 +158,6 @@ function Chat() {
       params: { symptom: e.target.id, icd: e.target.innerText }
     })
       .then((res) => {
-        console.log(res.data[0]);
         setChatbox((prev) => [
           ...prev,
           {
@@ -174,7 +179,7 @@ function Chat() {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <div className={`${styles.chatBox}`} ref={scrollRef}>
+      <div className={`${styles.chatBox}`}>
         {chatbox.map((message) => {
           if (message.sender === "you") {
             const ICDlist = message.ICD;
@@ -221,16 +226,23 @@ function Chat() {
                       <div>
                         {DiseaseList.map((item) => {
                           function openDisease(e: any) {
-                            console.log(e.currentTarget.name);
-                            const Target: HTMLElement | null =
-                              document.getElementById(e.currentTarget.name);
+                            const Target =
+                              e.currentTarget.parentElement.children[1];
                             console.log(Target?.hidden);
                             if (Target?.hidden) {
                               Target.hidden = false;
+                              e.currentTarget.parentElement.children[0].scrollIntoView(
+                                {
+                                  behavior: "smooth",
+                                  block: "start",
+                                  inline: "nearest"
+                                }
+                              );
                             } else {
                               (Target as HTMLElement).hidden = true;
                             }
                           }
+                          console.log(item[1]);
                           return (
                             <div key={DiseaseList.indexOf(item)}>
                               <button
@@ -251,7 +263,7 @@ function Chat() {
 
                               <h1
                                 className={`${styles.diseaseContent} fs-14 notoBold`}
-                                id={item[0]}
+                                id={`result${item[0]}`}
                                 hidden
                               >
                                 {item[1]}
@@ -296,6 +308,7 @@ function Chat() {
             </div>
           );
         })}
+        <div ref={scrollRef} />
       </div>
 
       <div className={`${styles.inputForm} flex`}>

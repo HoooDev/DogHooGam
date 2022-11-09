@@ -8,10 +8,8 @@ import pause from "../../public/icons/pause.svg";
 import stop from "../../public/icons/stop.svg";
 import play from "../../public/icons/play.svg";
 import {
-  finishWalking,
   finishWalkingApi,
   pauseWalking,
-  resetWalking,
   restartWalking,
   saveTime
 } from "../../redux/slice/walkSlice";
@@ -19,21 +17,11 @@ import { AppDispatch, RootState } from "../../redux/store";
 
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
-  // const [isPausing, setIsPausing] = useState<boolean>(false);
-  const { totalDist, isPaused, personId, paths } = useSelector(
+  const { totalDist, isPaused, coin } = useSelector(
     (state: RootState) => state.walk
   );
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [time, setTime] = useState(0);
-
-  // useEffect(() => {
-  //   return () => {
-  //     if (personId) {
-  //       dispatch(resetWalking());
-  //       dispatch(restartWalking());
-  //     }
-  //   };
-  // }, []);
 
   useEffect(() => {
     if (!isPaused) {
@@ -63,41 +51,10 @@ const AfterSign = () => {
     dispatch(pauseWalking());
   };
 
-  // const beforeCapture = () => {
-  //   let maxLat = 0;
-  //   let maxLng = 0;
-  //   let minLat = 100;
-  //   let minLng = 1000;
-  //   paths.forEach((path) => {
-  //     if (maxLat < path.lat) {
-  //       maxLat = path.lat;
-  //     }
-  //     if (maxLng < path.lng) {
-  //       maxLng = path.lng;
-  //     }
-  //     if (minLat > path.lat) {
-  //       minLat = path.lat;
-  //     }
-  //     if (minLng > path.lng) {
-  //       minLng = path.lng;
-  //     }
-  //   });
-  // };
-
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
-      if (personId) {
-        finishWalkingApi({
-          coin: 0,
-          distance: 0,
-          personId,
-          walkPath: paths
-        });
-      }
-      dispatch(finishWalking());
-      dispatch(restartWalking());
-      dispatch(resetWalking());
+      dispatch(finishWalkingApi());
     } else {
       onPlayClick();
     }
@@ -111,7 +68,7 @@ const AfterSign = () => {
           <div className={`${styles.distance__unit} fs-12`}>거리(km)</div>
         </div>
         <div className={`${styles.coin} flex column align-center`}>
-          <div className={`${styles.coin__num} fs-20`}>0</div>
+          <div className={`${styles.coin__num} fs-20`}>{coin}</div>
           <div className={`${styles.coin__unit} fs-12`}>coin</div>
         </div>
         <div className={`${styles.time} flex column align-center`}>

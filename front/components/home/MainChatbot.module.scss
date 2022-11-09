@@ -1,3 +1,25 @@
+.wrapper{
+  width: vw(390px);
+  height: vw(150px);
+  background-color: #F4F4F4;
+  .MainTabImg{
+    width: vw(50px);
+    height: vw(50px);
+    border-radius: vw(10px);
+  }
+  .MainTabText{
+    width: vw(180px);
+  }
+  .MainTabButton{
+    height: vw(60px);
+    width: vw(60px);
+    border: none;
+    border-radius: vw(100px);
+    background-color: #FF9696;
+    color: $WHITE;
+  }
+}
+
 @media screen and (min-width: $PHONE-VW) {
   .wrapper{
     width: 390px;

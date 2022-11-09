@@ -58,18 +58,6 @@ const BeforeSign = () => {
           <div className={`${styles.redMoon__text} fs-16`}>나빠요</div>
         </div>
       </div>
-      {/* <div className={`${styles.distance} flex column align-center`}>
-          <div className={`${styles.distance__num} fs-20`}>0.0</div>
-          <div className={`${styles.distance__unit} fs-12`}>거리(km)</div>
-        </div>
-        <div className={`${styles.coin} flex column align-center`}>
-          <div className={`${styles.coin__num} fs-20`}>100</div>
-          <div className={`${styles.coin__unit} fs-12`}>coin</div>
-        </div>
-        <div className={`${styles.time} flex column align-center`}>
-          <div className={`${styles.time__num} fs-20`}>01:00</div>
-          <div className={`${styles.time__unit} fs-12`}>시간(분)</div>
-        </div> */}
       <StartBtn />
     </div>
   );
