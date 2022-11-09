@@ -190,7 +190,6 @@ const walkSlice = createSlice({
       state.time = 0;
       state.others = [];
       state.dogState = 0;
-      state.myDogs = [];
       state.coin = 0;
     });
   }
