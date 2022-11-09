@@ -1,5 +1,6 @@
 // import React, { useState } from "react";
 // eslint-disable-next-line import/no-unresolved
+import { useSelector } from "react-redux";
 import styles1 from "./DayCheck.module.scss";
 import styles2 from "./MakeCalendar.module.scss";
 
@@ -9,7 +10,6 @@ import { transString } from "./CalcDate";
  * 현재 날짜를 key값 형식으로 변환
  * key ex) 2021.10.11
  */
-
 const returnIdx = (order, year, month, day) => {
   if (order === "PREV") {
     if (month === 0) {
@@ -28,28 +28,15 @@ const returnIdx = (order, year, month, day) => {
 };
 
 const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
-  //   const [myDay, setMyDay] = useState([]);
+  // 리덕스에 선택한 년,월,날짜 저장 기본값은 오늘날짜
+  function daySelect(e) {
+    console.log(e);
+    // 이함수에서 그 리덕스 변경
+  }
+
   const result = [];
-  //   useEffect(() => {
-  //     getMyDayCheck().then((res) => {
-  //       const DayList = [];
-  //       const DATA = res.data;
-  //       console.log(res);
-  //       console.log(DATA);
-  //       console.log(Object.keys(DATA));
-  //       const keyList = Object.keys(DATA);
-  //       for (let i = 1; i <= keyList.length; i += 1) {
-  //         console.log(DATA[i]);
-  //         const DATE = new Date(DATA[i]);
-  //         const Checkday = `${DATE.getFullYear()}.${
-  //           DATE.getMonth() + 1
-  //         }.${DATE.getDate()}`;
-  //         DayList.push(Checkday);
-  //       }
-  //       setMyDay(DayList);
-  //     });
-  //   }, []);
-  //   console.log(myDay);
+  const dayEvent = useSelector((state) => state.calendar);
+  console.log(dayEvent);
   const makeDay = (week) => {
     const result2 = [];
     // 첫 주
@@ -63,8 +50,8 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           result2.push(
             <td className={`${styles1.diff} ${styles2.day}`} key={idx}>
               <h1>{now}</h1>
-              {/* {myDay.includes(`${year}.${month}.${now}`) ? (
-                <img className="checkStamp" src={stamp} alt="#" />
+              {/* { 리덕스에 날짜 [now]배열에 메모가있으면 ? (
+                <img className="checkStamp" src={노란점?} alt="#" />
               ) : null} */}
             </td>
           );
@@ -77,8 +64,8 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           result2.push(
             <td className={`${styles2.day} ${styles1.caltd}`} key={idx}>
               <h1>{now}</h1>
-              {/* {myDay.includes(`${year}.${month + 1}.${now}`) ? (
-                <img className="checkStamp" src={stamp} alt="#" />
+               {/* { 리덕스에 날짜 [now]배열에 메모가있으면 ? (
+                <img className="checkStamp" src={노란점?} alt="#" />
               ) : null} */}
             </td>
           );
@@ -94,9 +81,11 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
 
           result2.push(
             <td className={`${styles2.day} ${styles1.caltd}`} key={idx}>
-              <h1>{now}</h1>
-              {/* {myDay.includes(`${year}.${month + 1}.${now}`) ? (
-                <img className="checkStamp" src={stamp} alt="#" />
+              <button type="button" onClick={(e) => daySelect(e)}>
+                {now}
+              </button>
+               {/* { 리덕스에 날짜 [now]배열에 메모가있으면 ? (
+                <img className="checkStamp" src={노란점?} alt="#" />
               ) : null} */}
             </td>
           );
@@ -109,8 +98,8 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           result2.push(
             <td className={`${styles1.diff} ${styles2.day}`} key={idx}>
               <h1>{now}</h1>
-              {/* {myDay.includes(`${year}.${month}.${now}`) ? (
-                <img className="checkStamp" src={stamp} alt="#" />
+               {/* { 리덕스에 날짜 [now]배열에 메모가있으면 ? (
+                <img className="checkStamp" src={노란점?} alt="#" />
               ) : null} */}
             </td>
           );
