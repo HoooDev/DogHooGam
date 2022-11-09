@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Image from "next/image";
 // import Calendar from "react-calendar";
 import styles from "./index.module.scss";
@@ -10,7 +11,7 @@ import DayCheck from "../../components/calendar/cale/DayCheck";
 import Todo from "../../components/calendar/Todo";
 import WalkRecord from "../../components/calendar/WalkRecord";
 // import CompoCard from "../../components/calendar/CompoCard";
-import { getCalendarMemoApi } from "../../redux/slice/calendarSlice";
+import { getCalendarMemoApi, setMemos } from "../../redux/slice/calendarSlice";
 import line from "../../public/icons/Line 1.svg";
 
 const CalendarPage: NextPage = () => {
@@ -26,11 +27,13 @@ const CalendarPage: NextPage = () => {
     setTab(e.target.innerText);
   }
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     getCalendarMemoApi(11, 2022)
       .then((res) => {
-        console.log(res);
-        setMemos(res);
+        // setMemos(res);
+        dispatch(setMemos({ res }));
       })
       .catch(() => console.error);
   }, []);

@@ -28,6 +28,12 @@ const returnIdx = (order, year, month, day) => {
 };
 
 const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
+  function daySelect(e) {
+    console.log(e);
+    // 리덕스에 선택한 년,월,날짜 저장 기본값은 오늘날짜
+    // 이함수에서 그 리덕스 변경
+  }
+  console.log();
   //   const [myDay, setMyDay] = useState([]);
   const result = [];
   //   useEffect(() => {
