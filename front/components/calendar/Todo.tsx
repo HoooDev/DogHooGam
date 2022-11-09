@@ -63,12 +63,33 @@ function Todo() {
         console.log(err);
       });
   };
-  // const onClickDel = () => {
-  //   const Token = window.localStorage.getItem("AccessToken");
-  //   axios({
-
-  //   })
-  // }
+  const onClickDel = (e: any) => {
+    console.log(e.currentTarget.id)
+    const deletePk = e.currentTarget.id
+    const Token = window.localStorage.getItem("AccessToken");
+    axios({
+      url: `https://dog-hoogam.site:8000/api/memo/${deletePk}`,
+      method: "delete",
+      headers: { Authorization: `Bearer ${Token}` },
+    })
+    .then(res=>{
+      let newMemos = [...memos];
+      const newTodayMemos = [...memos[day]]
+      for (let i=0; i<newTodayMemos.length; i+=1){
+        if (newTodayMemos[i].pk === Number(deletePk)) {
+          console.log(i,"일치")
+          newTodayMemos.splice(i,1)
+          break
+        }
+      }
+      newMemos[day] = newTodayMemos
+      dispatch(setMemos(newMemos))
+      setTodos(newTodayMemos)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  }
 
   const handleKeyPress = (e: any) => {
     if (e.key === "Enter") {
@@ -81,10 +102,12 @@ function Todo() {
         {todos.length > 0 ?
           <div>
             {todos.map((memo) => {
-              return (<div className={`${styles.list} flex notoBold fs-20`} key={v4()}>
+              return (
+              <div className={`${styles.list} flex notoBold fs-20`} key={v4()}>
                 <div className={`${styles.text}`}>{memo.content}</div>
                 <Image src={done} alt="완료" />
-                <Image src={close} alt="삭제" />
+                <button className={`${styles.deleteButton}`} onClick={e=>onClickDel(e)} id={memo.pk}><Image src={close} alt="삭제" /></button>
+
               </div>)
             })}
           </div> : null
