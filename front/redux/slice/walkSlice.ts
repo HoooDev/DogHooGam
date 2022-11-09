@@ -96,8 +96,8 @@ export const getMyDogs = async () => {
   return res.data;
 };
 
-export const getOtherDogs = async (dogPk: number) => {
-  const res = await axios.get(`/dog/${dogPk}`);
+export const getOtherDogs = async (data: any[]) => {
+  const res = await axios.post("/dog/list", data);
   return res.data;
 };
 
