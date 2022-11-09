@@ -1,11 +1,15 @@
 /* eslint-disable no-shadow */
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 // import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./DayCheck.module.scss";
 import calendarReducer from "./reducer/CalendarReducer";
 import MakeCalendar from "./MakeCalendar";
+import {
+  getCalendarMemoApi,
+  setMemos
+} from "../../../redux/slice/calendarSlice";
 
 // import "./DayCheck.scss";
 // import "react-calendar/dist/Calendar.css"; // css import
@@ -37,68 +41,24 @@ function DayCheck() {
   const onDecreases = () => {
     dispatch({ type: "DECREMENT" });
     console.log(state);
-    // const Token = window.localStorage.getItem("AccessToken");
-    // axios({
-    //   url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${state.month}&year=${state.year}`,
-    //   method: "get",
-    //   headers: { Authorization: `Bearer ${Token}` }
-    // })
-    //   .then((res) => {
-    //     if (res.status === 200) {
-    //       console.log(res.data);
-    //       setMemo(res.data);
-    //     }
-    //     return [];
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   };
 
   // Month 증가
   const onIncreases = () => {
     dispatch({ type: "INCREMENT" });
-    // console.log(state);
-    // const Token = window.localStorage.getItem("AccessToken");
-    // axios({
-    //   url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${state.month}&year=${state.year}`,
-    //   method: "get",
-    //   headers: { Authorization: `Bearer ${Token}` }
-    // })
-    //   .then((res) => {
-    //     if (res.status === 200) {
-    //       console.log(res.data);
-    //       setMemo(res.data);
-    //     }
-    //     return [];
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   };
 
-  // useEffect(() => {
-  //   const Token = window.localStorage.getItem("AccessToken");
-  //   axios({
-  //     url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${
-  //       initialState.month + 1
-  //     }&year=${initialState.year}`,
-  //     method: "get",
-  //     headers: { Authorization: `Bearer ${Token}` }
-  //   })
-  //     .then((res) => {
-  //       if (res.status === 200) {
-  //         console.log(res.data);
-  //         setMemo(res.data);
-  //       }
-  //       return [];
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-  // console.log(memo);
-  // console.log(state);
+  console.log(state);
+  const dispatch2 = useDispatch();
+
+  useEffect(() => {
+    getCalendarMemoApi(state.month + 1, state.year)
+      .then((res) => {
+        dispatch2(setMemos({ res }));
+      })
+      .catch(() => console.error);
+  }, [state]);
+
   return (
     <div className="Calendar">
       <div className={`${styles.header}`}>
