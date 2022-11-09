@@ -87,12 +87,21 @@ public class CalendarController {
 
 
             List<Memo> memoList = memoService.findMemoByDay(user,year,month);
+            List<List<MemoResponse>> memoResList = new ArrayList<>();
 
-            List<MemoResponse> memoResList = new ArrayList<>();
-            for(Memo m : memoList){
-                MemoResponse feedRes = MemoResponse.of(m);
-                memoResList.add(feedRes);
+            for(int i = 0 ; i <= 31 ; i++){
+                memoResList.add(new ArrayList<>());
             }
+            for(Memo m : memoList){
+                MemoResponse memoRes = MemoResponse.of(m);
+                memoResList.get(m.getMemoDate().toLocalDateTime().getDayOfMonth()).add(memoRes);
+            }
+
+//            List<MemoResponse> memoResList = new ArrayList<>();
+//            for(Memo m : memoList){
+//                MemoResponse feedRes = MemoResponse.of(m);
+//                memoResList.add(feedRes);
+//            }
 
             if(memoResList.size() == 0){
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(BaseResponseBody.of(204, "데이터 없음"));
