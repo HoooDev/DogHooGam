@@ -101,6 +101,12 @@ export const getOtherDogs = async (dogPk: number) => {
   return res.data;
 };
 
+const calCoin = (d: number): number => {
+  const y = 20;
+  if (d >= y) return d * 0.5;
+  return d * 0.1;
+};
+
 const walkSlice = createSlice({
   name: "walk",
   initialState,
@@ -152,9 +158,7 @@ const walkSlice = createSlice({
     },
     saveDistance: (state, { payload }) => {
       let tmp = +state.totalDist + payload;
-      // 성도 계산식
-      const coin = 0;
-      state.coin = coin;
+      state.coin = calCoin(tmp);
       tmp = parseFloat(tmp.toString()).toFixed(2);
       tmp = parseFloat(tmp).toFixed(2);
       state.totalDist = tmp;

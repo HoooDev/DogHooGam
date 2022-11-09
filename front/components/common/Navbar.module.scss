@@ -5,7 +5,7 @@
   top: 0;
   box-shadow: 0 4px 4px 0 #CCC8C0;
   background-color: $WHITE;
-
+  z-index: 99;
 
   .link{
     text-decoration: none;
@@ -15,6 +15,10 @@
     margin-left: vw(10px);
     width: vw(50px);
   }
+  .profileimg{
+    margin-top: vw(10px);
+    margin-right: vw(20px);
+  }
 }
 
 
@@ -22,9 +26,6 @@
   .wrapper{
     height: 55px;
     width: $PHONE-VW;
-    position: sticky;
-    top: 0;
-    z-index: 99;
     .link{
       text-decoration: none;
     }
