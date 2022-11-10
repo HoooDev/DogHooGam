@@ -11,9 +11,19 @@ import {
   finishWalkingApi,
   pauseWalking,
   restartWalking,
+  saveCoin,
   saveTime
 } from "../../redux/slice/walkSlice";
 import { AppDispatch, RootState } from "../../redux/store";
+
+const calCoin = (ms: number): number => {
+  const minute = ms / 1000 / 60;
+  let coin = 600;
+  if (minute <= 90) {
+    coin = -(1 / 27) * (2 * minute * minute - 360 * minute);
+  }
+  return Math.round(coin / 10) * 10;
+};
 
 const AfterSign = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -30,7 +40,15 @@ const AfterSign = () => {
       }
       interval.current = setInterval(() => {
         setTime((prev) => {
-          saveTime(prev + 10);
+          // 10 초
+          const sec = (prev + 10) / 1000;
+          if (sec % 10 === 0) {
+            const res = calCoin(prev + 10);
+            dispatch(saveCoin(res));
+          }
+          if ((prev + 10) % 1000 === 0) {
+            dispatch(saveTime(prev + 10));
+          }
           return prev + 10;
         });
       }, 10);

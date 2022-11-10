@@ -1,7 +1,7 @@
 .wrapper {
   height: (160px);
-  border-top-left-radius: vw(20px);
-  border-top-right-radius: vw(20px);
+  // border-top-left-radius: vw(20px);
+  // border-top-right-radius: vw(20px);
   background-color: $WHITE;
   .icons {
     display: grid;
@@ -57,8 +57,8 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     height: 160px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    // border-top-left-radius: 20px;
+    // border-top-right-radius: 20px;
     .icons {
       padding: 30px 0;
       .distance {
