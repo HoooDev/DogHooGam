@@ -1,13 +1,18 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 // import React, { useState } from "react";
-// import "./MakeCalendar.scss";
+// eslint-disable-next-line import/no-unresolved
+import { useSelector, useDispatch } from "react-redux";
+import styles1 from "./DayCheck.module.scss";
+import styles2 from "./MakeCalendar.module.scss";
 
 import { transString } from "./CalcDate";
+
+import { setSelectDay } from "../../../redux/slice/calendarSlice";
 
 /*
  * 현재 날짜를 key값 형식으로 변환
  * key ex) 2021.10.11
  */
-
 const returnIdx = (order, year, month, day) => {
   if (order === "PREV") {
     if (month === 0) {
@@ -26,28 +31,16 @@ const returnIdx = (order, year, month, day) => {
 };
 
 const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
-  //   const [myDay, setMyDay] = useState([]);
+  const dispatch = useDispatch();
+  function daySelect(e) {
+    console.log(e.currentTarget.children[0].innerText);
+    const newDay = Number(e.currentTarget.children[0].innerText);
+    dispatch(setSelectDay({ year, month: month + 1, day: newDay }));
+  }
+
   const result = [];
-  //   useEffect(() => {
-  //     getMyDayCheck().then((res) => {
-  //       const DayList = [];
-  //       const DATA = res.data;
-  //       console.log(res);
-  //       console.log(DATA);
-  //       console.log(Object.keys(DATA));
-  //       const keyList = Object.keys(DATA);
-  //       for (let i = 1; i <= keyList.length; i += 1) {
-  //         console.log(DATA[i]);
-  //         const DATE = new Date(DATA[i]);
-  //         const Checkday = `${DATE.getFullYear()}.${
-  //           DATE.getMonth() + 1
-  //         }.${DATE.getDate()}`;
-  //         DayList.push(Checkday);
-  //       }
-  //       setMyDay(DayList);
-  //     });
-  //   }, []);
-  //   console.log(myDay);
+  const dayEvent = useSelector((state) => state.calendar.memos);
+  const selectDay = useSelector((state) => state.calendar.selectDay);
   const makeDay = (week) => {
     const result2 = [];
     // 첫 주
@@ -59,11 +52,8 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const now = prevLastDate - firstDay + i;
           const idx = returnIdx("PREV", year, month, now);
           result2.push(
-            <td className="diff day" key={idx}>
+            <td className={`${styles1.diff} ${styles2.day}`} key={idx}>
               <h1>{now}</h1>
-              {/* {myDay.includes(`${year}.${month}.${now}`) ? (
-                <img className="checkStamp" src={stamp} alt="#" />
-              ) : null} */}
             </td>
           );
         }
@@ -71,15 +61,49 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
         else {
           const now = i - firstDay;
           const idx = returnIdx("", year, month, now);
+          let dayTag;
 
-          result2.push(
-            <td className="day" key={idx}>
-              <h1>{now}</h1>
-              {/* {myDay.includes(`${year}.${month + 1}.${now}`) ? (
-                <img className="checkStamp" src={stamp} alt="#" />
-              ) : null} */}
-            </td>
-          );
+          if (
+            selectDay &&
+            selectDay.year === year &&
+            selectDay.month === month + 1 &&
+            selectDay.day === now
+          ) {
+            dayTag = (
+              <td
+                className={`${styles2.selectDay} ${styles1.caltd}`}
+                onClick={(e) => daySelect(e)}
+                key={idx}
+              >
+                <button className={`${styles2.dayButton}`} type="button">
+                  {now}
+                </button>
+                {dayEvent[now].length > 0 ? (
+                  <div className="flex justify-center">
+                    <div className={`${styles2.isMemo}`} />
+                  </div>
+                ) : null}
+              </td>
+            );
+          } else {
+            dayTag = (
+              <td
+                className={`${styles2.day} ${styles1.caltd}`}
+                onClick={(e) => daySelect(e)}
+                key={idx}
+              >
+                <button className={`${styles2.dayButton}`} type="button">
+                  {now}
+                </button>
+                {dayEvent && dayEvent.length > 0 && dayEvent[now].length > 0 ? (
+                  <div className="flex justify-center">
+                    <div className={`${styles2.isMemo}`} />
+                  </div>
+                ) : null}
+              </td>
+            );
+          }
+          result2.push(dayTag);
         }
       }
     } else {
@@ -90,14 +114,48 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const now = i - firstDay + 1;
           const idx = returnIdx("", year, month, now);
 
-          result2.push(
-            <td className="day" key={idx}>
-              <h1>{now}</h1>
-              {/* {myDay.includes(`${year}.${month + 1}.${now}`) ? (
-                <img className="checkStamp" src={stamp} alt="#" />
-              ) : null} */}
-            </td>
-          );
+          let dayTag;
+          if (
+            selectDay &&
+            selectDay.year === year &&
+            selectDay.month === month + 1 &&
+            selectDay.day === now
+          ) {
+            dayTag = (
+              <td
+                className={`${styles2.selectDay} ${styles1.caltd}`}
+                onClick={(e) => daySelect(e)}
+                key={idx}
+              >
+                <button className={`${styles2.dayButton}`} type="button">
+                  {now}
+                </button>
+                {dayEvent[now].length > 0 ? (
+                  <div className="flex justify-center">
+                    <div className={`${styles2.isMemo}`} />
+                  </div>
+                ) : null}
+              </td>
+            );
+          } else {
+            dayTag = (
+              <td
+                className={`${styles2.day} ${styles1.caltd}`}
+                onClick={(e) => daySelect(e)}
+                key={idx}
+              >
+                <button className={`${styles2.dayButton}`} type="button">
+                  {now}
+                </button>
+                {dayEvent && dayEvent.length > 0 && dayEvent[now].length > 0 ? (
+                  <div className="flex justify-center">
+                    <div className={`${styles2.isMemo}`} />
+                  </div>
+                ) : null}
+              </td>
+            );
+          }
+          result2.push(dayTag);
         }
         // 다음 달 날짜
         else {
@@ -105,10 +163,10 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const idx = returnIdx("NEXT", year, month, now);
 
           result2.push(
-            <td className="diff day" key={idx}>
+            <td className={`${styles1.diff} ${styles2.day}`} key={idx}>
               <h1>{now}</h1>
-              {/* {myDay.includes(`${year}.${month}.${now}`) ? (
-                <img className="checkStamp" src={stamp} alt="#" />
+              {/* { 리덕스에 날짜 [now]배열에 메모가있으면 ? (
+                <img className="checkStamp" src={노란점?} alt="#" />
               ) : null} */}
             </td>
           );

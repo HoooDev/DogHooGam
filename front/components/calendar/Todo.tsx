@@ -1,26 +1,29 @@
 /* eslint-disable consistent-return */
 import Image from "next/image";
 import axios from "axios";
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { v4 } from "uuid";
 import styles from "./Todo.module.scss";
-
 import close from "../../public/icons/close.svg";
 import done from "../../public/icons/done.svg";
 
-function Todo() {
-  const todoRef = useRef<HTMLInputElement>(null); // 새로 쓴 메모 값
-  const [text, setText] = useState("");
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  // const time = date.toLocaleDateString("ko-kr");
-  // console.log(time);
+import { setMemos } from "../../redux/slice/calendarSlice";
+import { RootState } from "../../redux/store";
 
-  const arr: string[] = ["산책하기", "씻기기", "예방접종", "밥먹기"];
-  // const arr: string[] = [];
-  console.log(arr);
+function Todo() {
+  const [text, setText] = useState("");
+  const memos = useSelector((state: RootState) => state.calendar.memos);
+  const dayEvent = useSelector((state: RootState) => state.calendar.selectDay);
+  const { year, month, day } = dayEvent;
+  const [todos, setTodos] = useState<any[]>([]);
+  const dispatch = useDispatch();
+
+  console.log(memos);
+
+  useEffect(() => {
+    setTodos(memos[day]);
+  }, [day]);
 
   const onChange = (e: any) => {
     setText(e.target.value);
@@ -43,12 +46,15 @@ function Todo() {
       }
     })
       .then((res) => {
+        console.log(res);
         if (res.status === 200) {
-          console.log("success");
+          const newMemos = [...memos];
+          const newTodayMemos = [...memos[day]];
+          newTodayMemos.push(res.data);
+          newMemos[day] = newTodayMemos;
+          dispatch(setMemos(newMemos));
+          setTodos(newTodayMemos);
           setText("");
-          if (todoRef.current?.value) {
-            todoRef.current.value = "";
-          }
         }
         return [];
       })
@@ -56,9 +62,33 @@ function Todo() {
         console.log(err);
       });
   };
-  // 메시지 전송하는 부분 구현
-  // setText(''); // 메시지 전송 후 input 빈값으로 수정
-  // inputRef?.current?.focus(); // 메시지 전송 후 input 포커스
+  const onClickDel = (e: any) => {
+    console.log(e.currentTarget.id);
+    const deletePk = e.currentTarget.id;
+    const Token = window.localStorage.getItem("AccessToken");
+    axios({
+      url: `https://dog-hoogam.site:8000/api/memo/${deletePk}`,
+      method: "delete",
+      headers: { Authorization: `Bearer ${Token}` }
+    })
+      .then(() => {
+        const newMemos = [...memos];
+        const newTodayMemos = [...memos[day]];
+        for (let i = 0; i < newTodayMemos.length; i += 1) {
+          if (newTodayMemos[i].pk === Number(deletePk)) {
+            console.log(i, "일치");
+            newTodayMemos.splice(i, 1);
+            break;
+          }
+        }
+        newMemos[day] = newTodayMemos;
+        dispatch(setMemos(newMemos));
+        setTodos(newTodayMemos);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const handleKeyPress = (e: any) => {
     if (e.key === "Enter") {
@@ -68,19 +98,32 @@ function Todo() {
   return (
     <div className={`${styles.wrapper} flex`} id="메모">
       <div>
-        {arr.length !== 0 &&
-          arr.map((value: string): any => (
-            <>
-              <div key={v4()} className={`${styles.list} notoBold fs-20`}>
-                {value}
-              </div>
-              <Image src={done} alt="완료" />
-              <Image src={close} alt="삭제" />
-            </>
-          ))}
+        {todos && todos.length > 0 ? (
+          <div>
+            {todos.map((memo) => {
+              return (
+                <div
+                  className={`${styles.list} flex notoBold fs-20`}
+                  key={v4()}
+                >
+                  <div className={`${styles.text}`}>{memo.content}</div>
+                  <Image src={done} alt="완료" />
+                  <button
+                    className={`${styles.deleteButton}`}
+                    type="button"
+                    onClick={(e) => onClickDel(e)}
+                    id={memo.pk}
+                  >
+                    <Image src={close} alt="삭제" />
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
       </div>
       <input
-        ref={todoRef}
+        value={text}
         className={`${styles.new} notoBold fs-16`}
         placeholder="메모를 입력해보세요!"
         onChange={onChange}
