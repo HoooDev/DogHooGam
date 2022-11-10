@@ -6,7 +6,10 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
+    includePaths: [
+      path.join(__dirname, "styles"),
+      path.join(__dirname, "components/calendar/cale")
+    ],
     prependData: `
             @import "_variables.scss";
             @import "_utils.scss";

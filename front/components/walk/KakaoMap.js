@@ -6,7 +6,13 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Map, MapMarker, Polyline, ZoomControl } from "react-kakao-maps-sdk";
+import {
+  // CustomOverlayMap,
+  Map,
+  MapMarker,
+  Polyline,
+  ZoomControl
+} from "react-kakao-maps-sdk";
 
 import gps from "../../public/icons/gps.svg";
 import styles from "./KakaoMap.module.scss";
@@ -17,6 +23,7 @@ import {
   nowWalkingApi,
   getOtherDogs
 } from "../../redux/slice/walkSlice";
+import WalkSlider from "./WalkSlider";
 
 let kakao;
 
@@ -47,7 +54,7 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
   const [positions, setPositions] = useState([]);
-  const { isPaused, paths, personId, myDogs } = useSelector(
+  const { isPaused, paths, personId, selectedDogs } = useSelector(
     (state) => state.walk
   );
   const timeout = useRef(null);
@@ -61,25 +68,41 @@ const KakaoMap = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOtherModalOpen, setIsOtherModalOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [mySelectedDogs, setMySelectedDogs] = useState([]);
   const [other, setOther] = useState({});
+  // const [isOpen, setIsOpen] = useState(false);
+  const [pks, setPks] = useState([]);
+
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const toggleOtherModal = (pk) => {
-    setIsOtherModalOpen(!isOtherModalOpen);
-    if (pk) {
-      setOther(pk);
-    }
-  };
+  const toggleOtherModal = () => setIsOtherModalOpen(!isOtherModalOpen);
 
   useEffect(() => {
-    if (isOtherModalOpen) {
-      if (!other) return;
-      getOtherDogs(other)
+    if (isModalOpen) {
+      const pks = [];
+      selectedDogs.forEach((dog) => {
+        pks.push(dog.id);
+      });
+      getOtherDogs(pks)
         .then((res) => {
-          setOther(res);
+          console.log(res);
+          setMySelectedDogs(res);
         })
         .catch(() => console.log);
     }
-  }, [isOtherModalOpen, other]);
+  }, [isModalOpen]);
+
+  useEffect(() => {
+    if (isOtherModalOpen) {
+      if (pks && pks.length > 0) {
+        getOtherDogs(pks)
+          .then((res) => {
+            console.log(res);
+            setOther(res);
+          })
+          .catch(() => console.log);
+      }
+    }
+  }, [isOtherModalOpen, pks]);
 
   const handleClick = ({ lat, lng }) => {
     if (paths?.length > 1) {
@@ -155,15 +178,9 @@ const KakaoMap = () => {
           console.log(lat, lng);
           nowWalkingApi({ lat, lng, personId })
             .then((res) => {
-              const newPositions = [];
-              res.forEach((element) => {
-                newPositions.push({
-                  title: element.dogPk,
-                  latlng: { lat: element.lat, lng: element.lng },
-                  dogState: element.dogState
-                });
-              });
-              setPositions(newPositions);
+              console.log(res);
+              const tmp = res.filter((item) => item.dogPk !== null);
+              setPositions(tmp);
               // dispatch(pushPaths({ lat, lng }));
               setCenter({ lat, lng });
               handleClick({ lat, lng });
@@ -198,19 +215,11 @@ const KakaoMap = () => {
   return (
     <div className={styles.wrapper}>
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
-        {myDogs?.map((dog) => (
-          <div key={dog.pk}>
-            <div>생일 : {dog.birthday}</div>
-            <div>견종 : {dog.dogBreed}</div>
-            <div>성격 : {dog.dogCharacter}</div>
-            {/* <div><Image /></div> */}
-            <div>이름 : {dog.dogName}</div>
-          </div>
-        ))}
+        {mySelectedDogs.length > 0 && <WalkSlider dogs={mySelectedDogs} />}
       </Modal>
 
       <Modal isOpen={isOtherModalOpen} onClose={toggleOtherModal}>
-        <div>{other}</div>
+        {other.length > 0 && <WalkSlider dogs={other} />}
       </Modal>
 
       <Map
@@ -254,10 +263,15 @@ const KakaoMap = () => {
         </div>
 
         {positions.map((position, index) => (
-          <div key={`${position.dogName}-${position.latlng},${index + 1}`}>
+          <div key={`${position.lat}-${position.lng},${index + 1}`}>
             <MapMarker
-              onClick={() => toggleOtherModal(position.dogPk)}
-              position={position.latlng} // 마커를 표시할 위치
+              onClick={() => {
+                toggleOtherModal();
+                if (position.dogPk) {
+                  setPks(position.dogPk);
+                }
+              }}
+              position={{ lat: position.lat, lng: position.lng }} // 마커를 표시할 위치
               image={{
                 src:
                   position.dogState === 0
