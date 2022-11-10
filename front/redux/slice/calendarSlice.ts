@@ -19,7 +19,11 @@ interface CalendarState {
   };
   pk: number;
   memos: any[];
-  selectDay: number;
+  selectDay: {
+    year: number;
+    month: number;
+    day: number;
+  };
 }
 
 const initialState: CalendarState = {
@@ -38,7 +42,11 @@ const initialState: CalendarState = {
   },
   pk: 0,
   memos: [],
-  selectDay: 0
+  selectDay: {
+    year: 0,
+    month: 0,
+    day: 0
+  }
 };
 
 export const getCalendarMemoApi = async (month: number, year: number) => {

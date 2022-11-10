@@ -9,22 +9,21 @@ import close from "../../public/icons/close.svg";
 import done from "../../public/icons/done.svg";
 
 import { setMemos } from "../../redux/slice/calendarSlice";
+import { RootState } from "../../redux/store";
 
 function Todo() {
   const [text, setText] = useState("");
-  const memos = useSelector((state) => state.calendar.memos);
-  const dayEvent = useSelector((state) => state.calendar.selectDay);
-  const year = dayEvent.year;
-  const month = dayEvent.month;
-  const day = dayEvent.day;
-  const [todos, setTodos] = useState([]);
+  const memos = useSelector((state: RootState) => state.calendar.memos);
+  const dayEvent = useSelector((state: RootState) => state.calendar.selectDay);
+  const { year, month, day } = dayEvent;
+  const [todos, setTodos] = useState<any[]>([]);
   const dispatch = useDispatch();
 
   console.log(memos);
 
   useEffect(() => {
-    setTodos(memos[day])
-  }, [day])
+    setTodos(memos[day]);
+  }, [day]);
 
   const onChange = (e: any) => {
     setText(e.target.value);
@@ -47,14 +46,14 @@ function Todo() {
       }
     })
       .then((res) => {
-        console.log(res)
+        console.log(res);
         if (res.status === 200) {
-          let newMemos = [...memos];
-          const newTodayMemos = [...memos[day]]
-          newTodayMemos.push(res.data)
-          newMemos[day] = newTodayMemos
-          dispatch(setMemos(newMemos))
-          setTodos(newTodayMemos)
+          const newMemos = [...memos];
+          const newTodayMemos = [...memos[day]];
+          newTodayMemos.push(res.data);
+          newMemos[day] = newTodayMemos;
+          dispatch(setMemos(newMemos));
+          setTodos(newTodayMemos);
           setText("");
         }
         return [];
@@ -64,32 +63,32 @@ function Todo() {
       });
   };
   const onClickDel = (e: any) => {
-    console.log(e.currentTarget.id)
-    const deletePk = e.currentTarget.id
+    console.log(e.currentTarget.id);
+    const deletePk = e.currentTarget.id;
     const Token = window.localStorage.getItem("AccessToken");
     axios({
       url: `https://dog-hoogam.site:8000/api/memo/${deletePk}`,
       method: "delete",
-      headers: { Authorization: `Bearer ${Token}` },
+      headers: { Authorization: `Bearer ${Token}` }
     })
-    .then(res=>{
-      let newMemos = [...memos];
-      const newTodayMemos = [...memos[day]]
-      for (let i=0; i<newTodayMemos.length; i+=1){
-        if (newTodayMemos[i].pk === Number(deletePk)) {
-          console.log(i,"일치")
-          newTodayMemos.splice(i,1)
-          break
+      .then(() => {
+        const newMemos = [...memos];
+        const newTodayMemos = [...memos[day]];
+        for (let i = 0; i < newTodayMemos.length; i += 1) {
+          if (newTodayMemos[i].pk === Number(deletePk)) {
+            console.log(i, "일치");
+            newTodayMemos.splice(i, 1);
+            break;
+          }
         }
-      }
-      newMemos[day] = newTodayMemos
-      dispatch(setMemos(newMemos))
-      setTodos(newTodayMemos)
-    })
-    .catch(err=>{
-      console.log(err)
-    })
-  }
+        newMemos[day] = newTodayMemos;
+        dispatch(setMemos(newMemos));
+        setTodos(newTodayMemos);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const handleKeyPress = (e: any) => {
     if (e.key === "Enter") {
@@ -99,19 +98,29 @@ function Todo() {
   return (
     <div className={`${styles.wrapper} flex`} id="메모">
       <div>
-        {todos.length > 0 ?
+        {todos && todos.length > 0 ? (
           <div>
             {todos.map((memo) => {
               return (
-              <div className={`${styles.list} flex notoBold fs-20`} key={v4()}>
-                <div className={`${styles.text}`}>{memo.content}</div>
-                <Image src={done} alt="완료" />
-                <button className={`${styles.deleteButton}`} onClick={e=>onClickDel(e)} id={memo.pk}><Image src={close} alt="삭제" /></button>
-
-              </div>)
+                <div
+                  className={`${styles.list} flex notoBold fs-20`}
+                  key={v4()}
+                >
+                  <div className={`${styles.text}`}>{memo.content}</div>
+                  <Image src={done} alt="완료" />
+                  <button
+                    className={`${styles.deleteButton}`}
+                    type="button"
+                    onClick={(e) => onClickDel(e)}
+                    id={memo.pk}
+                  >
+                    <Image src={close} alt="삭제" />
+                  </button>
+                </div>
+              );
             })}
-          </div> : null
-        }
+          </div>
+        ) : null}
       </div>
       <input
         value={text}

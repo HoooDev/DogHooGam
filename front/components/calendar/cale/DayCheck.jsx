@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useReducer, useEffect } from "react";
 // import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import styles from "./DayCheck.module.scss";
 import calendarReducer from "./reducer/CalendarReducer";
@@ -35,16 +35,17 @@ function DayCheck() {
   const lastDate = parseInt(new Date(year, month + 1, 0).getDate(), 10);
   const firstDay = parseInt(new Date(year, month, 1).getDay(), 10);
 
-
   // Month 감소
   const onDecreases = () => {
     dispatch({ type: "DECREMENT" });
     console.log(state);
+    // 셀렉트데이를 바뀐달 31일로 동명이숙제
   };
 
   // Month 증가
   const onIncreases = () => {
     dispatch({ type: "INCREMENT" });
+    // 셀렉트데이를 바뀐달 1일로 동명이숙제
   };
 
   const dispatch2 = useDispatch();

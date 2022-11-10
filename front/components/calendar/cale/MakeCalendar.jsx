@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 // import React, { useState } from "react";
 // eslint-disable-next-line import/no-unresolved
 import { useSelector, useDispatch } from "react-redux";
@@ -60,22 +61,47 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
         else {
           const now = i - firstDay;
           const idx = returnIdx("", year, month, now);
-          let dayTag
+          let dayTag;
 
-          if (selectDay.year === year && selectDay.month === month + 1 && selectDay.day === now) {
-            dayTag = <td className={`${styles2.selectDay} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
-              <button className={`${styles2.dayButton}`} type="button">
-                {now}
-              </button>
-              {dayEvent[now].length > 0 ? <div className="flex justify-center"><div className={`${styles2.isMemo}`} /></div> : null}
-            </td>
+          if (
+            selectDay &&
+            selectDay.year === year &&
+            selectDay.month === month + 1 &&
+            selectDay.day === now
+          ) {
+            dayTag = (
+              <td
+                className={`${styles2.selectDay} ${styles1.caltd}`}
+                onClick={(e) => daySelect(e)}
+                key={idx}
+              >
+                <button className={`${styles2.dayButton}`} type="button">
+                  {now}
+                </button>
+                {dayEvent[now].length > 0 ? (
+                  <div className="flex justify-center">
+                    <div className={`${styles2.isMemo}`} />
+                  </div>
+                ) : null}
+              </td>
+            );
           } else {
-            dayTag = <td className={`${styles2.day} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
-              <button className={`${styles2.dayButton}`} type="button">
-                {now}
-              </button>
-              {dayEvent[now].length > 0 ? <div className="flex justify-center"><div className={`${styles2.isMemo}`} /></div> : null}
-            </td>
+            dayTag = (
+              <td
+                className={`${styles2.day} ${styles1.caltd}`}
+                onClick={(e) => daySelect(e)}
+                key={idx}
+              >
+                <button className={`${styles2.dayButton}`} type="button">
+                  {now}
+                </button>
+                {dayEvent && dayEvent.length > 0 && dayEvent[now].length > 0 ? (
+                  <div className="flex justify-center">
+                    <div className={`${styles2.isMemo}`} />
+                  </div>
+                ) : null}
+              </td>
+            );
           }
           result2.push(dayTag);
         }
@@ -88,21 +114,46 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const now = i - firstDay + 1;
           const idx = returnIdx("", year, month, now);
 
-          let dayTag
-          if (selectDay.year === year && selectDay.month === month + 1 && selectDay.day === now) {
-            dayTag = <td className={`${styles2.selectDay} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
-              <button className={`${styles2.dayButton}`} type="button">
-                {now}
-              </button>
-              {dayEvent[now].length > 0 ? <div className="flex justify-center"><div className={`${styles2.isMemo}`} /></div> : null}
-            </td>
+          let dayTag;
+          if (
+            selectDay &&
+            selectDay.year === year &&
+            selectDay.month === month + 1 &&
+            selectDay.day === now
+          ) {
+            dayTag = (
+              <td
+                className={`${styles2.selectDay} ${styles1.caltd}`}
+                onClick={(e) => daySelect(e)}
+                key={idx}
+              >
+                <button className={`${styles2.dayButton}`} type="button">
+                  {now}
+                </button>
+                {dayEvent[now].length > 0 ? (
+                  <div className="flex justify-center">
+                    <div className={`${styles2.isMemo}`} />
+                  </div>
+                ) : null}
+              </td>
+            );
           } else {
-            dayTag = <td className={`${styles2.day} ${styles1.caltd}`} onClick={(e) => daySelect(e)} key={idx}>
-              <button className={`${styles2.dayButton}`} type="button">
-                {now}
-              </button>
-              {dayEvent[now].length > 0 ? <div className="flex justify-center"><div className={`${styles2.isMemo}`} /></div> : null}
-            </td>
+            dayTag = (
+              <td
+                className={`${styles2.day} ${styles1.caltd}`}
+                onClick={(e) => daySelect(e)}
+                key={idx}
+              >
+                <button className={`${styles2.dayButton}`} type="button">
+                  {now}
+                </button>
+                {dayEvent && dayEvent.length > 0 && dayEvent[now].length > 0 ? (
+                  <div className="flex justify-center">
+                    <div className={`${styles2.isMemo}`} />
+                  </div>
+                ) : null}
+              </td>
+            );
           }
           result2.push(dayTag);
         }
