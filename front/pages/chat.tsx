@@ -1,14 +1,20 @@
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
+
+import ResultSlider from "../components/chat/ResultSlider";
+
 import styles from "./chat.module.scss";
 // import { getChatbot1 } from "./api/chat/chat";
 import arrowRight from "../public/icons/arrowRight.svg";
+import yellowBell from "../public/icons/yellowBell.svg";
+import orangeBell from "../public/icons/orangeBell.svg";
+import redBell from "../public/icons/redBell.svg";
 
 function Chat() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [msg, setmsg] = useState<string>("");
-
+  const dangerLevel = [0, yellowBell, orangeBell, redBell];
   const startDate = new Date();
   const startday = `${startDate.getFullYear()}년 ${
     startDate.getMonth() + 1
@@ -275,15 +281,14 @@ function Chat() {
                                 name={item[0]}
                                 onClick={(e) => openDisease(e)}
                               >
-                                <div className={`${styles.arrowicon}`}>
-                                  <Image src={arrowRight} alt="#" />
+                                <div className={`${styles.dangerIcon}`}>
+                                  <Image src={dangerLevel[item[1]]} alt="#" />
                                 </div>
                                 <h1
                                   className={`${styles.diseaseTitle} fs-16 notoBold`}
                                 >
                                   {item[0]}
                                 </h1>
-                                <div>위험도:{item[1]}</div>
                               </button>
 
                               <div
@@ -291,9 +296,13 @@ function Chat() {
                                 id={`result${item[0]}`}
                                 hidden
                               >
-                                <h1> 1페이지 : {item[2]}</h1>
-                                <h1> 2페이지 : {item[3]}</h1>
-                                <h1> 3페이지 : {item[4]}</h1>
+                                <div>
+                                  <ResultSlider
+                                    p1={item[2]}
+                                    p2={item[3]}
+                                    p3={item[4]}
+                                  />
+                                </div>
                               </div>
                             </div>
                           );
