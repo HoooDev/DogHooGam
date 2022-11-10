@@ -6,7 +6,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable prettier/prettier */
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   // CustomOverlayMap,
@@ -218,7 +218,7 @@ const KakaoMap = () => {
     init();
   }, []);
 
-  const walking = () => {
+  const walking = useCallback(() => {
     if (isSending) return;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -246,7 +246,7 @@ const KakaoMap = () => {
         }
       );
     }
-  };
+  }, [isSending]);
 
   useEffect(() => {
     if (!isPaused) {
