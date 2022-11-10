@@ -34,7 +34,6 @@ function DayCheck() {
   const yearMonth = `${year}.${month + 1}`;
   const lastDate = parseInt(new Date(year, month + 1, 0).getDate(), 10);
   const firstDay = parseInt(new Date(year, month, 1).getDay(), 10);
-
   // Month 감소
   const onDecreases = () => {
     dispatch({ type: "DECREMENT" });
