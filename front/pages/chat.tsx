@@ -33,7 +33,10 @@ function Chat() {
       ICD: [],
       symtptom: "",
       disease: [],
-      symptomexplane: []
+      symptomexplane: [],
+      symptomdata: [],
+      symptomprevent: [],
+      symptomdanger: []
     },
     {
       id: 2,
@@ -43,7 +46,10 @@ function Chat() {
       ICD: [],
       symtptom: "",
       disease: [],
-      symptomexplane: []
+      symptomexplane: [],
+      symptomdata: [],
+      symptomprevent: [],
+      symptomdanger: []
     }
   ]);
 
@@ -79,7 +85,10 @@ function Chat() {
               ICD: [],
               symtptom: "",
               disease: [],
-              symptomexplane: []
+              symptomexplane: [],
+              symptomdata: [],
+              symptomprevent: [],
+              symptomdanger: []
             }
           ]);
         } else {
@@ -95,7 +104,10 @@ function Chat() {
                   ICD: JSON.parse(res.data[i].ICD),
                   symtptom: res.data[i].symptom,
                   disease: [],
-                  symptomexplane: []
+                  symptomexplane: [],
+                  symptomdata: [],
+                  symptomprevent: [],
+                  symptomdanger: []
                 }
               ]);
             }
@@ -119,7 +131,10 @@ function Chat() {
         ICD: [],
         symtptom: "",
         disease: [],
-        symptomexplane: []
+        symptomexplane: [],
+        symptomdata: [],
+        symptomprevent: [],
+        symptomdanger: []
       }
     ]);
     getSelectResult(msg);
@@ -149,7 +164,10 @@ function Chat() {
         ICD: [],
         symtptom: "",
         disease: [],
-        symptomexplane: []
+        symptomexplane: [],
+        symptomdata: [],
+        symptomprevent: [],
+        symptomdanger: []
       }
     ]);
     axios({
@@ -158,6 +176,7 @@ function Chat() {
       params: { symptom: e.target.id, icd: e.target.innerText }
     })
       .then((res) => {
+        console.log(res);
         setChatbox((prev) => [
           ...prev,
           {
@@ -168,7 +187,10 @@ function Chat() {
             ICD: [],
             symtptom: "",
             disease: JSON.parse(res.data[0].disease),
-            symptomexplane: JSON.parse(res.data[0].symptomexplane)
+            symptomexplane: JSON.parse(res.data[0].symptomexplane),
+            symptomdata: JSON.parse(res.data[0].symptomdata),
+            symptomprevent: JSON.parse(res.data[0].symptomprevent),
+            symptomdanger: JSON.parse(res.data[0].symptomdanger)
           }
         ]);
       })
@@ -184,11 +206,15 @@ function Chat() {
           if (message.sender === "you") {
             const ICDlist = message.ICD;
             const DiseaseList: any[] = [];
+            console.log(message);
             if (message.disease.length > 0) {
               for (let i = 0; i < message.disease.length; i += 1) {
                 DiseaseList.push([
                   message.disease[i],
-                  message.symptomexplane[i]
+                  message.symptomdanger[i],
+                  message.symptomexplane[i],
+                  message.symptomdata[i],
+                  message.symptomprevent[i]
                 ]);
               }
             }
@@ -228,7 +254,6 @@ function Chat() {
                           function openDisease(e: any) {
                             const Target =
                               e.currentTarget.parentElement.children[1];
-                            console.log(Target?.hidden);
                             if (Target?.hidden) {
                               Target.hidden = false;
                               e.currentTarget.parentElement.children[0].scrollIntoView(
@@ -242,7 +267,6 @@ function Chat() {
                               (Target as HTMLElement).hidden = true;
                             }
                           }
-                          console.log(item[1]);
                           return (
                             <div key={DiseaseList.indexOf(item)}>
                               <button
@@ -259,15 +283,18 @@ function Chat() {
                                 >
                                   {item[0]}
                                 </h1>
+                                <div>위험도:{item[1]}</div>
                               </button>
 
-                              <h1
+                              <div
                                 className={`${styles.diseaseContent} fs-14 notoBold`}
                                 id={`result${item[0]}`}
                                 hidden
                               >
-                                {item[1]}
-                              </h1>
+                                <h1> 1페이지 : {item[2]}</h1>
+                                <h1> 2페이지 : {item[3]}</h1>
+                                <h1> 3페이지 : {item[4]}</h1>
+                              </div>
                             </div>
                           );
                         })}
