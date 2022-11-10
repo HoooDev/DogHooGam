@@ -1,6 +1,33 @@
 .wrapper {
+  height: calc(100% - 160px);
   position: relative;
-  height: calc(100% - (160px));
+  .opacity {
+    opacity: 0.3;
+  }
+  .buttons {
+    z-index: 3;
+    position: absolute;
+    top: vw(10px);
+    left: vw(10px);
+    .buttons__dog {
+      padding: vw(4px);
+      width: vw(24px);
+      height: vw(24px);
+      border: vw(2px) solid $BLACK;
+    }
+    .buttons__feed {
+      padding: vw(4px);
+      width: vw(24px);
+      height: vw(24px);
+      border: vw(2px) solid $BLACK;
+    }
+    .buttons__path {
+      padding: vw(4px);
+      width: vw(24px);
+      height: vw(24px);
+      border: vw(2px) solid $BLACK;
+    }
+  }
   .map {
     width: 100%;
     height: 100%;
@@ -51,15 +78,20 @@
       }
     }
     .map {
+      width: 100%;
+      height: 100%;
       .map__marker {
       }
     }
     .curLocation {
-      left: 10px;
-      bottom: 10px;
-      width: 24px;
-      height: 24px;
-      padding: 4px;
+      z-index: 1;
+      position: absolute;
+      left: (10px);
+      bottom: (10px);
+      width: (24px);
+      height: (24px);
+      padding: (4px);
+      background-color: $WHITE;
     }
   }
 }
