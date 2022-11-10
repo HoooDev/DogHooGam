@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { useDispatch } from "react-redux";
+import { getLocation } from "../../redux/slice/locationSlice";
 
 const MyLocation = () => {
+  const dispatch = useDispatch();
   const [state, setState] = useState();
+  const [flag, setFlag] = useState(false);
+
+  console.log(state);
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -16,6 +22,7 @@ const MyLocation = () => {
               lng
             }
           });
+          setFlag(true);
         },
         () => console.error,
         {
@@ -24,6 +31,12 @@ const MyLocation = () => {
       );
     }
   }, []);
+
+  useEffect(() => {
+    if (flag) {
+      dispatch(getLocation(state));
+    }
+  }, [state]);
 
   return (
     <div>
