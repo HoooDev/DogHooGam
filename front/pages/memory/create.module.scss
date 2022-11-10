@@ -1,5 +1,8 @@
 .wrapper {
   margin-top: vw(40px);
+  .loadingFont {
+    font-size: vw(16px);
+  }
   .memoryNav {
     margin-inline: vw(25px);
     .backbutton {
@@ -70,6 +73,9 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     margin-top: 40px;
+    .loadingFont {
+      font-size: 16px;
+    }
     .memoryNav {
       margin-inline: 25px;
       .backbutton {

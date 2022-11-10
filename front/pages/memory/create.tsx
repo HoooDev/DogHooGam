@@ -10,6 +10,8 @@ import arrowRight from "../../public/icons/arrowRight.svg";
 import addimg from "../../public/icons/addImg2.png";
 import sendFileToIPFS from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
+import NftModal from "../../components/common/NftModal";
+import loading from "../../public/icons/loading.svg";
 
 function Create() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
@@ -27,7 +29,11 @@ function Create() {
     lng: null,
     transactionHash: ""
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const router = useRouter();
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   useEffect(() => {
     const Token = window.localStorage.getItem("AccessToken");
@@ -89,6 +95,10 @@ function Create() {
   // console.log(apiFeed, "에이피아이피드");
   return (
     <div className={`${styles.wrapper}`}>
+      <NftModal isOpen={isModalOpen}>
+        <Image src={loading} />
+        <p className={`${styles.loadingFont} notoBold`}>NFT 발행 중입니다.</p>
+      </NftModal>
       <div>
         <div className={`${styles.memoryNav} flex justify-space-between`}>
           <button
@@ -103,6 +113,7 @@ function Create() {
             type="button"
             onClick={(e) => {
               makeNFT(e);
+              toggleModal();
             }}
           >
             발행하기
