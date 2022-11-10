@@ -81,6 +81,21 @@ public class MemoController {
         }
     }
 
+    @PatchMapping("/{memoPk}")
+    @ApiOperation(value = "메모 완료 바꾸기",notes = "true 면 false , false 면 true",response = BaseResponseBody.class)
+    public ResponseEntity<?> changeDone(@PathVariable int memoPk){
+        try {
+            memoService.changeDone(memoPk);
+            return ResponseEntity.status(HttpStatus.OK).body(BaseResponseBody.of(200, "변경 완료"));
+        }catch (IllegalArgumentException e) {
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
+        }catch (Exception e){
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
+        }
+    }
+
     @DeleteMapping("/{memoPk}")
     @ApiOperation(value = "메모 삭제하기",notes = "메모 수정")
     public ResponseEntity<?> updateMemo(@PathVariable int memoPk){

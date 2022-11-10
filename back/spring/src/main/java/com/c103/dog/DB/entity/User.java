@@ -1,6 +1,7 @@
 package com.c103.dog.DB.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,15 +42,19 @@ public class User {
     private String personalKey;
 
     @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Dog> dogList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Feed> feedList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Memo> memoList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Walk> walkList = new ArrayList<>();
 
 }

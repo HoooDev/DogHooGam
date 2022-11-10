@@ -22,6 +22,5 @@ public interface MemoService {
     List<Memo> findMemoByDay(User user, String year, String month);
 
     List<Memo> findMemoByUser(User user);
-
-
+    void changeDone(int memoPk);
 }

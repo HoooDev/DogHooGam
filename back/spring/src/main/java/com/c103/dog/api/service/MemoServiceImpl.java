@@ -9,6 +9,7 @@ import com.c103.dog.DB.repository.FeedRepository;
 import com.c103.dog.DB.repository.MemoRepository;
 import com.c103.dog.api.request.MemoPostRequest;
 import com.c103.dog.api.request.MemoUpdateRequest;
+import com.c103.dog.error.Exception.custom.SomethingNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -72,5 +73,13 @@ public class MemoServiceImpl implements MemoService {
     @Override
     public List<Memo> findMemoByUser(User user) {
         return null;
+    }
+
+    @Override
+    public void changeDone(int memoPk) {
+        Memo memo = memoRepository.findById(memoPk).orElseThrow(() -> new SomethingNotFoundException(memoPk + " "));
+        System.out.println(memo.getPk() + "///////////////////////////////////////////////");
+        memo.setDone(memo.isDone()?false:true);
+        memoRepository.save(memo);
     }
 }

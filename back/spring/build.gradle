@@ -39,8 +39,8 @@ dependencies {
 
     implementation("com.auth0:java-jwt:3.10.3")
 
-    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
-    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.10.0'
+//    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+//    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.10.0'
 
     //redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
