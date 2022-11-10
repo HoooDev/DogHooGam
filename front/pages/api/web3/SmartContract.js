@@ -2,7 +2,9 @@ import Web3 from "web3";
 
 const web3 = new Web3();
 web3.setProvider(
-  new Web3.providers.HttpProvider(`${process.env.NEXT_PUBLIC_GETH_NODE}/blockchain`)
+  new Web3.providers.HttpProvider(
+    `${process.env.NEXT_PUBLIC_GETH_NODE}/blockchain`
+  )
 );
 
 const NFT_ABI = [
