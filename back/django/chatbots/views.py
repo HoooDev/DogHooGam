@@ -138,12 +138,20 @@ def select(request):
     lst = []
     disease_name = []
     disease_explane = []
+    disease_sym = []
+    disease_prevent = []
+    disease_danger = []
     for i in range(len(data)):
         disease_name.append(data.iloc[i]['diseasename'])
         disease_explane.append(data.iloc[i]['explane'])
+        disease_sym.append(data.iloc[i]['symptomdata'])
+        disease_prevent.append(data.iloc[i]['prevent'])
+        disease_danger.append(data.iloc[i]['danger'])
     symptomdata.disease = json.dumps(disease_name, ensure_ascii=False)
     symptomdata.symptomexplane = json.dumps(disease_explane, ensure_ascii = False)
-    
+    symptomdata.symptomdata = json.dumps(disease_sym, ensure_ascii = False)
+    symptomdata.symptomprevent = json.dumps(disease_prevent, ensure_ascii = False)
+    symptomdata.symptomdanger = json.dumps(disease_danger, ensure_ascii = False)
     lst.append(symptomdata)
     serializer = SymptomSerializer(lst, many=True)    
 

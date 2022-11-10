@@ -19,12 +19,17 @@ class DiseaseTable(models.Model):
     diseasename = models.CharField(max_length=20)
     explane = models.TextField()
     symptomdata = models.CharField(max_length=50)
-    
+    prevent = models.CharField(max_length= 50)
+    danger = models.CharField(max_length = 10)
+
 class SymptomData(models.Model):
     ICD = models.CharField(max_length=50)
     symptom = models.CharField(max_length=20)
     disease = models.CharField(max_length=20)
     symptomexplane = models.CharField(max_length=200)
+    symptomdata = models.CharField(max_length=50)
+    symptomprevent = models.CharField(max_length= 50)
+    symptomdanger = models.CharField(max_length= 10)
 
 class NotName(models.Model):
     name = models.CharField(max_length=50)
