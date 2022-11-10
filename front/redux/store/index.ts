@@ -20,6 +20,7 @@ import { createWrapper, MakeStore } from "next-redux-wrapper";
 import walkSlice from "../slice/walkSlice";
 import userSlice from "../slice/userSlice";
 import calendarSlice from "../slice/calendarSlice";
+import locationSlice from "../slice/locationSlice";
 
 const persistConfig = {
   key: "root",
@@ -30,7 +31,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   walk: walkSlice,
   user: userSlice,
-  calendar: calendarSlice
+  calendar: calendarSlice,
+  location: locationSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
