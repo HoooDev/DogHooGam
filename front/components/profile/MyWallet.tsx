@@ -11,7 +11,7 @@ import createWallet from "../../pages/api/user/createWallet";
 function MyWallet() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
   // const dummy = false;
-  const walletAddress = storeUser.userWallerAddress;
+  const walletAddress = storeUser.userWalletAddress;
   const [walletBalance, setWalletBalance] = useState(0);
 
   const getWalletBalance = async () => {
