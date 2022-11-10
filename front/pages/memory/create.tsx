@@ -2,6 +2,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import axios from "axios";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
 import arrowRight from "../../public/icons/arrowRight.svg";
@@ -10,25 +12,42 @@ import sendFileToIPFS from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
 
 function Create() {
+  const storeUser = useSelector((state: any) => state.user.userInfo);
+  const [userKey, setUserKey] = useState("");
   const [flag, setFlag] = useState(false);
   const [imgFile, setImgFile] = useState(null);
   const [uploadimg, setUploadimg] = useState<any>(null);
-  // const [nftImg, setNftImg] = useState<any>(null);
-  // const [tranHash, setTranHash] = useState<any>(null);
   const [nftFeed, setNftFeed] = useState({
     content: ""
-    // dogPk: null,
-    // dogName: ""
   });
   const [apiFeed, setApiFeed] = useState<any>({
     content: "",
-    dogPk: 16,
     feedImg: "",
     lat: null,
     lng: null,
     transactionHash: ""
   });
   const router = useRouter();
+
+  useEffect(() => {
+    const Token = window.localStorage.getItem("AccessToken");
+
+    axios({
+      url: "https://dog-hoogam.site:8000/api/user/wallet",
+      method: "get",
+      headers: { Authorization: `Bearer ${Token}` }
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          setUserKey(res.data.userPersonalKey);
+          return res.data;
+        }
+        return [];
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 
   function handleImageUpload(e: any) {
     const fileArr = e.target.files;
@@ -43,7 +62,14 @@ function Create() {
   }
 
   const makeNFT = async (e: any) => {
-    const feedNft = await sendFileToIPFS(e, imgFile, nftFeed);
+    const feedNft = await sendFileToIPFS(
+      e,
+      imgFile,
+      nftFeed,
+      100,
+      storeUser.userWalletAddress,
+      userKey
+    );
     console.log(feedNft[0], feedNft[1], "이미지, 트랜해쉬");
     setApiFeed({
       ...apiFeed,
@@ -56,6 +82,7 @@ function Create() {
   useEffect(() => {
     if (flag) {
       addFeed(apiFeed);
+      router.push("/memory");
     }
   }, [flag, apiFeed]);
 

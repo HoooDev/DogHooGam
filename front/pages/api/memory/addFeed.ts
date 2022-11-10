@@ -11,7 +11,7 @@ const addFeed = (data: any) => {
   })
     .then((res) => {
       if (res.status === 200) {
-        return alert("피드가 등록되었습니다.");
+        alert("피드가 등록되었습니다.");
       }
       return [];
     })

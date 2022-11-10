@@ -1,3 +1,72 @@
+.wrapper {
+  margin-top: vw(40px);
+  .memoryNav {
+    margin-inline: vw(25px);
+    .backbutton {
+      width: vw(30px);
+      height: vw(30px);
+      background-color: $WHITE;
+      border: none;
+    }
+    .createbutton {
+      width: vw(100px);
+      height: vw(30px);
+      border-radius: vw(15px);
+      background-color: $MAIN;
+      border: none;
+      color: $WHITE;
+    }
+  }
+  .inputForm {
+    margin-top: vw(40px);
+    padding-inline: vw(20px);
+    height: vw(100px);
+    .image {
+      background-color: rgb(153, 148, 148);
+      width: vw(100px);
+      height: vw(100px);
+      .preview {
+        width: 100%;
+        height: 100%;
+      }
+      .noimg {
+        width: 100%;
+        height: 100%;
+        background-color: $WHITE;
+        border: 1px dashed #787878;
+      }
+    }
+    .text {
+      width: vw(200px);
+      border: none;
+      text-align: start;
+      outline: none;
+      resize: none;
+    }
+  }
+  .place {
+    margin-top: vw(60px);
+    height: vw(50px);
+    background-color: #f4f4f4;
+    padding-inline: vw(20px);
+    .space {
+      width: vw(100px);
+    }
+    .btn {
+      width: vw(200px);
+      .button {
+        width: vw(30px);
+        height: vw(30px);
+        border: none;
+        background-color: #f4f4f4;
+        .img {
+          width: vw(30px);
+        }
+      }
+    }
+  }
+}
+
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     margin-top: 40px;
@@ -12,9 +81,10 @@
       .createbutton {
         width: 100px;
         height: 30px;
-        background-color: $WHITE;
+        border-radius: 15px;
+        background-color: $MAIN;
         border: none;
-        color: rgb(146, 146, 253);
+        color: $WHITE;
       }
     }
     .inputForm {
@@ -25,11 +95,11 @@
         background-color: rgb(153, 148, 148);
         width: 100px;
         height: 100px;
-        .preview{
+        .preview {
           width: 100%;
           height: 100%;
         }
-        .noimg{
+        .noimg {
           width: 100%;
           height: 100%;
           background-color: $WHITE;
