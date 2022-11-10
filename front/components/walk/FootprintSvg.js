@@ -3,8 +3,6 @@ import * as React from "react";
 const FootprintSvg = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="30px"
-    height="30px"
     viewBox="0 0 390.126 390.125"
     style={{
       enableBackground: "new 0 0 512 512"
