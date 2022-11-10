@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 // import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -6,7 +7,7 @@ import styles from "./[memoryPk].module.scss";
 import getOneFeed from "../api/feed/getOneFeed";
 
 function Detail() {
-  const [feed, setFeed] = useState({});
+  const [feed, setFeed] = useState<any>({});
   const router = useRouter();
   const Id = router.query.memoryPk;
 
@@ -22,12 +23,7 @@ function Detail() {
         console.log(err);
       });
   }, [Id]);
-  // const dummy = {
-  //   id: Id,
-  //   img: testimg,
-  //   content: "테스트 문구입니다.",
-  //   time: "2022년 10월 27일"
-  // };
+
   return (
     <div className={`${styles.wrapper}`}>
       {/* <h1 className={`${styles.Nav} fs-20 notoBold`}>추억 남기기</h1> */}
