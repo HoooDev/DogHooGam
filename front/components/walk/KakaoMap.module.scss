@@ -22,6 +22,34 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     height: calc(100% - 160px);
+    position: relative;
+    .opacity {
+      opacity: 0.3;
+    }
+    .buttons {
+      z-index: 3;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      .buttons__dog {
+        padding: 4px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid $BLACK;
+      }
+      .buttons__feed {
+        padding: 4px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid $BLACK;
+      }
+      .buttons__path {
+        padding: 4px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid $BLACK;
+      }
+    }
     .map {
       .map__marker {
       }

@@ -101,10 +101,18 @@ export const getOtherDogs = async (data: any[]) => {
   return res.data;
 };
 
-const calCoin = (d: number): number => {
-  const y = 20;
-  if (d >= y) return d * 0.5;
-  return d * 0.1;
+export const getFeeds = async () => {
+  const res = await axios.get("/feed");
+  return res.data;
+};
+
+const calCoin = (ms: number): number => {
+  const minute = ms / 1000 / 60;
+  let coin = 600;
+  if (minute <= 90) {
+    coin = -(1 / 27) * (2 * minute * minute - 360 * minute);
+  }
+  return Math.round(coin / 10) * 10;
 };
 
 const walkSlice = createSlice({
@@ -158,7 +166,6 @@ const walkSlice = createSlice({
     },
     saveDistance: (state, { payload }) => {
       let tmp = +state.totalDist + payload;
-      state.coin = calCoin(tmp);
       tmp = parseFloat(tmp.toString()).toFixed(2);
       tmp = parseFloat(tmp).toFixed(2);
       state.totalDist = tmp;
@@ -170,6 +177,8 @@ const walkSlice = createSlice({
       state.isPaused = true;
     },
     saveTime: (state, { payload }) => {
+      const coin = calCoin(payload);
+      state.coin = coin;
       state.time = payload;
     },
     toggleDogState: (state, { payload }) => {
