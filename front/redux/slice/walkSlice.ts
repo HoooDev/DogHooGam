@@ -106,15 +106,6 @@ export const getFeeds = async () => {
   return res.data;
 };
 
-const calCoin = (ms: number): number => {
-  const minute = ms / 1000 / 60;
-  let coin = 600;
-  if (minute <= 90) {
-    coin = -(1 / 27) * (2 * minute * minute - 360 * minute);
-  }
-  return Math.round(coin / 10) * 10;
-};
-
 const walkSlice = createSlice({
   name: "walk",
   initialState,
@@ -177,8 +168,6 @@ const walkSlice = createSlice({
       state.isPaused = true;
     },
     saveTime: (state, { payload }) => {
-      const coin = calCoin(payload);
-      state.coin = coin;
       state.time = payload;
     },
     toggleDogState: (state, { payload }) => {
@@ -186,6 +175,9 @@ const walkSlice = createSlice({
     },
     setMyDogs: (state, { payload }) => {
       state.myDogs = payload;
+    },
+    saveCoin: (state, { payload }) => {
+      state.coin = payload;
     }
   },
   extraReducers: (builder) => {
@@ -219,6 +211,7 @@ export const {
   // resetWalking,
   saveTime,
   toggleDogState,
-  setMyDogs
+  setMyDogs,
+  saveCoin
 } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서
