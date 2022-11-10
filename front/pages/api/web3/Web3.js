@@ -2,12 +2,12 @@ import Web3 from "web3";
 import axios from "axios";
 import { NFTContract, TOKENContract, TOKEN_CA } from "./SmartContract";
 
-const web3 = new Web3(`${process.env.NEXT_PUBLIC_GETH_NODE}/blockchain`);
-// web3.setProvider(
-//   new Web3.providers.HttpProvider(
-//     `${process.env.NEXT_PUBLIC_GETH_NODE}/blockchain`
-//   )
-// );
+const web3 = new Web3();
+web3.setProvider(
+  new Web3.providers.HttpProvider(
+    `${process.env.NEXT_PUBLIC_GETH_NODE}/blockchain`
+  )
+);
 
 // 코인베이스 주소 가져오기
 export const getAdminAdress = async () => {
