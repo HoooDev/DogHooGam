@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  height: calc(100vh - (130px));
+  height: calc(100vh - (180px));
   position: relative;
   background-color: $GRAY_BA;
   .container {
@@ -19,7 +19,7 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     position: relative;
-    height: calc(100vh - (130px));
+    height: calc(100vh - (180px));
     position: relative;
     background-color: $GRAY_BA;
     .container {
