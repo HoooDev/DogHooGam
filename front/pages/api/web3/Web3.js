@@ -88,6 +88,12 @@ const sendFileToIPFS = async (e, file, text, value, address, userKey) => {
       .then((ress) => ress);
     console.log(sendTx, "센드");
 
+    await web3.eth.personal.unlockAccount(
+      process.env.NEXT_PUBLIC_COINBASE,
+      process.env.NEXT_PUBLIC_COINBASE_PASSWORD,
+      15000
+    );
+
     await TOKENContract.methods
       .transferFrom(
         address,
@@ -146,7 +152,6 @@ const sendFileToIPFS = async (e, file, text, value, address, userKey) => {
     const nftData = JSON.stringify({
       description: text, // NFT 설명
       imageHash: ImgHash, // IPFS에 올린 이미지 주소
-      name: `(유저이름)의 강아지 - ${text.dogName} `, //
       imageUrl: `https://gateway.pinata.cloud/ipfs/${getImg}`
     });
     console.log(nftData);
@@ -158,7 +163,7 @@ const sendFileToIPFS = async (e, file, text, value, address, userKey) => {
         pinata_api_key: `${process.env.NEXT_PUBLIC_PINATA_API_KEY}`,
         pinata_secret_api_key: `${process.env.NEXT_PUBLIC_PINATA_API_SECRET}`
       },
-      nftData
+      data: nftData
     };
     const res = await axios(config);
     console.log(res.data.IpfsHash, "res데이터");
@@ -177,7 +182,7 @@ const sendFileToIPFS = async (e, file, text, value, address, userKey) => {
       .send({ from: process.env.NEXT_PUBLIC_COINBASE })
       .then((response) => console.log(response, "nft 리스폰스"));
   }
-  return [`https://gateway.pinata.cloud/ipfs/${getImg}`, tranHash, txHash];
+  return [`https://gateway.pinata.cloud/ipfs/${getImg}`, tranHash];
 };
 
 export default sendFileToIPFS;

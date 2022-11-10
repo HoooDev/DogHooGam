@@ -1,41 +1,44 @@
-.wrapper{
+.wrapper {
   height: vw(55px);
   width: vw($PHONE-VW);
   position: sticky;
   top: 0;
-  box-shadow: 0 4px 4px 0 #CCC8C0;
+  box-shadow: 0 4px 4px 0 #ccc8c0;
   background-color: $WHITE;
 
-
-  .link{
+  .link {
     text-decoration: none;
   }
-  .icon{
+  .icon {
     margin-top: vw(5px);
     margin-left: vw(10px);
     width: vw(50px);
   }
 }
 
-
 @media screen and (min-width: $PHONE-VW) {
-  .wrapper{
+  .wrapper {
     height: 55px;
     width: $PHONE-VW;
     position: sticky;
     top: 0;
     z-index: 99;
-    .link{
+    .link {
       text-decoration: none;
     }
-    .icon{
+    .icon {
       margin-top: 5px;
       margin-left: 10px;
       width: 50px;
     }
-    .profileimg{
-      margin-top: 10px;
-      margin-right: 20px;
+    .imgbox {
+      // width: 80px;
+      display: flex;
+      margin-right: 15px;
+      .profileimg {
+        margin-left: 10px;
+        margin-block: auto;
+      }
     }
   }
 }

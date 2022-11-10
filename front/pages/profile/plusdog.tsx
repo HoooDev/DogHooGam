@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "./plusdog.module.scss";
 import defaultDog from "../../public/icons/defaultDog.svg";
 import sendFileToIPFS from "../api/web3/Web3";
 import addDog from "../api/dog/addDog";
-import { useSelector } from "react-redux";
 
 export interface nftDogType {
   dogName: string;

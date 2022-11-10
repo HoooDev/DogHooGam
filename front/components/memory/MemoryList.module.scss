@@ -1,6 +1,5 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
-    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
@@ -12,7 +11,7 @@
       // background-color: rgb(173, 173, 173);
       // border-radius: 10px;
       .imgBox {
-        width: 140px;
+        width: 138px;
         height: 140px;
       }
       .img {
