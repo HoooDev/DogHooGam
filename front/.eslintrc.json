@@ -28,7 +28,8 @@
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "import/extensions": 0,
     "label-has-associated-control": "off",
-    "@typescript-eslint/no-unused-vars": ["error"]
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "jsx-a11y/click-events-have-key-events": "off"
   },
   "settings": {
     "react": {

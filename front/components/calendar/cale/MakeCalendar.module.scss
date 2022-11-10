@@ -1,0 +1,38 @@
+.day {
+  height: 36px;
+  text-align: center;
+  padding-top: 10px;
+  .dayButton{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .isMemo{
+    background-color: rgb(72, 255, 0);
+    border-radius: 100px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.selectDay {
+  height: 36px;
+  text-align: center;
+  padding-top: 10px;
+  background-color: #9E7676;
+  .dayButton{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .isMemo{
+    background-color: rgb(72, 255, 0);
+    border-radius: 100px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+// .checkStamp{
+//   width: 100px;
+//   height: 100px;
+//   margin-inline: 10px;
+// }
