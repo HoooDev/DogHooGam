@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "./plusdog.module.scss";
 import defaultDog from "../../public/icons/defaultDog.svg";
 import sendFileToIPFS from "../api/web3/Web3";
@@ -15,6 +16,7 @@ export interface nftDogType {
 }
 
 function Plusdog() {
+  const storeUser = useSelector((state: any) => state.user.userInfo);
   const [flag, setFlag] = useState(false);
   const walletRef = useRef<HTMLInputElement>(null);
   const walletAddress =
@@ -63,7 +65,13 @@ function Plusdog() {
   // };
 
   const makeNFT = async (e: any) => {
-    const dogNft = await sendFileToIPFS(e, imgFile, nftDog);
+    const dogNft = await sendFileToIPFS(
+      e,
+      imgFile,
+      nftDog,
+      0,
+      storeUser.userWalletAddress
+    );
     console.log(dogNft[0], dogNft[1], "이미지, 트랜해쉬");
     setApiDog({
       ...apiDog,
