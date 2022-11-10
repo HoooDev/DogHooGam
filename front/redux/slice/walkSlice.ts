@@ -101,6 +101,11 @@ export const getOtherDogs = async (data: any[]) => {
   return res.data;
 };
 
+export const getFeeds = async () => {
+  const res = await axios.get("/feed");
+  return res.data;
+};
+
 const calCoin = (ms: number): number => {
   const minute = ms / 1000 / 60;
   let coin = 600;
