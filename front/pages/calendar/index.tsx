@@ -31,7 +31,7 @@ const CalendarPage: NextPage = () => {
     setTab(e.target.innerText);
   }
   const today = new Date();
-  const year = today.getFullYear(); // 년도
+  const year = today.getFullYear(); // 년도4
   const month = today.getMonth() + 1; // 월
   const day = today.getDate(); // 날짜
   const dispatch = useDispatch();
