@@ -125,24 +125,25 @@ function Chat() {
 
   function goMessage(e: any) {
     e.preventDefault();
-    setChatbox((prev) => [
-      ...prev,
-      {
-        id: Date.now(),
-        sender: "me",
-        content: msg,
-        time: getNowTime(),
-        ICD: [],
-        symtptom: "",
-        disease: [],
-        symptomexplane: [],
-        symptomdata: [],
-        symptomprevent: [],
-        symptomdanger: []
-      }
-    ]);
-    getSelectResult(msg);
-
+    if (msg.trim()) {
+      setChatbox((prev) => [
+        ...prev,
+        {
+          id: Date.now(),
+          sender: "me",
+          content: msg,
+          time: getNowTime(),
+          ICD: [],
+          symtptom: "",
+          disease: [],
+          symptomexplane: [],
+          symptomdata: [],
+          symptomprevent: [],
+          symptomdanger: []
+        }
+      ]);
+      getSelectResult(msg);
+    }
     if (textareaRef.current) {
       textareaRef.current.value = "";
       setmsg("");
@@ -252,7 +253,7 @@ function Chat() {
                   ) : null}
                   {message.disease.length > 0 ? (
                     <div>
-                      <h1>다음과 같은 질병 정보가 있습니다.</h1>
+                      <h1>다음과 같은 질병 정보가 있습니다. </h1>
                       <div>
                         {DiseaseList.map((item) => {
                           function openDisease(e: any) {
