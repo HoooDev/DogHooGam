@@ -17,7 +17,7 @@ import MyLocation from "../../components/memory/MyLocation";
 function Create() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
   const storeLocation = useSelector(
-    (state: any) => state.location.locationInfo.center
+    (state: any) => state.location.locationInfo
   );
   const [userKey, setUserKey] = useState("");
   const [flag, setFlag] = useState(false);
@@ -30,8 +30,8 @@ function Create() {
   const [apiFeed, setApiFeed] = useState<any>({
     content: "",
     feedImg: "",
-    lat: storeLocation.lat,
-    lng: storeLocation.lng,
+    lat: "",
+    lng: "",
     transactionHash: ""
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,11 +41,13 @@ function Create() {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   useEffect(() => {
-    setApiFeed({
-      ...apiFeed,
-      lat: storeLocation.lat,
-      lng: storeLocation.lng
-    });
+    if (storeLocation) {
+      setApiFeed({
+        ...apiFeed,
+        lat: storeLocation.center.lat,
+        lng: storeLocation.center.lng
+      });
+    }
   }, [storeLocation]);
 
   useEffect(() => {

@@ -8,7 +8,6 @@ const MyLocation = () => {
   const [state, setState] = useState();
   const [flag, setFlag] = useState(false);
 
-  console.log(state);
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
