@@ -16,9 +16,9 @@
   }
   .modal__box {
     position: absolute;
-    width: 20%;
+    width: vw(240px);
     margin: 0 10%;
-    padding: vw(30px);
+    padding: vw(30px) vw(30px) vw(50px) vw(30px);
     border-radius: vw(20px);
     background-color: $WHITE;
     color: $BLACK;
@@ -45,7 +45,8 @@
     .modal__overlay {
     }
     .modal__box {
-      padding: 30px;
+      width: (240px);
+      padding: 30px 30px 50px 30px;
       border-radius: 20px;
       .modal__btn {
         line-height: 30px;

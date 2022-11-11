@@ -1,13 +1,20 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     .dogCard {
+      font-size: 14px;
       .dogCard__img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
       }
       .dogCard__name {
+        margin-bottom: 10px;
       }
       .dogCard__breed {
+        margin-bottom: 10px;
       }
       .dogCard__char {
+        margin-bottom: 10px;
       }
     }
   }
