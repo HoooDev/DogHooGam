@@ -120,20 +120,33 @@ public class CalendarController {
 
     @GetMapping("/walk")
     @ApiOperation(value = "캘린더 산책 리스트 읽기",notes = "강아지 별 년도, 달별에 포함되는 한달씩만 출력",response = WalkResponse.class)
-    public ResponseEntity<?> getCalenderWalkList(@ApiIgnore Authentication authentication, @RequestParam String year, @RequestParam String month, @RequestParam int dogPk){
+    public ResponseEntity<?> getCalenderWalkList(@ApiIgnore Authentication authentication, @RequestParam String year, @RequestParam String month){
         try {
 
             SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
             User user = userService.getUserByUserId(userDetails.getUsername());
 
 
-            List<Walk> memoList = walkService.findWalkByDay(user,year,month);
+//            List<Walk> memoList = walkService.findWalkByDay(user,year,month);
+//
+//            List<WalkResponse> walkResList = new ArrayList<>();
+//            for(Walk w : memoList){
+//                WalkResponse walkRes = WalkResponse.of(w);
+//                walkResList.add(walkRes);
+//            }
 
-            List<WalkResponse> walkResList = new ArrayList<>();
-            for(Walk w : memoList){
-                WalkResponse walkRes = WalkResponse.of(w);
-                walkResList.add(walkRes);
+
+            List<Walk> walkList = walkService.findWalkByDay(user,year,month);
+            List<List<WalkResponse>> walkResList = new ArrayList<>();
+
+            for(int i = 0 ; i <= 31 ; i++){
+                walkResList.add(new ArrayList<>());
             }
+            for(Walk m : walkList){
+                WalkResponse walkRes = WalkResponse.of(m);
+                walkResList.get(m.getCreateDate().toLocalDateTime().getDayOfMonth()).add(walkRes);
+            }
+
 
             if(walkResList.size() == 0){
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(BaseResponseBody.of(204, "데이터 없음"));
@@ -141,10 +154,14 @@ public class CalendarController {
                 return ResponseEntity.status(HttpStatus.OK).body(walkResList);
             }
         }catch (IllegalArgumentException e) {
-            e.getStackTrace();
+            for(StackTraceElement a : e.getStackTrace()){
+                log.info(a.toString());
+            }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){
-            e.getStackTrace();
+            for(StackTraceElement a : e.getStackTrace()){
+                log.info(a.toString());
+            }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }

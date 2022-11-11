@@ -52,11 +52,12 @@ public class Walk {
     }
 
     public List<Integer> pkToList(){
-
+        System.out.println(dogPkList);
         List<Integer> result = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(walkPath, ",");
-        while(st.hasMoreTokens()){
-            result.add(Integer.parseInt(st.nextToken()));
+        StringTokenizer stPk = new StringTokenizer(dogPkList, ",");
+
+        while(stPk.hasMoreTokens()){
+            result.add(Integer.parseInt(stPk.nextToken()));
         }
         return result;
     }

@@ -218,6 +218,7 @@ public class WalkServiceImpl implements WalkService {
 
     @Override
     public List<Walk> findWalkByDay(User user, String year, String month) {
+        log.info("walk 검색");
         return walkRepository.findWalkByDay(user.getPk(), year, month);
     }
 }
