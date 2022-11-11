@@ -1,6 +1,7 @@
 package com.c103.dog.api.controller;
 
 import com.c103.dog.DB.entity.Feed;
+import com.c103.dog.DB.entity.Memo;
 import com.c103.dog.DB.entity.User;
 import com.c103.dog.api.request.FeedPostRequest;
 import com.c103.dog.api.request.MemoPostRequest;
@@ -20,6 +21,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Api(value = "Memo API" , tags = {"Memo"})
 @Slf4j
@@ -110,7 +115,31 @@ public class MemoController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
+    @GetMapping("/today")
+    @ApiOperation(value = "오늘 메모 전부가져오기",notes = "오늘 날짜 메모만 전부 가져오기")
+    public ResponseEntity<?> updateTodayMemo(@ApiIgnore Authentication authentication){
+        try {
 
+            SsafyUserDetails userDetails = (SsafyUserDetails) authentication.getDetails();
+            User user = userService.getUserByUserId(userDetails.getUsername());
+
+            List<Memo> memoList = memoService.findMemoByDay(user);
+            List<MemoResponse> memoResList = new ArrayList<>();
+
+            for(Memo m : memoList){
+                MemoResponse memoRes = MemoResponse.of(m);
+                memoResList.add(memoRes);
+            }
+
+            return ResponseEntity.status(HttpStatus.OK).body(memoResList);
+        }catch (IllegalArgumentException e) {
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
+        }catch (Exception e){
+            e.getStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
+        }
+    }
 
 
 }

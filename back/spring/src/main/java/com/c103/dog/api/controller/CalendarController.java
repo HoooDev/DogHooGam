@@ -86,7 +86,7 @@ public class CalendarController {
             User user = userService.getUserByUserId(userDetails.getUsername());
 
 
-            List<Memo> memoList = memoService.findMemoByDay(user,year,month);
+            List<Memo> memoList = memoService.findMemoByMonth(user,year,month);
             List<List<MemoResponse>> memoResList = new ArrayList<>();
 
             for(int i = 0 ; i <= 31 ; i++){
