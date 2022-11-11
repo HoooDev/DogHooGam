@@ -1,6 +1,16 @@
 .wrapper {
   height: calc(100% - 160px);
   position: relative;
+  .feedModal {
+    .feedModal__img {
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+    .feedModal__content {
+    }
+  }
   .opacity {
     opacity: 0.3;
   }

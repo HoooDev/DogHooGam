@@ -30,6 +30,7 @@ import WalkSlider from "./WalkSlider";
 import pathSvg from "../../public/icons/path.svg";
 import walkingSvg from "../../public/icons/walking.svg";
 import feedSvg from "../../public/icons/feed.svg";
+import walk from "../../public/images/walk.svg";
 
 let kakao;
 
@@ -67,7 +68,6 @@ const KakaoMap = () => {
   const [selectedShowPaths, setSelectedShowPaths] = useState(true);
   const [otherPositions, setOtherPositions] = useState([]);
   const [feeds, setFeeds] = useState([]);
-  const [isFeedOpen, setIsFeedOpen] = useState(false);
   const { isPaused, paths, personId, selectedDogs } = useSelector(
     (state) => state.walk
   );
@@ -81,13 +81,16 @@ const KakaoMap = () => {
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOtherModalOpen, setIsOtherModalOpen] = useState(false);
+  const [isFeedModalOpen, setIsFeedModalOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [mySelectedDogs, setMySelectedDogs] = useState([]);
   const [other, setOther] = useState({});
   const [pks, setPks] = useState([]);
+  const [feed, setFeed] = useState(null);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const toggleOtherModal = () => setIsOtherModalOpen(!isOtherModalOpen);
+  const toggleFeedModal = () => setIsFeedModalOpen(!isFeedModalOpen);
 
   useEffect(() => {
     if (!selectedShowDogs) {
@@ -296,6 +299,17 @@ const KakaoMap = () => {
         {other.length > 0 && <WalkSlider dogs={other} />}
       </Modal>
 
+      <Modal isOpen={isFeedModalOpen} onClose={toggleFeedModal}>
+        {feed && (
+          <div className={`${styles.feedModal}`}>
+            <div className={styles.feedModal__img}>
+              <Image src={walk} alt="feed image" />
+            </div>
+            <div className={styles.feedModal__content}>{feed.content}</div>
+          </div>
+        )}
+      </Modal>
+
       <Map
         className={styles.map}
         center={center}
@@ -366,12 +380,12 @@ const KakaoMap = () => {
 
         {selectedShowFeeds &&
           feeds.length > 0 &&
-          feeds.map((position) => (
+          feeds.map((feed) => (
             <MapMarker
-              key={position.pk}
+              key={feed.pk}
               position={{
-                lat: position.lat,
-                lng: position.lng
+                lat: feed.lat,
+                lng: feed.lng
               }} // 마커를 표시할 위치
               image={{
                 src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", // 마커이미지의 주소입니다
@@ -380,31 +394,13 @@ const KakaoMap = () => {
                   height: 35
                 } // 마커이미지의 크기입니다
               }}
-              onClick={() => setIsFeedOpen((prev) => !prev)}
+              onClick={() => {
+                toggleFeedModal();
+                setFeed(feed);
+              }}
               // eslint-disable-next-line react/jsx-boolean-value
               clickable={true}
-            >
-              {isFeedOpen && (
-                <div style={{ minWidth: "150px" }}>
-                  <div
-                    style={{
-                      position: "absolute",
-                      right: "5px",
-                      top: "5px",
-                      cursor: "pointer"
-                    }}
-                    onClick={() => setIsFeedOpen(false)}
-                  >
-                    <Image
-                      src={position.feedImg}
-                      alt={position.content}
-                      width="14"
-                      height="14"
-                    />
-                  </div>
-                </div>
-              )}
-            </MapMarker>
+            />
           ))}
       </Map>
 
