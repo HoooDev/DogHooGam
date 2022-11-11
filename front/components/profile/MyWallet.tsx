@@ -22,7 +22,6 @@ function MyWallet() {
   const [walletBalance, setWalletBalance] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [flag, setFlag] = useState(false);
-  // const test = false
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
@@ -102,9 +101,6 @@ function MyWallet() {
 
   return (
     <div className={`${styles.myWalletBox}`}>
-      <button type="button" onClick={toggleModal}>
-        aaaa
-      </button>
       <NftModal isOpen={isModalOpen}>
         <Image src={loading} />
         <p className={`${styles.loadingFont} notoBold fs-20`}>
