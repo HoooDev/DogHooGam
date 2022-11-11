@@ -1,15 +1,45 @@
-// .wrapper {
-//   margin-top: vw(24px);
-//   .list {
-//     width: vw(300px);
-//     background-color: #EDECEC;
-//     padding: vw(24px);
-//     border-radius: vw(16px);
-//     margin: auto;
-//     margin-bottom: vw(24px);
-//   }
-// }
+.wrapper {
+  margin-top: vw(24px);
+  justify-content: center;
+  flex-direction: column;
+  .list {
 
+    width: vw(300px);
+    background-color: #EDECEC;
+    padding: vw(24px);
+    border-radius: vw(16px);
+    margin: auto;
+    margin-bottom: vw(24px);
+
+    .text {
+      width: vw(250px);
+      word-break: break-all;
+    }
+    
+    .done {
+      text-decoration: line-through;
+      text-decoration-thickness: vw(2px);
+    }
+
+    .deleteButton{
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  .new {
+    margin-inline: auto;
+    width: vw(300px);
+    border: none;
+    background-color: #EDECEC;
+    border-radius: vw(16px);
+    padding: vw(24px);
+    margin-bottom: vw(24px);
+    ::placeholder {
+      font-family: notoSans;
+    }
+  }
+}
 
 
 @media screen and (min-width: $PHONE-VW) {
@@ -18,6 +48,7 @@
     justify-content: center;
     flex-direction: column;
     .list {
+
       width: 300px;
       background-color: #EDECEC;
       padding: 24px;
@@ -27,7 +58,14 @@
 
       .text {
         width: 250px;
+        word-break: break-all;
       }
+      
+      .done {
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+      }
+
       .deleteButton{
         border: none;
         background-color: rgba(0, 0, 0, 0);
