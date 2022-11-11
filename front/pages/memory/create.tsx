@@ -165,16 +165,8 @@ function Create() {
           />
         </div>
       </div>
-      <div className={`${styles.place} flex justify-space-around align-center`}>
+      <div className={`${styles.place} flex justify-start align-center`}>
         <h1 className={`${styles.space} fs-16 notoMid`}>위치</h1>
-        <div className={`${styles.btn} flex justify-end align-center`}>
-          <button
-            className={`${styles.button} flex justify-end align-center`}
-            type="button"
-          >
-            <Image src={arrowRight} alt="#" />
-          </button>
-        </div>
       </div>
       <MyLocation />
     </div>
