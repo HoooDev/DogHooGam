@@ -16,9 +16,9 @@
   }
   .modal__box {
     position: absolute;
-    width: vw(240px);
+    width: 40%;
     margin: 0 10%;
-    padding: vw(30px) vw(30px) vw(50px) vw(30px);
+    padding: vw(20px);
     border-radius: vw(20px);
     background-color: $WHITE;
     color: $BLACK;
@@ -35,7 +35,12 @@
       }
     }
     .children {
-      width: 80%;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      /* align-content: center; */
+      align-items: center;
     }
   }
 }
@@ -45,8 +50,7 @@
     .modal__overlay {
     }
     .modal__box {
-      width: (240px);
-      padding: 30px 30px 50px 30px;
+      padding: 20px;
       border-radius: 20px;
       .modal__btn {
         line-height: 30px;

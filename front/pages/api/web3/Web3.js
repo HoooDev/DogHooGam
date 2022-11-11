@@ -4,8 +4,11 @@ import { NFTContract, TOKENContract, TOKEN_CA } from "./SmartContract";
 
 const web3 = new Web3();
 web3.setProvider(
-  new Web3.providers.HttpProvider(process.env.NEXT_PUBLIC_GETH_NODE)
+  new Web3.providers.HttpProvider(
+    `${process.env.NEXT_PUBLIC_GETH_NODE}/blockchain`
+  )
 );
+
 // 코인베이스 주소 가져오기
 export const getAdminAdress = async () => {
   const res = await web3.eth.getCoinbase();
@@ -52,7 +55,7 @@ export const createAccount = async () => {
 
 // NFT 만들기
 const sendFileToIPFS = async (e, file, text, value, address, userKey) => {
-  e.preventDefault(process.env.NEXT_PUBLIC_GETH_NODE);
+  e.preventDefault(`${process.env.NEXT_PUBLIC_GETH_NODE}/blockchain`);
 
   let ImgHash;
   let getImg;
