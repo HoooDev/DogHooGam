@@ -4,9 +4,9 @@
   .feedModal {
     .feedModal__img {
       margin: 0 auto;
-      width: 100px;
-      height: 100px;
-      margin-bottom: 10px;
+      width: vw(100px);
+      height: vw(100px);
+      margin-bottom: vw(10px);
     }
     .feedModal__content {
     }
@@ -60,31 +60,41 @@
   .wrapper {
     height: calc(100% - 160px);
     position: relative;
+    .feedModal {
+      .feedModal__img {
+        margin: 0 auto;
+        width: (100px);
+        height: (100px);
+        margin-bottom: (10px);
+      }
+      .feedModal__content {
+      }
+    }
     .opacity {
       opacity: 0.3;
     }
     .buttons {
       z-index: 3;
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: (10px);
+      left: (10px);
       .buttons__dog {
-        padding: 4px;
-        width: 24px;
-        height: 24px;
-        border: 2px solid $BLACK;
+        padding: (4px);
+        width: (24px);
+        height: (24px);
+        border: (2px) solid $BLACK;
       }
       .buttons__feed {
-        padding: 4px;
-        width: 24px;
-        height: 24px;
-        border: 2px solid $BLACK;
+        padding: (4px);
+        width: (24px);
+        height: (24px);
+        border: (2px) solid $BLACK;
       }
       .buttons__path {
-        padding: 4px;
-        width: 24px;
-        height: 24px;
-        border: 2px solid $BLACK;
+        padding: (4px);
+        width: (24px);
+        height: (24px);
+        border: (2px) solid $BLACK;
       }
     }
     .map {
