@@ -49,7 +49,7 @@ const SvgChatbot = (props: any) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 469.333 469.333"
     style={{
-      enableBackground: "new 0 0 469.333 469.333",
+      enableBackground: "new 0 0 469.333 469.333"
     }}
     xmlSpace="preserve"
     width="30px"
