@@ -22,11 +22,6 @@ const initialState = {
   year: today.getFullYear(),
   month: today.getMonth()
 };
-// const realMonth = initialState.month + 1;
-console.log(today);
-console.log(initialState.month + 1);
-console.log(initialState.year);
-
 function DayCheck() {
   // const [memo, setMemo] = useState([]);
   const [state, dispatch] = useReducer(calendarReducer, initialState);
