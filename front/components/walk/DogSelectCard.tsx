@@ -34,7 +34,7 @@ const DogSelectCard = ({ id, name }: { id: number; name: string }) => {
       <div
         className={`${styles.dogSelectCard__name} flex justify-center fs-12`}
       >
-        {name}
+        {name.length > 5 ? `${name.slice(0, 5)}..` : name}
       </div>
     </div>
   );

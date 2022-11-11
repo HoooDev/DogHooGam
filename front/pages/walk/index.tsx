@@ -8,6 +8,7 @@ import AfterSign from "../../components/walk/AfterSign";
 import styles from "./index.module.scss";
 import type { AppDispatch, RootState } from "../../redux/store/index";
 import {
+  finishWalking,
   finishWalkingApi,
   getMyDogs,
   setMyDogs
@@ -20,6 +21,7 @@ const Index: NextPage = () => {
     (state: RootState) => state.walk
   );
   useEffect(() => {
+    dispatch(finishWalking());
     getMyDogs()
       .then((res) => {
         dispatch(setMyDogs(res));
@@ -36,9 +38,10 @@ const Index: NextPage = () => {
       <div className={styles.container}>
         {!isWalkingStarted && (
           <div className={`${styles.dogSelectedCards} flex justify-center`}>
-            {myDogs?.map((dog) => (
-              <DogSelectCard key={dog.pk} id={dog.pk} name={dog.dogName} />
-            ))}
+            {myDogs.length > 0 &&
+              myDogs.map((dog) => (
+                <DogSelectCard key={dog.pk} id={dog.pk} name={dog.dogName} />
+              ))}
           </div>
         )}
         {!isWalkingStarted ? <BeforeSign /> : <AfterSign />}

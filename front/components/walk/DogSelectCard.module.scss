@@ -1,6 +1,8 @@
 .wrapper {
   margin-bottom: vw(16px);
   .dogSelectCard__icon {
+    width: vw(30px);
+    height: vw(30px);
     padding: vw(6px);
     margin-inline: vw(10px);
     margin-bottom: vw(6px);
@@ -21,17 +23,25 @@
 
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
-    margin-bottom: 16px;
+    margin-bottom: (16px);
     .dogSelectCard__icon {
-      padding: 6px;
-      margin-inline: 10px;
-      margin-bottom: 6px;
-      border-width: 4px;
+      width: (30px);
+      height: (30px);
+      padding: (6px);
+      margin-inline: (10px);
+      margin-bottom: (6px);
+      border-width: (4px);
+      border-style: solid;
+      border-color: $WHITE;
+      border-radius: 50%;
+      background-color: $WHITE;
     }
     .dogSelectCard__name {
-      font-size: 12px;
+      font-size: (12px);
+      color: $WHITE;
     }
     .borderColor__MAIN {
+      border-color: $MAIN;
     }
   }
 }

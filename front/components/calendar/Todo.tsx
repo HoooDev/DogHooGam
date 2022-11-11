@@ -66,24 +66,76 @@ function Todo() {
     console.log(e.currentTarget.id);
     const deletePk = e.currentTarget.id;
     const Token = window.localStorage.getItem("AccessToken");
+    if (window.confirm("정말로 삭제하시겠습니까?") === true) {
+      axios({
+        url: `https://dog-hoogam.site:8000/api/memo/${deletePk}`,
+        method: "delete",
+        headers: { Authorization: `Bearer ${Token}` }
+      })
+        .then(() => {
+          const newMemos = [...memos];
+          const newTodayMemos = [...memos[day]];
+          for (let i = 0; i < newTodayMemos.length; i += 1) {
+            if (newTodayMemos[i].pk === Number(deletePk)) {
+              console.log(i, "일치");
+              newTodayMemos.splice(i, 1);
+              break;
+            }
+          }
+          newMemos[day] = newTodayMemos;
+          dispatch(setMemos(newMemos));
+          setTodos(newTodayMemos);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } // if문으로 짜기
+  };
+
+  const onClickDone = (e: any) => {
+    console.log(e.currentTarget.id);
+    const donePk = e.currentTarget.id;
+    const Token = window.localStorage.getItem("AccessToken");
     axios({
-      url: `https://dog-hoogam.site:8000/api/memo/${deletePk}`,
-      method: "delete",
+      url: `https://dog-hoogam.site:8000/api/memo/${donePk}`,
+      method: "patch",
       headers: { Authorization: `Bearer ${Token}` }
     })
-      .then(() => {
-        const newMemos = [...memos];
-        const newTodayMemos = [...memos[day]];
-        for (let i = 0; i < newTodayMemos.length; i += 1) {
-          if (newTodayMemos[i].pk === Number(deletePk)) {
-            console.log(i, "일치");
-            newTodayMemos.splice(i, 1);
-            break;
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          const newMemos = [...memos];
+          const newTodayMemos = [...memos[day]];
+          // if (newTodayMemos.donePk === false) {
+          //   newTodayMemos[donePk] = true;
+          // } else {
+          //   newTodayMemos[donePk] = false;
+          // }
+          const newList = [];
+          for (let i = 0; i < newTodayMemos.length; i += 1) {
+            if (newTodayMemos[i].pk === Number(donePk)) {
+              let check;
+              if (newTodayMemos[i].done === true) {
+                check = false;
+              } else {
+                check = true;
+              }
+              newList.push({
+                pk: newTodayMemos[i].pk,
+                content: newTodayMemos[i].content,
+                memoDate: newTodayMemos[i].memoDate,
+                done: check
+              });
+            } else {
+              newList.push(newTodayMemos[i]);
+            }
           }
+          console.log(newList);
+          newMemos[day] = newList;
+          dispatch(setMemos(newMemos));
+          console.log(newMemos);
+          setTodos(newList);
         }
-        newMemos[day] = newTodayMemos;
-        dispatch(setMemos(newMemos));
-        setTodos(newTodayMemos);
       })
       .catch((err) => {
         console.log(err);
@@ -106,8 +158,22 @@ function Todo() {
                   className={`${styles.list} flex notoBold fs-20`}
                   key={v4()}
                 >
-                  <div className={`${styles.text}`}>{memo.content}</div>
-                  <Image src={done} alt="완료" />
+                  {memo && memo.done === false ? (
+                    <div className={`${styles.text}`}>{memo.content}</div>
+                  ) : (
+                    <div className={`${styles.text} ${styles.done}`}>
+                      {memo.content}
+                    </div>
+                  )}
+
+                  <button
+                    className={`${styles.deleteButton}`}
+                    type="button"
+                    onClick={(e) => onClickDone(e)}
+                    id={memo.pk}
+                  >
+                    <Image src={done} alt="완료" />
+                  </button>
                   <button
                     className={`${styles.deleteButton}`}
                     type="button"

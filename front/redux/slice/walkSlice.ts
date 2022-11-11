@@ -101,10 +101,9 @@ export const getOtherDogs = async (data: any[]) => {
   return res.data;
 };
 
-const calCoin = (d: number): number => {
-  const y = 20;
-  if (d >= y) return d * 0.5;
-  return d * 0.1;
+export const getFeeds = async () => {
+  const res = await axios.get("/feed");
+  return res.data;
 };
 
 const walkSlice = createSlice({
@@ -158,7 +157,6 @@ const walkSlice = createSlice({
     },
     saveDistance: (state, { payload }) => {
       let tmp = +state.totalDist + payload;
-      state.coin = calCoin(tmp);
       tmp = parseFloat(tmp.toString()).toFixed(2);
       tmp = parseFloat(tmp).toFixed(2);
       state.totalDist = tmp;
@@ -177,6 +175,9 @@ const walkSlice = createSlice({
     },
     setMyDogs: (state, { payload }) => {
       state.myDogs = payload;
+    },
+    saveCoin: (state, { payload }) => {
+      state.coin = payload;
     }
   },
   extraReducers: (builder) => {
@@ -210,6 +211,7 @@ export const {
   // resetWalking,
   saveTime,
   toggleDogState,
-  setMyDogs
+  setMyDogs,
+  saveCoin
 } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서

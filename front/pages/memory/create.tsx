@@ -10,9 +10,15 @@ import arrowRight from "../../public/icons/arrowRight.svg";
 import addimg from "../../public/icons/addImg2.png";
 import sendFileToIPFS from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
+import NftModal from "../../components/common/NftModal";
+import loading from "../../public/icons/loading.svg";
+import MyLocation from "../../components/memory/MyLocation";
 
 function Create() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
+  const storeLocation = useSelector(
+    (state: any) => state.location.locationInfo
+  );
   const [userKey, setUserKey] = useState("");
   const [flag, setFlag] = useState(false);
   const [imgFile, setImgFile] = useState(null);
@@ -20,14 +26,29 @@ function Create() {
   const [nftFeed, setNftFeed] = useState({
     content: ""
   });
+
   const [apiFeed, setApiFeed] = useState<any>({
     content: "",
     feedImg: "",
-    lat: null,
-    lng: null,
+    lat: "",
+    lng: "",
     transactionHash: ""
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const router = useRouter();
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+  useEffect(() => {
+    if (storeLocation) {
+      setApiFeed({
+        ...apiFeed,
+        lat: storeLocation.center.lat,
+        lng: storeLocation.center.lng
+      });
+    }
+  }, [storeLocation]);
 
   useEffect(() => {
     const Token = window.localStorage.getItem("AccessToken");
@@ -86,9 +107,14 @@ function Create() {
     }
   }, [flag, apiFeed]);
 
-  // console.log(apiFeed, "에이피아이피드");
+  // console.log(storeLocation, "스토어로케이션");
+  console.log(apiFeed);
   return (
     <div className={`${styles.wrapper}`}>
+      <NftModal isOpen={isModalOpen}>
+        <Image src={loading} />
+        <p className={`${styles.loadingFont} notoBold`}>NFT 발행 중입니다.</p>
+      </NftModal>
       <div>
         <div className={`${styles.memoryNav} flex justify-space-between`}>
           <button
@@ -103,6 +129,7 @@ function Create() {
             type="button"
             onClick={(e) => {
               makeNFT(e);
+              toggleModal();
             }}
           >
             발행하기
@@ -149,6 +176,7 @@ function Create() {
           </button>
         </div>
       </div>
+      <MyLocation />
     </div>
   );
 }

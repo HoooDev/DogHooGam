@@ -8,7 +8,8 @@ import calendarReducer from "./reducer/CalendarReducer";
 import MakeCalendar from "./MakeCalendar";
 import {
   getCalendarMemoApi,
-  setMemos
+  setMemos,
+  setSelectDay
 } from "../../../redux/slice/calendarSlice";
 
 // import "./DayCheck.scss";
@@ -34,21 +35,33 @@ function DayCheck() {
   const yearMonth = `${year}.${month + 1}`;
   const lastDate = parseInt(new Date(year, month + 1, 0).getDate(), 10);
   const firstDay = parseInt(new Date(year, month, 1).getDay(), 10);
-
+  const dispatch2 = useDispatch(); // 리덕스 날씨 저장값
   // Month 감소
   const onDecreases = () => {
     dispatch({ type: "DECREMENT" });
-    console.log(state);
-    // 셀렉트데이를 바뀐달 31일로 동명이숙제
+    const deyear = state.month === 0 ? state.year - 1 : state.year;
+
+    dispatch2(
+      setSelectDay({
+        year: deyear,
+        month: state.month !== 0 ? state.month : 12,
+        day: 1
+      })
+    );
   };
 
   // Month 증가
   const onIncreases = () => {
     dispatch({ type: "INCREMENT" });
-    // 셀렉트데이를 바뀐달 1일로 동명이숙제
+    const inyear = state.month + 2 === 13 ? state.year + 1 : state.year;
+    dispatch2(
+      setSelectDay({
+        year: inyear,
+        month: state.month + 2 !== 13 ? state.month + 2 : 1,
+        day: 1
+      })
+    );
   };
-
-  const dispatch2 = useDispatch();
 
   useEffect(() => {
     getCalendarMemoApi(state.month + 1, state.year)

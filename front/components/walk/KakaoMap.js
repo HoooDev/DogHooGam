@@ -1,10 +1,12 @@
+/* eslint-disable no-lonely-if */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable consistent-return */
 /* eslint-disable prefer-template */
 /* eslint-disable no-bitwise */
 /* eslint-disable no-shadow */
 /* eslint-disable prettier/prettier */
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   // CustomOverlayMap,
@@ -21,9 +23,14 @@ import {
   saveDistance,
   pushPaths,
   nowWalkingApi,
-  getOtherDogs
+  getOtherDogs,
+  getFeeds
 } from "../../redux/slice/walkSlice";
 import WalkSlider from "./WalkSlider";
+import pathSvg from "../../public/icons/path.svg";
+import walkingSvg from "../../public/icons/walking.svg";
+import feedSvg from "../../public/icons/feed.svg";
+import walk from "../../public/images/walk.svg";
 
 let kakao;
 
@@ -53,7 +60,14 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 
 const KakaoMap = () => {
   // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
-  const [positions, setPositions] = useState([]);
+  const showDogs = useRef();
+  const showFeeds = useRef();
+  const showPaths = useRef();
+  const [selectedShowDogs, setSelectedShowDogs] = useState(true);
+  const [selectedShowFeeds, setSelectedShowFeeds] = useState(true);
+  const [selectedShowPaths, setSelectedShowPaths] = useState(true);
+  const [otherPositions, setOtherPositions] = useState([]);
+  const [feeds, setFeeds] = useState([]);
   const { isPaused, paths, personId, selectedDogs } = useSelector(
     (state) => state.walk
   );
@@ -67,14 +81,57 @@ const KakaoMap = () => {
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOtherModalOpen, setIsOtherModalOpen] = useState(false);
+  const [isFeedModalOpen, setIsFeedModalOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [mySelectedDogs, setMySelectedDogs] = useState([]);
   const [other, setOther] = useState({});
-  // const [isOpen, setIsOpen] = useState(false);
   const [pks, setPks] = useState([]);
+  const [feed, setFeed] = useState(null);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const toggleOtherModal = () => setIsOtherModalOpen(!isOtherModalOpen);
+  const toggleFeedModal = () => setIsFeedModalOpen(!isFeedModalOpen);
+
+  useEffect(() => {
+    if (!selectedShowDogs) {
+      if (showDogs.current) {
+        showDogs.current.classList.add(`${styles.opacity}`);
+      }
+    } else {
+      if (showDogs.current) {
+        showDogs.current.classList.remove(`${styles.opacity}`);
+      }
+    }
+
+    if (!selectedShowFeeds) {
+      if (showFeeds.current) {
+        showFeeds.current.classList.add(`${styles.opacity}`);
+      }
+    } else {
+      if (showFeeds.current) {
+        showFeeds.current.classList.remove(`${styles.opacity}`);
+      }
+    }
+
+    if (!selectedShowPaths) {
+      if (showPaths.current) {
+        showPaths.current.classList.add(`${styles.opacity}`);
+      }
+    } else {
+      if (showPaths.current) {
+        showPaths.current.classList.remove(`${styles.opacity}`);
+      }
+    }
+  }, [selectedShowDogs, selectedShowFeeds, selectedShowPaths]);
+
+  useEffect(() => {
+    getFeeds()
+      .then((res) => {
+        console.log(res);
+        setFeeds(res);
+      })
+      .catch(() => console.error);
+  }, []);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -84,7 +141,6 @@ const KakaoMap = () => {
       });
       getOtherDogs(pks)
         .then((res) => {
-          console.log(res);
           setMySelectedDogs(res);
         })
         .catch(() => console.log);
@@ -96,7 +152,6 @@ const KakaoMap = () => {
       if (pks && pks.length > 0) {
         getOtherDogs(pks)
           .then((res) => {
-            console.log(res);
             setOther(res);
           })
           .catch(() => console.log);
@@ -166,7 +221,7 @@ const KakaoMap = () => {
     init();
   }, []);
 
-  const walking = () => {
+  const walking = useCallback(() => {
     if (isSending) return;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -178,9 +233,8 @@ const KakaoMap = () => {
           console.log(lat, lng);
           nowWalkingApi({ lat, lng, personId })
             .then((res) => {
-              console.log(res);
               const tmp = res.filter((item) => item.dogPk !== null);
-              setPositions(tmp);
+              setOtherPositions(tmp);
               // dispatch(pushPaths({ lat, lng }));
               setCenter({ lat, lng });
               handleClick({ lat, lng });
@@ -195,7 +249,7 @@ const KakaoMap = () => {
         }
       );
     }
-  };
+  }, [isSending]);
 
   useEffect(() => {
     if (!isPaused) {
@@ -214,12 +268,46 @@ const KakaoMap = () => {
 
   return (
     <div className={styles.wrapper}>
+      <div className={`${styles.buttons} flex`}>
+        <div
+          ref={showDogs}
+          className={styles.buttons__dog}
+          onClick={() => setSelectedShowDogs((prev) => !prev)}
+        >
+          <Image src={walkingSvg} alt="walking" />
+        </div>
+        <div
+          ref={showFeeds}
+          className={styles.buttons__feed}
+          onClick={() => setSelectedShowFeeds((prev) => !prev)}
+        >
+          <Image src={feedSvg} alt="feed" />
+        </div>
+        <div
+          ref={showPaths}
+          className={styles.buttons__path}
+          onClick={() => setSelectedShowPaths((prev) => !prev)}
+        >
+          <Image src={pathSvg} alt="path" />
+        </div>
+      </div>
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
         {mySelectedDogs.length > 0 && <WalkSlider dogs={mySelectedDogs} />}
       </Modal>
 
       <Modal isOpen={isOtherModalOpen} onClose={toggleOtherModal}>
         {other.length > 0 && <WalkSlider dogs={other} />}
+      </Modal>
+
+      <Modal isOpen={isFeedModalOpen} onClose={toggleFeedModal}>
+        {feed && (
+          <div className={`${styles.feedModal}`}>
+            <div className={styles.feedModal__img}>
+              <Image src={walk} alt="feed image" />
+            </div>
+            <div className={styles.feedModal__content}>{feed.content}</div>
+          </div>
+        )}
       </Modal>
 
       <Map
@@ -230,13 +318,15 @@ const KakaoMap = () => {
         onZoomChanged={(map) => setLevel(map.getLevel())}
       >
         <ZoomControl />
-        <Polyline
-          path={paths}
-          strokeWeight={5} // 선의 두께입니다
-          strokeColor="#db4040" // 선의 색깔입니다
-          strokeOpacity={1} // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
-          strokeStyle="solid" // 선의 스타일입니다
-        />
+        {selectedShowPaths && (
+          <Polyline
+            path={paths}
+            strokeWeight={5} // 선의 두께입니다
+            strokeColor="#db4040" // 선의 색깔입니다
+            strokeOpacity={1} // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
+            strokeStyle="solid" // 선의 스타일입니다
+          />
+        )}
 
         <div className={styles.map__marker}>
           <MapMarker
@@ -262,30 +352,56 @@ const KakaoMap = () => {
           />
         </div>
 
-        {positions.map((position, index) => (
-          <div key={`${position.lat}-${position.lng},${index + 1}`}>
+        {selectedShowDogs &&
+          otherPositions.map((position, index) => (
+            <div key={`${position.lat}-${position.lng},${index * 1}`}>
+              <MapMarker
+                onClick={() => {
+                  toggleOtherModal();
+                  if (position.dogPk) {
+                    setPks(position.dogPk);
+                  }
+                }}
+                position={{ lat: position.lat, lng: position.lng }} // 마커를 표시할 위치
+                image={{
+                  src:
+                    position.dogState === 0
+                      ? "https://lab.ssafy.com/s07-final/S07P31C103/uploads/bd9a02e70f2fa3d9f84a7fd9ab8b7b0c/realGreen.png"
+                      : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png", // 마커이미지의 주소입니다
+                  size: {
+                    width: 40,
+                    height: 40
+                  } // 마커이미지의 크기입니다
+                }}
+                // title={position.dogName} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+              />
+            </div>
+          ))}
+
+        {selectedShowFeeds &&
+          feeds.length > 0 &&
+          feeds.map((feed) => (
             <MapMarker
-              onClick={() => {
-                toggleOtherModal();
-                if (position.dogPk) {
-                  setPks(position.dogPk);
-                }
-              }}
-              position={{ lat: position.lat, lng: position.lng }} // 마커를 표시할 위치
+              key={feed.pk}
+              position={{
+                lat: feed.lat,
+                lng: feed.lng
+              }} // 마커를 표시할 위치
               image={{
-                src:
-                  position.dogState === 0
-                    ? "https://lab.ssafy.com/s07-final/S07P31C103/uploads/bd9a02e70f2fa3d9f84a7fd9ab8b7b0c/realGreen.png"
-                    : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png", // 마커이미지의 주소입니다
+                src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", // 마커이미지의 주소입니다
                 size: {
-                  width: 40,
-                  height: 40
+                  width: 24,
+                  height: 35
                 } // 마커이미지의 크기입니다
               }}
-              // title={position.dogName} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+              onClick={() => {
+                toggleFeedModal();
+                setFeed(feed);
+              }}
+              // eslint-disable-next-line react/jsx-boolean-value
+              clickable={true}
             />
-          </div>
-        ))}
+          ))}
       </Map>
 
       <div

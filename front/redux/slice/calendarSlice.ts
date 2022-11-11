@@ -63,6 +63,7 @@ const calendarSlice = createSlice({
     },
     setSelectDay: (state, action) => {
       state.selectDay = action.payload;
+      console.log(state.selectDay);
     }
   }
 });
