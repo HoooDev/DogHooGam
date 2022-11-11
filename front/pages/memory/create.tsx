@@ -12,9 +12,13 @@ import sendFileToIPFS from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
 import NftModal from "../../components/common/NftModal";
 import loading from "../../public/icons/loading.svg";
+import MyLocation from "../../components/memory/MyLocation";
 
 function Create() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
+  const storeLocation = useSelector(
+    (state: any) => state.location.locationInfo.center
+  );
   const [userKey, setUserKey] = useState("");
   const [flag, setFlag] = useState(false);
   const [imgFile, setImgFile] = useState(null);
@@ -22,11 +26,12 @@ function Create() {
   const [nftFeed, setNftFeed] = useState({
     content: ""
   });
+
   const [apiFeed, setApiFeed] = useState<any>({
     content: "",
     feedImg: "",
-    lat: null,
-    lng: null,
+    lat: storeLocation.lat,
+    lng: storeLocation.lng,
     transactionHash: ""
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,6 +39,14 @@ function Create() {
   const router = useRouter();
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+  useEffect(() => {
+    setApiFeed({
+      ...apiFeed,
+      lat: storeLocation.lat,
+      lng: storeLocation.lng
+    });
+  }, [storeLocation]);
 
   useEffect(() => {
     const Token = window.localStorage.getItem("AccessToken");
@@ -92,7 +105,8 @@ function Create() {
     }
   }, [flag, apiFeed]);
 
-  // console.log(apiFeed, "에이피아이피드");
+  // console.log(storeLocation, "스토어로케이션");
+  console.log(apiFeed);
   return (
     <div className={`${styles.wrapper}`}>
       <NftModal isOpen={isModalOpen}>
@@ -160,6 +174,7 @@ function Create() {
           </button>
         </div>
       </div>
+      <MyLocation />
     </div>
   );
 }
