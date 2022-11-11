@@ -12,7 +12,7 @@ function MemoryList() {
       .then((res) => {
         if (res.status === 200) {
           console.log(res.data);
-          setFeeds(res.data);
+          setFeeds(res.data.reverse());
         }
         return [];
       })
