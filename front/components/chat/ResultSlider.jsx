@@ -38,7 +38,7 @@ const ResultSlider = ({ p1, p2, p3 }) => {
               <Image src={reason} alt="#" />
             </div>
             {/* <hr /> */}
-            <h1 className={`${styles.title} fs-18`}>원인</h1>
+            <h1 className={`${styles.title} fs-18`}>증상</h1>
             <h1 className={`${styles.content}`}>{p2}</h1>
           </div>
         </div>

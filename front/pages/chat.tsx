@@ -5,8 +5,6 @@ import Image from "next/image";
 import ResultSlider from "../components/chat/ResultSlider";
 
 import styles from "./chat.module.scss";
-// import { getChatbot1 } from "./api/chat/chat";
-import arrowRight from "../public/icons/arrowRight.svg";
 import yellowBell from "../public/icons/yellowBell.svg";
 import orangeBell from "../public/icons/orangeBell.svg";
 import redBell from "../public/icons/redBell.svg";
