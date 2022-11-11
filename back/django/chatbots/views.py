@@ -103,7 +103,8 @@ def indata(request):
         print(sentence)
         max_val, question, answer = questions(sentence)
         print(max_val, question, answer)
-        answers.append(answer)
+        if answer not in answers:
+            answers.append(answer)
     lst = []
     diseasetable = DiseaseTable.objects.all()
     disease = read_frame(diseasetable)
