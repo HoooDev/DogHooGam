@@ -267,7 +267,7 @@ const KakaoMap = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={`${styles.buttons} flex`}>
+      <div className={`${styles.buttons} flex column`}>
         <div
           ref={showDogs}
           className={styles.buttons__dog}
@@ -336,10 +336,11 @@ const KakaoMap = () => {
                 //   ? "https://lab.ssafy.com/s07-final/S07P31C103/uploads/bd9a02e70f2fa3d9f84a7fd9ab8b7b0c/realGreen.png"
                 //   : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png", // 마커이미지의 주소입니다
                 // "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png",
-                "https://lab.ssafy.com/s07-final/S07P31C103/uploads/6b70c2ba38186e4ccfebef594869ae31/circle.png",
+                // "https://lab.ssafy.com/s07-final/S07P31C103/uploads/6b70c2ba38186e4ccfebef594869ae31/circle.png",
+                "https://lab.ssafy.com/s07-final/S07P31C103/uploads/4ad75748cd048cbd4f8333aae447cb10/Ellipse_16.png",
               size: {
-                width: 40,
-                height: 40
+                width: 16,
+                height: 16
               }, // 마커이미지의 크기입니다
               options: {
                 offset: {
@@ -380,26 +381,27 @@ const KakaoMap = () => {
         {selectedShowFeeds &&
           feeds.length > 0 &&
           feeds.map((feed) => (
-            <MapMarker
-              key={feed.pk}
-              position={{
-                lat: feed.lat,
-                lng: feed.lng
-              }} // 마커를 표시할 위치
-              image={{
-                src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", // 마커이미지의 주소입니다
-                size: {
-                  width: 24,
-                  height: 35
-                } // 마커이미지의 크기입니다
-              }}
-              onClick={() => {
-                toggleFeedModal();
-                setFeed(feed);
-              }}
-              // eslint-disable-next-line react/jsx-boolean-value
-              clickable={true}
-            />
+            <div className={styles.feedMarker} key={feed.pk}>
+              <MapMarker
+                position={{
+                  lat: feed.lat,
+                  lng: feed.lng
+                }} // 마커를 표시할 위치
+                image={{
+                  src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", // 마커이미지의 주소입니다
+                  size: {
+                    width: 24,
+                    height: 35
+                  } // 마커이미지의 크기입니다
+                }}
+                onClick={() => {
+                  toggleFeedModal();
+                  setFeed(feed);
+                }}
+                // eslint-disable-next-line react/jsx-boolean-value
+                clickable={true}
+              />
+            </div>
           ))}
       </Map>
 

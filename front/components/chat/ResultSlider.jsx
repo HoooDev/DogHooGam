@@ -11,7 +11,7 @@ import drug from "../../public/images/drug.svg";
 import styles from "./ResultSlider.module.scss";
 
 const settings = {
-  dots: false,
+  dots: true,
   infinite: false,
   speed: 200,
   slidesToShow: 1,

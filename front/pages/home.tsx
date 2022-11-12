@@ -30,7 +30,19 @@ function Home() {
       .catch((err) => {
         console.log(err);
       });
-  });
+
+    axios({
+      url: `https://dog-hoogam.site:8000/api/memo/today`,
+      method: "get",
+      headers: { Authorization: `Bearer ${Token}` }
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className={`${styles.wrapper}`}>

@@ -1,3 +1,33 @@
+.wrapper {
+  .item {
+    height: vw(370px);
+
+    .card {
+      width: vw(200px);
+      height: vw(350px);
+      background-color: rgb(248, 248, 248);
+      margin-inline: auto;
+      padding-inline: vw(10px);
+      border-radius: 4px;
+      box-shadow: vw(1px) vw(1px) vw(3px) vw(1px) rgb(172, 170, 170);
+      .img {
+        width: vw(150px);
+        border-radius: vw(10px) vw(10px) 0 0;
+        margin: 0;
+        padding: vw(10px) vw(20px) 0 vw(20px);
+      }
+      .title{
+        padding-inline: vw(15px);
+      }
+      .content{
+        margin-top: vw(10px);
+        padding-inline: vw(15px);
+      }
+    }
+  }
+}
+
+
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     .item {

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
-import arrowRight from "../../public/icons/arrowRight.svg";
+// import arrowRight from "../../public/icons/arrowRight.svg";
 import addimg from "../../public/icons/addImg2.png";
 import sendFileToIPFS from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
@@ -165,16 +165,8 @@ function Create() {
           />
         </div>
       </div>
-      <div className={`${styles.place} flex justify-space-around align-center`}>
+      <div className={`${styles.place} flex justify-start align-center`}>
         <h1 className={`${styles.space} fs-16 notoMid`}>위치</h1>
-        <div className={`${styles.btn} flex justify-end align-center`}>
-          <button
-            className={`${styles.button} flex justify-end align-center`}
-            type="button"
-          >
-            <Image src={arrowRight} alt="#" />
-          </button>
-        </div>
       </div>
       <MyLocation />
     </div>

@@ -30,6 +30,7 @@
         .resultButton {
           background-color: rgba(0, 0, 0, 0);
           border: none;
+          margin-top: 20px;
           .diseaseTitle {
             color: #81b89d;
             margin-block: vw(10px) vw(10px);
@@ -47,6 +48,11 @@
           padding-inline: vw(20px);
           line-height: vw(18px);
           letter-spacing: vw(1px);
+        }
+        .dangerIcon{
+          width: vw(22px);
+          height: vw(22px);
+          margin-right: vw(10px);
         }
       }
       .time {
