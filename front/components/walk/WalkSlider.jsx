@@ -34,6 +34,7 @@ const WalkSlider = ({ dogs }) => {
         {dogs?.map((dog) => (
           <div key={dog.pk} className={styles.dogCard}>
             <div className={`${styles.dogCard__img}`}>
+              {/* <Image src={dog.dogImg} alt={dog.dogName} /> */}
               <Image src={walk} alt={dog.dogName} />
             </div>
             <div className={styles.dogCard__name}>이름 : {dog.dogName}</div>
