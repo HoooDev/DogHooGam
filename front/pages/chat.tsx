@@ -51,7 +51,7 @@ function Chat() {
     {
       id: 2,
       sender: "you",
-      content: "무엇을 도와드릴까요?",
+      content: "현재 강아지 상태를 입력해보세요!",
       time: getNowTime(),
       ICD: [],
       symtptom: "",
