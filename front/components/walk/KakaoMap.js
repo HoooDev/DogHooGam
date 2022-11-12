@@ -267,7 +267,7 @@ const KakaoMap = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={`${styles.buttons} flex`}>
+      <div className={`${styles.buttons} flex column`}>
         <div
           ref={showDogs}
           className={styles.buttons__dog}

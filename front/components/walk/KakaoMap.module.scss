@@ -17,23 +17,23 @@
   .buttons {
     z-index: 3;
     position: absolute;
-    top: vw(10px);
-    left: vw(10px);
+    bottom: vw(10px);
+    right: vw(10px);
     .buttons__dog {
-      padding: vw(4px);
+      padding: vw(2px);
       width: vw(24px);
       height: vw(24px);
       border: vw(2px) solid $BLACK;
     }
     .buttons__feed {
-      padding: vw(4px);
+      padding: vw(2px);
       width: vw(24px);
       height: vw(24px);
       border: vw(2px) solid $BLACK;
-      margin-inline: 6px;
+      margin-block: vw(6px);
     }
     .buttons__path {
-      padding: vw(4px);
+      padding: vw(2px);
       width: vw(24px);
       height: vw(24px);
       border: vw(2px) solid $BLACK;
@@ -77,22 +77,23 @@
     .buttons {
       z-index: 3;
       position: absolute;
-      top: (10px);
-      left: (10px);
+      bottom: (10px);
+      right: (10px);
       .buttons__dog {
-        padding: (4px);
+        padding: (2px);
         width: (24px);
         height: (24px);
         border: (2px) solid $BLACK;
       }
       .buttons__feed {
-        padding: (4px);
+        padding: (2px);
         width: (24px);
         height: (24px);
         border: (2px) solid $BLACK;
+        margin-block: 6px;
       }
       .buttons__path {
-        padding: (4px);
+        padding: (2px);
         width: (24px);
         height: (24px);
         border: (2px) solid $BLACK;
