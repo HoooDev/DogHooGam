@@ -43,42 +43,36 @@ function WalkRecord() {
     (state: RootState) => state.calendar
   );
   const dummy = { time: "00:34:27", dist: "3.27", coin: 5 };
-  const [poss, setPoss] = useState<any[]>([]);
-  useEffect(() => {
-    if (records.length > 0) {
-      const tmp = records.map((records) => {
-        if (records.length === 0) {
-          return [];
-        }
-        const tmp = records.map((positions: any) => {
-          return positions.walkPath;
-        });
-        return tmp;
-      });
-      setPoss(tmp);
-      console.log(tmp);
-    }
-  }, [records]);
 
   return (
     <div className={`${styles.wrapper}`} id="산책기록">
       <div className={`${styles.map}`}>
-        {poss[selectDay.day]?.map((walk: any, index: number) => {
-          const center: { lat: number; lng: number } = getCenter(walk);
+        {records[selectDay.day]?.map((record: any, index: number) => {
+          const center: { lat: number; lng: number } = getCenter(
+            record.walkPath
+          );
           return (
-            <WalkMap key={`${index * 1}`} positions={walk} center={center} />
+            <div key={`${index * 1}`}>
+              <WalkMap positions={record.walkPath} center={center} />
+              <div className={`${styles.bottom} flex`}>
+                <div className={`${styles.sub1} notoBold fs-24`}>시간</div>
+                <div className={`${styles.sub2} notoBold fs-24`}>거리</div>
+                <div className={`${styles.sub3} notoBold fs-24`}>획득 코인</div>
+              </div>
+              <div className={`${styles.content} flex`}>
+                <div className={`${styles.con1} notoMid fs-18`}>
+                  {dummy.time}
+                </div>
+                <div className={`${styles.con2} notoMid fs-18`}>
+                  {record.distance} KM
+                </div>
+                <div className={`${styles.con3} notoMid fs-18`}>
+                  {record.coin} 코인
+                </div>
+              </div>
+            </div>
           );
         })}
-      </div>
-      <div className={`${styles.bottom} flex`}>
-        <div className={`${styles.sub1} notoBold fs-24`}>시간</div>
-        <div className={`${styles.sub2} notoBold fs-24`}>거리</div>
-        <div className={`${styles.sub3} notoBold fs-24`}>획득 코인</div>
-      </div>
-      <div className={`${styles.content} flex`}>
-        <div className={`${styles.con1} notoMid fs-18`}>{dummy.time}</div>
-        <div className={`${styles.con2} notoMid fs-18`}>{dummy.dist} KM</div>
-        <div className={`${styles.con3} notoMid fs-18`}>{dummy.coin} 코인</div>
       </div>
     </div>
   );
