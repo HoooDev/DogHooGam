@@ -339,13 +339,13 @@ const KakaoMap = () => {
                 // "https://lab.ssafy.com/s07-final/S07P31C103/uploads/6b70c2ba38186e4ccfebef594869ae31/circle.png",
                 "https://lab.ssafy.com/s07-final/S07P31C103/uploads/4ad75748cd048cbd4f8333aae447cb10/Ellipse_16.png",
               size: {
-                width: 16,
-                height: 16
+                width: 20,
+                height: 20
               }, // 마커이미지의 크기입니다
               options: {
                 offset: {
-                  x: 20,
-                  y: 40
+                  x: 12,
+                  y: 16
                 } // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
               }
             }}
