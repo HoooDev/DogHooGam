@@ -8,7 +8,9 @@ import calendarReducer from "./reducer/CalendarReducer";
 import MakeCalendar from "./MakeCalendar";
 import {
   getCalendarMemoApi,
+  getCalendarWalkApi,
   setMemos,
+  setPositions,
   setSelectDay
 } from "../../../redux/slice/calendarSlice";
 
@@ -62,6 +64,14 @@ function DayCheck() {
     getCalendarMemoApi(state.month + 1, state.year)
       .then((res) => {
         dispatch2(setMemos(res));
+      })
+      .catch(() => console.error);
+  }, [state]);
+
+  useEffect(() => {
+    getCalendarWalkApi(state.month + 1, state.year)
+      .then((res) => {
+        dispatch2(setPositions(res));
       })
       .catch(() => console.error);
   }, [state]);
