@@ -44,6 +44,14 @@
     margin-top: 15px;
     border-radius: 15px;
     background-color: #f0f0f0;
+    position: relative;
+    .Logout{
+      position: absolute;
+      right: 0;
+      margin: 10px;
+      border: none;
+      color: rgb(197, 196, 196);
+    }
     .profileBox {
       position: relative;
       top: 25px;
