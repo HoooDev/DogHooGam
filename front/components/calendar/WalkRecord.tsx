@@ -2,7 +2,6 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-shadow */
 /* eslint-disable no-param-reassign */
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./WalkRecord.module.scss";
 import WalkMap from "./WalkMap.jsx";
