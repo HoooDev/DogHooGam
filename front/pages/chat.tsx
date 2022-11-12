@@ -22,11 +22,17 @@ function Chat() {
     const nowDate = new Date();
     let AMPM = "오전";
     let nowHours = nowDate.getHours();
+    let nowMinutes;
+    if (nowDate.getMinutes() < 10) {
+      nowMinutes = `0${nowDate.getMinutes()}`;
+    } else {
+      nowMinutes = nowDate.getMinutes();
+    }
     if (nowHours > 12) {
       nowHours -= 12;
       AMPM = "오후";
     }
-    return `${AMPM} ${nowHours}:${nowDate.getMinutes()}`;
+    return `${AMPM} ${nowHours}:${nowMinutes}`;
   }
 
   const [chatbox, setChatbox] = useState([
