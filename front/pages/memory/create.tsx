@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
-import arrowRight from "../../public/icons/arrowRight.svg";
+// import arrowRight from "../../public/icons/arrowRight.svg";
 import addimg from "../../public/icons/addImg2.png";
 import sendFileToIPFS from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
