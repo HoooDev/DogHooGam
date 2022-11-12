@@ -1,3 +1,6 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
+/* eslint-disable no-shadow */
 /* eslint-disable no-param-reassign */
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -36,33 +39,36 @@ const getCenter = (paths: any[]) => {
 };
 
 function WalkRecord() {
-  const { positions } = useSelector((state: RootState) => state.calendar);
-  console.log(positions);
+  const { records, selectDay } = useSelector(
+    (state: RootState) => state.calendar
+  );
   const dummy = { time: "00:34:27", dist: "3.27", coin: 5 };
   const [poss, setPoss] = useState<any[]>([]);
-  const [center, setCenter] = useState<any>();
   useEffect(() => {
-    console.log(positions);
-    if (positions.length === 0) {
-      return;
+    if (records.length > 0) {
+      const tmp = records.map((records) => {
+        if (records.length === 0) {
+          return [];
+        }
+        const tmp = records.map((positions: any) => {
+          return positions.walkPath;
+        });
+        return tmp;
+      });
+      setPoss(tmp);
+      console.log(tmp);
     }
-    positions.forEach((pos) => {
-      const tmp = {};
-      pos.position = {
-        lat: pos.lat,
-        lng: pos.lng
-      };
-      setPoss((prev) => [...prev, tmp]);
-    });
-  }, [positions]);
+  }, [records]);
 
-  useEffect(() => {
-    setCenter(getCenter(poss));
-  }, [poss]);
   return (
     <div className={`${styles.wrapper}`} id="산책기록">
       <div className={`${styles.map}`}>
-        <WalkMap positions={poss} center={center} />
+        {poss[selectDay.day]?.map((walk: any, index: number) => {
+          const center: { lat: number; lng: number } = getCenter(walk);
+          return (
+            <WalkMap key={`${index * 1}`} positions={walk} center={center} />
+          );
+        })}
       </div>
       <div className={`${styles.bottom} flex`}>
         <div className={`${styles.sub1} notoBold fs-24`}>시간</div>
