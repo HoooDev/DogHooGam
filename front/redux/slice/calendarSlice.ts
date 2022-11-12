@@ -24,6 +24,7 @@ interface CalendarState {
     month: number;
     day: number;
   };
+  records: any[];
 }
 
 const initialState: CalendarState = {
@@ -46,11 +47,18 @@ const initialState: CalendarState = {
     year: 0,
     month: 0,
     day: 0
-  }
+  },
+  records: []
 };
 
 export const getCalendarMemoApi = async (month: number, year: number) => {
   const res = await axios.get(`/calendar/memo?month=${month}&year=${year}`);
+  return res.data;
+};
+
+export const getCalendarWalkApi = async (month: number, year: number) => {
+  const res = await axios.get(`/calendar/walk?month=${month}&year=${year}`);
+  console.log(res.data);
   return res.data;
 };
 
@@ -63,10 +71,12 @@ const calendarSlice = createSlice({
     },
     setSelectDay: (state, action) => {
       state.selectDay = action.payload;
-      console.log(state.selectDay);
+    },
+    setRecords: (state, action) => {
+      state.records = action.payload;
     }
   }
 });
 
-export const { setMemos, setSelectDay } = calendarSlice.actions; // 액션 생성함수
+export const { setMemos, setSelectDay, setRecords } = calendarSlice.actions; // 액션 생성함수
 export default calendarSlice.reducer; // 리듀서

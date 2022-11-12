@@ -302,6 +302,7 @@ const KakaoMap = () => {
         {feed && (
           <div className={`${styles.feedModal}`}>
             <div className={styles.feedModal__img}>
+              {/* <Image src={feed.feedImg} alt="feed image" /> */}
               <Image src={walk} alt="feed image" />
             </div>
             <div className={styles.feedModal__content}>{feed.content}</div>

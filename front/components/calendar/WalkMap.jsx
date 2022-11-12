@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { StaticMap } from "react-kakao-maps-sdk";
+import { Polyline, Map } from "react-kakao-maps-sdk";
 
 // const positions = [
 //   {
@@ -50,16 +50,24 @@ import { StaticMap } from "react-kakao-maps-sdk";
 
 const WalkMap = ({ positions, center }) => {
   return (
-    <StaticMap // 지도를 표시할 Container
+    <Map // 지도를 표시할 Container
       center={center}
       style={{
         // 지도의 크기
         width: "100%",
         height: "450px"
       }}
-      marker={positions}
+      // marker={positions}
       level={3} // 지도의 확대 레벨
-    />
+    >
+      <Polyline
+        path={positions}
+        strokeWeight={5} // 선의 두께입니다
+        strokeColor="#db4040" // 선의 색깔입니다
+        strokeOpacity={1} // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
+        strokeStyle="solid" // 선의 스타일입니다
+      />
+    </Map>
   );
 };
 
