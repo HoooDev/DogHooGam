@@ -73,7 +73,10 @@ public class MemoServiceImpl implements MemoService {
     @Override
     public List<Memo> findMemoByDay(User user) {
         LocalDate now = LocalDate.now();
-        return memoRepository.findMemoByDay(user.getPk(), String.valueOf(now.getYear()), String.valueOf(now.getMonth()), String.valueOf(now.getDayOfMonth()));
+        log.info("year : {}",now.getYear());
+        log.info("month : {}",now.getMonthValue());
+        log.info("day : {}",now.getDayOfMonth());
+        return memoRepository.findMemoByDay(user.getPk(), String.valueOf(now.getYear()), String.valueOf(now.getMonthValue()), String.valueOf(now.getDayOfMonth()));
     }
 
     @Override
