@@ -51,7 +51,6 @@ function MyWallet() {
     if (flag) {
       toggleModal();
       getWalletBalance();
-      console.log("따란");
     }
   }, [flag]);
 
