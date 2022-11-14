@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Timestamp;
+import java.time.LocalTime;
 import java.util.List;
 
 @Builder
@@ -21,6 +22,8 @@ public class WalkResponse {
     private int pk;
 
     private double distance;
+
+    private String time;
 
     private int coin;
 
@@ -37,6 +40,7 @@ public class WalkResponse {
                 .coin(walk.getCoin())
                 .walkPath(walk.stringToLine())
                 .dogPkList(walk.pkToList())
+                .time(walk.toTime())
                 .build();
         return walkRes;
     }

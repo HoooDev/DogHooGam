@@ -204,6 +204,7 @@ public class WalkServiceImpl implements WalkService {
         walk.setWalkPath(walkReq.lineToString());
         walk.setCoin(walkReq.getCoin());
         walk.setDistance(walkReq.getDistance());
+        walk.setTime(walkReq.getTime());
         walk.setUser(user);
         walkRepository.save(walk);
 

@@ -10,7 +10,9 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -24,6 +26,8 @@ public class Walk {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "walk_pk")
     private int pk;
+
+    private long time;
 
     private double distance;
 
@@ -52,7 +56,6 @@ public class Walk {
     }
 
     public List<Integer> pkToList(){
-        System.out.println(dogPkList);
         List<Integer> result = new ArrayList<>();
         StringTokenizer stPk = new StringTokenizer(dogPkList, ",");
 
@@ -61,4 +64,16 @@ public class Walk {
         }
         return result;
     }
+
+    public String toTime(){
+        long milliseconds = this.getTime();
+        long hours = (milliseconds / 1000) / 60 / 60 % 24;
+        long minutes = (milliseconds / 1000) / 60 % 60;
+        long seconds = (milliseconds / 1000) % 60;
+
+        String lt = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+        return lt;
+    }
+
+
 }

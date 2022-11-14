@@ -120,7 +120,7 @@ public class WalkController {
 
 
     @GetMapping("/{walkPk}")
-    @ApiOperation(value = "강아지 사진 상세 보기",notes = "단건 조회",response = WalkResponse.class)
+    @ApiOperation(value = "산책 상세 보기",notes = "단건 조회",response = WalkResponse.class)
     public ResponseEntity<?> getWalk(@PathVariable int walkPk){
         try {
 
