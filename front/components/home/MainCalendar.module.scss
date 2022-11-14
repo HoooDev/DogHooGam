@@ -7,8 +7,10 @@
     width: vw(180px);
     background-color: #fff8ea;
     padding: vw(15px) vw(20px);
-    .calendarS{
+    .calendarS {
       margin-top: vw(30px);
+      overflow-y: auto;
+      max-height: vw(100px);
     }
   }
   .calendarW {
@@ -26,8 +28,26 @@
       width: 180px;
       background-color: #fff8ea;
       padding: 15px 20px;
-      .calendarS{
-        margin-top: 30px;
+      .calendarS {
+        margin-top: 20px;
+        max-height: 100px;
+        .memo {
+          display: block;
+          border: none;
+          color: rgb(63, 62, 62);
+          background-color: rgba(0, 0, 0, 0);
+          margin-block: 5px;
+          text-align: start;
+          width: 170px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow-x: hidden;
+          height: 25px;
+        }
+        .done {
+          text-decoration: line-through;
+          text-decoration-thickness: 1px;
+        }
       }
     }
     .calendarW {

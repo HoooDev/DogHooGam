@@ -20,6 +20,7 @@ function Todo() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(memos);
     setTodos(memos[day]);
   }, [day]);
 

@@ -19,13 +19,8 @@ import {
 import line from "../../public/icons/Line 1.svg";
 
 const CalendarPage: NextPage = () => {
+  // const [isUpdated, setIsUpdated] = useState();
   const [Tab, setTab] = useState("메모");
-  let CalendarTab = null;
-  if (Tab === "메모") {
-    CalendarTab = <Todo />;
-  } else if (Tab === "산책일지") {
-    CalendarTab = <WalkRecord />;
-  }
   function changeTab(e: any) {
     // console.log(e.target.innerText)
     setTab(e.target.innerText);
@@ -40,12 +35,19 @@ const CalendarPage: NextPage = () => {
     getCalendarMemoApi(month, year)
       .then((res) => {
         // setMemos(res);
+        console.log(res);
         dispatch(setMemos(res));
         dispatch(setSelectDay({ year, month, day }));
       })
       .catch(() => console.error);
   }, []);
 
+  let CalendarTab = null;
+  if (Tab === "메모") {
+    CalendarTab = <Todo />;
+  } else if (Tab === "산책일지") {
+    CalendarTab = <WalkRecord />;
+  }
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.calendar}`}>
