@@ -83,21 +83,26 @@ function Create() {
   }
 
   const makeNFT = async (e: any) => {
-    const feedNft = await sendFileToIPFS(
-      e,
-      imgFile,
-      nftFeed,
-      100,
-      storeUser.userWalletAddress,
-      userKey
-    );
-    console.log(feedNft[0], feedNft[1], "이미지, 트랜해쉬");
-    setApiFeed({
-      ...apiFeed,
-      feedImg: feedNft[0],
-      transactionHash: feedNft[1]
-    });
-    setFlag(true);
+    if (nftFeed.content === "") {
+      alert("내용을 입력해주세요");
+    } else if (window.confirm("100INK를 사용하여 피드를 작성하시겠습니까?")) {
+      toggleModal();
+      const feedNft = await sendFileToIPFS(
+        e,
+        imgFile,
+        nftFeed,
+        100,
+        storeUser.userWalletAddress,
+        userKey
+      );
+      console.log(feedNft[0], feedNft[1], "이미지, 트랜해쉬");
+      setApiFeed({
+        ...apiFeed,
+        feedImg: feedNft[0],
+        transactionHash: feedNft[1]
+      });
+      setFlag(true);
+    }
   };
 
   useEffect(() => {
@@ -129,7 +134,6 @@ function Create() {
             type="button"
             onClick={(e) => {
               makeNFT(e);
-              toggleModal();
             }}
           >
             발행하기
@@ -166,7 +170,9 @@ function Create() {
         </div>
       </div>
       <div className={`${styles.place} flex justify-start align-center`}>
-        <h1 className={`${styles.space} fs-16 notoMid`}>위치</h1>
+        <h1 className={`${styles.space} fs-16 notoMid`}>
+          추억 남길 위치를 지정해주세요!
+        </h1>
       </div>
       <MyLocation />
     </div>

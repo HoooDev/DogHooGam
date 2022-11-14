@@ -11,7 +11,7 @@ import done from "../../public/icons/done.svg";
 import { setMemos } from "../../redux/slice/calendarSlice";
 import { RootState } from "../../redux/store";
 
-function Todo() {
+function Todo({ isUpdated }: { isUpdated: boolean }) {
   const [text, setText] = useState("");
   const memos = useSelector((state: RootState) => state.calendar.memos);
   const dayEvent = useSelector((state: RootState) => state.calendar.selectDay);
@@ -19,11 +19,12 @@ function Todo() {
   const [todos, setTodos] = useState<any[]>([]);
   const dispatch = useDispatch();
 
-  console.log(memos);
-
   useEffect(() => {
-    setTodos(memos[day]);
-  }, [day]);
+    console.log(memos);
+    if (isUpdated) {
+      setTodos(memos[day]);
+    }
+  }, [day, isUpdated]);
 
   const onChange = (e: any) => {
     setText(e.target.value);
@@ -46,7 +47,6 @@ function Todo() {
       }
     })
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           const newMemos = [...memos];
           const newTodayMemos = [...memos[day]];
@@ -63,7 +63,6 @@ function Todo() {
       });
   };
   const onClickDel = (e: any) => {
-    console.log(e.currentTarget.id);
     const deletePk = e.currentTarget.id;
     const Token = window.localStorage.getItem("AccessToken");
     if (window.confirm("정말로 삭제하시겠습니까?") === true) {
@@ -77,7 +76,6 @@ function Todo() {
           const newTodayMemos = [...memos[day]];
           for (let i = 0; i < newTodayMemos.length; i += 1) {
             if (newTodayMemos[i].pk === Number(deletePk)) {
-              console.log(i, "일치");
               newTodayMemos.splice(i, 1);
               break;
             }
@@ -93,7 +91,6 @@ function Todo() {
   };
 
   const onClickDone = (e: any) => {
-    console.log(e.currentTarget.id);
     const donePk = e.currentTarget.id;
     const Token = window.localStorage.getItem("AccessToken");
     axios({
@@ -102,15 +99,9 @@ function Todo() {
       headers: { Authorization: `Bearer ${Token}` }
     })
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           const newMemos = [...memos];
           const newTodayMemos = [...memos[day]];
-          // if (newTodayMemos.donePk === false) {
-          //   newTodayMemos[donePk] = true;
-          // } else {
-          //   newTodayMemos[donePk] = false;
-          // }
           const newList = [];
           for (let i = 0; i < newTodayMemos.length; i += 1) {
             if (newTodayMemos[i].pk === Number(donePk)) {
@@ -130,10 +121,8 @@ function Todo() {
               newList.push(newTodayMemos[i]);
             }
           }
-          console.log(newList);
           newMemos[day] = newList;
           dispatch(setMemos(newMemos));
-          console.log(newMemos);
           setTodos(newList);
         }
       })

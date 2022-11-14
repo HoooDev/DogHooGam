@@ -7,6 +7,7 @@ import axios from "axios";
 import styles from "./MyWallet.module.scss";
 import walletLogo from "../../public/icons/walletLogo.png";
 import addImg from "../../public/icons/addImg.svg";
+// import { createAccount, getBalance } from "";
 import { createAccount, getBalance } from "../../pages/api/web3/Web3";
 import createWallet from "../../pages/api/user/createWallet";
 import NftModal from "../common/NftModal";
@@ -51,7 +52,6 @@ function MyWallet() {
     if (flag) {
       toggleModal();
       getWalletBalance();
-      console.log("따란");
     }
   }, [flag]);
 
