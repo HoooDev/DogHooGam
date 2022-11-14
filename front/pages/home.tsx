@@ -21,23 +21,9 @@ function Home() {
     })
       .then((res) => {
         if (res.status === 200) {
-          // console.log(res.data);
           dispatch(getInfo(res.data));
-          // return res.data;
         }
         return [];
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    axios({
-      url: `https://dog-hoogam.site:8000/api/memo/today`,
-      method: "get",
-      headers: { Authorization: `Bearer ${Token}` }
-    })
-      .then((res) => {
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
