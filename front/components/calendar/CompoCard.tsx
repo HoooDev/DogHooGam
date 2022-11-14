@@ -16,7 +16,7 @@ function CompoCard() {
   return (
     <div>
       <Slider {...settings}>
-        <Todo />
+        <Todo isUpdated={false} />
         <WalkRecord />
       </Slider>
     </div>
