@@ -40,6 +40,7 @@
   .controller {
     padding-bottom: vw(20px);
     .controller__content {
+      width: vw(120px);
       .controller__pause {
         width: vw(36px);
       }
@@ -94,6 +95,7 @@
     .controller {
       padding-bottom: 20px;
       .controller__content {
+        width: 120px;
         .controller__pause {
           width: 36px;
         }
