@@ -33,6 +33,18 @@
       margin-left: vw(80px);
       margin-bottom: vw(5px);
       font-weight: bold;
+      .copyBtn {
+        color: white;
+        font-weight: bold;
+        margin-left: vw(5px);
+        margin-block: vw(2px);
+        height: vw(22px);
+        width: vw(133px);
+        background-color: #9e7676;
+        border: none;
+        border-radius: vw(10px);
+        font-size: vw(13px);
+      }
     }
   }
   .addDogBtn {
@@ -94,6 +106,18 @@
         margin-left: 80px;
         margin-bottom: 5px;
         font-weight: bold;
+        .copyBtn {
+          color: white;
+          font-weight: bold;
+          margin-left: 5px;
+          margin-block: 2px;
+          height: 22px;
+          width: 133px;
+          background-color: #9e7676;
+          border: none;
+          border-radius: 10px;
+          font-size: 13px;
+        }
       }
     }
     .addDogBtn {

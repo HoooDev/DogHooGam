@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import styles from "./MainCalendar.module.scss";
 import { setMemos } from "../../redux/slice/calendarSlice";
 
-
 function MainCalendar() {
   const [todayMemos, setTodayMemos] = useState<any>([]);
   const date: Date = new Date();

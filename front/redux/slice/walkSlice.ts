@@ -2,6 +2,7 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../../pages/api/index";
+import { sendToken } from "../../pages/api/web3/Web3";
 
 interface Location {
   lat: number;
@@ -81,9 +82,15 @@ export const finishWalkingApi = createAsyncThunk<Any>(
     try {
       const res = await axios.post("/walk/end", {
         coin: state.walk.coin,
-        distance: state.walk.totalDist,
-        walkPath: state.walk.paths
+        distance: +state.walk.totalDist,
+        walkPath: state.walk.paths,
+        time: state.walk.time
       });
+      if (res.status === 200) {
+        if (state.walk.coin !== 0) {
+          sendToken(state.user.userInfo.userWalletAddress, state.walk.coin);
+        }
+      }
       return res.data;
     } catch (error) {
       console.error(error);

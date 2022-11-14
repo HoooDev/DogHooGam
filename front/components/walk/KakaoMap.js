@@ -29,7 +29,6 @@ import WalkSlider from "./WalkSlider";
 import pathSvg from "../../public/icons/path.svg";
 import walkingSvg from "../../public/icons/walking.svg";
 import feedSvg from "../../public/icons/feed.svg";
-import walk from "../../public/images/walk.svg";
 
 let kakao;
 
@@ -302,8 +301,8 @@ const KakaoMap = () => {
         {feed && (
           <div className={`${styles.feedModal}`}>
             <div className={styles.feedModal__img}>
-              {/* <Image src={feed.feedImg} alt="feed image" /> */}
-              <Image src={walk} alt="feed image" />
+              <Image src={feed.feedImg} alt="feed image" />
+              {/* <Image src={walk} alt="feed image" /> */}
             </div>
             <div className={styles.feedModal__content}>{feed.content}</div>
           </div>
