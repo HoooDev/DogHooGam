@@ -41,6 +41,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
   const result = [];
   const dayEvent = useSelector((state) => state.calendar.memos);
   const selectDay = useSelector((state) => state.calendar.selectDay);
+  const walkRecord = useSelector((state) => state.calendar.walkRecord);
   const makeDay = (week) => {
     const result2 = [];
     // 첫 주

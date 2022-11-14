@@ -1,34 +1,47 @@
-// .wrapper {
-//   .map {
-//     margin-left: vw(30px);
-//     margin-top: vw(24px);
-//     margin-bottom: vw(36px);
-//   }
+.wrapper {
+  .map {
+    margin-left: vw(30px);
+    margin-top: vw(24px);
+    margin-bottom: vw(36px);
+    width: vw(360px);
+  }
 
-//   .bottom {
-//     margin-bottom: vw(40px);
+  .bottom {
+    margin-bottom: vw(40px);
 
-//     .sub1 {
-//       margin-left: vw(64px);
-//       margin-right: vw(72px);
-//     }
-//     .sub3 {
-//       margin-left: vw(64px);
-//     }
-//   }
+    .sub1 {
+      margin-left: vw(64px);
+      margin-right: vw(72px);
+    }
+    .sub3 {
+      margin-left: vw(64px);
+    }
+  }
 
-//   .content {
-//     margin-bottom: vw(40px);
+  .content {
+    margin-bottom: vw(40px);
 
-//     .con1 {
-//       margin-left: vw(46px);
-//       margin-right: vw(36px);
-//     }
-//     .con3 {
-//       margin-left: vw(68px);
-//     }
-//   }
-// }
+    .con1 {
+      margin-left: vw(46px);
+      margin-right: vw(48px);
+    }
+    .con3 {
+      margin-left: vw(72px);
+    }
+  }
+
+  .nomap {
+    width: vw(360px);
+    margin: auto;
+    margin-top: vw(48px);
+    // margin-left: 15px;
+
+    .nomaptxt {
+      margin-bottom: vw(15px);
+    }
+
+  }
+}
 
 
 
@@ -63,6 +76,18 @@
       .con3 {
         margin-left: 72px;
       }
+    }
+
+    .nomap {
+      width: 360px;
+      margin: auto;
+      margin-top: 48px;
+      // margin-left: 15px;
+
+      .nomaptxt {
+        margin-bottom: 15px;
+      }
+
     }
   }
 }
