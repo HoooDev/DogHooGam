@@ -97,8 +97,10 @@ const AfterSign = () => {
           <div className={`${styles.time__unit} fs-12`}>시간(분)</div>
         </div>
       </div>
-      <div className={`${styles.controller} flex`}>
-        <div className={`${styles.controller__content} flex fs-16`}>
+      <div className={`${styles.controller} flex justify-center `}>
+        <div
+          className={`${styles.controller__content} flex justify-space-around fs-16`}
+        >
           {!isPaused ? (
             <div
               className={`${styles.controller__pause} flex justify-center align-center`}
