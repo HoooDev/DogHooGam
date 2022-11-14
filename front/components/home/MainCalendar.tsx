@@ -78,29 +78,37 @@ function MainCalendar() {
         </Link>
 
         <div className={`${styles.calendarS}`}>
-          {todayMemos.map((memo: any) => {
-            return (
-              <div
-                className={
-                  memo.done
-                    ? `${styles.memo} ${styles.done} fs-16 notoMid`
-                    : `${styles.memo} fs-16 notoMid`
-                }
-                onClick={(e) => memoCheck(e)}
-                key={memo.pk}
-                id={memo.pk}
-              >
-                {memo.content}
-              </div>
-            );
-          })}
+          {todayMemos.length > 0 ? (
+            todayMemos.map((memo: any) => {
+              return (
+                <div
+                  className={
+                    memo.done
+                      ? `${styles.memo} ${styles.done} fs-16 notoMid`
+                      : `${styles.memo} fs-16 notoMid`
+                  }
+                  onClick={(e) => memoCheck(e)}
+                  key={memo.pk}
+                  id={memo.pk}
+                >
+                  {memo.content}
+                </div>
+              );
+            })
+          ) : (
+            <div className={`${styles.memo} fs-16 notoMid`}>
+              오늘 일정이 없습니다.
+            </div>
+          )}
         </div>
       </div>
-      <div
-        className={`${styles.calendarW} flex justify-center align-center fs-13 notoBold`}
-      >
-        강아지의 일상을 남겨보아요
-      </div>
+      <Link href="/calendar">
+        <div className="flex justify-center align-center">
+          <h1 className={`${styles.calendarW} fs-13 notoBold text-center`}>
+            강아지의 일상을 남겨보아요
+          </h1>
+        </div>
+      </Link>
     </div>
   );
 }
