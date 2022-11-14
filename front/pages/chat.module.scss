@@ -7,19 +7,31 @@
     h1 {
       margin-block: vw(5px);
     }
+    .botprofile{
+      width: vw(50px);
+      height: vw(50px);
+      background-color: rgb(218, 242, 253);
+      margin-inline: vw(8px) vw(4px);
+      margin-top: vw(20px);
+      border-radius: vw(50px);
+      .img{
+        width: vw(35px);
+        height: vw(35px);
+      }
+    }
     .botmessage {
-      margin-block: vw(20px) vw(10px);
-      margin-inline: vw(8px);
+      margin-block: vw(5px) vw(10px);
+      margin-inline: vw(1px) vw(8px);
       .text {
         width: max-content;
-        max-width: vw(280px);
+        max-width: vw(260px);
         background-color: $WHITE;
         padding: vw(20px) vw(15px);
         border-radius: vw(10px);
         white-space: pre-wrap;
         .selectbutton {
           margin-block: vw(10px);
-          width: vw(250px);
+          width: vw(230px);
           background-color: #81b89d;
           border: none;
           border-radius: vw(5px);
@@ -150,19 +162,31 @@
       h1 {
         margin-block: 5px;
       }
+      .botprofile{
+        width: 50px;
+        height: 50px;
+        background-color: rgb(218, 242, 253);
+        margin-inline: 8px 4px;
+        margin-top: 20px;
+        border-radius: 50px;
+        .img{
+          width: 35px;
+          height: 35px;
+        }
+      }
       .botmessage {
-        margin-block: 20px 10px;
-        margin-inline: 8px;
+        margin-block: 5px 10px;
+        margin-inline: 1px 8px;
         .text {
           width: max-content;
-          max-width: 280px;
+          max-width: 260px;
           background-color: $WHITE;
           padding: 20px 15px;
           border-radius: 10px;
           white-space: pre-wrap;
           .selectbutton {
             margin-block: 10px;
-            width: 250px;
+            width: 230px;
             background-color: #81b89d;
             border: none;
             border-radius: 5px;
