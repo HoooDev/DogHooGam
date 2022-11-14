@@ -203,7 +203,10 @@ const sendFileToIPFS = async (e, file, text, value, address, userKey) => {
         `ipfs://${res.data.IpfsHash}`
       )
       .send({ from: process.env.NEXT_PUBLIC_COINBASE })
-      .then((response) => console.log(response, "nft 리스폰스"));
+      .then((response) => {
+        console.log(response, "nft 리스폰스");
+        tranHash = response.transactionHash;
+      });
   }
   return [`https://gateway.pinata.cloud/ipfs/${getImg}`, tranHash];
 };

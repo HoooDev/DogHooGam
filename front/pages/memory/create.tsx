@@ -8,7 +8,7 @@ import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
 // import arrowRight from "../../public/icons/arrowRight.svg";
 import addimg from "../../public/icons/addImg2.png";
-import sendFileToIPFS from "../api/web3/Web3";
+import sendFileToIPFS, { getBalance } from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
 import NftModal from "../../components/common/NftModal";
 import loading from "../../public/icons/loading.svg";
@@ -35,11 +35,22 @@ function Create() {
     transactionHash: ""
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [walletBalance, setWalletBalance] = useState(0);
 
   const router = useRouter();
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
+  const getWalletBalance = async () => {
+    const balance = await getBalance(storeUser.userWalletAddress);
+    setWalletBalance(balance);
+  };
+
+  useEffect(() => {
+    if (storeUser.userWalletAddress) {
+      getWalletBalance();
+    }
+  }, []);
   useEffect(() => {
     if (storeLocation) {
       setApiFeed({
@@ -81,9 +92,11 @@ function Create() {
       setUploadimg(reader.result);
     };
   }
-
+  console.log(walletBalance);
   const makeNFT = async (e: any) => {
-    if (nftFeed.content === "") {
+    if (walletBalance < 100) {
+      alert("잉크가 모자랍니다. 산책으로 잉크를 모아주세요!");
+    } else if (nftFeed.content === "") {
       alert("내용을 입력해주세요");
     } else if (window.confirm("100INK를 사용하여 피드를 작성하시겠습니까?")) {
       toggleModal();
