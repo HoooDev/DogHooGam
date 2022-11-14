@@ -1,6 +1,8 @@
 .wrapper {
+  margin-bottom: vw(40px);
   .item {
     height: vw(370px);
+    margin-bottom: 0px;
 
     .card {
       width: vw(200px);
@@ -30,6 +32,7 @@
 
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
+    margin-bottom: 40px;
     .item {
       height: 370px;
 
