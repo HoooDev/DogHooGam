@@ -8,6 +8,7 @@ import styles from "./chat.module.scss";
 import yellowBell from "../public/icons/yellowBell.svg";
 import orangeBell from "../public/icons/orangeBell.svg";
 import redBell from "../public/icons/redBell.svg";
+import chatbotDog from "../public/images/chatbotDog.svg";
 
 function Chat() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -51,7 +52,8 @@ function Chat() {
     {
       id: 2,
       sender: "you",
-      content: "현재 강아지 상태를 입력해보세요!",
+      content:
+        "현재 강아지 상태를 입력해보세요! \n \n관련된 질병정보를 알려드릴게요. \n \n(ex. 강아지가 열이나요)",
       time: getNowTime(),
       ICD: [],
       symtptom: "",
@@ -230,95 +232,102 @@ function Chat() {
               }
             }
             return (
-              <div
-                className={`${styles.botmessage} flex align-center`}
-                key={message.id}
-              >
-                <h1 className={`${styles.text} notoMid fs-14`}>
-                  {message.content}
-                  {ICDlist.length > 0 ? (
-                    <div>
-                      <h1>자세한 내용을 알고 싶으면 항목을 선택해주세요!</h1>
-                      <div className="flex column align-center">
-                        {ICDlist.map((item) => {
-                          console.log(message.symtptom);
-                          return (
-                            <button
-                              className={`${styles.selectbutton} fs-13 notoMid`}
-                              onClick={(e) => selectSymptom(e)}
-                              type="button"
-                              key={item}
-                              id={message.symtptom}
-                            >
-                              {item}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ) : null}
-                  {message.disease.length > 0 ? (
-                    <div>
-                      <h1>다음과 같은 질병 정보가 있습니다. </h1>
-                      <div>
-                        {DiseaseList.map((item) => {
-                          function openDisease(e: any) {
-                            const Target =
-                              e.currentTarget.parentElement.children[1];
-                            if (Target?.hidden) {
-                              Target.hidden = false;
-                              e.currentTarget.parentElement.children[0].scrollIntoView(
-                                {
-                                  behavior: "smooth",
-                                  block: "start",
-                                  inline: "nearest"
-                                }
-                              );
-                            } else {
-                              (Target as HTMLElement).hidden = true;
-                            }
-                          }
-                          return (
-                            <div key={DiseaseList.indexOf(item)}>
-                              <button
-                                className={`${styles.resultButton} flex align-center`}
-                                type="button"
-                                name={item[0]}
-                                onClick={(e) => openDisease(e)}
-                              >
-                                <div className={`${styles.dangerIcon}`}>
-                                  <Image src={dangerLevel[item[1]]} alt="#" />
-                                </div>
-                                <h1
-                                  className={`${styles.diseaseTitle} fs-16 notoBold`}
-                                >
-                                  {item[0]}
-                                </h1>
-                              </button>
+              <div key={message.id} className="flex">
+                <div
+                  className={`${styles.botprofile} flex justify-center align-center`}
+                >
+                  <div className={`${styles.img}`}>
+                    <Image src={chatbotDog} />
+                  </div>
+                </div>
 
-                              <div
-                                className={`${styles.diseaseContent} fs-14 notoBold`}
-                                id={`result${item[0]}`}
-                                hidden
+                <div className={`${styles.botmessage} flex align-center`}>
+                  <h1 className={`${styles.text} notoMid fs-14`}>
+                    {message.content}
+                    {ICDlist.length > 0 ? (
+                      <div>
+                        <h1>자세한 내용을 알고 싶으면 항목을 선택해주세요!</h1>
+                        <div className="flex column align-center">
+                          {ICDlist.map((item) => {
+                            console.log(message.symtptom);
+                            return (
+                              <button
+                                className={`${styles.selectbutton} fs-13 notoMid`}
+                                onClick={(e) => selectSymptom(e)}
+                                type="button"
+                                key={item}
+                                id={message.symtptom}
                               >
-                                <div>
-                                  <ResultSlider
-                                    p1={item[2]}
-                                    p2={item[3]}
-                                    p3={item[4]}
-                                  />
+                                {item}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : null}
+                    {message.disease.length > 0 ? (
+                      <div>
+                        <h1>다음과 같은 질병 정보가 있습니다. </h1>
+                        <div>
+                          {DiseaseList.map((item) => {
+                            function openDisease(e: any) {
+                              const Target =
+                                e.currentTarget.parentElement.children[1];
+                              if (Target?.hidden) {
+                                Target.hidden = false;
+                                e.currentTarget.parentElement.children[0].scrollIntoView(
+                                  {
+                                    behavior: "smooth",
+                                    block: "start",
+                                    inline: "nearest"
+                                  }
+                                );
+                              } else {
+                                (Target as HTMLElement).hidden = true;
+                              }
+                            }
+                            return (
+                              <div key={DiseaseList.indexOf(item)}>
+                                <button
+                                  className={`${styles.resultButton} flex align-center`}
+                                  type="button"
+                                  name={item[0]}
+                                  onClick={(e) => openDisease(e)}
+                                >
+                                  <div className={`${styles.dangerIcon}`}>
+                                    <Image src={dangerLevel[item[1]]} alt="#" />
+                                  </div>
+                                  <h1
+                                    className={`${styles.diseaseTitle} fs-16 notoBold`}
+                                  >
+                                    {item[0]}
+                                  </h1>
+                                </button>
+
+                                <div
+                                  className={`${styles.diseaseContent} fs-14 notoBold`}
+                                  id={`result${item[0]}`}
+                                  hidden
+                                >
+                                  <div>
+                                    <ResultSlider
+                                      p1={item[2]}
+                                      p2={item[3]}
+                                      p3={item[4]}
+                                    />
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          );
-                        })}
+                            );
+                          })}
+                        </div>
                       </div>
-                    </div>
-                  ) : null}
-                </h1>
-                <h1 className={`${styles.time} fs-10 notoReg`}>
-                  {message.time}
-                </h1>
+                    ) : null}
+                  </h1>
+                  <h1 className={`${styles.time} fs-10 notoReg`}>
+                    {message.time}
+                  </h1>
+                </div>
               </div>
             );
           }

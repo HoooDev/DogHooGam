@@ -2,7 +2,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import logo from "../../public/icons/logo.png";
+import logo from "../../public/icons/Logo.svg";
 import styles from "./Navbar.module.scss";
 import createlogo from "../../public/icons/create.svg";
 
