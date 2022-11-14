@@ -89,15 +89,7 @@ function MyWallet() {
       .catch((err) => {
         console.log(err);
       });
-    // setFlag(true);
   };
-
-  // useEffect(() => {
-  //   if (flag) {
-  //     // console.log(Token);
-  //     console.log(flag);
-  //   }
-  // }, [flag]);
 
   return (
     <div className={`${styles.myWalletBox}`}>
@@ -120,9 +112,9 @@ function MyWallet() {
       {storeUser.userWalletAddress ? (
         <div className={`${styles.walletTextBox}`}>
           <p
-            className={`${styles.walletCoin}`}
+            className={`${styles.walletCoin} notoReg fs-18`}
           >{`보유코인 : ${walletBalance} INK`}</p>
-          <div className={`${styles.walletAddressBox}`}>
+          <div className={`${styles.walletAddressBox} notoReg fs-18`}>
             <p className={`${styles.walletAddress1}`}>지갑주소 : </p>
             <p className={`${styles.walletAddress2}`}>
               {storeUser.userWalletAddress}
