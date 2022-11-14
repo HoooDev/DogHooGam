@@ -54,32 +54,17 @@ function DogProfile() {
     slidesToScroll: 1
   };
 
-  // const Dogs = [
-  //   {
-  //     name: "뭉크",
-  //     species: "진돗개",
-  //     gender: "남",
-  //     age: 8,
-  //     birth: "2016년 4월 3일",
-  //     character: "온순"
-  //   },
-  //   {
-  //     name: "동띵이",
-  //     gender: "여",
-  //     species: "치와와",
-  //     age: 26,
-  //     birth: "1997년 4월 8일",
-  //     character: "말이 많고 귀여움"
-  //   },
-  //   {
-  //     name: "햄솜",
-  //     gender: "남",
-  //     age: 27,
-  //     species: "시고르자브종",
-  //     birth: "1996년 12월 25일",
-  //     character: "말이 별로 업쑴"
-  //   }
-  // ];
+  const handleCopyClipBoard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      // eslint-disable-next-line no-alert
+      alert("트랜잭션 주소가 복사 되었습니다.");
+    } catch (error) {
+      // eslint-disable-next-line no-alert
+      alert("복사에 실패했습니다.");
+    }
+  };
+
   return (
     <div>
       {myDogs ? (
@@ -97,14 +82,25 @@ function DogProfile() {
                     />
                     {/* </div> */}
                   </div>
-                  <div className={`${styles.dogNameBox}`}>{dog.dogName}</div>
+                  <div className={`${styles.dogNameBox} notoReg fs-20`}>
+                    {dog.dogName}
+                    <button
+                      className={`${styles.copyBtn}`}
+                      type="button"
+                      onClick={() => handleCopyClipBoard(dog.transactionHash)}
+                    >
+                      트랜잭션 해쉬 복사
+                    </button>
+                  </div>
                 </div>
                 <div className={`${styles.dogInfoBox}`}>
-                  <p className={`${styles.dogInfo}`}>견종 : {dog.dogBreed}</p>
-                  <p className={`${styles.dogInfo}`}>
+                  <p className={`${styles.dogInfo} notoReg fs-18`}>
+                    견종 : {dog.dogBreed}
+                  </p>
+                  <p className={`${styles.dogInfo} notoReg fs-18`}>
                     생년월일 : {dog.birthday}
                   </p>
-                  <p className={`${styles.dogInfo}`}>
+                  <p className={`${styles.dogInfo} notoReg fs-18`}>
                     성격 : {dog.dogCharacter}
                   </p>
                 </div>

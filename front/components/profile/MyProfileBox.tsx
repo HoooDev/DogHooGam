@@ -26,7 +26,7 @@ function MyProfileBox() {
       >
         LOGOUT
       </button>
-      <div className={`${styles.profileBox} flex`}>
+      <div className={`${styles.profileBox} flex notoReg fs-18`}>
         <div className={`${styles.imgBox} `}>
           <img
             className={`${styles.myImg}`}
