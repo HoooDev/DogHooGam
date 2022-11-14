@@ -155,6 +155,7 @@
 
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
+    height: calc(100vh - 115px);
     .chatBox {
       height: 100%;
       overflow-y: auto;
