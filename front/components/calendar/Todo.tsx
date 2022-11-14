@@ -11,7 +11,7 @@ import done from "../../public/icons/done.svg";
 import { setMemos } from "../../redux/slice/calendarSlice";
 import { RootState } from "../../redux/store";
 
-function Todo() {
+function Todo({ isUpdated }: { isUpdated: boolean }) {
   const [text, setText] = useState("");
   const memos = useSelector((state: RootState) => state.calendar.memos);
   const dayEvent = useSelector((state: RootState) => state.calendar.selectDay);
@@ -21,8 +21,10 @@ function Todo() {
 
   useEffect(() => {
     console.log(memos);
-    setTodos(memos[day]);
-  }, [day]);
+    if (isUpdated) {
+      setTodos(memos[day]);
+    }
+  }, [day, isUpdated]);
 
   const onChange = (e: any) => {
     setText(e.target.value);

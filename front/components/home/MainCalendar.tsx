@@ -2,13 +2,17 @@
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./MainCalendar.module.scss";
+import { setMemos } from "../../redux/slice/calendarSlice";
+
 
 function MainCalendar() {
-  const [memos, setMemos] = useState<any>([]);
+  const [todayMemos, setTodayMemos] = useState<any>([]);
   const date: Date = new Date();
   const day: Array<string> = ["일", "월", "화", "수", "목", "금", "토"];
   console.log(day[date.getDay()]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const Token = window.localStorage.getItem("AccessToken");
@@ -19,7 +23,7 @@ function MainCalendar() {
     })
       .then((res) => {
         console.log(res);
-        setMemos(res.data);
+        setTodayMemos(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -29,6 +33,7 @@ function MainCalendar() {
   function memoCheck(e: any) {
     e.preventDefault();
     console.log(e.target.id);
+    dispatch(setMemos([]));
     const Token = window.localStorage.getItem("AccessToken");
     axios({
       url: `https://dog-hoogam.site:8000/api/memo/${e.target.id}`,
@@ -38,25 +43,25 @@ function MainCalendar() {
       .then((res) => {
         console.log(res);
         const newList = [];
-        for (let i = 0; i < memos.length; i += 1) {
-          if (memos[i].pk === Number(e.target.id)) {
+        for (let i = 0; i < todayMemos.length; i += 1) {
+          if (todayMemos[i].pk === Number(e.target.id)) {
             let check;
-            if (memos[i].done === true) {
+            if (todayMemos[i].done === true) {
               check = false;
             } else {
               check = true;
             }
             newList.push({
-              pk: memos[i].pk,
-              content: memos[i].content,
-              memoDate: memos[i].memoDate,
+              pk: todayMemos[i].pk,
+              content: todayMemos[i].content,
+              memoDate: todayMemos[i].memoDate,
               done: check
             });
           } else {
-            newList.push(memos[i]);
+            newList.push(todayMemos[i]);
           }
         }
-        setMemos(newList);
+        setTodayMemos(newList);
       })
       .catch((err) => {
         console.log(err);
@@ -74,7 +79,7 @@ function MainCalendar() {
         </Link>
 
         <div className={`${styles.calendarS}`}>
-          {memos.map((memo: any) => {
+          {todayMemos.map((memo: any) => {
             return (
               <div
                 className={

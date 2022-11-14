@@ -78,7 +78,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
                 <button className={`${styles2.dayButton}`} type="button">
                   {now}
                 </button>
-                {dayEvent[now].length > 0 ? (
+                {dayEvent[now]?.length > 0 ? (
                   <div className="flex justify-center">
                     <div className={`${styles2.isMemo}`} />
                   </div>
@@ -130,7 +130,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
                 <button className={`${styles2.dayButton}`} type="button">
                   {now}
                 </button>
-                {dayEvent[now].length > 0 ? (
+                {dayEvent[now]?.length > 0 ? (
                   <div className="flex justify-center">
                     <div className={`${styles2.isMemo}`} />
                   </div>

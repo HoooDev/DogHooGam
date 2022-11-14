@@ -20,6 +20,7 @@ import line from "../../public/icons/Line 1.svg";
 
 const CalendarPage: NextPage = () => {
   // const [isUpdated, setIsUpdated] = useState();
+  const [isUpdated, setIsUpdated] = useState<boolean>(false);
   const [Tab, setTab] = useState("메모");
   function changeTab(e: any) {
     // console.log(e.target.innerText)
@@ -38,13 +39,14 @@ const CalendarPage: NextPage = () => {
         console.log(res);
         dispatch(setMemos(res));
         dispatch(setSelectDay({ year, month, day }));
+        setIsUpdated(true);
       })
       .catch(() => console.error);
   }, []);
 
   let CalendarTab = null;
   if (Tab === "메모") {
-    CalendarTab = <Todo />;
+    CalendarTab = <Todo isUpdated={isUpdated} />;
   } else if (Tab === "산책일지") {
     CalendarTab = <WalkRecord />;
   }
