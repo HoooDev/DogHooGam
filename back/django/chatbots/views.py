@@ -65,7 +65,8 @@ def indata(request):
             else:
                 no_st.append(kkma_sentence[i][0])
                 continue
-
+        if len(notnamedata[notnamedata['name'] == kkma_sentence[i][0]]):
+                sym = 1
         no_st.append(kkma_sentence[i][0])
         if kkma_sentence[i][1] == 'VV':
             sym = 1
