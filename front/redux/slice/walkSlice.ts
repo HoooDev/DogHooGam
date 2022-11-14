@@ -82,7 +82,8 @@ export const finishWalkingApi = createAsyncThunk<Any>(
       const res = await axios.post("/walk/end", {
         coin: state.walk.coin,
         distance: state.walk.totalDist,
-        walkPath: state.walk.paths
+        walkPath: state.walk.paths,
+        time: state.walk.time
       });
       return res.data;
     } catch (error) {
