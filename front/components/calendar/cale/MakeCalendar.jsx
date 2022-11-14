@@ -33,7 +33,6 @@ const returnIdx = (order, year, month, day) => {
 const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
   const dispatch = useDispatch();
   function daySelect(e) {
-    console.log(e.currentTarget.children[0].innerText);
     const newDay = Number(e.currentTarget.children[0].innerText);
     dispatch(setSelectDay({ year, month: month + 1, day: newDay }));
   }
@@ -41,7 +40,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
   const result = [];
   const dayEvent = useSelector((state) => state.calendar.memos);
   const selectDay = useSelector((state) => state.calendar.selectDay);
-  const walkRecord = useSelector((state) => state.calendar.walkRecord);
+  const walkRecord = useSelector((state) => state.calendar.records);
   const makeDay = (week) => {
     const result2 = [];
     // 첫 주
@@ -79,11 +78,14 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
                 <button className={`${styles2.dayButton}`} type="button">
                   {now}
                 </button>
-                {dayEvent[now]?.length > 0 ? (
-                  <div className="flex justify-center">
+                <div className="flex justify-center">
+                  {dayEvent[now]?.length > 0 ? (
                     <div className={`${styles2.isMemo}`} />
-                  </div>
-                ) : null}
+                  ) : null}
+                  {walkRecord[now]?.length > 0 ? (
+                    <div className={`${styles2.isWalk}`} />
+                  ) : null}
+                </div>
               </td>
             );
           } else {
@@ -96,11 +98,18 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
                 <button className={`${styles2.dayButton}`} type="button">
                   {now}
                 </button>
-                {dayEvent && dayEvent.length > 0 && dayEvent[now].length > 0 ? (
-                  <div className="flex justify-center">
+                <div className="flex justify-center">
+                  {dayEvent &&
+                  dayEvent.length > 0 &&
+                  dayEvent[now].length > 0 ? (
                     <div className={`${styles2.isMemo}`} />
-                  </div>
-                ) : null}
+                  ) : null}
+                  {walkRecord &&
+                  walkRecord.length > 0 &&
+                  walkRecord[now].length > 0 ? (
+                    <div className={`${styles2.isWalk}`} />
+                  ) : null}
+                </div>
               </td>
             );
           }
@@ -131,11 +140,14 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
                 <button className={`${styles2.dayButton}`} type="button">
                   {now}
                 </button>
-                {dayEvent[now]?.length > 0 ? (
-                  <div className="flex justify-center">
+                <div className="flex justify-center">
+                  {dayEvent[now]?.length > 0 ? (
                     <div className={`${styles2.isMemo}`} />
-                  </div>
-                ) : null}
+                  ) : null}
+                  {walkRecord[now]?.length > 0 ? (
+                    <div className={`${styles2.isWalk}`} />
+                  ) : null}
+                </div>
               </td>
             );
           } else {
@@ -148,11 +160,18 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
                 <button className={`${styles2.dayButton}`} type="button">
                   {now}
                 </button>
-                {dayEvent && dayEvent.length > 0 && dayEvent[now].length > 0 ? (
-                  <div className="flex justify-center">
+                <div className="flex justify-center">
+                  {dayEvent &&
+                  dayEvent.length > 0 &&
+                  dayEvent[now].length > 0 ? (
                     <div className={`${styles2.isMemo}`} />
-                  </div>
-                ) : null}
+                  ) : null}
+                  {walkRecord &&
+                  walkRecord.length > 0 &&
+                  walkRecord[now].length > 0 ? (
+                    <div className={`${styles2.isWalk}`} />
+                  ) : null}
+                </div>
               </td>
             );
           }

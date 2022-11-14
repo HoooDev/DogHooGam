@@ -2,8 +2,7 @@
   width: vw($PHONE-VW);
   height: 100vh;
   margin: 0 auto;
-  .children{
-
+  .children {
   }
 }
 
@@ -14,8 +13,9 @@
   }
   .wrapper {
     width: $PHONE-VW;
-    .children{
-      padding-bottom: 60px; 
+    .children {
+      padding-bottom: 60px;
+      overflow: hidden;
     }
   }
 }

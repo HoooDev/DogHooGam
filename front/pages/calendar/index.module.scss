@@ -1,5 +1,7 @@
 .wrapper {
   // margin-top: 40px;
+  scrollbar-width: none;
+  overflow: hidden;
 
   .calendar {
     // width: 380px;0
@@ -10,6 +12,8 @@
 
   .tab {
     display: grid;
+    overflow: hidden;
+
     grid-template-columns: repeat(3, vw(90px));
     place-items: center center;
     // width: 350px;
@@ -25,16 +29,22 @@
   .memo,
   .record {
     color: $MAIN;
+    overflow: hidden;
   }
 }
 
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     // margin-top: 40px;
+    scrollbar-width: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 
     .calendar {
       // width: 380px;0
       margin: auto;
+      scrollbar-width: none;
       // margin-left: 40px;
       // margin-bottom: 40px;
     }
@@ -43,6 +53,9 @@
       display: grid;
       grid-template-columns: repeat(3, 90px);
       place-items: center center;
+      scrollbar-width: none;
+      overflow: hidden;
+
       // width: 350px;
       // margin: auto;
       // align-items: center;
@@ -56,6 +69,7 @@
     .memo,
     .record {
       color: $MAIN;
+      overflow: hidden;
     }
   }
 }
