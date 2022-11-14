@@ -24,14 +24,14 @@
       margin-inline: vw(1px) vw(8px);
       .text {
         width: max-content;
-        max-width: vw(280px);
+        max-width: vw(260px);
         background-color: $WHITE;
         padding: vw(20px) vw(15px);
         border-radius: vw(10px);
         white-space: pre-wrap;
         .selectbutton {
           margin-block: vw(10px);
-          width: vw(250px);
+          width: vw(230px);
           background-color: #81b89d;
           border: none;
           border-radius: vw(5px);
@@ -179,14 +179,14 @@
         margin-inline: 1px 8px;
         .text {
           width: max-content;
-          max-width: 280px;
+          max-width: 260px;
           background-color: $WHITE;
           padding: 20px 15px;
           border-radius: 10px;
           white-space: pre-wrap;
           .selectbutton {
             margin-block: 10px;
-            width: 250px;
+            width: 230px;
             background-color: #81b89d;
             border: none;
             border-radius: 5px;
