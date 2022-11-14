@@ -1,5 +1,5 @@
 .wrapper {
-  height: calc(100vh - 165px);
+  height: calc(100vh - vw(165px));
   background-color: #e7e7e7;
   .chatBox {
     height: 100%;
