@@ -52,7 +52,7 @@ def indata(request):
     intents = []
     for i in range(len(kkma_sentence)):
         print(kkma_sentence[i][0], kkma_sentence[i][1])
-        if kkma_sentence[i][1] == 'UN' or kkma_sentence[i][1] == 'EMO':
+        if kkma_sentence[i][1] == 'UN' or kkma_sentence[i][1] == 'EMO' or kkma_sentence[i][1][0] == 'S':
             continue
         if kkma_sentence[i][1][0] == 'N':
             if notnamedata['name'].str.contains(kkma_sentence[i][0]).sum() ==0:
@@ -67,6 +67,9 @@ def indata(request):
                 continue
 
         no_st.append(kkma_sentence[i][0])
+        if kkma_sentence[i][1] == 'VV':
+            sym = 1
+
         if kkma_sentence[i][1][0] == 'N':
             if len(notnamedata[notnamedata['name'] == kkma_sentence[i][0]]):
                 sym = 1
@@ -90,10 +93,11 @@ def indata(request):
     if sym == 1:
         print('증상잇을떄')
         sentences.append(' '.join(lst))
-    else:
-        print('증상없을떄')
-        if len(no_st) != 1 or len(no_st[0]) != 1:
-            sentences.append(' '.join(no_st))
+    # else:
+    #     print('증상없을떄')
+    #     if len(no_st) != 1 or len(no_st[0]) != 1:
+    #         sentences.append(' '.join(no_st))
+        
     print(sentences)
     for sentence in sentences:
         
@@ -126,6 +130,9 @@ def indata(request):
             lst.append(symptomdata)
     serializer = SymptomSerializer(lst, many=True)    
     return Response(serializer.data)
+
+
+
 
 @api_view(['GET'])
 def select(request):

@@ -1543,7 +1543,7 @@
     "model": "chatbots.NotName",
     "pk": 221,
     "fields": {
-      "name": "복부통증"
+      "name": "복통"
     }
   },
   {
@@ -4330,6 +4330,13 @@
     "pk": 619,
     "fields": {
       "name": "감기"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 620,
+    "fields": {
+      "name": "똥"
     }
   }
 ]

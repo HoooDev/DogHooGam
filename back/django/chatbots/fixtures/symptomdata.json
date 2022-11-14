@@ -318,7 +318,7 @@
     "model": "chatbots.SymptomData",
     "pk": 46,
     "fields": {
-      "symptom": "복부통증"
+      "symptom": "복통"
     }
   },
   {
