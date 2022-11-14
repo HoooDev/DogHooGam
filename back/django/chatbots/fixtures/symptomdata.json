@@ -444,7 +444,7 @@
     "model": "chatbots.SymptomData",
     "pk": 64,
     "fields": {
-      "symptom": "심박수급증"
+      "symptom": "심박수급등"
     }
   },
   {
@@ -926,6 +926,27 @@
   {
     "model": "chatbots.SymptomData",
     "pk": 133,
+    "fields": {
+      "symptom": "중독"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 134,
+    "fields": {
+      "symptom": "임신"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 135,
+    "fields": {
+      "symptom": "우울증"
+    }
+  },
+  {
+    "model": "chatbots.SymptomData",
+    "pk": 136,
     "fields": {
       "symptom": "분류불가"
     }

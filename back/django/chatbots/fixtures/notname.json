@@ -2110,7 +2110,7 @@
     "model": "chatbots.NotName",
     "pk": 302,
     "fields": {
-      "name": "심박수급증"
+      "name": "심박수급등"
     }
   },
   {
@@ -4337,6 +4337,13 @@
     "pk": 620,
     "fields": {
       "name": "똥"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 621,
+    "fields": {
+      "name": "중독"
     }
   }
 ]
