@@ -1,21 +1,27 @@
 .wrapper {
   width: vw($PHONE-VW);
+
   height: 100vh;
+
   margin: 0 auto;
-  .children{
+
+  .children {
     z-index: 1;
   }
 }
 
 // 태브릿, 노트북, 데탑 뷰
+
 @media screen and (min-width: $PHONE-VW) {
   .main {
     width: $PHONE-VW;
   }
+
   .wrapper {
     width: $PHONE-VW;
-    .children{
-      padding-bottom: 60px; 
+
+    .children {
+      padding-bottom: 60px;
     }
   }
 }
