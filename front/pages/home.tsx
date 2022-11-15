@@ -15,7 +15,7 @@ function Home() {
     // console.log(Token);
 
     axios({
-      url: `https://dog-hoogam.site:8000/api/user`,
+      url: `https://dog-hoogam.site:8000/api/user-service/user`,
       method: "get",
       headers: { Authorization: `Bearer ${Token}` }
     })

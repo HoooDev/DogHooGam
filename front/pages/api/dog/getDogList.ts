@@ -3,7 +3,7 @@ import axios from "axios";
 const getDogList = () => {
   const Token = window.localStorage.getItem("AccessToken");
   axios({
-    url: "https://dog-hoogam.site:8000/api/dog",
+    url: "https://dog-hoogam.site:8000/api/business-service/dog",
     method: "get",
     headers: { Authorization: `Bearer ${Token}` }
   })
