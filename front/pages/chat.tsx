@@ -9,7 +9,6 @@ import yellowBell from "../public/icons/yellowBell.svg";
 import orangeBell from "../public/icons/orangeBell.svg";
 import redBell from "../public/icons/redBell.svg";
 import chatbotDog from "../public/images/chatbotDog.svg";
-import Link from "next/link";
 
 function Chat() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
