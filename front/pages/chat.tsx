@@ -9,6 +9,7 @@ import yellowBell from "../public/icons/yellowBell.svg";
 import orangeBell from "../public/icons/orangeBell.svg";
 import redBell from "../public/icons/redBell.svg";
 import chatbotDog from "../public/images/chatbotDog.svg";
+import Link from "next/link";
 
 function Chat() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -320,6 +321,17 @@ function Chat() {
                               </div>
                             );
                           })}
+                        </div>
+                        <div className="flex" style={{ marginTop: "20px" }}>
+                          <h1 className="fs-14 notoMid">건의사항은 </h1>
+                          <a
+                            className={`${styles.help} fs-14 notoMid`}
+                            href="https://docs.google.com/forms/d/1fqRdtbBkbUj9qr3P-JzJUZz_SX2oAgyJi89sBLqJ964/edit"
+                            target="_blanck"
+                          >
+                            여기
+                          </a>
+                          <h1 className="fs-14 notoMid">를 눌러주세요</h1>
                         </div>
                       </div>
                     ) : null}

@@ -4,7 +4,7 @@ const addDog = (data: any) => {
   const Token = window.localStorage.getItem("AccessToken");
   console.log(data);
   axios({
-    url: "https://dog-hoogam.site:8000/api/business-service/dog",
+    url: "https://dog-hoogam.site/api/business-service/dog",
     method: "post",
     headers: { Authorization: `Bearer ${Token}` },
     data
