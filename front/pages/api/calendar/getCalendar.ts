@@ -5,7 +5,7 @@ const getCalendar = () => {
   const month = 11;
   const year = 2022;
   axios({
-    url: `https://dog-hoogam.site:8000/api/calendar/memo?month=${month}&year=${year}`,
+    url: `https://dog-hoogam.site/api/calendar/memo?month=${month}&year=${year}`,
     method: "get",
     headers: { Authorization: `Bearer ${Token}` }
   })

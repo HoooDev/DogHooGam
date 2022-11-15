@@ -30,7 +30,7 @@ function DogProfile() {
   useEffect(() => {
     const Token = window.localStorage.getItem("AccessToken");
     axios({
-      url: "https://dog-hoogam.site:8000/api/business-service/dog",
+      url: "https://dog-hoogam.site/api/business-service/dog",
       method: "get",
       headers: { Authorization: `Bearer ${Token}` }
     })

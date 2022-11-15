@@ -11,7 +11,7 @@ const createWallet = (userWalletAddress: any, userPersonalKey: any) => {
   };
 
   return axios({
-    url: `https://dog-hoogam.site:8000/api/user-service/user/wallet`,
+    url: `https://dog-hoogam.site/api/user-service/user/wallet`,
     method: "post",
     headers: { Authorization: `Bearer ${Token}` },
     data

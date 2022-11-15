@@ -16,7 +16,7 @@ function MainCalendar() {
   useEffect(() => {
     const Token = window.localStorage.getItem("AccessToken");
     axios({
-      url: `https://dog-hoogam.site:8000/api/memo/today`,
+      url: `https://dog-hoogam.site/api/business-service/memo/today`,
       method: "get",
       headers: { Authorization: `Bearer ${Token}` }
     })
@@ -35,7 +35,7 @@ function MainCalendar() {
     dispatch(setMemos([]));
     const Token = window.localStorage.getItem("AccessToken");
     axios({
-      url: `https://dog-hoogam.site:8000/api/memo/${e.target.id}`,
+      url: `https://dog-hoogam.site/api/memo/${e.target.id}`,
       method: "patch",
       headers: { Authorization: `Bearer ${Token}` }
     })
