@@ -1,14 +1,23 @@
 server:
-  port: 0
+  port: 2001
   address: 0.0.0.0
   servlet:
     context-path: /
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: q1a2z3
+    key-store-type: PKCS12
+    key-alias: tomcat
+    protocol: TLS
 spring:
   application:
     name: business-service
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true
+    ip-address: ${server.address}
   client:
     register-with-eureka: true
     fetch-registry: true

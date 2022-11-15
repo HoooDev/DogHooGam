@@ -24,6 +24,19 @@ spring:
       httpclient:
         ssl:
           use-insecure-trust-manager: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origin-patterns: '*'
+            allow-credentials: true
+            allowedHeaders: '*'
+            allowedMethods:
+              - PUT
+              - GET
+              - POST
+              - DELETE
+              - OPTIONS
+
 
       routes:
       - id: user-service
@@ -50,7 +63,7 @@ spring:
 #          - RewritePath=/business-service/(?<path>.*),/$\{path}
 
       - id: business-service
-        uri: lb://BUSINESS-SERVICE
+        uri: https://dog-hoogam.site:2001
         predicates:
           - Path=/api/business-service/**
         filters:
