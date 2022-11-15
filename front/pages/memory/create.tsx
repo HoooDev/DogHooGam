@@ -65,7 +65,7 @@ function Create() {
     const Token = window.localStorage.getItem("AccessToken");
 
     axios({
-      url: "https://dog-hoogam.site:8000/api/user/wallet",
+      url: "https://dog-hoogam.site:8000/api/user-service/user/wallet",
       method: "get",
       headers: { Authorization: `Bearer ${Token}` }
     })
