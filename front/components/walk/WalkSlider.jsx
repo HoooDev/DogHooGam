@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 
 import styles from "./WalkSlider.module.scss";
-import walk from "../../public/images/walk.svg";
 
 const settings = {
   dots: true,
@@ -34,8 +33,8 @@ const WalkSlider = ({ dogs }) => {
         {dogs?.map((dog) => (
           <div key={dog.pk} className={styles.dogCard}>
             <div className={`${styles.dogCard__img}`}>
-              {/* <Image src={dog.dogImg} alt={dog.dogName} /> */}
-              <Image src={walk} alt={dog.dogName} />
+              <Image src={dog.dogImg} alt={dog.dogName} />
+              {/* <Image src={walk} alt={dog.dogName} /> */}
             </div>
             <div className={styles.dogCard__name}>이름 : {dog.dogName}</div>
             <div className={styles.dogCard__breed}>견종 : {dog.dogBreed}</div>

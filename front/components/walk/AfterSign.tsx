@@ -80,14 +80,14 @@ const AfterSign = () => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <div className={`${styles.icons}`}>
+      <div className={`${styles.icons} notoMid`}>
         <div className={`${styles.distance} flex column align-center`}>
           <div className={`${styles.distance__num} fs-20`}>{totalDist}</div>
           <div className={`${styles.distance__unit} fs-12`}>거리(km)</div>
         </div>
         <div className={`${styles.coin} flex column align-center`}>
           <div className={`${styles.coin__num} fs-20`}>{coin}</div>
-          <div className={`${styles.coin__unit} fs-12`}>coin</div>
+          <div className={`${styles.coin__unit} fs-12`}>INK</div>
         </div>
         <div className={`${styles.time} flex column align-center`}>
           <div className={`${styles.time__num} fs-20`}>

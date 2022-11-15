@@ -12,6 +12,23 @@
       overflow-y: auto;
       max-height: vw(100px);
     }
+    .memo {
+      display: block;
+      border: none;
+      color: rgb(63, 62, 62);
+      background-color: rgba(0, 0, 0, 0);
+      margin-block: vw(5px);
+      text-align: start;
+      width: vw(170px);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow-x: hidden;
+      height: vw(25px);
+    }
+    .done {
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
   }
   .calendarW {
     width: vw(180px);
@@ -32,16 +49,8 @@
         margin-top: 20px;
         max-height: 100px;
         .memo {
-          display: block;
-          border: none;
-          color: rgb(63, 62, 62);
-          background-color: rgba(0, 0, 0, 0);
           margin-block: 5px;
-          text-align: start;
           width: 170px;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow-x: hidden;
           height: 25px;
         }
         .done {
@@ -52,6 +61,7 @@
     }
     .calendarW {
       width: 180px;
+      
     }
   }
 }

@@ -1,0 +1,17 @@
+.wrapper {
+  height: 80vh;
+  .cry {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 20px;
+  }
+  .content {
+    margin-top: 20px;
+  }
+  .text {
+    margin-top: 20px;
+    color: $GRAY_9E;
+  }
+}
+
+// @media screen and (min-width: $PHONE-VW) {}
