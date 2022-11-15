@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://dog-hoogam.site:8000/api/business-service",
+  baseURL: "https://dog-hoogam.site/api/business-service",
   timeout: 1000
 });
 

@@ -249,19 +249,36 @@ const KakaoMap = () => {
     }
   }, [isSending]);
 
+  // useEffect(() => {
+  //   if (!isPaused) {
+  //     walking(); // api 호출
+  //     setIsSending(true); // API 플래그
+  //     if (timeout.current) {
+  //       clearTimeout(timeout.current);
+  //     }
+  //     timeout.current = setTimeout(() => {
+  //       setIsSending(false);
+  //     }, 3000);
+  //   } else if (isPaused) {
+  //     setIsSending(true);
+  //   }
+  // }, [isPaused, walking]);
+
   useEffect(() => {
-    if (!isPaused) {
-      walking(); // api 호출
-      setIsSending(true); // API 플래그
-      if (timeout.current) {
-        clearTimeout(timeout.current);
+    requestIdleCallback(() => {
+      if (!isPaused) {
+        walking(); // api 호출
+        setIsSending(true); // API 플래그
+        if (timeout.current) {
+          clearTimeout(timeout.current);
+        }
+        timeout.current = setTimeout(() => {
+          setIsSending(false);
+        }, 3000);
+      } else if (isPaused) {
+        setIsSending(true);
       }
-      timeout.current = setTimeout(() => {
-        setIsSending(false);
-      }, 3000);
-    } else if (isPaused) {
-      setIsSending(true);
-    }
+    });
   }, [isPaused, walking]);
 
   return (
