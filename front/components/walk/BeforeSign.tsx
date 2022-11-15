@@ -33,7 +33,7 @@ const BeforeSign = () => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <div className={`${styles.icons}`}>
+      <div className={`${styles.icons} notoMid`}>
         <div
           ref={greenRef}
           className={`${styles.greenMoon}`}
