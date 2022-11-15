@@ -14,6 +14,7 @@ import {
   setMyDogs
 } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
+import DogImage from "../../components/walk/DogImage";
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,7 +35,7 @@ const Index: NextPage = () => {
 
   return (
     <div className={styles.wrapper}>
-      {isWalkingStarted ? <KakaoMap /> : <div className={styles.hidden} />}
+      {isWalkingStarted ? <KakaoMap /> : <DogImage />}
       <div className={styles.container}>
         {!isWalkingStarted && (
           <div className={`${styles.dogSelectedCards} flex justify-center`}>

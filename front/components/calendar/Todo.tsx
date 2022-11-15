@@ -36,7 +36,7 @@ function Todo({ isUpdated }: { isUpdated: boolean }) {
     }
     const Token = window.localStorage.getItem("AccessToken");
     axios({
-      url: "https://dog-hoogam.site:8000/api/business-service/memo",
+      url: "https://dog-hoogam.site/api/business-service/memo",
       method: "post",
       headers: { Authorization: `Bearer ${Token}` },
       data: {
@@ -67,7 +67,7 @@ function Todo({ isUpdated }: { isUpdated: boolean }) {
     const Token = window.localStorage.getItem("AccessToken");
     if (window.confirm("정말로 삭제하시겠습니까?") === true) {
       axios({
-        url: `https://dog-hoogam.site:8000/api/business-service/memo/${deletePk}`,
+        url: `https://dog-hoogam.site/api/business-service/memo/${deletePk}`,
         method: "delete",
         headers: { Authorization: `Bearer ${Token}` }
       })
@@ -94,7 +94,7 @@ function Todo({ isUpdated }: { isUpdated: boolean }) {
     const donePk = e.currentTarget.id;
     const Token = window.localStorage.getItem("AccessToken");
     axios({
-      url: `https://dog-hoogam.site:8000/api/business-service/memo/${donePk}`,
+      url: `https://dog-hoogam.site/api/business-service/memo/${donePk}`,
       method: "patch",
       headers: { Authorization: `Bearer ${Token}` }
     })

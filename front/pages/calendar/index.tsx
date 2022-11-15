@@ -57,25 +57,31 @@ const CalendarPage: NextPage = () => {
         <DayCheck />
       </div>
       <div className={`${styles.tab} flex justify-center`}>
-        <button
-          type="button"
-          className={`${Tab === "메모" ? styles.memo : ""} notoBold fs-20`}
-          onClick={(e) => changeTab(e)}
-        >
-          메모
-        </button>
+        <div className="flex align-center">
+          <div className={`${styles.isMemo}`} />
+          <button
+            type="button"
+            className={`${Tab === "메모" ? styles.memo : ""} notoBold fs-20`}
+            onClick={(e) => changeTab(e)}
+          >
+            메모
+          </button>
+        </div>
         <div className={`${styles.line}`}>
           <Image src={line} alt="구분선" />
         </div>
-        <button
-          type="button"
-          className={`${
-            Tab === "산책일지" ? styles.record : ""
-          } notoBold fs-20`}
-          onClick={(e) => changeTab(e)}
-        >
-          산책일지
-        </button>
+        <div className="flex align-center">
+          <div className={`${styles.isWalk}`} />
+          <button
+            type="button"
+            className={`${
+              Tab === "산책일지" ? styles.record : ""
+            } notoBold fs-20`}
+            onClick={(e) => changeTab(e)}
+          >
+            산책일지
+          </button>
+        </div>
       </div>
       {CalendarTab}
       {/* <div className={`${styles.compo}`}>
