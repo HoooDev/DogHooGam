@@ -52,7 +52,7 @@ def indata(request):
     intents = []
     for i in range(len(kkma_sentence)):
         print(kkma_sentence[i][0], kkma_sentence[i][1])
-        if kkma_sentence[i][1] == 'UN' or kkma_sentence[i][1] == 'EMO' or kkma_sentence[i][1][0] == 'S':
+        if kkma_sentence[i][1] == 'UN' or kkma_sentence[i][1] == 'EMO' or kkma_sentence[i][1][0] == 'S' or kkma_sentence[i][1][0] == 'O':
             continue
         if kkma_sentence[i][1][0] == 'N':
             if notnamedata['name'].str.contains(kkma_sentence[i][0]).sum() ==0:

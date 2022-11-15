@@ -4345,5 +4345,12 @@
     "fields": {
       "name": "중독"
     }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 622,
+    "fields": {
+      "name": "가만히"
+    }
   }
 ]
