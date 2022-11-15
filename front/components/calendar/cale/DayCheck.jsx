@@ -32,7 +32,7 @@ function DayCheck() {
   const yearMonth = `${year}.${month + 1}`;
   const lastDate = parseInt(new Date(year, month + 1, 0).getDate(), 10);
   const firstDay = parseInt(new Date(year, month, 1).getDay(), 10);
-  const dispatch2 = useDispatch(); // 리덕스 날씨 저장값
+  const dispatch2 = useDispatch(); // 리덕스 날짜 저장값
   // Month 감소
   const onDecreases = () => {
     dispatch({ type: "DECREMENT" });
@@ -56,6 +56,21 @@ function DayCheck() {
         year: inyear,
         month: state.month + 2 !== 13 ? state.month + 2 : 1,
         day: 1
+      })
+    );
+  };
+
+  // 오늘로 가기
+  const today = new Date();
+  const toYear = today.getFullYear;
+  const toMonth = today.getMonth + 1;
+  const toDate = today.getDate;
+  const onToday = () => {
+    dispatch2(
+      setSelectDay({
+        year: toYear,
+        month: toMonth,
+        day: toDate
       })
     );
   };
@@ -86,7 +101,9 @@ function DayCheck() {
         >
           &lt;
         </button>
-        <h1 className="fs-20 notoBold mx-4">{yearMonth}</h1>
+        <button type="button" className="fs-20 notoBold mx-4" onClick={onToday}>
+          {yearMonth}
+        </button>
         <button
           type="button"
           className={`${styles.move} fs-20 notoBold`}

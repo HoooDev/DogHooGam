@@ -45,7 +45,7 @@ function WalkRecord() {
 
   return (
     <div className={`${styles.wrapper}`} id="산책기록">
-      {records && records[selectDay.day].length > 0 ? (
+      {records && records[selectDay.day]?.length > 0 ? (
         <div className={`${styles.map}`}>
           {records[selectDay.day]?.map((record: any, index: number) => {
             const center: { lat: number; lng: number } = getCenter(
@@ -55,9 +55,9 @@ function WalkRecord() {
               <div key={`${index * 1}`}>
                 <WalkMap positions={record.walkPath} center={center} />
                 <div className={`${styles.bottom} flex`}>
-                  <div className={`${styles.sub1} notoBold fs-24`}>시간</div>
-                  <div className={`${styles.sub2} notoBold fs-24`}>거리</div>
-                  <div className={`${styles.sub3} notoBold fs-24`}>
+                  <div className={`${styles.sub1} notoBold fs-18`}>시간</div>
+                  <div className={`${styles.sub2} notoBold fs-18`}>거리</div>
+                  <div className={`${styles.sub3} notoBold fs-18`}>
                     획득 코인
                   </div>
                 </div>
@@ -66,10 +66,10 @@ function WalkRecord() {
                     {dummy.time}
                   </div>
                   <div className={`${styles.con2} notoMid fs-18`}>
-                    {record.distance} KM
+                    {record.distance} km
                   </div>
                   <div className={`${styles.con3} notoMid fs-18`}>
-                    {record.coin} 코인
+                    {record.coin} INK
                   </div>
                 </div>
               </div>

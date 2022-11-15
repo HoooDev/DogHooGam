@@ -53,7 +53,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
           const idx = returnIdx("PREV", year, month, now);
           result2.push(
             <td className={`${styles1.diff} ${styles2.day}`} key={idx}>
-              <h1>{now}</h1>
+              <div className={`${styles1.diff} ${styles2.day}`}>{now}</div>
             </td>
           );
         }
@@ -184,7 +184,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
 
           result2.push(
             <td className={`${styles1.diff} ${styles2.day}`} key={idx}>
-              <h1>{now}</h1>
+              <div className={`${styles1.diff} ${styles2.day}`}>{now}</div>
               {/* { 리덕스에 날짜 [now]배열에 메모가있으면 ? (
                 <img className="checkStamp" src={노란점?} alt="#" />
               ) : null} */}
