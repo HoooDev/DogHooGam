@@ -1,0 +1,23 @@
+server:
+  port: 0
+  address: 0.0.0.0
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: business-service
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: https://dog-hoogam.site:8761/eureka
+#unit is ms. 15 * 24 * 60 * 60 * 1000 = 15days
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans
