@@ -14,7 +14,7 @@
     display: grid;
     overflow: hidden;
 
-    grid-template-columns: repeat(3, vw(90px));
+    grid-template-columns: repeat(3, vw(100px));
     place-items: center center;
     // width: 350px;
     // margin: auto;
@@ -24,6 +24,19 @@
     button {
       background-color: $WHITE;
       border: 0;
+    }
+    .isWalk{
+      background-color: rgb(50, 200, 110);
+      border-radius: 100px;
+      width: 10px;
+      height: 10px;
+    }
+
+    .isMemo{
+      background-color: rgb(251, 128, 183);
+      border-radius: 100px;
+      width: 10px;
+      height: 10px;
     }
   }
   .memo,
@@ -51,7 +64,7 @@
 
     .tab {
       display: grid;
-      grid-template-columns: repeat(3, 90px);
+      grid-template-columns: repeat(3, 100px);
       place-items: center center;
       scrollbar-width: none;
       overflow: hidden;
@@ -64,6 +77,19 @@
       button {
         background-color: $WHITE;
         border: 0;
+      }
+      .isWalk{
+        background-color: rgb(50, 200, 110);
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+      }
+  
+      .isMemo{
+        background-color: rgb(251, 128, 183);
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
       }
     }
     .memo,
