@@ -29,6 +29,11 @@
         padding: vw(20px) vw(15px);
         border-radius: vw(10px);
         white-space: pre-wrap;
+        .help{
+          text-decoration: none;
+          align-self: center;
+          color: #81b89d;
+        }
         .selectbutton {
           margin-block: vw(10px);
           width: vw(230px);
