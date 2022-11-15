@@ -87,7 +87,7 @@ const AfterSign = () => {
         </div>
         <div className={`${styles.coin} flex column align-center`}>
           <div className={`${styles.coin__num} fs-20`}>{coin}</div>
-          <div className={`${styles.coin__unit} fs-12`}>coin</div>
+          <div className={`${styles.coin__unit} fs-12`}>INK</div>
         </div>
         <div className={`${styles.time} flex column align-center`}>
           <div className={`${styles.time__num} fs-20`}>
