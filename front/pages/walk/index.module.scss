@@ -2,14 +2,14 @@
   position: relative;
   height: calc(100vh - (180px));
   position: relative;
-  background-color: $GRAY_BA;
+  // background-color: $GRAY_BA;
   .container {
     width: 100%;
     position: absolute;
     bottom: 0;
     .hidden {
       position: relative;
-      visibility: hidden;
+      // visibility: hidden;
     }
     .dogSelectedCards {
     }
@@ -21,14 +21,14 @@
     position: relative;
     height: calc(100vh - (180px));
     position: relative;
-    background-color: $GRAY_BA;
+    // background-color: $GRAY_BA;
     .container {
       width: 100%;
       position: absolute;
       bottom: 0;
       .hidden {
         position: relative;
-        visibility: hidden;
+        // visibility: hidden;
       }
       .dogSelectedCards {
       }
