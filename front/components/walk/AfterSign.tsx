@@ -33,59 +33,59 @@ const AfterSign = () => {
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [time, setTime] = useState(0);
 
-  // useEffect(() => {
-  //   if (!isPaused) {
-  //     if (interval.current) {
-  //       clearInterval(interval.current);
-  //     }
-  //     interval.current = setInterval(() => {
-  //       setTime((prev) => {
-  //         // 10 초
-  //         const sec = (prev + 10) / 1000;
-  //         if (sec % 10 === 0) {
-  //           const res = calCoin(prev + 10);
-  //           dispatch(saveCoin(res));
-  //         }
-  //         if ((prev + 10) % 1000 === 0) {
-  //           dispatch(saveTime(prev + 10));
-  //         }
-  //         return prev + 10;
-  //       });
-  //     }, 10);
-  //   } else if (isPaused) {
-  //     if (interval.current) {
-  //       clearInterval(interval.current);
-  //     }
-  //   }
-  // }, [isPaused]);
-
   useEffect(() => {
-    requestIdleCallback(() => {
-      if (!isPaused) {
-        if (interval.current) {
-          clearInterval(interval.current);
-        }
-        interval.current = setInterval(() => {
-          setTime((prev) => {
-            // 10 초
-            const sec = (prev + 10) / 1000;
-            if (sec % 10 === 0) {
-              const res = calCoin(prev + 10);
-              dispatch(saveCoin(res));
-            }
-            if ((prev + 10) % 1000 === 0) {
-              dispatch(saveTime(prev + 10));
-            }
-            return prev + 10;
-          });
-        }, 10);
-      } else if (isPaused) {
-        if (interval.current) {
-          clearInterval(interval.current);
-        }
+    if (!isPaused) {
+      if (interval.current) {
+        clearInterval(interval.current);
       }
-    });
+      interval.current = setInterval(() => {
+        setTime((prev) => {
+          // 10 초
+          const sec = (prev + 10) / 1000;
+          if (sec % 10 === 0) {
+            const res = calCoin(prev + 10);
+            dispatch(saveCoin(res));
+          }
+          if ((prev + 10) % 1000 === 0) {
+            dispatch(saveTime(prev + 10));
+          }
+          return prev + 10;
+        });
+      }, 10);
+    } else if (isPaused) {
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
+    }
   }, [isPaused]);
+
+  // useEffect(() => {
+  //   requestIdleCallback(() => {
+  //     if (!isPaused) {
+  //       if (interval.current) {
+  //         clearInterval(interval.current);
+  //       }
+  //       interval.current = setInterval(() => {
+  //         setTime((prev) => {
+  //           // 10 초
+  //           const sec = (prev + 10) / 1000;
+  //           if (sec % 10 === 0) {
+  //             const res = calCoin(prev + 10);
+  //             dispatch(saveCoin(res));
+  //           }
+  //           if ((prev + 10) % 1000 === 0) {
+  //             dispatch(saveTime(prev + 10));
+  //           }
+  //           return prev + 10;
+  //         });
+  //       }, 10);
+  //     } else if (isPaused) {
+  //       if (interval.current) {
+  //         clearInterval(interval.current);
+  //       }
+  //     }
+  //   });
+  // }, [isPaused]);
 
   const onPlayClick = () => {
     dispatch(restartWalking());
