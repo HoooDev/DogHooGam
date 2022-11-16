@@ -2,9 +2,11 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 import logo from "../../public/icons/Logo.svg";
 import styles from "./Navbar.module.scss";
 import createlogo from "../../public/icons/create.svg";
+import { RootState } from "../../redux/store";
 
 const SvgProfile = (props: any) => (
   <svg
@@ -20,6 +22,7 @@ const SvgProfile = (props: any) => (
 
 function Navbar() {
   const router = useRouter();
+  const { isLoading } = useSelector((state: RootState) => state.calendar);
   return (
     <nav
       className={`${styles.wrapper} flex justify-space-between align-center`}
@@ -31,11 +34,17 @@ function Navbar() {
       </Link>
       <div className={`${styles.imgbox}`}>
         {router.pathname === "/memory" ? (
-          <Link href="/memory/create">
-            <div className={`${styles.profileimg}`}>
-              <Image width="40px" height="40px" src={createlogo} alt="#" />
-            </div>
-          </Link>
+          <div>
+            {!isLoading ? (
+              <Link href="/memory/create">
+                <div className={`${styles.profileimg}`}>
+                  <Image width="40px" height="40px" src={createlogo} alt="#" />
+                </div>
+              </Link>
+            ) : (
+              <div>발행중</div>
+            )}
+          </div>
         ) : null}
         <Link href="/profile">
           <div className={`${styles.profileimg}`}>

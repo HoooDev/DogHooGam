@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
@@ -13,6 +13,8 @@ import addFeed from "../api/memory/addFeed";
 // import NftModal from "../../components/common/NftModal";
 // import loading from "../../public/icons/loading.svg";
 import MyLocation from "../../components/memory/MyLocation";
+
+import { setIsLoading } from "../../redux/slice/calendarSlice";
 
 function Create() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
@@ -36,7 +38,7 @@ function Create() {
   });
   // const [isModalOpen, setIsModalOpen] = useState(false);
   const [walletBalance, setWalletBalance] = useState(0);
-
+  const dispatch = useDispatch();
   const router = useRouter();
 
   // const toggleModal = () => setIsModalOpen(!isModalOpen);
@@ -101,6 +103,7 @@ function Create() {
       alert("내용을 입력해주세요");
     } else if (window.confirm("100INK를 사용하여 피드를 작성하시겠습니까?")) {
       // toggleModal();
+      dispatch(setIsLoading(true));
       const feedNft = await sendFileToIPFS(
         e,
         imgFile,
@@ -127,6 +130,7 @@ function Create() {
       )
         .then((res) => {
           if (res.status === 200) {
+            dispatch(setIsLoading(false));
             alert("피드가 등록되었습니다.");
           }
         })

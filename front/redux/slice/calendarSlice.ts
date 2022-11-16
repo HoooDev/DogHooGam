@@ -25,6 +25,7 @@ interface CalendarState {
     day: number;
   };
   records: any[];
+  isLoading: boolean;
 }
 
 const initialState: CalendarState = {
@@ -48,7 +49,8 @@ const initialState: CalendarState = {
     month: 0,
     day: 0
   },
-  records: []
+  records: [],
+  isLoading: false
 };
 
 export const getCalendarMemoApi = async (month: number, year: number) => {
@@ -74,9 +76,13 @@ const calendarSlice = createSlice({
     },
     setRecords: (state, action) => {
       state.records = action.payload;
+    },
+    setIsLoading: (state, action) => {
+      state.isLoading = action.payload;
     }
   }
 });
 
-export const { setMemos, setSelectDay, setRecords } = calendarSlice.actions; // 액션 생성함수
+export const { setMemos, setSelectDay, setRecords, setIsLoading } =
+  calendarSlice.actions; // 액션 생성함수
 export default calendarSlice.reducer; // 리듀서
