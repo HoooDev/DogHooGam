@@ -8,6 +8,8 @@ import styles from "./Navbar.module.scss";
 import createlogo from "../../public/icons/create.svg";
 import { RootState } from "../../redux/store";
 
+import Loading from "../../public/images/Spinner.gif";
+
 const SvgProfile = (props: any) => (
   <svg
     height="40px"
@@ -34,20 +36,24 @@ function Navbar() {
       </Link>
       <div className={`${styles.imgbox}`}>
         {router.pathname === "/memory" ? (
-          <div>
+          <div className="flex justify-center align-center">
             {!isLoading ? (
               <Link href="/memory/create">
                 <div className={`${styles.profileimg}`}>
-                  <Image width="40px" height="40px" src={createlogo} alt="#" />
+                  <Image src={createlogo} alt="#" />
                 </div>
               </Link>
             ) : (
-              <div>발행중</div>
+              <div className={`${styles.loading}`}>
+                <Image src={Loading} alt="#" />
+              </div>
             )}
           </div>
         ) : null}
         <Link href="/profile">
-          <div className={`${styles.profileimg}`}>
+          <div
+            className={`${styles.profileimg} flex justify-center align-center`}
+          >
             {router.pathname.startsWith("/profile") ? (
               <SvgProfile fill="#9E7676" />
             ) : (
