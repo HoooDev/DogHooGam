@@ -83,7 +83,7 @@ const calendarSlice = createSlice({
       state.isLoading = action.payload;
     },
     setIsWallet: (state, action) => {
-      state.isLoading = action.payload;
+      state.isWallet = action.payload;
     }
   }
 });
