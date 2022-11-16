@@ -137,6 +137,8 @@ function Create() {
         })
         .catch((err) => {
           console.log(err);
+          alert("피드가 등록이 실패했습니다.");
+          dispatch(setIsLoading(false));
         });
       // router.push("/memory");
     }

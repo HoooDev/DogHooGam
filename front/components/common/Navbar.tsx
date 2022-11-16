@@ -53,7 +53,17 @@ function Navbar() {
               </div>
             )}
           </div>
-        ) : null}
+        ) : (
+          <div>
+            {isLoading ? (
+              <div
+                className={`${styles.loading} flex justify-center align-center`}
+              >
+                <Image src={Loading} alt="#" />
+              </div>
+            ) : null}
+          </div>
+        )}
         <Link href="/profile">
           <div
             className={`${styles.profileimg} flex justify-center align-center`}

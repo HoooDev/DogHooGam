@@ -13,7 +13,7 @@ import createWallet from "../../pages/api/user/createWallet";
 // import NftModal from "../common/NftModal";
 // import loading from "../../public/icons/loading.svg";
 import { getInfo } from "../../redux/slice/userSlice";
-import { setIsLoading } from "../../redux/slice/calendarSlice";
+import { setIsWallet } from "../../redux/slice/calendarSlice";
 import { RootState } from "../../redux/store";
 import Loading from "../../public/images/Spinner.gif";
 
@@ -26,7 +26,7 @@ function MyWallet() {
   const [walletBalance, setWalletBalance] = useState(0);
   // const [isModalOpen, setIsModalOpen] = useState(false);
   const [flag, setFlag] = useState(false);
-  const isLoading = useSelector((state: RootState) => state.calendar.isLoading);
+  const isWallet = useSelector((state: RootState) => state.calendar.isWallet);
   // const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const getWalletBalance = async () => {
@@ -59,7 +59,7 @@ function MyWallet() {
   }, [flag]);
 
   const createUserWallet = async () => {
-    dispatch(setIsLoading(true));
+    dispatch(setIsWallet(true));
     const Token = window.localStorage.getItem("AccessToken");
     const [userWalletAddress, userWalletKey] = await createAccount();
     console.log(userWalletAddress, userWalletKey);
@@ -79,7 +79,7 @@ function MyWallet() {
                 // return res.data;
                 console.log("토글");
                 alert("지갑이 생성되었습니다.");
-                dispatch(setIsLoading(false));
+                dispatch(setIsWallet(false));
                 // toggleModal();
                 setFlag(true);
               }
@@ -87,6 +87,8 @@ function MyWallet() {
             })
             .catch((err) => {
               console.log(err);
+              alert("지갑이 생성이 실패했습니다.");
+              dispatch(setIsWallet(false));
             });
         }
         return [];
@@ -138,7 +140,7 @@ function MyWallet() {
       ) : (
         // <div className={`${styles.walletTextBox}`}>
         <div style={{ height: "100%" }}>
-          {isLoading ? (
+          {isWallet ? (
             <div
               className={`${styles.Loading} flex column justify-center align-center`}
             >
