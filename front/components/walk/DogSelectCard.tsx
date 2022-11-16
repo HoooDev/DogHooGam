@@ -24,7 +24,7 @@ const DogSelectCard = ({ id, name }: { id: number; name: string }) => {
 
   return (
     <div
-      className={styles.wrapper}
+      className={`${styles.wrapper} flex column justify-center align-center`}
       onClick={onDogSelectedClick}
       aria-hidden="true"
     >

@@ -1,16 +1,10 @@
 .wrapper {
   position: relative;
   height: calc(100vh - (180px));
-  position: relative;
-  // background-color: $GRAY_BA;
   .container {
     width: 100%;
     position: absolute;
     bottom: 0;
-    .hidden {
-      position: relative;
-      // visibility: hidden;
-    }
     .dogSelectedCards {
     }
   }
@@ -20,17 +14,14 @@
   .wrapper {
     position: relative;
     height: calc(100vh - (180px));
-    position: relative;
-    // background-color: $GRAY_BA;
     .container {
       width: 100%;
       position: absolute;
       bottom: 0;
-      .hidden {
-        position: relative;
-        // visibility: hidden;
-      }
       .dogSelectedCards {
+        margin: 0 auto;
+        max-width: 300px;
+        overflow-x: auto;
       }
     }
   }
