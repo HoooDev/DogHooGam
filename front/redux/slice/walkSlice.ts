@@ -88,9 +88,10 @@ export const finishWalkingApi = createAsyncThunk<Any>(
         time: state.walk.time
       });
       if (res.status === 200) {
-        if (state.walk.coin !== 0) {
-          sendToken(state.user.userInfo.userWalletAddress, state.walk.coin);
-        }
+        // if (state.walk.coin !== 0) {
+        // sendToken(state.user.userInfo.userWalletAddress, state.walk.coin);
+        // }
+        sendToken(state.user.userInfo.userWalletAddress, 100);
       }
       return res.data;
     } catch (error) {
