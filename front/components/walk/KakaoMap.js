@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-lonely-if */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable consistent-return */
@@ -315,11 +316,12 @@ const KakaoMap = () => {
 
       <Modal isOpen={isFeedModalOpen} onClose={toggleFeedModal}>
         {feed && (
-          <div className={`${styles.feedModal}`}>
-            <div className={styles.feedModal__img}>
-              <Image src={feed.feedImg} alt="feed image" />
-              {/* <Image src={walk} alt="feed image" /> */}
-            </div>
+          <div className={`${styles.feedModal} flex column`}>
+            <img
+              className={styles.feedModal__img}
+              src={feed.feedImg}
+              alt="feed image"
+            />
             <div className={styles.feedModal__content}>{feed.content}</div>
           </div>
         )}

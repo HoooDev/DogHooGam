@@ -1,9 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
+// import Image from "next/image";
 
 import styles from "./WalkSlider.module.scss";
 
@@ -32,10 +33,11 @@ const WalkSlider = ({ dogs }) => {
       <Slider {...settings}>
         {dogs?.map((dog) => (
           <div key={dog.pk} className={styles.dogCard}>
-            <div className={`${styles.dogCard__img}`}>
-              <Image src={dog.dogImg} alt={dog.dogName} />
-              {/* <Image src={walk} alt={dog.dogName} /> */}
-            </div>
+            <img
+              className={`${styles.dogCard__img}`}
+              src={dog.dogImg}
+              alt={dog.dogName}
+            />
             <div className={styles.dogCard__name}>이름 : {dog.dogName}</div>
             <div className={styles.dogCard__breed}>견종 : {dog.dogBreed}</div>
             <div className={styles.dogCard__char}>
