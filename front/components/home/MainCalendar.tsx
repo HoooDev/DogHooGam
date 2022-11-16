@@ -35,7 +35,7 @@ function MainCalendar() {
     dispatch(setMemos([]));
     const Token = window.localStorage.getItem("AccessToken");
     axios({
-      url: `https://dog-hoogam.site/api/memo/${e.target.id}`,
+      url: `https://dog-hoogam.site/api/business-service/memo/${e.target.id}`,
       method: "patch",
       headers: { Authorization: `Bearer ${Token}` }
     })
