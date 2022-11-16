@@ -13,6 +13,8 @@ import createWallet from "../../pages/api/user/createWallet";
 // import NftModal from "../common/NftModal";
 // import loading from "../../public/icons/loading.svg";
 import { getInfo } from "../../redux/slice/userSlice";
+import { getIsLoading, setIsLoading } from "../../redux/slice/calendarSlice";
+import { RootState } from "../../redux/store";
 
 function MyWallet() {
   // const router = useRouter();
@@ -23,7 +25,7 @@ function MyWallet() {
   const [walletBalance, setWalletBalance] = useState(0);
   // const [isModalOpen, setIsModalOpen] = useState(false);
   const [flag, setFlag] = useState(false);
-
+  const isLoading = useSelector((state: RootState) => state.calendar.isLoading);
   // const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const getWalletBalance = async () => {
@@ -56,6 +58,7 @@ function MyWallet() {
   }, [flag]);
 
   const createUserWallet = async () => {
+    dispatch(setIsLoading(true));
     const Token = window.localStorage.getItem("AccessToken");
     const [userWalletAddress, userWalletKey] = await createAccount();
     console.log(userWalletAddress, userWalletKey);
@@ -133,18 +136,22 @@ function MyWallet() {
       ) : (
         // <div className={`${styles.walletTextBox}`}>
         <div>
-          <button
-            type="button"
-            className={`${styles.addWalletBtnBox}`}
-            onClick={createUserWallet}
-          >
-            <div className={`${styles.addWalletBtn}`}>
-              <Image src={addImg} />
-            </div>
-            <p className={`${styles.addWalletBtnText}`}>
-              지갑을 등록 해주세요!
-            </p>
-          </button>
+          {isLoading ? (
+            <div>로딩</div>
+          ) : (
+            <button
+              type="button"
+              className={`${styles.addWalletBtnBox}`}
+              onClick={createUserWallet}
+            >
+              <div className={`${styles.addWalletBtn}`}>
+                <Image src={addImg} />
+              </div>
+              <p className={`${styles.addWalletBtnText}`}>
+                지갑을 등록 해주세요!
+              </p>
+            </button>
+          )}
         </div>
       )}
     </div>
