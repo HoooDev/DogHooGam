@@ -34,3 +34,7 @@ class SymptomData(models.Model):
 class NotName(models.Model):
     name = models.CharField(max_length=50)
 
+
+class Feedback(models.Model):
+    content = models.TextField()
+    rank = models.FloatField()

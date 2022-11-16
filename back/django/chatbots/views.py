@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django_pandas.io import read_frame
-from .models import SymptomTable, DiseaseTable, SymptomData, NotName
+from .models import SymptomTable, DiseaseTable, SymptomData, NotName, Feedback
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from konlpy.tag import Kkma
@@ -68,7 +68,7 @@ def indata(request):
         if len(notnamedata[notnamedata['name'] == kkma_sentence[i][0]]):
                 sym = 1
         no_st.append(kkma_sentence[i][0])
-        if kkma_sentence[i][1] == 'VV':
+        if kkma_sentence[i][1][0] == 'V':
             sym = 1
 
         if kkma_sentence[i][1][0] == 'N':
@@ -166,3 +166,4 @@ def select(request):
 
 
     return Response(serializer.data)
+
