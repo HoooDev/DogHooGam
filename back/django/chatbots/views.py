@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django_pandas.io import read_frame
-from .models import SymptomTable, DiseaseTable, SymptomData, NotName, Feedback
+from .models import SymptomTable, DiseaseTable, SymptomData, NotName
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from konlpy.tag import Kkma
