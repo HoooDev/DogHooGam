@@ -10,8 +10,8 @@ import back from "../../public/icons/back.svg";
 import addimg from "../../public/icons/addImg2.png";
 import sendFileToIPFS, { getBalance } from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
-import NftModal from "../../components/common/NftModal";
-import loading from "../../public/icons/loading.svg";
+// import NftModal from "../../components/common/NftModal";
+// import loading from "../../public/icons/loading.svg";
 import MyLocation from "../../components/memory/MyLocation";
 
 function Create() {
@@ -34,12 +34,12 @@ function Create() {
     lng: "",
     transactionHash: ""
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [walletBalance, setWalletBalance] = useState(0);
 
   const router = useRouter();
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  // const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const getWalletBalance = async () => {
     const balance = await getBalance(storeUser.userWalletAddress);
@@ -100,7 +100,7 @@ function Create() {
     } else if (nftFeed.content === "") {
       alert("내용을 입력해주세요");
     } else if (window.confirm("100INK를 사용하여 피드를 작성하시겠습니까?")) {
-      toggleModal();
+      // toggleModal();
       const feedNft = await sendFileToIPFS(
         e,
         imgFile,
@@ -148,10 +148,10 @@ function Create() {
   // console.log(apiFeed);
   return (
     <div className={`${styles.wrapper}`}>
-      <NftModal isOpen={isModalOpen}>
+      {/* <NftModal isOpen={isModalOpen}>
         <Image src={loading} />
         <p className={`${styles.loadingFont} notoBold`}>NFT 발행 중입니다.</p>
-      </NftModal>
+      </NftModal> */}
       <div>
         <div className={`${styles.memoryNav} flex justify-space-between`}>
           <button
