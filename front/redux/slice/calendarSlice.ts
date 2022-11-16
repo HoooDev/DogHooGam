@@ -58,7 +58,6 @@ export const getCalendarMemoApi = async (month: number, year: number) => {
 
 export const getCalendarWalkApi = async (month: number, year: number) => {
   const res = await axios.get(`/calendar/walk?month=${month}&year=${year}`);
-  console.log(res.data);
   return res.data;
 };
 

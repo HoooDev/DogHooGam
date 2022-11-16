@@ -9,10 +9,6 @@ import { transString } from "./CalcDate";
 
 import { setSelectDay } from "../../../redux/slice/calendarSlice";
 
-/*
- * 현재 날짜를 key값 형식으로 변환
- * key ex) 2021.10.11
- */
 const returnIdx = (order, year, month, day) => {
   if (order === "PREV") {
     if (month === 0) {

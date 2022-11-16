@@ -6,10 +6,6 @@ import { useSelector } from "react-redux";
 import styles from "./WalkRecord.module.scss";
 import WalkMap from "./WalkMap.jsx";
 
-// import KakaoMap from "../walk/KakaoMap"; // 산책하기 카카오맵 일단 넣었습니당
-
-// 더미이미지
-// import map from "../../public/image/map.png";
 import { RootState } from "../../redux/store";
 
 const getCenter = (paths: any[]) => {
@@ -41,7 +37,6 @@ function WalkRecord() {
   const { records, selectDay } = useSelector(
     (state: RootState) => state.calendar
   );
-  const dummy = { time: "00:34:27", dist: "3.27", coin: 5 };
 
   return (
     <div className={`${styles.wrapper}`} id="산책기록">
@@ -63,7 +58,7 @@ function WalkRecord() {
                 </div>
                 <div className={`${styles.content} flex`}>
                   <div className={`${styles.con1} notoMid fs-18`}>
-                    {dummy.time}
+                    {record.time}
                   </div>
                   <div className={`${styles.con2} notoMid fs-18`}>
                     {record.distance} km

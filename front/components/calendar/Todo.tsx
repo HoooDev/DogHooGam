@@ -1,12 +1,15 @@
+/* eslint-disable jsx-a11y/no-autofocus */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable consistent-return */
 import Image from "next/image";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 } from "uuid";
 import styles from "./Todo.module.scss";
 import close from "../../public/icons/close.svg";
 import done from "../../public/icons/done.svg";
+import left from "../../public/icons/left.svg";
 
 import { setMemos } from "../../redux/slice/calendarSlice";
 import { RootState } from "../../redux/store";
@@ -20,7 +23,6 @@ function Todo({ isUpdated }: { isUpdated: boolean }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(memos);
     if (isUpdated) {
       setTodos(memos[day]);
     }
@@ -87,7 +89,7 @@ function Todo({ isUpdated }: { isUpdated: boolean }) {
         .catch((err) => {
           console.log(err);
         });
-    } // if문으로 짜기
+    }
   };
 
   const onClickDone = (e: any) => {
@@ -136,6 +138,16 @@ function Todo({ isUpdated }: { isUpdated: boolean }) {
       handleMessage();
     }
   };
+
+  // 스크롤 아래로 고정
+  const scrollRef = useRef<any>();
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  }, [todos]);
   return (
     <div className={`${styles.wrapper} flex`} id="메모">
       <div>
@@ -174,16 +186,24 @@ function Todo({ isUpdated }: { isUpdated: boolean }) {
                 </div>
               );
             })}
+            <div ref={scrollRef} />
           </div>
         ) : null}
       </div>
-      <input
-        value={text}
-        className={`${styles.new} notoBold fs-16`}
-        placeholder="메모를 입력해보세요!"
-        onChange={onChange}
-        onKeyPress={handleKeyPress}
-      />
+      <div className={`${styles.regi} flex`}>
+        <input
+          id="todoInput"
+          value={text}
+          className={`${styles.new} notoBold fs-16`}
+          placeholder="메모를 입력해보세요!"
+          onChange={onChange}
+          onKeyPress={handleKeyPress}
+          autoFocus
+        />
+        <div className={`${styles.enter}`} onClick={() => handleMessage()}>
+          <Image src={left} alt="등록" />
+        </div>
+      </div>
     </div>
   );
 }

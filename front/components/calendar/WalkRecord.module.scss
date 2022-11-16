@@ -1,4 +1,5 @@
 .wrapper {
+  margin-bottom: vw(30px);
   .map {
     margin-left: vw(30px);
     margin-top: vw(24px);
@@ -15,7 +16,7 @@
   }
 
   .content {
-    margin-bottom: vw(52px);
+    margin-bottom: 52px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     place-items: center center;
@@ -28,7 +29,6 @@
     width: vw(360px);
     margin: auto;
     margin-top: vw(48px);
-    // margin-left: 15px;
 
     .nomaptxt {
       margin-bottom: vw(15px);
@@ -37,9 +37,9 @@
   }
 }
 
-
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
+    margin-bottom: 30px;
     .map {
       margin-left: 30px;
       margin-top: 24px;
@@ -53,14 +53,6 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       place-items: center center;
-
-      .sub1 {
-        // margin-left: 32px;
-        // margin-right: 96px;
-      }
-      .sub3 {
-        // margin-left: 78px;
-      }
     }
 
     .content {
@@ -77,12 +69,10 @@
       width: 360px;
       margin: auto;
       margin-top: 48px;
-      // margin-left: 15px;
 
       .nomaptxt {
         margin-bottom: 15px;
       }
-
     }
   }
 }

@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   color: rgb(0, 0, 0);
-  height: 80px;
+  height: vw(80px);
   .move {
     background-color: $WHITE;
     border: 0;
@@ -14,18 +14,13 @@
 
 .caltable {
   width: 80%;
-  height: 200px;
+  height: vw(200px);
   table-layout: fixed;
   border-collapse: collapse;
   margin-inline: auto;
   border: none;
-  // background-color: rgb(244, 244, 244);
-  // border-radius: 16px;
 }
 
-.caltr {
-  border-top: 0.5px solid #c4c9d0;
-}
 
 .caltable,
 .calth,
@@ -34,7 +29,7 @@
 }
 
 .caltr {
-  margin-left: 20px;
+  margin-left: vw(20px);
 }
 
 .caltd{
@@ -52,13 +47,6 @@
   border: none;
 }
 
-.caltr {
-  border: none;
-}
-
-// .caltable {
-//   border: 10px solid;
-// }
 
 .caltd:first-child {
   color: #94959d;
@@ -74,28 +62,6 @@
   color: #94959d;
 }
 
-// table tbody td div {
-//   height: 100px;
-//   color: black;
-//   font-weight: bold;
-//   text-decoration: none;
-//   overflow: auto;
-// }
-
-// div::-webkit-scrollbar {
-//   width: 10px;
-// }
-// div::-webkit-scrollbar-thumb {
-//   background-color: #2f3542;
-//   border-radius: 10px;
-//   background-clip: padding-box;
-//   border: 2px solid transparent;
-// }
-// div::-webkit-scrollbar-track {
-//   background-color: grey;
-//   border-radius: 10px;
-//   box-shadow: inset 0px 0px 5px white;
-// }
 .caltd:hover {
   font-weight: bold;
 }
@@ -104,18 +70,105 @@
 .diff {
   border: none;
   margin-bottom: 10px;
-  width: 30px;
-  height: 30px;
+  width: vw(30px);
+  height: vw(30px);
   text-align: center;
-  padding-top: 10px;
+  padding-top: vw(10px);
 
   .daybutton {
     border: none;
     color: rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0);
+    margin-bottom: vw(10px);
+    width: vw(30px);
+    height: vw(30px);
+  }
+}
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    height: 80px;
+    .move {
+      background-color: $WHITE;
+      border: 0;
+    }
+    
+  }
+  
+  
+  .caltable {
+    width: 80%;
+    height: 200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-inline: auto;
+    border: none;
+  }
+  
+  .caltable,
+  .calth,
+  .caltd {
+    vertical-align: top;
+  }
+  
+  .caltr {
+    margin-left: 20px;
+  }
+  
+  .caltd{
+    width: 10%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .calthead {
+    border: none;
+  }
+  
+  .caltd {
+    border: none;
+  }
+  
+  .caltd:first-child {
+    color: #94959d;
+  }
+  .caltd:first-child h1 {
+    color: #94959d;
+  }
+  .caltd:last-child h1 {
+    color: #94959d;
+  }
+  
+  .caltd:last-child {
+    color: #94959d;
+  }
+
+  .caltd:hover {
+    font-weight: bold;
+  }
+  
+  
+  .diff {
+    border: none;
     margin-bottom: 10px;
     width: 30px;
     height: 30px;
-  }
+    text-align: center;
+    padding-top: 10px;
   
+    .daybutton {
+      border: none;
+      color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0);
+      margin-bottom: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
