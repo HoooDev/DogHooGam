@@ -41,7 +41,7 @@
   }
   .memo,
   .record {
-    color: $MAIN;
+    color: black;
     overflow: hidden;
   }
 }
@@ -94,7 +94,13 @@
     }
     .memo,
     .record {
-      color: $MAIN;
+      color: black;
+      overflow: hidden;
+    }
+
+    .memo2,
+    .record2 {
+      color: $GRAY_9E;
       overflow: hidden;
     }
   }

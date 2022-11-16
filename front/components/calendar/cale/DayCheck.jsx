@@ -86,7 +86,7 @@ function DayCheck() {
   useEffect(() => {
     getCalendarWalkApi(state.month + 1, state.year)
       .then((res) => {
-        dispatch2(setRecords(res));
+        dispatch2(setRecords(res)); 
       })
       .catch(() => console.error);
   }, [state]);

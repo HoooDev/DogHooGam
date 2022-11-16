@@ -18,6 +18,9 @@
   table-layout: fixed;
   border-collapse: collapse;
   margin-inline: auto;
+  border: none;
+  // background-color: rgb(244, 244, 244);
+  // border-radius: 16px;
 }
 
 .caltr {
@@ -40,6 +43,22 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.calthead {
+  border: none;
+}
+
+.caltd {
+  border: none;
+}
+
+.caltr {
+  border: none;
+}
+
+// .caltable {
+//   border: 10px solid;
+// }
 
 .caltd:first-child {
   color: #94959d;
@@ -81,15 +100,22 @@
   font-weight: bold;
 }
 
-//                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-
 
 .diff {
-  color: rgba(0, 0, 0, 0.3) !important;
   border: none;
-  // background-color: rgba(0, 0, 0, 0);
   margin-bottom: 10px;
   width: 30px;
   height: 30px;
   text-align: center;
+  padding-top: 10px;
+
+  .daybutton {
+    border: none;
+    color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  
 }

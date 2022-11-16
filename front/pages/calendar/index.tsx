@@ -61,7 +61,9 @@ const CalendarPage: NextPage = () => {
           <div className={`${styles.isMemo}`} />
           <button
             type="button"
-            className={`${Tab === "메모" ? styles.memo : ""} notoBold fs-20`}
+            className={`${
+              Tab === "메모" ? styles.memo : styles.memo2
+            } notoBold fs-20`}
             onClick={(e) => changeTab(e)}
           >
             메모
@@ -75,7 +77,7 @@ const CalendarPage: NextPage = () => {
           <button
             type="button"
             className={`${
-              Tab === "산책일지" ? styles.record : ""
+              Tab === "산책일지" ? styles.record : styles.record2
             } notoBold fs-20`}
             onClick={(e) => changeTab(e)}
           >
