@@ -29,7 +29,9 @@ const Index: NextPage = () => {
       })
       .catch(() => console.error);
     return () => {
-      dispatch(finishWalkingApi());
+      if (isWalkingStarted) {
+        dispatch(finishWalkingApi());
+      }
     };
   }, []);
 
