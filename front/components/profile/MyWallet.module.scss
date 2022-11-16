@@ -9,6 +9,13 @@
   margin-top: vw(80px);
   border-radius: vw(15px);
   position: relative;
+  .Loading{
+    height: 100%;
+    .img{
+      width: vw(80px);
+      height: vw(80px);
+    }
+  }
   .walletIcon {
     position: absolute;
     top: -13%;
@@ -94,6 +101,13 @@
     margin-top: 80px;
     border-radius: 15px;
     position: relative;
+    .Loading{
+      height: 100%;
+      .img{
+        width: 80px;
+        height: 80px;
+      }
+    }
     .walletIcon {
       position: absolute;
       top: -13%;

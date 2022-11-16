@@ -15,6 +15,7 @@ import createWallet from "../../pages/api/user/createWallet";
 import { getInfo } from "../../redux/slice/userSlice";
 import { setIsLoading } from "../../redux/slice/calendarSlice";
 import { RootState } from "../../redux/store";
+import Loading from "../../public/images/Spinner.gif";
 
 function MyWallet() {
   // const router = useRouter();
@@ -135,9 +136,16 @@ function MyWallet() {
         </div>
       ) : (
         // <div className={`${styles.walletTextBox}`}>
-        <div>
+        <div style={{ height: "100%" }}>
           {isLoading ? (
-            <div>로딩</div>
+            <div
+              className={`${styles.Loading} flex column justify-center align-center`}
+            >
+              <div className={`${styles.img} `}>
+                <Image src={Loading} alt="#" />
+              </div>
+              <h1 className="notoMid fs-18">지갑이 생성 중입니다...</h1>
+            </div>
           ) : (
             <button
               type="button"
