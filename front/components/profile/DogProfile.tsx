@@ -36,7 +36,6 @@ function DogProfile() {
     })
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
           setMyDogs(res.data);
         }
         return [];
@@ -82,7 +81,7 @@ function DogProfile() {
                     />
                     {/* </div> */}
                   </div>
-                  <div className={`${styles.dogNameBox} notoReg fs-20`}>
+                  <div className={`${styles.dogNameBox} flex notoMid`}>
                     {dog.dogName}
                     <button
                       className={`${styles.copyBtn}`}
