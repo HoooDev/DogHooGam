@@ -10,6 +10,8 @@ import MyWallet from "./MyWallet";
 function MyProfileBox() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
 
+  console.log(storeUser);
+
   function getLogout(e: any) {
     e.preventDefault();
     window.localStorage.removeItem("AccessToken");
@@ -26,11 +28,11 @@ function MyProfileBox() {
       >
         LOGOUT
       </button>
-      <div className={`${styles.profileBox} flex notoReg fs-18`}>
-        <div className={`${styles.imgBox} `}>
+      <div className={`${styles.profileBox} flex notoMid`}>
+        <div className={`${styles.imgBox} flex`}>
           <img
             className={`${styles.myImg}`}
-            src={storeUser.profileImg}
+            src={storeUser?.profileImg}
             alt="#"
           />
         </div>

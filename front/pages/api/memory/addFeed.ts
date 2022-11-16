@@ -1,23 +1,21 @@
 import axios from "axios";
 
-const addFeed = (data: any) => {
+const addFeed = async (data: any, imagefile: any) => {
   const Token = window.localStorage.getItem("AccessToken");
-
-  axios({
+  console.log(imagefile);
+  const formData = new FormData();
+  formData.append("file", imagefile);
+  formData.append(
+    "feedReq",
+    new Blob([JSON.stringify(data)], { type: "application/json" })
+  );
+  const res = await axios({
     url: "https://dog-hoogam.site/api/business-service/feed",
     method: "post",
     headers: { Authorization: `Bearer ${Token}` },
-    data
-  })
-    .then((res) => {
-      if (res.status === 200) {
-        alert("피드가 등록되었습니다.");
-      }
-      return [];
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    data: formData
+  });
+  return res;
 };
 
 export default addFeed;

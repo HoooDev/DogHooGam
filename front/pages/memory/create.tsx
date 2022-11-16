@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
@@ -10,9 +10,11 @@ import back from "../../public/icons/back.svg";
 import addimg from "../../public/icons/addImg2.png";
 import sendFileToIPFS, { getBalance } from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
-import NftModal from "../../components/common/NftModal";
-import loading from "../../public/icons/loading.svg";
+// import NftModal from "../../components/common/NftModal";
+// import loading from "../../public/icons/loading.svg";
 import MyLocation from "../../components/memory/MyLocation";
+
+import { setIsLoading } from "../../redux/slice/calendarSlice";
 
 function Create() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
@@ -20,7 +22,7 @@ function Create() {
     (state: any) => state.location.locationInfo
   );
   const [userKey, setUserKey] = useState("");
-  const [flag, setFlag] = useState(false);
+  // const [flag, setFlag] = useState(false);
   const [imgFile, setImgFile] = useState(null);
   const [uploadimg, setUploadimg] = useState<any>(null);
   const [nftFeed, setNftFeed] = useState({
@@ -34,12 +36,12 @@ function Create() {
     lng: "",
     transactionHash: ""
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [walletBalance, setWalletBalance] = useState(0);
-
+  const dispatch = useDispatch();
   const router = useRouter();
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  // const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const getWalletBalance = async () => {
     const balance = await getBalance(storeUser.userWalletAddress);
@@ -51,6 +53,7 @@ function Create() {
       getWalletBalance();
     }
   }, []);
+
   useEffect(() => {
     if (storeLocation) {
       setApiFeed({
@@ -99,7 +102,9 @@ function Create() {
     } else if (nftFeed.content === "") {
       alert("내용을 입력해주세요");
     } else if (window.confirm("100INK를 사용하여 피드를 작성하시겠습니까?")) {
-      toggleModal();
+      // toggleModal();
+      dispatch(setIsLoading(true));
+      router.push("/memory");
       const feedNft = await sendFileToIPFS(
         e,
         imgFile,
@@ -114,25 +119,46 @@ function Create() {
         feedImg: feedNft[0],
         transactionHash: feedNft[1]
       });
-      setFlag(true);
+      // setFlag(true);
+
+      addFeed(
+        {
+          ...apiFeed,
+          feedImg: feedNft[0],
+          transactionHash: feedNft[1]
+        },
+        imgFile
+      )
+        .then((res) => {
+          if (res.status === 200) {
+            dispatch(setIsLoading(false));
+            alert("피드가 등록되었습니다.");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("피드가 등록이 실패했습니다.");
+          dispatch(setIsLoading(false));
+        });
+      // router.push("/memory");
     }
   };
 
-  useEffect(() => {
-    if (flag) {
-      addFeed(apiFeed);
-      router.push("/memory");
-    }
-  }, [flag, apiFeed]);
+  // useEffect(() => {
+  //   if (flag) {
+  //     addFeed(apiFeed, imgFile);
+  //     router.push("/memory");
+  //   }
+  // }, [flag, apiFeed]);
 
   // console.log(storeLocation, "스토어로케이션");
-  console.log(apiFeed);
+  // console.log(apiFeed);
   return (
     <div className={`${styles.wrapper}`}>
-      <NftModal isOpen={isModalOpen}>
+      {/* <NftModal isOpen={isModalOpen}>
         <Image src={loading} />
         <p className={`${styles.loadingFont} notoBold`}>NFT 발행 중입니다.</p>
-      </NftModal>
+      </NftModal> */}
       <div>
         <div className={`${styles.memoryNav} flex justify-space-between`}>
           <button

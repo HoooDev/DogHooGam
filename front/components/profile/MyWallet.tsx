@@ -10,9 +10,12 @@ import addImg from "../../public/icons/addImg.svg";
 // import { createAccount, getBalance } from "";
 import { createAccount, getBalance } from "../../pages/api/web3/Web3";
 import createWallet from "../../pages/api/user/createWallet";
-import NftModal from "../common/NftModal";
-import loading from "../../public/icons/loading.svg";
+// import NftModal from "../common/NftModal";
+// import loading from "../../public/icons/loading.svg";
 import { getInfo } from "../../redux/slice/userSlice";
+import { setIsWallet } from "../../redux/slice/calendarSlice";
+import { RootState } from "../../redux/store";
+import Loading from "../../public/images/Spinner.gif";
 
 function MyWallet() {
   // const router = useRouter();
@@ -21,10 +24,10 @@ function MyWallet() {
   // const dummy = false;
   const walletAddress = storeUser.userWalletAddress;
   const [walletBalance, setWalletBalance] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [flag, setFlag] = useState(false);
-
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const isWallet = useSelector((state: RootState) => state.calendar.isWallet);
+  // const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const getWalletBalance = async () => {
     const balance = await getBalance(storeUser.userWalletAddress);
@@ -50,12 +53,13 @@ function MyWallet() {
 
   useEffect(() => {
     if (flag) {
-      toggleModal();
+      // toggleModal();
       getWalletBalance();
     }
   }, [flag]);
 
   const createUserWallet = async () => {
+    dispatch(setIsWallet(true));
     const Token = window.localStorage.getItem("AccessToken");
     const [userWalletAddress, userWalletKey] = await createAccount();
     console.log(userWalletAddress, userWalletKey);
@@ -75,6 +79,7 @@ function MyWallet() {
                 // return res.data;
                 console.log("토글");
                 alert("지갑이 생성되었습니다.");
+                dispatch(setIsWallet(false));
                 // toggleModal();
                 setFlag(true);
               }
@@ -82,6 +87,8 @@ function MyWallet() {
             })
             .catch((err) => {
               console.log(err);
+              alert("지갑이 생성이 실패했습니다.");
+              dispatch(setIsWallet(false));
             });
         }
         return [];
@@ -93,7 +100,7 @@ function MyWallet() {
 
   return (
     <div className={`${styles.myWalletBox}`}>
-      <NftModal isOpen={isModalOpen}>
+      {/* <NftModal isOpen={isModalOpen}>
         <Image src={loading} />
         <p className={`${styles.loadingFont} notoBold fs-20`}>
           지갑을 생성 중입니다.
@@ -105,7 +112,7 @@ function MyWallet() {
         <p className={`${styles.loadingFont} notoMid fs-14`}>
           첫 피드를 작성해보세요!
         </p>
-      </NftModal>
+      </NftModal> */}
       <div className={`${styles.walletIcon}`}>
         <Image src={walletLogo} />
       </div>
@@ -116,36 +123,46 @@ function MyWallet() {
           >{`보유코인 : ${walletBalance} INK`}</p>
           <div className={`${styles.walletAddressBox} notoReg fs-18`}>
             <p className={`${styles.walletAddress1}`}>지갑주소 : </p>
-            <p className={`${styles.walletAddress2}`}>
-              {storeUser.userWalletAddress}
+            <div>
+              <p className={`${styles.walletAddress2} fs-12`}>
+                {storeUser.userWalletAddress}
+              </p>
               <button
                 type="button"
-                className={`${styles.copyBtn}`}
+                className={`${styles.copyBtn} fs-10`}
                 onClick={() => handleCopyClipBoard(walletAddress)}
               >
                 복사
               </button>
-            </p>
+            </div>
           </div>
         </div>
       ) : (
         // <div className={`${styles.walletTextBox}`}>
-        <div>
-          <button
-            type="button"
-            className={`${styles.addWalletBtnBox}`}
-            onClick={() => {
-              createUserWallet();
-              toggleModal();
-            }}
-          >
-            <div className={`${styles.addWalletBtn}`}>
-              <Image src={addImg} />
+        <div style={{ height: "100%" }}>
+          {isWallet ? (
+            <div
+              className={`${styles.Loading} flex column justify-center align-center`}
+            >
+              <div className={`${styles.img} `}>
+                <Image src={Loading} alt="#" />
+              </div>
+              <h1 className="notoMid fs-18">지갑이 생성 중입니다...</h1>
             </div>
-            <p className={`${styles.addWalletBtnText}`}>
-              지갑을 등록 해주세요!
-            </p>
-          </button>
+          ) : (
+            <button
+              type="button"
+              className={`${styles.addWalletBtnBox}`}
+              onClick={createUserWallet}
+            >
+              <div className={`${styles.addWalletBtn}`}>
+                <Image src={addImg} />
+              </div>
+              <p className={`${styles.addWalletBtnText}`}>
+                지갑을 등록 해주세요!
+              </p>
+            </button>
+          )}
         </div>
       )}
     </div>

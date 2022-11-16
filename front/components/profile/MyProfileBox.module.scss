@@ -1,17 +1,17 @@
 .myProfileBox {
   width: vw(380px);
-  height: vw(380px);
+  height: vw(320px);
   margin-top: vw(15px);
   border-radius: vw(15px);
   background-color: #f0f0f0;
   position: relative;
-    .Logout{
-      position: absolute;
-      right: 0;
-      margin: vw(10px);
-      border: none;
-      color: rgb(197, 196, 196);
-    }
+  .Logout {
+    position: absolute;
+    right: 0;
+    margin: vw(10px);
+    border: none;
+    color: rgb(197, 196, 196);
+  }
   .profileBox {
     position: relative;
     top: vw(25px);
@@ -20,10 +20,11 @@
     align-items: flex-end;
     .imgBox {
       position: relative;
-      width: vw(100px);
-      height: vw(100px);
+      width: vw(70px);
+      height: vw(70px);
       background-color: $WHITE;
-      border-radius: vw(15px);
+      // border-radius: vw(15px);
+      border-radius: 50%;
       .myImg {
         position: absolute;
         width: 100%;
@@ -31,15 +32,13 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border-radius: vw(15px);
+        border-radius: 50%;
       }
     }
     .myNickName {
-      position: absolute;
-      font-size: vw(22px);
-      margin-left: vw(110px);
-      margin-bottom: vw(5px);
-      font-weight: bold;
+      margin-left: vw(20px);
+      place-self: center center;
+      font-size: vw(20px);
     }
   }
 }
@@ -47,12 +46,12 @@
 @media screen and (min-width: $PHONE-VW) {
   .myProfileBox {
     width: 380px;
-    height: 380px;
+    height: 320px;
     // border: 1px solid black;
     margin-top: 15px;
     border-radius: 15px;
     background-color: #f0f0f0;
-    .Logout{
+    .Logout {
       margin: 10px;
     }
     .profileBox {
@@ -63,10 +62,12 @@
       align-items: flex-end;
       .imgBox {
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
         background-color: $WHITE;
-        border-radius: 15px;
+        // border-radius: 15px;
+        border-radius: 50%;
+
         .myImg {
           position: absolute;
           width: 100%;
@@ -74,15 +75,14 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          border-radius: 15px;
+          // border-radius: 15px;
+          border-radius: 50%;
         }
       }
       .myNickName {
-        position: absolute;
-        font-size: 22px;
-        margin-left: 110px;
-        margin-bottom: 5px;
-        font-weight: bold;
+        margin-left: 20px;
+        place-self: center center;
+        font-size: (20px);
       }
     }
   }

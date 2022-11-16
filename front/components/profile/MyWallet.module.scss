@@ -9,6 +9,13 @@
   margin-top: vw(80px);
   border-radius: vw(15px);
   position: relative;
+  .Loading{
+    height: 100%;
+    .img{
+      width: vw(80px);
+      height: vw(80px);
+    }
+  }
   .walletIcon {
     position: absolute;
     top: -13%;
@@ -57,23 +64,26 @@
       display: flex;
       width: 90%;
       .walletAddress1 {
+        margin-top: vw(10px);
         word-wrap: break-word;
-        width: vw(100px);
+        width: vw(80px);
       }
       .walletAddress2 {
+        text-overflow: ellipsis;
+        margin-top: vw(12px);
+        margin-bottom: vw(6px);
         word-wrap: break-word;
-        width: vw(200px);
-        .copyBtn {
-          color: white;
-          font-weight: bold;
-          margin-left: vw(10px);
-          margin-block: vw(2px);
-          height: vw(22px);
-          width: vw(60px);
-          background-color: #9e7676;
-          border: none;
-          border-radius: vw(10px);
-        }
+        width: vw(160px);
+      }
+      .copyBtn {
+        color: white;
+        font-weight: bold;
+        margin-block: vw(2px);
+        height: vw(22px);
+        width: vw(60px);
+        background-color: #9e7676;
+        border: none;
+        border-radius: vw(10px);
       }
     }
   }
@@ -91,6 +101,13 @@
     margin-top: 80px;
     border-radius: 15px;
     position: relative;
+    .Loading{
+      height: 100%;
+      .img{
+        width: 80px;
+        height: 80px;
+      }
+    }
     .walletIcon {
       position: absolute;
       top: -13%;
@@ -139,23 +156,25 @@
         display: flex;
         width: 90%;
         .walletAddress1 {
+          margin-top: 10px;
           word-wrap: break-word;
-          width: 100px;
+          width: 80px;
         }
         .walletAddress2 {
+          margin-top: 12px;
+          margin-bottom: 6px;
           word-wrap: break-word;
-          width: 200px;
-          .copyBtn {
-            color: white;
-            font-weight: bold;
-            margin-left: 10px;
-            margin-block: 2px;
-            height: 22px;
-            width: 60px;
-            background-color: #9e7676;
-            border: none;
-            border-radius: 10px;
-          }
+          width: 160px;
+        }
+        .copyBtn {
+          color: white;
+          font-weight: bold;
+          margin-block: 2px;
+          height: 22px;
+          width: 60px;
+          background-color: #9e7676;
+          border: none;
+          border-radius: 10px;
         }
       }
     }

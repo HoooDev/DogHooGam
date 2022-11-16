@@ -143,6 +143,7 @@ function Plusdog() {
           <input
             type="text"
             className={`${styles.dogInput} notoReg`}
+            maxLength={6}
             onChange={(e) => {
               setNftDog({ ...nftDog, dogName: e.target.value });
               setApiDog({ ...apiDog, dogName: e.target.value });
@@ -187,6 +188,7 @@ function Plusdog() {
           <input
             type="text"
             className={`${styles.dogInput} notoReg`}
+            maxLength={10}
             onChange={(e) => {
               setNftDog({ ...nftDog, dogCharacter: e.target.value });
               setApiDog({ ...apiDog, dogCharacter: e.target.value });

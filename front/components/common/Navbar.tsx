@@ -2,9 +2,13 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 import logo from "../../public/icons/Logo.svg";
 import styles from "./Navbar.module.scss";
 import createlogo from "../../public/icons/create.svg";
+import { RootState } from "../../redux/store";
+
+import Loading from "../../public/images/Spinner.gif";
 
 const SvgProfile = (props: any) => (
   <svg
@@ -20,6 +24,7 @@ const SvgProfile = (props: any) => (
 
 function Navbar() {
   const router = useRouter();
+  const { isLoading } = useSelector((state: RootState) => state.calendar);
   return (
     <nav
       className={`${styles.wrapper} flex justify-space-between align-center`}
@@ -29,16 +34,41 @@ function Navbar() {
           <Image src={logo} alt="#" />
         </div>
       </Link>
-      <div className={`${styles.imgbox}`}>
+      <div className={`${styles.imgbox} flex`}>
         {router.pathname === "/memory" ? (
-          <Link href="/memory/create">
-            <div className={`${styles.profileimg}`}>
-              <Image width="40px" height="40px" src={createlogo} alt="#" />
-            </div>
-          </Link>
-        ) : null}
+          <div className="flex justify-center align-center">
+            {!isLoading ? (
+              <Link href="/memory/create">
+                <div
+                  className={`${styles.profileimg} flex justify-center align-center`}
+                >
+                  <Image src={createlogo} alt="#" />
+                </div>
+              </Link>
+            ) : (
+              <div
+                className={`${styles.loading} flex justify-center align-center`}
+              >
+                <Image src={Loading} alt="#" />
+              </div>
+            )}
+          </div>
+        ) : (
+          <div>
+            {isLoading ? (
+              <div
+                className={`${styles.loading} flex justify-center align-center`}
+              >
+                <Image src={Loading} alt="#" />
+              </div>
+            ) : null}
+          </div>
+        )}
         <Link href="/profile">
-          <div className={`${styles.profileimg}`}>
+          <div
+            className={`${styles.profileimg} flex justify-center align-center`}
+            style={{ marginTop: "2px" }}
+          >
             {router.pathname.startsWith("/profile") ? (
               <SvgProfile fill="#9E7676" />
             ) : (
