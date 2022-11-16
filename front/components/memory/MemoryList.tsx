@@ -35,7 +35,7 @@ function MemoryList() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [isLoading]);
 
   // const dummys = [
   //   { id: 1 },

@@ -104,6 +104,7 @@ function Create() {
     } else if (window.confirm("100INK를 사용하여 피드를 작성하시겠습니까?")) {
       // toggleModal();
       dispatch(setIsLoading(true));
+      router.push("/memory");
       const feedNft = await sendFileToIPFS(
         e,
         imgFile,

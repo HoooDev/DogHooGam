@@ -34,17 +34,21 @@ function Navbar() {
           <Image src={logo} alt="#" />
         </div>
       </Link>
-      <div className={`${styles.imgbox}`}>
+      <div className={`${styles.imgbox} flex`}>
         {router.pathname === "/memory" ? (
           <div className="flex justify-center align-center">
             {!isLoading ? (
               <Link href="/memory/create">
-                <div className={`${styles.profileimg}`}>
+                <div
+                  className={`${styles.profileimg} flex justify-center align-center`}
+                >
                   <Image src={createlogo} alt="#" />
                 </div>
               </Link>
             ) : (
-              <div className={`${styles.loading}`}>
+              <div
+                className={`${styles.loading} flex justify-center align-center`}
+              >
                 <Image src={Loading} alt="#" />
               </div>
             )}
@@ -53,6 +57,7 @@ function Navbar() {
         <Link href="/profile">
           <div
             className={`${styles.profileimg} flex justify-center align-center`}
+            style={{ marginTop: "2px" }}
           >
             {router.pathname.startsWith("/profile") ? (
               <SvgProfile fill="#9E7676" />
