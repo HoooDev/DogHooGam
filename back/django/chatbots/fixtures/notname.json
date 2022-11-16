@@ -4352,5 +4352,12 @@
     "fields": {
       "name": "가만히"
     }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 623,
+    "fields": {
+      "name": "위"
+    }
   }
 ]
