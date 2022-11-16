@@ -12,6 +12,10 @@
     .imgBox {
       width: vw(138px);
       height: vw(140px);
+      .imgBox__content {
+        margin-block: vw(2px);
+        color: rgb(88, 88, 88);
+      }
     }
     .img {
       width: 100%;
@@ -36,6 +40,9 @@
       .imgBox {
         width: 138px;
         height: 140px;
+        .imgBox__content {
+          margin-block: 2px;
+        }
       }
       .img {
         width: 100%;

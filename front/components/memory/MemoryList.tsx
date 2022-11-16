@@ -57,8 +57,12 @@ function MemoryList() {
                 <div
                   className={`${styles.imgBox} flex column justify-center align-center`}
                 >
-                  <h1 className="notoBold fs-14">새로운 피드를</h1>
-                  <h1 className="notoBold fs-14">발행 중입니다.</h1>
+                  <h1 className={`${styles.imgBox__content} notoBold fs-14`}>
+                    새로운 피드를
+                  </h1>
+                  <h1 className={`${styles.imgBox__content} notoBold fs-14`}>
+                    발행 중입니다.
+                  </h1>
                 </div>
               </div>
             </div>
