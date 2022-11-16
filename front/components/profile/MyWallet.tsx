@@ -116,16 +116,18 @@ function MyWallet() {
           >{`보유코인 : ${walletBalance} INK`}</p>
           <div className={`${styles.walletAddressBox} notoReg fs-18`}>
             <p className={`${styles.walletAddress1}`}>지갑주소 : </p>
-            <p className={`${styles.walletAddress2}`}>
-              {storeUser.userWalletAddress}
+            <div>
+              <p className={`${styles.walletAddress2} fs-12`}>
+                {storeUser.userWalletAddress}
+              </p>
               <button
                 type="button"
-                className={`${styles.copyBtn}`}
+                className={`${styles.copyBtn} fs-10`}
                 onClick={() => handleCopyClipBoard(walletAddress)}
               >
                 복사
               </button>
-            </p>
+            </div>
           </div>
         </div>
       ) : (
