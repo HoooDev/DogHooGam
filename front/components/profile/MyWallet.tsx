@@ -13,7 +13,7 @@ import createWallet from "../../pages/api/user/createWallet";
 // import NftModal from "../common/NftModal";
 // import loading from "../../public/icons/loading.svg";
 import { getInfo } from "../../redux/slice/userSlice";
-import { getIsLoading, setIsLoading } from "../../redux/slice/calendarSlice";
+import { setIsLoading } from "../../redux/slice/calendarSlice";
 import { RootState } from "../../redux/store";
 
 function MyWallet() {
