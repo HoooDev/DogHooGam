@@ -120,7 +120,7 @@ function Create() {
 
   useEffect(() => {
     if (flag) {
-      addFeed(apiFeed);
+      addFeed(apiFeed, imgFile);
       router.push("/memory");
     }
   }, [flag, apiFeed]);
