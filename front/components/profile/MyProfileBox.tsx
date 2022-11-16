@@ -30,7 +30,7 @@ function MyProfileBox() {
         <div className={`${styles.imgBox} `}>
           <img
             className={`${styles.myImg}`}
-            src={storeUser.profileImg}
+            src={storeUser?.profileImg}
             alt="#"
           />
         </div>
