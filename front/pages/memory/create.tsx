@@ -20,7 +20,7 @@ function Create() {
     (state: any) => state.location.locationInfo
   );
   const [userKey, setUserKey] = useState("");
-  const [flag, setFlag] = useState(false);
+  // const [flag, setFlag] = useState(false);
   const [imgFile, setImgFile] = useState(null);
   const [uploadimg, setUploadimg] = useState<any>(null);
   const [nftFeed, setNftFeed] = useState({
@@ -51,6 +51,7 @@ function Create() {
       getWalletBalance();
     }
   }, []);
+
   useEffect(() => {
     if (storeLocation) {
       setApiFeed({
@@ -114,19 +115,37 @@ function Create() {
         feedImg: feedNft[0],
         transactionHash: feedNft[1]
       });
-      setFlag(true);
+      // setFlag(true);
+
+      addFeed(
+        {
+          ...apiFeed,
+          feedImg: feedNft[0],
+          transactionHash: feedNft[1]
+        },
+        imgFile
+      )
+        .then((res) => {
+          if (res.status === 200) {
+            alert("피드가 등록되었습니다.");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      // router.push("/memory");
     }
   };
 
-  useEffect(() => {
-    if (flag) {
-      addFeed(apiFeed, imgFile);
-      router.push("/memory");
-    }
-  }, [flag, apiFeed]);
+  // useEffect(() => {
+  //   if (flag) {
+  //     addFeed(apiFeed, imgFile);
+  //     router.push("/memory");
+  //   }
+  // }, [flag, apiFeed]);
 
   // console.log(storeLocation, "스토어로케이션");
-  console.log(apiFeed);
+  // console.log(apiFeed);
   return (
     <div className={`${styles.wrapper}`}>
       <NftModal isOpen={isModalOpen}>
