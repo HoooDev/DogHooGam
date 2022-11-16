@@ -5,7 +5,10 @@ const addFeed = (data: any, imagefile: any) => {
   console.log(imagefile);
   const formData = new FormData();
   formData.append("file", imagefile);
-  formData.append("feedReq", data);
+  formData.append(
+    "feedReq",
+    new Blob([JSON.stringify(data)], { type: "application/json" })
+  );
   axios({
     url: "https://dog-hoogam.site/api/business-service/feed",
     method: "post",
