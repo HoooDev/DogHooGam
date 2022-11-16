@@ -10,8 +10,8 @@ import addImg from "../../public/icons/addImg.svg";
 // import { createAccount, getBalance } from "";
 import { createAccount, getBalance } from "../../pages/api/web3/Web3";
 import createWallet from "../../pages/api/user/createWallet";
-import NftModal from "../common/NftModal";
-import loading from "../../public/icons/loading.svg";
+// import NftModal from "../common/NftModal";
+// import loading from "../../public/icons/loading.svg";
 import { getInfo } from "../../redux/slice/userSlice";
 
 function MyWallet() {
@@ -21,10 +21,10 @@ function MyWallet() {
   // const dummy = false;
   const walletAddress = storeUser.userWalletAddress;
   const [walletBalance, setWalletBalance] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [flag, setFlag] = useState(false);
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  // const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const getWalletBalance = async () => {
     const balance = await getBalance(storeUser.userWalletAddress);
@@ -50,7 +50,7 @@ function MyWallet() {
 
   useEffect(() => {
     if (flag) {
-      toggleModal();
+      // toggleModal();
       getWalletBalance();
     }
   }, [flag]);
@@ -93,7 +93,7 @@ function MyWallet() {
 
   return (
     <div className={`${styles.myWalletBox}`}>
-      <NftModal isOpen={isModalOpen}>
+      {/* <NftModal isOpen={isModalOpen}>
         <Image src={loading} />
         <p className={`${styles.loadingFont} notoBold fs-20`}>
           지갑을 생성 중입니다.
@@ -105,7 +105,7 @@ function MyWallet() {
         <p className={`${styles.loadingFont} notoMid fs-14`}>
           첫 피드를 작성해보세요!
         </p>
-      </NftModal>
+      </NftModal> */}
       <div className={`${styles.walletIcon}`}>
         <Image src={walletLogo} />
       </div>
@@ -136,10 +136,7 @@ function MyWallet() {
           <button
             type="button"
             className={`${styles.addWalletBtnBox}`}
-            onClick={() => {
-              createUserWallet();
-              toggleModal();
-            }}
+            onClick={createUserWallet}
           >
             <div className={`${styles.addWalletBtn}`}>
               <Image src={addImg} />
