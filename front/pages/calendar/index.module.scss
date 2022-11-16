@@ -1,24 +1,20 @@
 .wrapper {
-  // margin-top: 40px;
   scrollbar-width: none;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 
   .calendar {
-    // width: 380px;0
     margin: auto;
-    // margin-left: 40px;
-    // margin-bottom: 40px;
+    scrollbar-width: none;
   }
 
   .tab {
     display: grid;
-    overflow: hidden;
-
     grid-template-columns: repeat(3, vw(100px));
     place-items: center center;
-    // width: 350px;
-    // margin: auto;
-    // align-items: center;
+    scrollbar-width: none;
+    overflow: hidden;
     color: $GRAY_5B;
     margin-top: vw(30px);
     button {
@@ -27,39 +23,43 @@
     }
     .isWalk{
       background-color: rgb(50, 200, 110);
-      border-radius: 100px;
-      width: 10px;
-      height: 10px;
+      border-radius: vw(100px);
+      width: vw(10px);
+      height: vw(10px);
     }
 
     .isMemo{
       background-color: rgb(251, 128, 183);
-      border-radius: 100px;
-      width: 10px;
-      height: 10px;
+      border-radius: vw(100px);
+      width: vw(10px);
+      height: vw(10px);
     }
   }
   .memo,
   .record {
-    color: $MAIN;
+    color: black;
+    overflow: hidden;
+  }
+
+  .memo2,
+  .record2 {
+    color: $GRAY_9E;
     overflow: hidden;
   }
 }
 
+
+
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
-    // margin-top: 40px;
     scrollbar-width: none;
     overflow: hidden;
     margin: 0;
     padding: 0;
 
     .calendar {
-      // width: 380px;0
       margin: auto;
       scrollbar-width: none;
-      // margin-left: 40px;
-      // margin-bottom: 40px;
     }
 
     .tab {
@@ -68,10 +68,6 @@
       place-items: center center;
       scrollbar-width: none;
       overflow: hidden;
-
-      // width: 350px;
-      // margin: auto;
-      // align-items: center;
       color: $GRAY_5B;
       margin-top: 30px;
       button {
@@ -94,7 +90,13 @@
     }
     .memo,
     .record {
-      color: $MAIN;
+      color: black;
+      overflow: hidden;
+    }
+
+    .memo2,
+    .record2 {
+      color: $GRAY_9E;
       overflow: hidden;
     }
   }

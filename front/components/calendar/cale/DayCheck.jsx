@@ -60,21 +60,6 @@ function DayCheck() {
     );
   };
 
-  // // 오늘로 가기
-  // const today = new Date();
-  // const toYear = today.getFullYear;
-  // const toMonth = today.getMonth + 1;
-  // const toDate = today.getDate;
-  // const onToday = () => {
-  //   dispatch2(
-  //     setSelectDay({
-  //       year: initialState.year,
-  //       month: initialState.month + 1,
-  //       day: 1
-  //     })
-  //   );
-  // };
-
   useEffect(() => {
     getCalendarMemoApi(state.month + 1, state.year)
       .then((res) => {

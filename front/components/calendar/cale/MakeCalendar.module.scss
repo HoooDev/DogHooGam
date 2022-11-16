@@ -1,7 +1,152 @@
 .day {
+  text-align: center;
+  justify-content: center;
+  height: vw(36px);
+  width: vw(30px);
+  padding-top: vw(10px);
+  .dayButton{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: vw(10px);
+    width: vw(30px);
+    height: vw(30px);
+  }
+
+  .daydiff {
+    color: rgba(0, 0, 0, 0.3) !important;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: vw(10px);
+    width: vw(30px);
+    height: vw(30px);
+  } 
+
+  .isMemo{
+    background-color: rgb(251, 128, 183);
+    border-radius: vw(100px);
+    width: vw(10px);
+    height: vw(10px);
+    margin-right: vw(1px);
+  }
+  .isWalk{
+    background-color: rgb(110, 207, 149);
+    border-radius: vw(100px);
+    width: vw(10px);
+    height: vw(10px);
+    margin-left: vw(1px);
+  }
+}
+
+.selectDay {
+  height: vw(36px);
+  // border-radius: 100px;
+  text-align: center;
+  padding-top: vw(10px);
+  // background-color: #9E7676;
+  .dayButton{
+    border: none;
+    color: white;
+    width: vw(30px);
+    height: vw(30px);
+    background-color: $MAIN;
+    border-radius: 50%;
+    margin-bottom: vw(10px);
+  }
+  .isMemo{
+    background-color: rgb(251, 128, 183);
+    border-radius: vw(100px);
+    width: vw(10px);
+    height: vw(10px);
+    margin-right: vw(1px);
+  }
+
+  .isWalk{
+    background-color: rgb(50, 200, 110);
+    border-radius: vw(100px);
+    width: vw(10px);
+    height: vw(10px);
+    margin-left: vw(1px);
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .day {
+    text-align: center;
+    justify-content: center;
+    height: 36px;
+    width: 30px;
+    padding-top: 10px;
+    .dayButton{
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+      margin-bottom: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  
+    .daydiff {
+      color: rgba(0, 0, 0, 0.3) !important;
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+      margin-bottom: 10px;
+      width: 30px;
+      height: 30px;
+    } 
+  
+    .isMemo{
+      background-color: rgb(251, 128, 183);
+      border-radius: 100px;
+      width: 10px;
+      height: 10px;
+      margin-right: 1px;
+    }
+    .isWalk{
+      background-color: rgb(110, 207, 149);
+      border-radius: 100px;
+      width: 10px;
+      height: 10px;
+      margin-left: 1px;
+    }
+  }
+  
+  .selectDay {
+    height: 36px;
+    // border-radius: 100px;
+    text-align: center;
+    padding-top: 10px;
+    // background-color: #9E7676;
+    .dayButton{
+      border: none;
+      color: white;
+      width: 30px;
+      height: 30px;
+      // background-color: rgba(0, 0, 0, 0);
+      background-color: $MAIN;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .isMemo{
+      background-color: rgb(251, 128, 183);
+      border-radius: 100px;
+      width: 10px;
+      height: 10px;
+      margin-right: 1px;
+    }
+  
+    .isWalk{
+      background-color: rgb(50, 200, 110);
+      border-radius: 100px;
+      width: 10px;
+      height: 10px;
+      margin-left: 1px;
+    }
+  }
+}
+.day {
+  text-align: center;
+  justify-content: center;
   height: 36px;
   width: 30px;
-  text-align: center;
   padding-top: 10px;
   .dayButton{
     border: none;
@@ -10,17 +155,29 @@
     width: 30px;
     height: 30px;
   }
+
+  .daydiff {
+    color: rgba(0, 0, 0, 0.3) !important;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+  } 
+
   .isMemo{
-    background-color: rgb(134, 133, 142);
+    background-color: rgb(251, 128, 183);
     border-radius: 100px;
     width: 10px;
     height: 10px;
+    margin-right: 1px;
   }
   .isWalk{
     background-color: rgb(110, 207, 149);
     border-radius: 100px;
     width: 10px;
     height: 10px;
+    margin-left: 1px;
   }
 }
 
@@ -45,6 +202,7 @@
     border-radius: 100px;
     width: 10px;
     height: 10px;
+    margin-right: 1px;
   }
 
   .isWalk{
@@ -52,11 +210,6 @@
     border-radius: 100px;
     width: 10px;
     height: 10px;
+    margin-left: 1px;
   }
 }
-
-// .checkStamp{
-//   width: 100px;
-//   height: 100px;
-//   margin-inline: 10px;
-// }
