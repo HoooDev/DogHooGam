@@ -79,6 +79,7 @@ function MyWallet() {
                 // return res.data;
                 console.log("토글");
                 alert("지갑이 생성되었습니다.");
+                dispatch(setIsLoading(false));
                 // toggleModal();
                 setFlag(true);
               }
