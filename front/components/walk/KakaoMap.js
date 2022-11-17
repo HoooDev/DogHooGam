@@ -264,23 +264,6 @@ const KakaoMap = () => {
     }
   }, [isPaused, walking]);
 
-  // useEffect(() => {
-  //   requestIdleCallback(() => {
-  //     if (!isPaused) {
-  //       walking(); // api 호출
-  //       setIsSending(true); // API 플래그
-  //       if (timeout.current) {
-  //         clearTimeout(timeout.current);
-  //       }
-  //       timeout.current = setTimeout(() => {
-  //         setIsSending(false);
-  //       }, 3000);
-  //     } else if (isPaused) {
-  //       setIsSending(true);
-  //     }
-  //   });
-  // }, [isPaused, walking]);
-
   return (
     <div className={styles.wrapper}>
       <div className={`${styles.buttons} flex column`}>

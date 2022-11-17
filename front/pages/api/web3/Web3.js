@@ -31,13 +31,8 @@ export const sendToken = async (address, value) => {
     await TOKENContract.methods
       .transferFrom(coinBase, address, value)
       .send({ from: coinBase });
-
-    alert(`${value} 잉크가 적립됐어요!`);
-    return Promise.resolve();
   } catch (error) {
     console.error(error);
-    alert(`${value} 잉크 적립 실패했어요!`);
-    return Promise.reject();
   }
 };
 
