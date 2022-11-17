@@ -12,7 +12,7 @@ import {
   finishWalkingApi,
   getMyDogs,
   setMyDogs,
-  setIsLoading
+  setIsCoinLoading
 } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 import DogImage from "../../components/walk/DogImage";
@@ -34,13 +34,13 @@ const Index: NextPage = () => {
       if (userInfo?.userWalletAddress) {
         // await sendToken(userInfo.userWalletAddress, 100);
         await sendToken(userInfo.userWalletAddress, coin);
-        dispatch(setIsLoading(false));
+        dispatch(setIsCoinLoading(false));
         // console.log("INK 적립 성공했습니다.");
         alert("INK 적립 성공했습니다.");
       }
     } catch (error) {
       console.error(error);
-      dispatch(setIsLoading(false));
+      dispatch(setIsCoinLoading(false));
       alert("INK 적립 실패했습니다.");
     }
   };
@@ -57,7 +57,7 @@ const Index: NextPage = () => {
         dispatch(finishWalkingApi())
           .unwrap()
           .then(() => {
-            dispatch(setIsLoading(true));
+            dispatch(setIsCoinLoading(true));
             publishToken();
           })
           .catch(() => console.error);

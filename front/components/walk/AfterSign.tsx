@@ -13,7 +13,7 @@ import {
   restartWalking,
   saveCoin,
   saveTime,
-  setIsLoading
+  setIsCoinLoading
 } from "../../redux/slice/walkSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 import { sendToken } from "../../pages/api/web3/Web3";
@@ -81,13 +81,13 @@ const AfterSign = () => {
     try {
       if (userInfo?.userWalletAddress) {
         await sendToken(userInfo.userWalletAddress, 100);
-        dispatch(setIsLoading(false));
+        dispatch(setIsCoinLoading(false));
         // console.log("INK 적립 성공했습니다.");
         alert("INK 적립 성공했습니다.");
       }
     } catch (error) {
       console.error(error);
-      dispatch(setIsLoading(false));
+      dispatch(setIsCoinLoading(false));
       alert("INK 적립 실패했습니다.");
     }
   };
@@ -102,7 +102,7 @@ const AfterSign = () => {
       dispatch(finishWalkingApi())
         .unwrap()
         .then(() => {
-          dispatch(setIsLoading(true));
+          dispatch(setIsCoinLoading(true));
           publishToken();
         })
         .catch(() => console.error);

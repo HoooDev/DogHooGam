@@ -2,20 +2,19 @@
   height: calc(100vh - 165px);
   background-color: #e7e7e7;
   .chatBox {
-    height: 96%;
+    height: 94%;
     overflow-y: auto;
-    padding-bottom: vw(20px);
     h1 {
       margin-block: vw(5px);
     }
-    .botprofile{
+    .botprofile {
       width: vw(50px);
       height: vw(50px);
       background-color: rgb(218, 242, 253);
       margin-inline: vw(8px) vw(4px);
       margin-top: vw(20px);
       border-radius: vw(50px);
-      .img{
+      .img {
         width: vw(35px);
         height: vw(35px);
       }
@@ -30,7 +29,7 @@
         padding: vw(20px) vw(15px);
         border-radius: vw(10px);
         white-space: pre-wrap;
-        .help{
+        .help {
           text-decoration: none;
           align-self: center;
           color: #81b89d;
@@ -67,7 +66,7 @@
           line-height: vw(18px);
           letter-spacing: vw(1px);
         }
-        .dangerIcon{
+        .dangerIcon {
           width: vw(22px);
           height: vw(22px);
           margin-right: vw(10px);
@@ -162,20 +161,19 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     .chatBox {
-      height: 96%;
       overflow-y: auto;
 
       h1 {
         margin-block: 5px;
       }
-      .botprofile{
+      .botprofile {
         width: 50px;
         height: 50px;
         background-color: rgb(218, 242, 253);
         margin-inline: 8px 4px;
         margin-top: 20px;
         border-radius: 50px;
-        .img{
+        .img {
           width: 35px;
           height: 35px;
         }
@@ -221,7 +219,7 @@
             line-height: 18px;
             letter-spacing: 1px;
           }
-          .dangerIcon{
+          .dangerIcon {
             width: 22px;
             height: 22px;
             margin-right: 10px;

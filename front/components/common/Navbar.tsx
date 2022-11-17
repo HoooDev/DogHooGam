@@ -25,7 +25,7 @@ const SvgProfile = (props: any) => (
 function Navbar() {
   const router = useRouter();
   const { isLoading } = useSelector((state: RootState) => state.calendar);
-  const isCoinLoading = useSelector((state: RootState) => state.walk.isLoading);
+  const { isCoinLoading } = useSelector((state: RootState) => state.walk);
   return (
     <nav
       className={`${styles.wrapper} flex justify-space-between align-center`}

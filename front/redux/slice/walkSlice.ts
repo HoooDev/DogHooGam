@@ -39,7 +39,7 @@ interface WalkState {
   dogState: number;
   myDogs: Dog[];
   coin: number;
-  isLoading: boolean;
+  isCoinLoading: boolean;
 }
 
 const initialState: WalkState = {
@@ -61,7 +61,7 @@ const initialState: WalkState = {
   dogState: 0,
   myDogs: [],
   coin: 0,
-  isLoading: false
+  isCoinLoading: false
 }; // 초기 상태 정의
 
 export const startWalkingApi = async (data: any) => {
@@ -172,8 +172,8 @@ const walkSlice = createSlice({
     saveCoin: (state, { payload }) => {
       state.coin = payload;
     },
-    setIsLoading: (state, { payload }) => {
-      state.isLoading = payload;
+    setIsCoinLoading: (state, { payload }) => {
+      state.isCoinLoading = payload;
     }
   },
   extraReducers: (builder) => {
@@ -218,6 +218,6 @@ export const {
   toggleDogState,
   setMyDogs,
   saveCoin,
-  setIsLoading
+  setIsCoinLoading
 } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서
