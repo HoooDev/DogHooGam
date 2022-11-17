@@ -6,6 +6,20 @@
     position: absolute;
     bottom: 0;
     .dogSelectedCards {
+      margin: 0 auto;
+      max-width: vw(300px);
+      overflow-x: auto;
+    }
+
+    .dogSelectedCards::-webkit-scrollbar {
+      width: vw(6px);
+    }
+
+    /* 스크롤바 막대 설정*/
+    .dogSelectedCards::-webkit-scrollbar-thumb {
+      background-color: $GRAY_D9;
+      /* 스크롤바 둥글게 설정    */
+      border-radius: vw(10px);
     }
   }
 }
@@ -22,6 +36,17 @@
         margin: 0 auto;
         max-width: 300px;
         overflow-x: auto;
+      }
+
+      .dogSelectedCards::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      /* 스크롤바 막대 설정*/
+      .dogSelectedCards::-webkit-scrollbar-thumb {
+        background-color: $GRAY_D9;
+        /* 스크롤바 둥글게 설정    */
+        border-radius: 10px;
       }
     }
   }

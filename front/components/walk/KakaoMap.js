@@ -349,13 +349,7 @@ const KakaoMap = () => {
             position={center}
             onClick={toggleModal}
             image={{
-              src:
-                // dogState === 0
-                //   ? "https://lab.ssafy.com/s07-final/S07P31C103/uploads/bd9a02e70f2fa3d9f84a7fd9ab8b7b0c/realGreen.png"
-                //   : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png", // 마커이미지의 주소입니다
-                // "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png",
-                // "https://lab.ssafy.com/s07-final/S07P31C103/uploads/6b70c2ba38186e4ccfebef594869ae31/circle.png",
-                "https://lab.ssafy.com/s07-final/S07P31C103/uploads/cb6c81bf7666ee151f433a868703a3da/record.png",
+              src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/cb6c81bf7666ee151f433a868703a3da/record.png",
               size: {
                 width: 20,
                 height: 20
@@ -391,7 +385,6 @@ const KakaoMap = () => {
                     height: 40
                   } // 마커이미지의 크기입니다
                 }}
-                // title={position.dogName} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
               />
             </div>
           ))}
