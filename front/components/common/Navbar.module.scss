@@ -5,6 +5,7 @@
   top: 0;
   box-shadow: 0 4px 4px 0 #ccc8c0;
   background-color: $WHITE;
+  z-index: 99;
 
   .link {
     text-decoration: none;
@@ -35,7 +36,6 @@
     width: $PHONE-VW;
     position: sticky;
     top: 0;
-    z-index: 99;
     .link {
       text-decoration: none;
     }

@@ -1,6 +1,6 @@
 .wrapper{
   width: vw(390px);
-  height: vw(150px);
+  height: vw(130px);
   .MainTabImg{
     width: vw(50px);
     height: vw(50px);
@@ -22,7 +22,7 @@
 @media screen and (min-width: $PHONE-VW) {
   .wrapper{
     width: 390px;
-    height: 150px;
+    height: 130px;
     .MainTabImg{
       width: 50px;
       height: 50px;
