@@ -54,22 +54,23 @@ public class WalkController {
             return ResponseEntity.status(HttpStatus.OK).body(personId);
 
         }catch (IllegalArgumentException e) {
-            log.info(e.getMessage());
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){
-            log.info(e.getMessage());
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
 
     @PostMapping("/walking")
     @ApiOperation(value = "산책 중",notes = "산책 시작 api에서 받은 id 값으로 자기 위치 갱신 후 주변 강아지 좌표 봔환")
-    public ResponseEntity<?> walkingDog(@RequestBody PersonWalkingRequest personWalkingReq){
+    public ResponseEntity<?> walkingDog(@RequestHeader(JwtTokenUtil.HEADER_STRING) String authentication,@RequestBody PersonWalkingRequest personWalkingReq){
         try {
             log.info("산책 중 시작");
 
+            String userId = JwtTokenUtil.getUserId(authentication)
 
-            List<Person> personList = walkService.walkingDogList(personWalkingReq);
+            List<Person> personList = walkService.walkingDogList(personWalkingReq, userId);
 
             List<PersonResponse> personResList = new ArrayList<>();
             for (Person p : personList) {
@@ -77,10 +78,10 @@ public class WalkController {
             }
             return ResponseEntity.status(HttpStatus.OK).body(personResList);
         }catch (IllegalArgumentException e) {
-            e.getStackTrace();
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){
-            log.info(e.getMessage());
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
@@ -102,10 +103,10 @@ public class WalkController {
             }
 
         }catch (IllegalArgumentException e) {
-            e.getStackTrace();
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){
-            e.getStackTrace();
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
@@ -122,10 +123,10 @@ public class WalkController {
 
 
         }catch (IllegalArgumentException e) {
-            e.getStackTrace();
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){
-            e.getStackTrace();
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }

@@ -57,7 +57,7 @@ public class Walk {
     public List<Integer> pkToList(){
 
         List<Integer> result = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(walkPath, ",");
+        StringTokenizer st = new StringTokenizer(dogPkList, ",");
         while(st.hasMoreTokens()){
             result.add(Integer.parseInt(st.nextToken()));
         }

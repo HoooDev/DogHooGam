@@ -112,6 +112,7 @@ public class WalkServiceImpl implements WalkService {
         PersonId personId = new PersonId();
         personId.setUserId(user.getUserId());
         personId.setPersonId(id);
+        personId.setDogPk(personReq.getDogPk());
         PersonId now = personIdRedisRepository.save(personId);
         log.info("PersonId : " + now.toString());
 
@@ -124,21 +125,22 @@ public class WalkServiceImpl implements WalkService {
     }
 
     @Override
-    public List<Person> walkingDogList(PersonWalkingRequest personWalkingReq) {
+    public List<Person> walkingDogList(PersonWalkingRequest personWalkingReq, String userId) {
+        int lngArea = (int)((personWalkingReq.getLng() - STD_LNG)*1000);
+        int latArea = (int)((personWalkingReq.getLat() - STD_LAT)*1000);
+
 
         log.info("산책중");
         log.info("//////////////////////////////////////////////////////////////");
-        log.info("//////////////////////////////////////////////////////////////");
-        log.info("//////////////////////////////////////////////////////////////");
         String pk = personWalkingReq.getPersonId();
-        int lngArea = (int)((personWalkingReq.getLng() - STD_LNG)*1000);
-        int latArea = (int)((personWalkingReq.getLat() - STD_LAT)*1000);
         Person p = redisRepo.findById(pk).orElse(new Person());
+        PersonId personId = personIdRedisRepository.findById(userId).orElseThrow(() -> new SomethingNotFoundException(userId + "의 산책 정보를 찾을 수 없음"))
         p.setId(pk);
         p.setLng(personWalkingReq.getLng());
         p.setLat(personWalkingReq.getLat());
         p.setLngArea(lngArea);
         p.setLatArea(latArea);
+        p.setDogPk(personId.getDogPk());
         redisRepo.deleteById(pk);
         List<Person> personList = redisRepo.findAll();
 
@@ -155,21 +157,6 @@ public class WalkServiceImpl implements WalkService {
 
         log.info("본인 정보 : "  + save.toString());
         log.info("personList.size : " + check.size() );
-
-
-//        List<Person> check = new ArrayList<>();
-//
-//        if(personList != null){
-//
-//            for(Person std : personList) {
-//                if (std == null || Math.abs(std.getLatArea() - latArea) > 1 || Math.abs(std.getLngArea() - lngArea) > 1) continue;
-//                check.add(std);
-//            }
-//        }
-//        log.info("4");
-//
-//        log.info("종료");
-//        return check;
 
         return check;
 

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.util.List;
 
 @Data
-@RedisHash(value = "people", timeToLive = -1)
+@RedisHash(value = "people", timeToLive = 10000)
 @ToString
 @NoArgsConstructor
 public class Person {

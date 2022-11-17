@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +34,8 @@ public class FeedController {
 
     @PostMapping("")
     @ApiOperation(value = "피드 등록하기",notes = "ntf 발행된 해쉬와 사진 주소로  강아지별 피드 등록,",response = FeedPostResponse.class)
-    public ResponseEntity<?> registerFeed(@RequestHeader(JwtTokenUtil.HEADER_STRING) String authentication
-            , @RequestBody FeedPostRequest feedReq){
+    public ResponseEntity<?> registerFeed(@RequestHeader(JwtTokenUtil.HEADER_STRING) String authentication,
+                                          @RequestPart MultipartFile file, @RequestPart FeedPostRequest feedReq){
         try {
 
             User user = userService.getUserByUserId(JwtTokenUtil.getUserId(authentication));
@@ -42,13 +43,13 @@ public class FeedController {
 
             log.info("userId : {} ", user.getUserId());
 
-            FeedPostResponse feedRes = FeedPostResponse.of(feedService.registerFeed(feedReq, user));
+            FeedPostResponse feedRes = FeedPostResponse.of(feedService.registerFeed(feedReq, user, file));
             return ResponseEntity.status(HttpStatus.OK).body(feedRes);
         }catch (IllegalArgumentException e) {
-            e.getStackTrace();
+            log.info(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){
-            e.getStackTrace();
+            log.info(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }

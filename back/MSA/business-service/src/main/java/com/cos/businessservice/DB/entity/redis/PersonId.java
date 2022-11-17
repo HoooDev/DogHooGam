@@ -6,7 +6,7 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
-
+import java.util.List;
 
 
 @Data
@@ -18,5 +18,7 @@ public class PersonId {
     private String userId;
 
     private String personId;
+
+    private List<Integer> dogPk; //강아지 Pk;
 
 }

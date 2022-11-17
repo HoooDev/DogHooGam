@@ -51,6 +51,7 @@ public class DogController {
         }catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "올바르지 않은 인수 전달"));
         }catch (Exception e){
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
@@ -82,6 +83,7 @@ public class DogController {
             }
 
         }catch (Exception e){
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
@@ -102,7 +104,7 @@ public class DogController {
             return ResponseEntity.status(HttpStatus.OK).body(BaseResponseBody.of(200, "변경 완료"));
 
         }catch (Exception e){
-            e.getStackTrace();
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
@@ -120,7 +122,7 @@ public class DogController {
             return ResponseEntity.status(HttpStatus.OK).body(dogPostResponse.of(dog));
 
         }catch (Exception e){
-            e.getStackTrace();
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }
@@ -139,7 +141,7 @@ public class DogController {
             return ResponseEntity.status(HttpStatus.OK).body(dogs);
 
         }catch (Exception e){
-            e.getStackTrace();
+            log.error(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(BaseResponseBody.of(500, "서버 오류"));
         }
     }

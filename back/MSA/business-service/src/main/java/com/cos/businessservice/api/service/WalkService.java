@@ -16,7 +16,7 @@ public interface WalkService {
 
     String startWalking(PersonRequest personReq, User user);
 
-    List<Person> walkingDogList(PersonWalkingRequest personWalkingReq);
+    List<Person> walkingDogList(PersonWalkingRequest personWalkingReq, String userId);
 
     boolean endWalking(PersonEndRequest walkReq, User user);
 

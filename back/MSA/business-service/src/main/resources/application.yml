@@ -30,3 +30,25 @@ management:
     web:
       exposure:
         include: refresh, health, beans
+
+
+# S3
+
+cloud:
+
+  aws:
+    credentials:
+      access-key: AKIAT4XDCDFHJJ755RPL
+      secret-key: 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
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+    s3:
+      bucket: c103
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error

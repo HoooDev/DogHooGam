@@ -6,13 +6,22 @@ import com.cos.businessservice.DB.entity.User;
 import com.cos.businessservice.DB.repository.DogRepository;
 import com.cos.businessservice.DB.repository.FeedRepository;
 import com.cos.businessservice.api.request.FeedPostRequest;
+import com.cos.businessservice.common.util.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class FeedServiceImpl implements FeedService{
+
+    @Autowired
+    S3Service s3Service;
+
+
     @Autowired
     DogRepository dogRepository;
 
@@ -20,7 +29,10 @@ public class FeedServiceImpl implements FeedService{
     FeedRepository feedRepository;
 
     @Override
-    public Feed registerFeed(FeedPostRequest feedReq, User user)   throws IllegalArgumentException{
+    public Feed registerFeed(FeedPostRequest feedReq, User user, MultipartFile file) throws IllegalArgumentException, IOException {
+
+
+        Map<String,String> map = s3Service.upload(file, "P");
 
         Feed feedEntity = new Feed();
         feedEntity.setTransactionHash(feedReq.getTransactionHash());
@@ -29,7 +41,7 @@ public class FeedServiceImpl implements FeedService{
         feedEntity.setContent(feedReq.getContent());
         feedEntity.setHide(false);
         feedEntity.setUser(user);
-        feedEntity.setFeedImg(feedReq.getFeedImg());
+        feedEntity.setFeedImg(map.get("fileUrl"));
         return feedRepository.save(feedEntity);
     }
 
