@@ -1,6 +1,7 @@
 .wrapper {
   height: calc(100vh - 165px);
   background-color: #e7e7e7;
+  padding-bottom: vw(20px);
   .chatBox {
     height: 100%;
     overflow-y: auto;
