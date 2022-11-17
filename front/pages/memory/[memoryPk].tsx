@@ -59,7 +59,7 @@ function Detail() {
         <h1 className={`${styles.content} fs-20 notoBold`}>{feed.content}</h1>
         <h1 className={`${styles.time} fs-16 notoBold`}>{feed.createDate}</h1>
       </div>
-      {feed && (
+      {feed?.pk && (
         <Map // 지도를 표시할 Container
           center={{
             // 지도의 중심좌표
