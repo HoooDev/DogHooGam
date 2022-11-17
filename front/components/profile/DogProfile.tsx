@@ -47,7 +47,7 @@ function DogProfile() {
 
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1
@@ -71,7 +71,7 @@ function DogProfile() {
           {myDogs.map((dog) => {
             return (
               <div key={v4()} className={`${styles.dogProfileBox}`}>
-                <div className={`${styles.profileBox}`}>
+                <div className={`${styles.profileBox} flex`}>
                   <div className={`${styles.imgBox}`}>
                     {/* <div className={`${styles.dogImg}`}> */}
                     <img
@@ -79,12 +79,15 @@ function DogProfile() {
                       src={dog.dogImg}
                       alt="#"
                     />
-                    {/* </div> */}
                   </div>
-                  <div className={`${styles.dogNameBox} flex notoMid`}>
+                  <div
+                    className={`${styles.dogNameBox} flex justify-center align-center notoMid`}
+                  >
                     {dog.dogName}
+                  </div>
+                  <div className="flex align-center">
                     <button
-                      className={`${styles.copyBtn}`}
+                      className={`${styles.copyBtn} fs-10`}
                       type="button"
                       onClick={() => handleCopyClipBoard(dog.transactionHash)}
                     >
@@ -93,13 +96,13 @@ function DogProfile() {
                   </div>
                 </div>
                 <div className={`${styles.dogInfoBox}`}>
-                  <p className={`${styles.dogInfo} notoReg fs-18`}>
+                  <p className={`${styles.dogInfo} notoReg fs-16`}>
                     견종 : {dog.dogBreed}
                   </p>
-                  <p className={`${styles.dogInfo} notoReg fs-18`}>
+                  <p className={`${styles.dogInfo} notoReg fs-16`}>
                     생년월일 : {dog.birthday}
                   </p>
-                  <p className={`${styles.dogInfo} notoReg fs-18`}>
+                  <p className={`${styles.dogInfo} notoReg fs-16`}>
                     성격 : {dog.dogCharacter}
                   </p>
                 </div>

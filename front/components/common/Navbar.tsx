@@ -12,9 +12,9 @@ import Loading from "../../public/images/Spinner.gif";
 
 const SvgProfile = (props: any) => (
   <svg
-    height="40px"
+    height="35px"
     viewBox="0 0 100 100"
-    width="40px"
+    width="35px"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >

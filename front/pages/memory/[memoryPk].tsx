@@ -13,6 +13,7 @@ function Detail() {
   const Id = router.query.memoryPk;
 
   useEffect(() => {
+    if (!Id) return;
     getOneFeed(Id)
       .then((res) => {
         if (res.status === 200) {

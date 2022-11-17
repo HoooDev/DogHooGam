@@ -71,7 +71,9 @@ function MemoryList() {
         return (
           <div className={`${styles.item}`} key={v4()}>
             <Link href={`/memory/${feed.pk}`}>
-              <div className={`${styles.imgBox}`}>
+              <div
+                className={`${styles.imgBox} flex justify-center align-center`}
+              >
                 <img className={`${styles.img}`} src={feed.feedImg} alt="#" />
               </div>
             </Link>

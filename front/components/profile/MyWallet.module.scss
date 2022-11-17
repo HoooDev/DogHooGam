@@ -1,7 +1,5 @@
 .myWalletBox {
   margin-top: vw(50px);
-  // display: flex;
-  // justify-content: center;
   background-color: white;
   width: 90%;
   height: 45%;
@@ -9,9 +7,9 @@
   margin-top: vw(80px);
   border-radius: vw(15px);
   position: relative;
-  .Loading{
+  .Loading {
     height: 100%;
-    .img{
+    .img {
       width: vw(80px);
       height: vw(80px);
     }
@@ -42,7 +40,6 @@
     cursor: pointer;
   }
   .addWalletBtn {
-    // display: flex;
     width: vw(70px);
     height: vw(70px);
     margin: auto;
@@ -59,28 +56,24 @@
       word-wrap: break-word;
     }
     .walletAddressBox {
-      margin-block: vw(10px);
+      margin-block: vw(20px);
       word-wrap: break-word;
       display: flex;
       width: 90%;
       .walletAddress1 {
-        margin-top: vw(10px);
         word-wrap: break-word;
-        width: vw(80px);
+        width: vw(70px);
       }
       .walletAddress2 {
-        text-overflow: ellipsis;
-        margin-top: vw(12px);
-        margin-bottom: vw(6px);
         word-wrap: break-word;
         width: vw(160px);
       }
       .copyBtn {
+        margin-left: vw(4px);
         color: white;
         font-weight: bold;
-        margin-block: vw(2px);
-        height: vw(22px);
-        width: vw(60px);
+        height: vw(20px);
+        width: vw(50px);
         background-color: #9e7676;
         border: none;
         border-radius: vw(10px);
@@ -92,8 +85,6 @@
 @media screen and (min-width: $PHONE-VW) {
   .myWalletBox {
     margin-top: 50px;
-    // display: flex;
-    // justify-content: center;
     background-color: white;
     width: 90%;
     height: 45%;
@@ -101,9 +92,9 @@
     margin-top: 80px;
     border-radius: 15px;
     position: relative;
-    .Loading{
+    .Loading {
       height: 100%;
-      .img{
+      .img {
         width: 80px;
         height: 80px;
       }
@@ -134,7 +125,6 @@
       cursor: pointer;
     }
     .addWalletBtn {
-      // display: flex;
       width: 70px;
       height: 70px;
       margin: auto;
@@ -151,27 +141,24 @@
         word-wrap: break-word;
       }
       .walletAddressBox {
-        margin-block: 10px;
+        margin-block: 20px;
         word-wrap: break-word;
         display: flex;
         width: 90%;
         .walletAddress1 {
-          margin-top: 10px;
           word-wrap: break-word;
-          width: 80px;
+          width: 70px;
         }
         .walletAddress2 {
-          margin-top: 12px;
-          margin-bottom: 6px;
           word-wrap: break-word;
           width: 160px;
         }
         .copyBtn {
+          margin-left: 4px;
           color: white;
           font-weight: bold;
-          margin-block: 2px;
-          height: 22px;
-          width: 60px;
+          height: 20px;
+          width: 50px;
           background-color: #9e7676;
           border: none;
           border-radius: 10px;

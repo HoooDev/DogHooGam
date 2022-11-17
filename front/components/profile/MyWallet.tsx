@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import Image from "next/image";
 // import axios from "axios";
 // import { useRouter } from "next/router";
@@ -28,6 +29,9 @@ function MyWallet() {
   const [flag, setFlag] = useState(false);
   const isWallet = useSelector((state: RootState) => state.calendar.isWallet);
   // const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const [walletHash, setWalletHash] = useState<string>(
+    `${storeUser.userWalletAddress.slice(0, 13)}...`
+  );
 
   const getWalletBalance = async () => {
     const balance = await getBalance(storeUser.userWalletAddress);
@@ -98,6 +102,10 @@ function MyWallet() {
       });
   };
 
+  const onClickHash = () => {
+    setWalletHash(storeUser.userWalletAddress);
+  };
+
   return (
     <div className={`${styles.myWalletBox}`}>
       {/* <NftModal isOpen={isModalOpen}>
@@ -119,22 +127,23 @@ function MyWallet() {
       {storeUser.userWalletAddress ? (
         <div className={`${styles.walletTextBox}`}>
           <p
-            className={`${styles.walletCoin} notoReg fs-18`}
+            className={`${styles.walletCoin} notoReg fs-16`}
           >{`보유코인 : ${walletBalance} INK`}</p>
-          <div className={`${styles.walletAddressBox} notoReg fs-18`}>
-            <p className={`${styles.walletAddress1}`}>지갑주소 : </p>
-            <div>
-              <p className={`${styles.walletAddress2} fs-12`}>
-                {storeUser.userWalletAddress}
-              </p>
-              <button
-                type="button"
-                className={`${styles.copyBtn} fs-10`}
-                onClick={() => handleCopyClipBoard(walletAddress)}
-              >
-                복사
-              </button>
+          <div className={`${styles.walletAddressBox} flex notoReg fs-16`}>
+            <div className={`${styles.walletAddress1}`}>지갑주소 : </div>
+            <div
+              className={`${styles.walletAddress2} fs-16`}
+              onClick={onClickHash}
+            >
+              {walletHash}
             </div>
+            <button
+              type="button"
+              className={`${styles.copyBtn} fs-10`}
+              onClick={() => handleCopyClipBoard(walletAddress)}
+            >
+              복사
+            </button>
           </div>
         </div>
       ) : (
