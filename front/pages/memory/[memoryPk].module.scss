@@ -3,6 +3,9 @@
   .Nav {
     margin-inline: vw(25px);
   }
+  .map{
+    margin-inline: 20px;
+  }
   .detail {
     margin-top: vw(40px);
     .copyBtn {
@@ -53,6 +56,9 @@
     .Nav {
       margin-inline: 25px;
     }
+    .map{
+      margin-inline: 20px;
+    }
     .detail {
       margin-top: 40px;
       .copyBtn {
@@ -94,9 +100,6 @@
         margin-inline: 20px;
         color: #a8a8a8;
       }
-    }
-    .map{
-      margin-inline: auto;
     }
   }
 }

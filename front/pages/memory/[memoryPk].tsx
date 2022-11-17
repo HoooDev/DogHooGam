@@ -79,8 +79,8 @@ function Detail() {
             }}
             style={{
               // 지도의 크기
-              width: "80%",
-              height: "250px"
+              width: "100%-vw(40px)",
+              height: "350px"
             }}
             level={4} // 지도의 확대 레벨
           >
