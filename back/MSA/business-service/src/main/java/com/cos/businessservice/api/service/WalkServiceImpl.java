@@ -134,7 +134,7 @@ public class WalkServiceImpl implements WalkService {
         log.info("//////////////////////////////////////////////////////////////");
         String pk = personWalkingReq.getPersonId();
         Person p = redisRepo.findById(pk).orElse(new Person());
-        PersonId personId = personIdRedisRepository.findById(userId).orElseThrow(() -> new SomethingNotFoundException(userId + "의 산책 정보를 찾을 수 없음"))
+        PersonId personId = personIdRedisRepository.findById(userId).orElseThrow(() -> new SomethingNotFoundException(userId + "의 산책 정보를 찾을 수 없음"));
         p.setId(pk);
         p.setLng(personWalkingReq.getLng());
         p.setLat(personWalkingReq.getLat());
