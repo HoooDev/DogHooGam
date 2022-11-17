@@ -27,6 +27,7 @@ interface CalendarState {
   records: any[];
   isLoading: boolean;
   isWallet: boolean;
+  isDogProfile: boolean;
 }
 
 const initialState: CalendarState = {
@@ -52,7 +53,8 @@ const initialState: CalendarState = {
   },
   records: [],
   isLoading: false,
-  isWallet: false
+  isWallet: false,
+  isDogProfile: false
 };
 
 export const getCalendarMemoApi = async (month: number, year: number) => {
@@ -83,10 +85,19 @@ const calendarSlice = createSlice({
     },
     setIsWallet: (state, action) => {
       state.isWallet = action.payload;
+    },
+    setIsDogProfile: (state, action) => {
+      state.isDogProfile = action.payload;
     }
   }
 });
 
-export const { setMemos, setSelectDay, setRecords, setIsLoading, setIsWallet } =
-  calendarSlice.actions; // 액션 생성함수
+export const {
+  setMemos,
+  setSelectDay,
+  setRecords,
+  setIsLoading,
+  setIsWallet,
+  setIsDogProfile
+} = calendarSlice.actions; // 액션 생성함수
 export default calendarSlice.reducer; // 리듀서

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import styles from "./plusdog.module.scss";
 import defaultDog from "../../public/icons/defaultDog.svg";
@@ -9,6 +9,8 @@ import sendFileToIPFS from "../api/web3/Web3";
 import addDog from "../api/dog/addDog";
 import NftModal from "../../components/common/NftModal";
 import loading from "../../public/icons/loading.svg";
+
+import { setIsDogProfile } from "../../redux/slice/calendarSlice";
 
 export interface nftDogType {
   dogName: string;
@@ -21,12 +23,12 @@ export interface nftDogType {
 function Plusdog() {
   const router = useRouter();
   const storeUser = useSelector((state: any) => state.user.userInfo);
-  const [flag, setFlag] = useState(false);
   const walletRef = useRef<HTMLInputElement>(null);
   const walletAddress =
     "0xa06989ee6270d06b5f00e9a4b3374460276bf6e83edcbe432e4f509fcad061fe";
   const [uploadimg, setUploadimg] = useState<any>(null);
   const [imgFile, setImgFile] = useState(null);
+  const dispatch = useDispatch();
   const [nftDog, setNftDog] = useState<nftDogType>({
     dogName: "",
     dogNumber: "",
@@ -71,6 +73,8 @@ function Plusdog() {
   // };
 
   const makeNFT = async (e: any) => {
+    dispatch(setIsDogProfile(true));
+    router.push("/profile");
     const dogNft = await sendFileToIPFS(
       e,
       imgFile,
@@ -84,16 +88,19 @@ function Plusdog() {
       dogImg: dogNft[0],
       transactionHash: dogNft[1]
     });
-    setFlag(true);
+    addDog(apiDog)
+      .then((res) => {
+        if (res.status === 200) {
+          alert("강아지가 등록되었습니다.");
+          dispatch(setIsDogProfile(false));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("강아지가 등록이 실패했습니다.");
+        dispatch(setIsDogProfile(false));
+      });
   };
-
-  useEffect(() => {
-    if (flag) {
-      addDog(apiDog);
-      router.push("/profile");
-    }
-  }, [flag, apiDog]);
-
   // console.log(nftDog);
   return (
     <div className={`${styles.plusDog}`}>

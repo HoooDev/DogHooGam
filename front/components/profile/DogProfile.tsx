@@ -8,8 +8,11 @@ import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 // import defaultDog from "../../public/icons/defaultDog.svg";
+import { useSelector } from "react-redux";
 import styles from "./DogProfile.module.scss";
 import addImg from "../../public/icons/addImg.svg";
+import { RootState } from "../../redux/store";
+import Loading from "../../public/images/Spinner.gif";
 // import getDogList from "../../pages/api/dog/getDogList";
 // import SimpleSlider from "./Carousel";
 
@@ -26,7 +29,9 @@ interface dogType {
 
 function DogProfile() {
   const [myDogs, setMyDogs] = useState<dogType[]>([]);
-
+  const isDogProfile = useSelector(
+    (state: RootState) => state.calendar.isDogProfile
+  );
   useEffect(() => {
     const Token = window.localStorage.getItem("AccessToken");
     axios({
@@ -109,29 +114,29 @@ function DogProfile() {
               </div>
             );
           })}
-          <div className={`${styles.dogProfileBox}`}>
-            <Link href="/profile/plusdog">
+          {isDogProfile ? (
+            <div className={`${styles.dogProfileBox}`}>
               <div className={`${styles.addDogBtn}`}>
-                <Image src={addImg} />
+                <Image src={Loading} />
               </div>
-            </Link>
-            <p className={`${styles.addDogBtnText}`}>
-              NFT 신분증을 등록 해보세요!
-            </p>
-          </div>
-        </Slider>
-      ) : (
-        <div className={`${styles.dogProfileBox}`}>
-          <Link href="/profile/plusdog">
-            <div className={`${styles.addDogBtn}`}>
-              <Image src={addImg} />
+              <p className={`${styles.addDogBtnText}`}>
+                현재 신분증이 등록중입니다!
+              </p>
             </div>
-          </Link>
-          <p className={`${styles.addDogBtnText}`}>
-            NFT 신분증을 등록 해보세요!
-          </p>
-        </div>
-      )}
+          ) : (
+            <div className={`${styles.dogProfileBox}`}>
+              <Link href="/profile/plusdog">
+                <div className={`${styles.addDogBtn}`}>
+                  <Image src={addImg} />
+                </div>
+              </Link>
+              <p className={`${styles.addDogBtnText}`}>
+                NFT 신분증을 등록 해보세요!
+              </p>
+            </div>
+          )}
+        </Slider>
+      ) : null}
     </div>
   );
 }
