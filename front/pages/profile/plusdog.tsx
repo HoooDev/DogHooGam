@@ -164,6 +164,7 @@ function Plusdog() {
           <input
             type="text"
             className={`${styles.dogInput} notoReg`}
+            maxLength={10}
             onChange={(e) => {
               setNftDog({ ...nftDog, dogBreed: e.target.value });
               setApiDog({ ...apiDog, dogBreed: e.target.value });
