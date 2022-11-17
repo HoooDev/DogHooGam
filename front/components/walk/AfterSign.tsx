@@ -94,7 +94,11 @@ const AfterSign = () => {
 
   const onStopClick = () => {
     onPuaseClick();
-    if (confirm("산책을 마치시겠습니까?")) {
+    if (
+      confirm(
+        "산책을 마치시겠습니까?\nINK 발행은 최대 1분이 소요될 수 있습니다."
+      )
+    ) {
       dispatch(finishWalkingApi())
         .unwrap()
         .then(() => {
