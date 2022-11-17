@@ -78,12 +78,12 @@ function Plusdog() {
       storeUser.userWalletAddress
     );
     console.log(dogNft[0], dogNft[1], "이미지, 트랜해쉬");
-    setApiDog({
+
+    addDog({
       ...apiDog,
       dogImg: dogNft[0],
       transactionHash: dogNft[1]
-    });
-    addDog(apiDog)
+    })
       .then((res) => {
         if (res.status === 200) {
           alert("강아지가 등록되었습니다.");
