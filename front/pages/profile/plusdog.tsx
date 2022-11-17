@@ -7,8 +7,6 @@ import styles from "./plusdog.module.scss";
 import defaultDog from "../../public/icons/defaultDog.svg";
 import sendFileToIPFS from "../api/web3/Web3";
 import addDog from "../api/dog/addDog";
-import NftModal from "../../components/common/NftModal";
-import loading from "../../public/icons/loading.svg";
 
 import { setIsDogProfile } from "../../redux/slice/calendarSlice";
 
@@ -45,9 +43,6 @@ function Plusdog() {
     transactionHash: "",
     dogNumber: ""
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   function handleImageUpload(e: any) {
     const fileArr = e.target.files;
@@ -104,14 +99,9 @@ function Plusdog() {
   // console.log(nftDog);
   return (
     <div className={`${styles.plusDog}`}>
-      <NftModal isOpen={isModalOpen}>
-        <Image src={loading} />
-        <p className={`${styles.loadingFont} notoBold`}>NFT 발행 중입니다.</p>
-      </NftModal>
       <form
         onSubmit={(e: any) => {
           makeNFT(e);
-          toggleModal();
         }}
       >
         <div className={`${styles.dogProfileBox}`}>
