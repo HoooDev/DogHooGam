@@ -80,10 +80,10 @@ function Detail() {
               lng: feed.lng
             }}
             image={{
-              src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png", // 마커이미지의 주소입니다
+              src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/ba2d9ac3ceb1413dccda58b29d010819/pin.png", // 마커이미지의 주소입니다
               size: {
-                width: 64,
-                height: 69
+                width: 40,
+                height: 40
               }, // 마커이미지의 크기입니다
               options: {
                 offset: {

@@ -32,7 +32,7 @@ const WalkSlider = ({ dogs }) => {
     <div className={styles.wrapper}>
       <Slider {...settings}>
         {dogs?.map((dog) => (
-          <div key={dog.pk} className={styles.dogCard}>
+          <div key={dog.pk} className={`${styles.dogCard} notoMid`}>
             <img
               className={`${styles.dogCard__img}`}
               src={dog.dogImg}

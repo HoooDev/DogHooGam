@@ -198,7 +198,6 @@ function Todo({ isUpdated }: { isUpdated: boolean }) {
           placeholder="메모를 입력해보세요!"
           onChange={onChange}
           onKeyPress={handleKeyPress}
-          autoFocus
         />
         <div className={`${styles.enter}`} onClick={() => handleMessage()}>
           <Image src={left} alt="등록" />

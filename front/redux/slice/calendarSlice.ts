@@ -59,12 +59,12 @@ const initialState: CalendarState = {
 
 export const getCalendarMemoApi = async (month: number, year: number) => {
   const res = await axios.get(`/calendar/memo?month=${month}&year=${year}`);
-  return res.data;
+  return res?.data;
 };
 
 export const getCalendarWalkApi = async (month: number, year: number) => {
   const res = await axios.get(`/calendar/walk?month=${month}&year=${year}`);
-  return res.data;
+  return res?.data;
 };
 
 const calendarSlice = createSlice({

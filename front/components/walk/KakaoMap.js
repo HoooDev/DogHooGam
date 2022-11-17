@@ -322,7 +322,9 @@ const KakaoMap = () => {
               src={feed.feedImg}
               alt="feed image"
             />
-            <div className={styles.feedModal__content}>{feed.content}</div>
+            <div className={`${styles.feedModal__content} notoMid`}>
+              {feed.content}
+            </div>
           </div>
         )}
       </Modal>
@@ -399,10 +401,10 @@ const KakaoMap = () => {
                   lng: feed.lng
                 }} // 마커를 표시할 위치
                 image={{
-                  src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", // 마커이미지의 주소입니다
+                  src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/ba2d9ac3ceb1413dccda58b29d010819/pin.png", // 마커이미지의 주소입니다
                   size: {
-                    width: 24,
-                    height: 35
+                    width: 40,
+                    height: 40
                   } // 마커이미지의 크기입니다
                 }}
                 onClick={() => {
