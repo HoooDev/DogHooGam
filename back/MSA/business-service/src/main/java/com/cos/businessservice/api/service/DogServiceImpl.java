@@ -5,25 +5,33 @@ import com.cos.businessservice.DB.entity.Dog;
 import com.cos.businessservice.DB.entity.User;
 import com.cos.businessservice.DB.repository.DogRepository;
 import com.cos.businessservice.api.request.dogPostRequest;
+import com.cos.businessservice.common.util.S3Service;
 import com.cos.businessservice.error.Exception.custom.SomethingNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class DogServiceImpl implements DogService{
+    @Autowired
+    S3Service s3Service;
 
     @Autowired
     DogRepository dogRepository;
 
     @Override
-    public Dog registerDog(dogPostRequest dog, User user) throws IllegalArgumentException {
+    public Dog registerDog(dogPostRequest dog, User user, MultipartFile file) throws IllegalArgumentException, IOException {
+        Map<String,String> map = s3Service.upload(file, "P");
+
         Dog dogEntity = new Dog();
 
         dogEntity.setDogBreed(dog.getDogBreed());
-        dogEntity.setDogImg(dog.getDogImg());
+        dogEntity.setDogImg(map.get("fileUrl"));
         dogEntity.setDogCharacter(dog.getDogCharacter());
         dogEntity.setDogName(dog.getDogName());
         dogEntity.setHide(false);

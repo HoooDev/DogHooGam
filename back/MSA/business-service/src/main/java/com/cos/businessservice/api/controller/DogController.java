@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,15 +36,15 @@ public class DogController {
 
     @PostMapping()
     @ApiOperation(value = "강아지 등록하기",notes = "ntf 발행된 해쉬와 사진 주소로 강아지 등록",response = dogPostResponse.class)
-    public ResponseEntity<?> registerDog(@RequestHeader(JwtTokenUtil.HEADER_STRING) String authentication
-            , @RequestBody dogPostRequest dog){
+    public ResponseEntity<?> registerDog(@RequestHeader(JwtTokenUtil.HEADER_STRING) String authentication,
+                                         @RequestPart MultipartFile file, @RequestBody dogPostRequest dog){
         try {
 
             User user = userService.getUserByUserId(JwtTokenUtil.getUserId(authentication));
 
 
             log.info("userId : {} ", user.getUserId());
-            dogPostResponse dogRes = dogPostResponse.of(dogService.registerDog(dog,user));
+            dogPostResponse dogRes = dogPostResponse.of(dogService.registerDog(dog,user,file));
 
             return ResponseEntity.status(HttpStatus.OK).body(dogRes);
 
