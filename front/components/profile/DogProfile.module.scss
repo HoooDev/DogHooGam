@@ -9,8 +9,6 @@
     top: vw(25px);
     left: vw(25px);
     width: vw(360px);
-    display: flex;
-    align-items: flex-end;
     .imgBox {
       position: relative;
       width: vw(70px);
@@ -30,19 +28,19 @@
     }
     .dogNameBox {
       font-size: vw(20px);
-      margin-left: vw(20px);
+      margin-inline: vw(20px);
       place-self: center center;
-      .copyBtn {
-        color: white;
-        margin-left: vw(5px);
-        margin-block: vw(2px);
-        height: vw(22px);
-        width: vw(132px);
-        background-color: #9e7676;
-        border: none;
-        border-radius: vw(10px);
-        font-size: vw(12px);
-      }
+    }
+    .copyBtn {
+      color: white;
+      margin-left: vw(5px);
+      margin-block: vw(2px);
+      height: vw(22px);
+      width: vw(132px);
+      background-color: #9e7676;
+      border: none;
+      border-radius: vw(10px);
+      font-size: vw(12px);
     }
   }
   .addDogBtn {
@@ -81,8 +79,6 @@
       top: 25px;
       left: 25px;
       width: 360px;
-      display: flex;
-      align-items: flex-end;
       .imgBox {
         position: relative;
         width: 70px;
@@ -99,22 +95,21 @@
           // border-radius: 15px;
         }
       }
-
       .dogNameBox {
         font-size: 20px;
-        margin-left: 20px;
+        margin-inline: 20px;
         place-self: center center;
-        .copyBtn {
-          color: white;
-          margin-left: 5px;
-          margin-block: 2px;
-          height: 22px;
-          width: 133px;
-          background-color: #9e7676;
-          border: none;
-          border-radius: 10px;
-          font-size: 12px;
-        }
+      }
+      .copyBtn {
+        color: white;
+        margin-left: 5px;
+        margin-block: 2px;
+        height: 22px;
+        width: 133px;
+        background-color: #9e7676;
+        border: none;
+        border-radius: 10px;
+        font-size: 12px;
       }
     }
     .addDogBtn {
