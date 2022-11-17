@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable @next/next/no-img-element */
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,6 +16,7 @@ import { RootState } from "../../redux/store";
 import Loading from "../../public/images/Spinner.gif";
 // import getDogList from "../../pages/api/dog/getDogList";
 // import SimpleSlider from "./Carousel";
+import copy from "../../public/icons/copy.svg";
 
 interface dogType {
   pk: number;
@@ -32,6 +34,7 @@ function DogProfile() {
   const isDogProfile = useSelector(
     (state: RootState) => state.calendar.isDogProfile
   );
+
   useEffect(() => {
     const Token = window.localStorage.getItem("AccessToken");
     axios({
@@ -91,13 +94,12 @@ function DogProfile() {
                     {dog.dogName}
                   </div>
                   <div className="flex align-center">
-                    <button
+                    <div
                       className={`${styles.copyBtn} fs-10`}
-                      type="button"
                       onClick={() => handleCopyClipBoard(dog.transactionHash)}
                     >
-                      트랜잭션 해쉬 복사
-                    </button>
+                      <Image src={copy} alt="copy" />
+                    </div>
                   </div>
                 </div>
                 <div className={`${styles.dogInfoBox}`}>
@@ -109,6 +111,12 @@ function DogProfile() {
                   </p>
                   <p className={`${styles.dogInfo} notoReg fs-16`}>
                     성격 : {dog.dogCharacter}
+                  </p>
+                  <p className={`${styles.dogInfo} flex notoReg fs-16`}>
+                    <div className={styles.dogInfo__label}>신분증 주소 : </div>
+                    <div className={styles.dogInfo__content}>
+                      {`${dog.transactionHash.slice(0, 20)}...`}
+                    </div>
                   </p>
                 </div>
               </div>

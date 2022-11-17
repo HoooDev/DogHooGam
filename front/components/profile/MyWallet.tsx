@@ -17,6 +17,7 @@ import { getInfo } from "../../redux/slice/userSlice";
 import { setIsWallet } from "../../redux/slice/calendarSlice";
 import { RootState } from "../../redux/store";
 import Loading from "../../public/images/Spinner.gif";
+import copy from "../../public/icons/copy.svg";
 
 function MyWallet() {
   // const router = useRouter();
@@ -66,7 +67,7 @@ function MyWallet() {
     dispatch(setIsWallet(true));
     const Token = window.localStorage.getItem("AccessToken");
     const [userWalletAddress, userWalletKey] = await createAccount();
-    console.log(userWalletAddress, userWalletKey);
+    // console.log(userWalletAddress, userWalletKey);
     const getAxios = createWallet(userWalletAddress, userWalletKey);
     // router.push("/profile");
     getAxios
@@ -137,13 +138,12 @@ function MyWallet() {
             >
               {walletHash}
             </div>
-            <button
-              type="button"
+            <div
               className={`${styles.copyBtn} fs-10`}
               onClick={() => handleCopyClipBoard(walletAddress)}
             >
-              복사
-            </button>
+              <Image src={copy} alt="copy" />
+            </div>
           </div>
         </div>
       ) : (

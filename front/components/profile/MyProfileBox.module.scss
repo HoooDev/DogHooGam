@@ -1,6 +1,6 @@
 .myProfileBox {
   width: vw(380px);
-  height: vw(320px);
+  height: vw(280px);
   margin-top: vw(15px);
   border-radius: vw(15px);
   background-color: #f0f0f0;
@@ -46,7 +46,7 @@
 @media screen and (min-width: $PHONE-VW) {
   .myProfileBox {
     width: 380px;
-    height: 320px;
+    height: 280px;
     // border: 1px solid black;
     margin-top: 15px;
     border-radius: 15px;

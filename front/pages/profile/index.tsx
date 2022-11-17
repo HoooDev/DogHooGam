@@ -1,5 +1,5 @@
 // import { useRouter } from "next/router";
-import styles from "./profile.module.scss";
+import styles from "./index.module.scss";
 import MyProfileBox from "../../components/profile/MyProfileBox";
 import DogProfile from "../../components/profile/DogProfile";
 

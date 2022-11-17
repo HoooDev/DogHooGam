@@ -2,9 +2,8 @@
   margin-top: vw(50px);
   background-color: white;
   width: 90%;
-  height: 45%;
+  height: 50%;
   margin-inline: auto;
-  margin-top: vw(80px);
   border-radius: vw(15px);
   position: relative;
   .Loading {
@@ -69,14 +68,10 @@
         width: vw(160px);
       }
       .copyBtn {
-        margin-left: vw(4px);
-        color: white;
-        font-weight: bold;
-        height: vw(20px);
-        width: vw(50px);
-        background-color: #9e7676;
-        border: none;
-        border-radius: vw(10px);
+        position: absolute;
+        top: vw(20px);
+        right: vw(20px);
+        width: vw(24px);
       }
     }
   }
@@ -87,9 +82,8 @@
     margin-top: 50px;
     background-color: white;
     width: 90%;
-    height: 45%;
+    height: 50%;
     margin-inline: auto;
-    margin-top: 80px;
     border-radius: 15px;
     position: relative;
     .Loading {
@@ -154,14 +148,10 @@
           width: 160px;
         }
         .copyBtn {
-          margin-left: 4px;
-          color: white;
-          font-weight: bold;
-          height: 20px;
-          width: 50px;
-          background-color: #9e7676;
-          border: none;
-          border-radius: 10px;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          width: 24px;
         }
       }
     }
