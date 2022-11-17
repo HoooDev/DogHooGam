@@ -25,6 +25,7 @@ const SvgProfile = (props: any) => (
 function Navbar() {
   const router = useRouter();
   const { isLoading } = useSelector((state: RootState) => state.calendar);
+  const isCoinLoading = useSelector((state: RootState) => state.walk.isLoading);
   return (
     <nav
       className={`${styles.wrapper} flex justify-space-between align-center`}
@@ -37,7 +38,7 @@ function Navbar() {
       <div className={`${styles.imgbox} flex`}>
         {router.pathname === "/memory" ? (
           <div className="flex justify-center align-center">
-            {!isLoading ? (
+            {!isLoading && !isCoinLoading ? (
               <Link href="/memory/create">
                 <div
                   className={`${styles.profileimg} flex justify-center align-center`}
@@ -55,7 +56,7 @@ function Navbar() {
           </div>
         ) : (
           <div>
-            {isLoading ? (
+            {isLoading || isCoinLoading ? (
               <div
                 className={`${styles.loading} flex justify-center align-center`}
               >

@@ -17,22 +17,28 @@ export const getAdminAdress = async () => {
 
 export const sendToken = async (address, value) => {
   // console.log(address, value, "주소, 금액");
-  const coinBase = await getAdminAdress();
+  try {
+    const coinBase = await getAdminAdress();
 
-  await web3.eth.personal.unlockAccount(
-    coinBase,
-    process.env.NEXT_PUBLIC_COINBASE_PASSWORD,
-    300
-  );
+    await web3.eth.personal.unlockAccount(
+      coinBase,
+      process.env.NEXT_PUBLIC_COINBASE_PASSWORD,
+      300
+    );
 
-  await TOKENContract.methods.approve(coinBase, 100).send({ from: coinBase });
-  // 허용 한 후 ERC-20 토큰 전송 ( 로그인 시 10 잉크 (10잉크 -> 1피드) )
-  await TOKENContract.methods
-    .transferFrom(coinBase, address, value)
-    .send({ from: coinBase });
+    await TOKENContract.methods.approve(coinBase, 100).send({ from: coinBase });
+    // 허용 한 후 ERC-20 토큰 전송 ( 로그인 시 10 잉크 (10잉크 -> 1피드) )
+    await TOKENContract.methods
+      .transferFrom(coinBase, address, value)
+      .send({ from: coinBase });
 
-  alert(`${value} 잉크가 적립됐어요!`);
-  // console.log(a, "tx");
+    alert(`${value} 잉크가 적립됐어요!`);
+    return Promise.resolve();
+  } catch (error) {
+    console.error(error);
+    alert(`${value} 잉크 적립 실패했어요!`);
+    return Promise.reject();
+  }
 };
 
 // 지갑 잔액 확인
