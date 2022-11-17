@@ -12,7 +12,6 @@ import com.cos.businessservice.DB.repository.redis.PersonRedisRepository;
 import com.cos.businessservice.api.request.PersonEndRequest;
 import com.cos.businessservice.api.request.PersonRequest;
 import com.cos.businessservice.api.request.PersonWalkingRequest;
-import com.cos.businessservice.error.Exception.custom.SomethingNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -134,13 +133,15 @@ public class WalkServiceImpl implements WalkService {
         log.info("//////////////////////////////////////////////////////////////");
         String pk = personWalkingReq.getPersonId();
         Person p = redisRepo.findById(pk).orElse(new Person());
-        PersonId personId = personIdRedisRepository.findById(userId).orElseThrow(() -> new SomethingNotFoundException(userId + "의 산책 정보를 찾을 수 없음"));
+        PersonId personId = personIdRedisRepository.findById(userId).orElse(new PersonId());
         p.setId(pk);
         p.setLng(personWalkingReq.getLng());
         p.setLat(personWalkingReq.getLat());
         p.setLngArea(lngArea);
         p.setLatArea(latArea);
-        p.setDogPk(personId.getDogPk());
+        if(p.getDogPk() == null && personId.getDogPk() != null) {
+            p.setDogPk(personId.getDogPk());
+        }
         redisRepo.deleteById(pk);
         List<Person> personList = redisRepo.findAll();
 
@@ -166,16 +167,17 @@ public class WalkServiceImpl implements WalkService {
     public boolean endWalking(PersonEndRequest walkReq, User user) {
         log.info("체크");
         PersonId personId = personIdRedisRepository.findById(user.getUserId())
-                .orElseThrow(() -> new SomethingNotFoundException(user.getUserId() + "의 산책 정보를 찾을 수 없음"));
-        log.info("PersonId : " + personId.toString());
+                .orElse(null);
 
-        personIdRedisRepository.deleteById(user.getUserId());
+
+        if(personId == null){
+            return false;
+        }
 
         log.info(walkReq.lineToString());
 
         Person p = redisRepo.findById(personId.getPersonId()).orElse(new Person());
         log.info(p.toString());
-        redisRepo.deleteById(personId.getPersonId());
 
         if(p.getId() == null){
             return false;
@@ -191,6 +193,8 @@ public class WalkServiceImpl implements WalkService {
         walk.setUser(user);
         walkRepository.save(walk);
 
+        redisRepo.deleteById(personId.getPersonId());
+        personIdRedisRepository.deleteById(user.getUserId());
 
         return true;
     }

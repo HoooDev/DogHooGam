@@ -68,7 +68,7 @@ public class WalkController {
         try {
             log.info("산책 중 시작");
 
-            String userId = JwtTokenUtil.getUserId(authentication)
+            String userId = JwtTokenUtil.getUserId(authentication);
 
             List<Person> personList = walkService.walkingDogList(personWalkingReq, userId);
 
