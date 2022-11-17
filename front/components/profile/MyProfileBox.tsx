@@ -10,7 +10,7 @@ import MyWallet from "./MyWallet";
 function MyProfileBox() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
 
-  console.log(storeUser);
+  // console.log(storeUser);
 
   function getLogout(e: any) {
     e.preventDefault();
@@ -18,7 +18,7 @@ function MyProfileBox() {
     window.localStorage.removeItem("persist:root");
     Router.push("/");
   }
-  console.log(storeUser);
+  // console.log(storeUser);
   return (
     <div className={`${styles.myProfileBox}`}>
       <button

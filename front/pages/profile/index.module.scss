@@ -1,0 +1,13 @@
+.profile {
+  margin-inline: vw(20px);
+  margin-top: vw(30px);
+  margin-bottom: vw(30px);
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .profile {
+    margin-inline: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
