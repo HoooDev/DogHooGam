@@ -11,16 +11,40 @@ import {
   finishWalking,
   finishWalkingApi,
   getMyDogs,
-  setMyDogs
+  setMyDogs,
+  setIsLoading
 } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 import DogImage from "../../components/walk/DogImage";
+import { sendToken } from "../api/web3/Web3.js";
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted, myDogs } = useSelector(
+  const { isWalkingStarted, myDogs, coin } = useSelector(
     (state: RootState) => state.walk
   );
+  const {
+    userInfo
+  }: {
+    userInfo: any;
+  } = useSelector((state: RootState) => state.user);
+
+  const publishToken = async () => {
+    try {
+      if (userInfo?.userWalletAddress) {
+        // await sendToken(userInfo.userWalletAddress, 100);
+        await sendToken(userInfo.userWalletAddress, coin);
+        dispatch(setIsLoading(false));
+        // console.log("INK 적립 성공했습니다.");
+        alert("INK 적립 성공했습니다.");
+      }
+    } catch (error) {
+      console.error(error);
+      dispatch(setIsLoading(false));
+      alert("INK 적립 실패했습니다.");
+    }
+  };
+
   useEffect(() => {
     dispatch(finishWalking());
     getMyDogs()
@@ -30,10 +54,16 @@ const Index: NextPage = () => {
       .catch(() => console.error);
     return () => {
       if (isWalkingStarted) {
-        dispatch(finishWalkingApi());
+        dispatch(finishWalkingApi())
+          .unwrap()
+          .then(() => {
+            dispatch(setIsLoading(true));
+            publishToken();
+          })
+          .catch(() => console.error);
       }
     };
-  }, []);
+  }, [userInfo]);
 
   return (
     <div className={`${styles.wrapper}`}>

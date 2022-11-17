@@ -12,9 +12,11 @@ import {
   pauseWalking,
   restartWalking,
   saveCoin,
-  saveTime
+  saveTime,
+  setIsLoading
 } from "../../redux/slice/walkSlice";
 import { AppDispatch, RootState } from "../../redux/store";
+import { sendToken } from "../../pages/api/web3/Web3";
 
 const calCoin = (ms: number): number => {
   const minute = ms / 1000 / 60;
@@ -32,6 +34,12 @@ const AfterSign = () => {
   );
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
   const [time, setTime] = useState(0);
+
+  const {
+    userInfo
+  }: {
+    userInfo: any;
+  } = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
     if (!isPaused) {
@@ -59,34 +67,6 @@ const AfterSign = () => {
     }
   }, [isPaused]);
 
-  // useEffect(() => {
-  //   requestIdleCallback(() => {
-  //     if (!isPaused) {
-  //       if (interval.current) {
-  //         clearInterval(interval.current);
-  //       }
-  //       interval.current = setInterval(() => {
-  //         setTime((prev) => {
-  //           // 10 초
-  //           const sec = (prev + 10) / 1000;
-  //           if (sec % 10 === 0) {
-  //             const res = calCoin(prev + 10);
-  //             dispatch(saveCoin(res));
-  //           }
-  //           if ((prev + 10) % 1000 === 0) {
-  //             dispatch(saveTime(prev + 10));
-  //           }
-  //           return prev + 10;
-  //         });
-  //       }, 10);
-  //     } else if (isPaused) {
-  //       if (interval.current) {
-  //         clearInterval(interval.current);
-  //       }
-  //     }
-  //   });
-  // }, [isPaused]);
-
   const onPlayClick = () => {
     dispatch(restartWalking());
     // setIsPausing((prev) => !prev);
@@ -97,10 +77,31 @@ const AfterSign = () => {
     dispatch(pauseWalking());
   };
 
+  const publishToken = async () => {
+    try {
+      if (userInfo?.userWalletAddress) {
+        await sendToken(userInfo.userWalletAddress, 100);
+        dispatch(setIsLoading(false));
+        // console.log("INK 적립 성공했습니다.");
+        alert("INK 적립 성공했습니다.");
+      }
+    } catch (error) {
+      console.error(error);
+      dispatch(setIsLoading(false));
+      alert("INK 적립 실패했습니다.");
+    }
+  };
+
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
-      dispatch(finishWalkingApi());
+      dispatch(finishWalkingApi())
+        .unwrap()
+        .then(() => {
+          dispatch(setIsLoading(true));
+          publishToken();
+        })
+        .catch(() => console.error);
     } else {
       onPlayClick();
     }

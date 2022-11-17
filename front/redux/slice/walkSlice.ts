@@ -1,8 +1,8 @@
+/* eslint-disable no-alert */
 /* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../../pages/api/index";
-import { sendToken } from "../../pages/api/web3/Web3";
 
 interface Location {
   lat: number;
@@ -89,12 +89,12 @@ export const finishWalkingApi = createAsyncThunk<Any>(
         walkPath: state.walk.paths,
         time: state.walk.time
       });
-      if (res.status === 200) {
-        // if (state.walk.coin !== 0) {
-        // sendToken(state.user.userInfo.userWalletAddress, state.walk.coin);
-        // }
-        await sendToken(state.user.userInfo.userWalletAddress, 100);
-      }
+      // if (res.status === 200) {
+      // if (state.walk.coin !== 0) {
+      // sendToken(state.user.userInfo.userWalletAddress, state.walk.coin);
+      // }
+      // sendToken(state.user.userInfo.userWalletAddress, 100);
+      // }
       return res.data;
     } catch (error) {
       console.error(error);
@@ -171,10 +171,14 @@ const walkSlice = createSlice({
     },
     saveCoin: (state, { payload }) => {
       state.coin = payload;
+    },
+    setIsLoading: (state, { payload }) => {
+      state.isLoading = payload;
     }
   },
   extraReducers: (builder) => {
     builder.addCase(finishWalkingApi.fulfilled, (state) => {
+      console.log("fulfilled");
       state.isWalkingStarted = false;
       state.selectedDogs = [];
       state.totalDist = "0.00";
@@ -190,12 +194,14 @@ const walkSlice = createSlice({
       state.dogState = 0;
       state.coin = 0;
     });
-    builder.addCase(finishWalkingApi.rejected, (state) => {
-      state.isLoading = false;
-    });
-    builder.addCase(finishWalkingApi.pending, (state) => {
-      state.isLoading = true;
-    });
+    // builder.addCase(finishWalkingApi.rejected, (state) => {
+    //   console.log("rejected");
+    //   state.isLoading = false;
+    // });
+    // builder.addCase(finishWalkingApi.pending, (state) => {
+    //   console.log("pending");
+    //   state.isLoading = true;
+    // });
   }
 });
 
@@ -211,6 +217,7 @@ export const {
   saveTime,
   toggleDogState,
   setMyDogs,
-  saveCoin
+  saveCoin,
+  setIsLoading
 } = walkSlice.actions; // 액션 생성함수
 export default walkSlice.reducer; // 리듀서
