@@ -21,9 +21,9 @@ interface Dog {
 }
 
 interface WalkState {
-  loading: boolean;
-  success: boolean;
-  error: any;
+  // loading: boolean;
+  // success: boolean;
+  // error: any;
   isWalkingStarted: boolean;
   selectedDogs: any[];
   totalDist: string;
@@ -39,12 +39,13 @@ interface WalkState {
   dogState: number;
   myDogs: Dog[];
   coin: number;
+  isLoading: boolean;
 }
 
 const initialState: WalkState = {
-  loading: false,
-  success: false,
-  error: null,
+  // loading: false,
+  // success: false,
+  // error: null,
   isWalkingStarted: false,
   selectedDogs: [],
   totalDist: "0.00",
@@ -59,7 +60,8 @@ const initialState: WalkState = {
   others: [],
   dogState: 0,
   myDogs: [],
-  coin: 0
+  coin: 0,
+  isLoading: false
 }; // 초기 상태 정의
 
 export const startWalkingApi = async (data: any) => {
@@ -91,7 +93,7 @@ export const finishWalkingApi = createAsyncThunk<Any>(
         // if (state.walk.coin !== 0) {
         // sendToken(state.user.userInfo.userWalletAddress, state.walk.coin);
         // }
-        sendToken(state.user.userInfo.userWalletAddress, 100);
+        await sendToken(state.user.userInfo.userWalletAddress, 100);
       }
       return res.data;
     } catch (error) {
@@ -187,6 +189,12 @@ const walkSlice = createSlice({
       state.others = [];
       state.dogState = 0;
       state.coin = 0;
+    });
+    builder.addCase(finishWalkingApi.rejected, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(finishWalkingApi.pending, (state) => {
+      state.isLoading = true;
     });
   }
 });

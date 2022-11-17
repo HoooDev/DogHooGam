@@ -232,7 +232,7 @@ const KakaoMap = () => {
           nowWalkingApi({ lat, lng, personId })
             .then((res) => {
               const tmp = res.filter((item) => item.dogPk !== null);
-              setOtherPositions(tmp);
+              setOtherPositions([...tmp]);
               // dispatch(pushPaths({ lat, lng }));
               setCenter({ lat, lng });
               handleClick({ lat, lng });
