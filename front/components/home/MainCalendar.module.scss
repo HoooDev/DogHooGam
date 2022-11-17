@@ -12,6 +12,17 @@
       overflow-y: auto;
       max-height: vw(100px);
     }
+    .calendarS::-webkit-scrollbar {
+      width: 4px;
+    }
+    .calendarS::-webkit-scrollbar-thumb {
+      height: 17%;
+      background-color: rgb(151, 151, 150);
+      border-radius: 10px;
+    }
+    .calendarS::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0);
+    }
     .memo {
       display: block;
       border: none;
@@ -19,7 +30,7 @@
       background-color: rgba(0, 0, 0, 0);
       margin-block: vw(5px);
       text-align: start;
-      width: vw(170px);
+      width: vw(150px);
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow-x: hidden;
@@ -50,9 +61,10 @@
         max-height: 100px;
         .memo {
           margin-block: 5px;
-          width: 170px;
+          width: 150px;
           height: 25px;
         }
+        
         .done {
           text-decoration: line-through;
           text-decoration-thickness: 1px;
