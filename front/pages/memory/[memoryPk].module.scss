@@ -40,10 +40,11 @@
       margin-left: vw(5px);
       margin-top: vw(70px);
       margin-inline: vw(20px);
+      line-height:normal;
     }
     .time {
       margin-left: vw(5px);
-      margin-top: vw(20px);
+      margin-block: vw(10px) vw(30px);
       margin-inline: vw(20px);
       color: #a8a8a8;
     }
@@ -96,7 +97,7 @@
       }
       .time {
         margin-left: 5px;
-        margin-top: 20px;
+        margin-block: 10px 30px;
         margin-inline: 20px;
         color: #a8a8a8;
       }
