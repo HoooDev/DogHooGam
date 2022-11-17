@@ -21,20 +21,27 @@
       width: vw(410px);
       height: vw(300px);
       margin: auto;
+      .backicon{
+        width: vw(25px);
+        height: vw(25px);
+      }
       .img {
         width: 100%;
         height: 100%;
+        margin-top: vw(20px);
         border-radius: vw(15px);
         object-fit: contain;
       }
     }
     .content {
       margin-left: vw(5px);
-      margin-top: vw(50px);
+      margin-top: vw(70px);
+      margin-inline: vw(20px);
     }
     .time {
       margin-left: vw(5px);
       margin-top: vw(20px);
+      margin-inline: vw(20px);
       color: #a8a8a8;
     }
   }
@@ -64,22 +71,32 @@
         width: 410px;
         height: 300px;
         margin: auto;
+        .backicon{
+          width: 25px;
+          height: 25px;
+        }
         .img {
           width: 100%;
           height: 100%;
+          margin-top: 20px;
           border-radius: 15px;
           object-fit: contain;
         }
       }
       .content {
         margin-left: 5px;
-        margin-top: 50px;
+        margin-top: 70px;
+        margin-inline: 20px;
       }
       .time {
         margin-left: 5px;
         margin-top: 20px;
+        margin-inline: 20px;
         color: #a8a8a8;
       }
+    }
+    .map{
+      margin-inline: auto;
     }
   }
 }
