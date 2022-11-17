@@ -48,7 +48,7 @@ function DogProfile() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [isDogProfile]);
 
   const settings = {
     dots: true,
