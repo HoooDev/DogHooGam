@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
+import { useRouter } from "next/router.js";
 import KakaoMap from "../../components/walk/KakaoMap.js";
 import BeforeSign from "../../components/walk/BeforeSign";
 import AfterSign from "../../components/walk/AfterSign";
@@ -29,6 +30,13 @@ const Index: NextPage = () => {
     userInfo: any;
   } = useSelector((state: RootState) => state.user);
 
+  const router = useRouter();
+  useEffect(() => {
+    if (userInfo.userWalletAddress == null) {
+      alert("먼저 지갑을 생성 해주세요!");
+      router.push("/profile");
+    }
+  }, []);
   const publishToken = async () => {
     try {
       if (userInfo?.userWalletAddress) {
