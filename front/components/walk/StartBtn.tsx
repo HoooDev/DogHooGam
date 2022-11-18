@@ -7,10 +7,13 @@ import type { AppDispatch, RootState } from "../../redux/store/index";
 
 const StartBtn = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { selectedDogs, dogState } = useSelector(
+  const { selectedDogs, dogState, isCoinLoading } = useSelector(
     (state: RootState) => state.walk
   );
   const onWalkStartClick = () => {
+    if (isCoinLoading) {
+      return alert("INK 발행 중입니다. 잠시만 기다려주세요.");
+    }
     if (selectedDogs.length === 0) {
       return alert("산책 전 반려견을 선택해주세요.");
     }
