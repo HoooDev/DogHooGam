@@ -16,14 +16,13 @@ export interface nftDogType {
   dogBreed: string;
   birthday: string;
   dogCharacter: string;
+  walletAddress: string;
 }
 
 function Plusdog() {
   const router = useRouter();
   const storeUser = useSelector((state: any) => state.user.userInfo);
   const walletRef = useRef<HTMLInputElement>(null);
-  const walletAddress =
-    "0xa06989ee6270d06b5f00e9a4b3374460276bf6e83edcbe432e4f509fcad061fe";
   const [uploadimg, setUploadimg] = useState<any>(null);
   const [imgFile, setImgFile] = useState(null);
   const dispatch = useDispatch();
@@ -32,7 +31,8 @@ function Plusdog() {
     dogNumber: "",
     dogBreed: "",
     birthday: "",
-    dogCharacter: ""
+    dogCharacter: "",
+    walletAddress: ""
   });
   const [apiDog, setApiDog] = useState<any>({
     birthday: "",
@@ -55,48 +55,53 @@ function Plusdog() {
       setUploadimg(reader.result);
     };
   }
-
   const getWalletAdd = () => {
-    if (walletRef.current) {
-      walletRef.current.value = walletAddress;
+    if (storeUser.userWalletAddress === "") {
+      alert("지갑이 없습니다. 지갑을 생성 해주세요.");
+      router.push("/profile");
+    }
+    if (storeUser.userWalletAddress && walletRef.current) {
+      walletRef.current.value = storeUser.userWalletAddress;
+      setNftDog({ ...nftDog, walletAddress: storeUser.userWalletAddress });
       // eslint-disable-next-line no-alert
       alert("지갑 주소를 불러왔습니다.");
     }
   };
-  // const addDogInfo = () => {
-  //   addDog(apiDog);
-  // };
 
   const makeNFT = async (e: any) => {
-    try {
-      dispatch(setIsDogProfile(true));
-      router.push("/profile");
-      const dogNft = await sendFileToIPFS(
-        e,
-        imgFile,
-        nftDog,
-        0,
-        storeUser.userWalletAddress
-      );
-      // console.log(dogNft[0], dogNft[1], "이미지, 트랜해쉬");
+    if (nftDog.walletAddress === "") {
+      alert("지갑 주소를 입력 해주세요!");
+    } else if (nftDog.walletAddress.length !== 42) {
+      alert("지갑 주소가 틀렸습니다. 다시입력해주세요");
+    } else {
+      try {
+        dispatch(setIsDogProfile(true));
+        router.push("/profile");
+        const dogNft = await sendFileToIPFS(
+          e,
+          imgFile,
+          nftDog,
+          0,
+          storeUser.userWalletAddress
+        );
 
-      await addDog(
-        {
-          ...apiDog,
-          dogImg: dogNft[0],
-          transactionHash: dogNft[1]
-        },
-        imgFile
-      );
-      alert("강아지가 등록되었습니다.");
-      dispatch(setIsDogProfile(false));
-    } catch (error) {
-      console.error(error);
-      dispatch(setIsDogProfile(false));
-      alert("강아지가 등록이 실패했습니다.");
+        await addDog(
+          {
+            ...apiDog,
+            dogImg: dogNft[0],
+            transactionHash: dogNft[1]
+          },
+          imgFile
+        );
+        alert("강아지가 등록되었습니다.");
+        dispatch(setIsDogProfile(false));
+      } catch (error) {
+        console.error(error);
+        dispatch(setIsDogProfile(false));
+        alert("강아지가 등록이 실패했습니다.");
+      }
     }
   };
-  // console.log(nftDog);
   return (
     <div className={`${styles.plusDog}`}>
       <form
@@ -128,9 +133,6 @@ function Plusdog() {
                   <Image src={defaultDog} />
                 </div>
               )}
-              {/* <div className={`${styles.dogImg}`}>
-              <Image src={dogDummy} />
-            </div> */}
             </label>
           </div>
           <p className={`${styles.dogProfileTitle}  notoBold`}>강아지 프로필</p>
@@ -210,6 +212,9 @@ function Plusdog() {
             // name="walletAdd"
             ref={walletRef}
             className={`${styles.dogInput} notoReg`}
+            onChange={(e) => {
+              setNftDog({ ...nftDog, walletAddress: e.target.value });
+            }}
           />
           <hr />
         </div>
