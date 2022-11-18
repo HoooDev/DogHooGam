@@ -3,19 +3,25 @@
   position: relative;
   .feedModal {
     .feedModal__img {
+      border-radius: vw(10px);
       margin: 0 auto;
-      width: vw(100px);
-      height: vw(100px);
+      width: vw(180px);
+      height: vw(180px);
       margin-bottom: vw(20px);
     }
     .feedModal__content {
+      margin-bottom: vw(10px);
+    }
+    .feedModal__date {
+      font-size: vw(12px);
+      color: $GRAY_9E;
     }
   }
   .opacity {
     opacity: 0.3;
   }
   .buttons {
-    z-index: 3;
+    z-index: 2;
     position: absolute;
     bottom: vw(10px);
     right: vw(10px);
@@ -23,20 +29,29 @@
       padding: vw(2px);
       width: vw(24px);
       height: vw(24px);
+      padding: vw(6px);
       border: vw(2px) solid $BLACK;
+      border-radius: 50%;
+      background-color: $WHITE;
     }
     .buttons__feed {
       padding: vw(2px);
       width: vw(24px);
       height: vw(24px);
+      padding: vw(6px);
       border: vw(2px) solid $BLACK;
-      margin-block: vw(6px);
+      margin-block: 6px;
+      border-radius: 50%;
+      background-color: $WHITE;
     }
     .buttons__path {
       padding: vw(2px);
       width: vw(24px);
       height: vw(24px);
+      padding: vw(6px);
       border: vw(2px) solid $BLACK;
+      border-radius: 50%;
+      background-color: $WHITE;
     }
   }
   .map {
@@ -48,11 +63,12 @@
   .curLocation {
     z-index: 1;
     position: absolute;
-    left: vw(10px);
-    bottom: vw(10px);
+    left: vw(12px);
+    bottom: vw(20px);
     width: vw(24px);
     height: vw(24px);
     padding: vw(4px);
+    border-radius: 50%;
     background-color: $WHITE;
   }
 }
@@ -63,19 +79,25 @@
     position: relative;
     .feedModal {
       .feedModal__img {
+        border-radius: 10px;
         margin: 0 auto;
-        width: (100px);
-        height: (100px);
+        width: (180px);
+        height: (180px);
         margin-bottom: (20px);
       }
       .feedModal__content {
+        margin-bottom: (10px);
+      }
+      .feedModal__date {
+        font-size: (12px);
+        color: $GRAY_9E;
       }
     }
     .opacity {
       opacity: 0.3;
     }
     .buttons {
-      z-index: 3;
+      z-index: 2;
       position: absolute;
       bottom: (10px);
       right: (10px);
@@ -83,20 +105,29 @@
         padding: (2px);
         width: (24px);
         height: (24px);
+        padding: (6px);
         border: (2px) solid $BLACK;
+        border-radius: 50%;
+        background-color: $WHITE;
       }
       .buttons__feed {
         padding: (2px);
         width: (24px);
         height: (24px);
+        padding: (6px);
         border: (2px) solid $BLACK;
         margin-block: 6px;
+        border-radius: 50%;
+        background-color: $WHITE;
       }
       .buttons__path {
         padding: (2px);
         width: (24px);
         height: (24px);
+        padding: (6px);
         border: (2px) solid $BLACK;
+        border-radius: 50%;
+        background-color: $WHITE;
       }
     }
     .map {
@@ -108,11 +139,12 @@
     .curLocation {
       z-index: 1;
       position: absolute;
-      left: (10px);
-      bottom: (10px);
+      left: (12px);
+      bottom: (20px);
       width: (24px);
       height: (24px);
       padding: (4px);
+      border-radius: 50%;
       background-color: $WHITE;
     }
   }

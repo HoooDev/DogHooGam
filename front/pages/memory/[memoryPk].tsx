@@ -91,10 +91,10 @@ function Detail() {
                 lng: feed.lng
               }}
               image={{
-                src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/ba2d9ac3ceb1413dccda58b29d010819/pin.png", // 마커이미지의 주소입니다
+                src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b4c5e7861b0c4ecf37e46427200d1663/star.png", // 마커이미지의 주소입니다
                 size: {
-                  width: 40,
-                  height: 40
+                  width: 34,
+                  height: 34
                 }, // 마커이미지의 크기입니다
                 options: {
                   offset: {
