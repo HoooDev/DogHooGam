@@ -30,9 +30,8 @@ function MyWallet() {
   const [flag, setFlag] = useState(false);
   const isWallet = useSelector((state: RootState) => state.calendar.isWallet);
   // const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const [walletHash, setWalletHash] = useState<string>(
-    `${storeUser.userWalletAddress.slice(0, 13)}...`
-  );
+
+  const [walletHash, setWalletHash] = useState<string>("");
 
   const getWalletBalance = async () => {
     const balance = await getBalance(storeUser.userWalletAddress);
@@ -41,8 +40,9 @@ function MyWallet() {
   useEffect(() => {
     if (storeUser.userWalletAddress) {
       getWalletBalance();
+      setWalletHash(`${storeUser.userWalletAddress.slice(0, 13)}...`);
     }
-  }, []);
+  }, [storeUser]);
 
   const handleCopyClipBoard = async (text: string) => {
     try {

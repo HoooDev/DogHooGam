@@ -126,21 +126,6 @@ const sendFileToIPFS = async (e, file, text, value, address, userKey) => {
       )
       .send({ from: coinBase })
       .then((res) => res.transactionHash);
-
-    // const amountToBn = web3.utils.toBN(`${value}`);
-    // console.log(amountToBn);
-    // await TOKENContract.methods
-    //   .approve(address, value)
-    //   .send({ from: coinBase });
-
-    // await TOKENContract.methods
-    //   .transferFrom(
-    //     address,
-    //     "0x52aEdCe8c99d769C9896A518Cb5927744F5da32b",
-    //     amountToBn
-    //   )
-    //   .send({ from: coinBase });
-    // .catch((err) => console.log(err));
   }
 
   if (file) {
