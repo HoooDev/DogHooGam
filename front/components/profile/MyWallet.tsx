@@ -114,7 +114,9 @@ function MyWallet() {
         <div className={`${styles.walletTextBox}`}>
           <p
             className={`${styles.walletCoin} notoReg fs-16`}
-          >{`보유코인 : ${walletBalance} INK`}</p>
+          >{`보유코인 : ${walletBalance
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} INK`}</p>
           <div className={`${styles.walletAddressBox} flex notoReg fs-16`}>
             <div className={`${styles.walletAddress1}`}>지갑주소 : </div>
             <div

@@ -100,7 +100,11 @@ function Create() {
       alert("잉크가 모자랍니다. 산책으로 잉크를 모아주세요!");
     } else if (nftFeed.content === "") {
       alert("내용을 입력해주세요");
-    } else if (window.confirm("100INK를 사용하여 피드를 작성하시겠습니까?")) {
+    } else if (
+      window.confirm(
+        "100INK를 사용하여 피드를 작성하시겠습니까? \n 발행 시 최대 1분 정도 소요 될 수 있습니다."
+      )
+    ) {
       // toggleModal();
 
       try {
