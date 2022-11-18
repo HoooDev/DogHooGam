@@ -95,7 +95,6 @@ function Create() {
       setUploadimg(reader.result);
     };
   }
-  console.log(walletBalance);
   const makeNFT = async (e: any) => {
     if (walletBalance < 100) {
       alert("잉크가 모자랍니다. 산책으로 잉크를 모아주세요!");
@@ -107,43 +106,43 @@ function Create() {
       )
     ) {
       // toggleModal();
-      dispatch(setIsLoading(true));
-      router.push("/memory");
-      const feedNft = await sendFileToIPFS(
-        e,
-        imgFile,
-        nftFeed,
-        100,
-        storeUser.userWalletAddress,
-        userKey
-      );
-      console.log(feedNft[0], feedNft[1], "이미지, 트랜해쉬");
-      setApiFeed({
-        ...apiFeed,
-        feedImg: feedNft[0],
-        transactionHash: feedNft[1]
-      });
-      // setFlag(true);
 
-      addFeed(
-        {
+      try {
+        dispatch(setIsLoading(true));
+        router.push("/memory");
+        const feedNft = await sendFileToIPFS(
+          e,
+          imgFile,
+          nftFeed,
+          100,
+          storeUser.userWalletAddress,
+          userKey
+        );
+        // console.log(feedNft[0], feedNft[1], "이미지, 트랜해쉬");
+        setApiFeed({
           ...apiFeed,
           feedImg: feedNft[0],
           transactionHash: feedNft[1]
-        },
-        imgFile
-      )
-        .then((res) => {
-          if (res.status === 200) {
-            dispatch(setIsLoading(false));
-            alert("피드가 등록되었습니다.");
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-          alert("피드가 등록이 실패했습니다.");
-          dispatch(setIsLoading(false));
         });
+        // setFlag(true);
+
+        const res = await addFeed(
+          {
+            ...apiFeed,
+            feedImg: feedNft[0],
+            transactionHash: feedNft[1]
+          },
+          imgFile
+        );
+        if (res.status === 200) {
+          dispatch(setIsLoading(false));
+          alert("피드가 등록되었습니다.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("피드가 등록이 실패했습니다.");
+        dispatch(setIsLoading(false));
+      }
       // router.push("/memory");
     }
   };

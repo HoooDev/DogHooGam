@@ -64,43 +64,28 @@ function MyWallet() {
   }, [flag]);
 
   const createUserWallet = async () => {
-    dispatch(setIsWallet(true));
-    const Token = window.localStorage.getItem("AccessToken");
-    const [userWalletAddress, userWalletKey] = await createAccount();
-    // console.log(userWalletAddress, userWalletKey);
-    const getAxios = createWallet(userWalletAddress, userWalletKey);
-    // router.push("/profile");
-    getAxios
-      .then((res) => {
-        if (res.status === 200) {
-          axios({
-            url: `https://dog-hoogam.site:8000/api/user-service/user`,
-            method: "get",
-            headers: { Authorization: `Bearer ${Token}` }
-          })
-            .then((rres) => {
-              if (rres.status === 200) {
-                dispatch(getInfo(rres.data));
-                // return res.data;
-                console.log("토글");
-                alert("지갑이 생성되었습니다.");
-                dispatch(setIsWallet(false));
-                // toggleModal();
-                setFlag(true);
-              }
-              return [];
-            })
-            .catch((err) => {
-              console.log(err);
-              alert("지갑이 생성이 실패했습니다.");
-              dispatch(setIsWallet(false));
-            });
-        }
-        return [];
-      })
-      .catch((err) => {
-        console.log(err);
+    try {
+      dispatch(setIsWallet(true));
+      const Token = window.localStorage.getItem("AccessToken");
+      const [userWalletAddress, userWalletKey] = await createAccount();
+      // console.log(userWalletAddress, userWalletKey);
+      const getAxios = createWallet(userWalletAddress, userWalletKey);
+      // router.push("/profile");
+      await getAxios;
+      const res = await axios({
+        url: `https://dog-hoogam.site:8000/api/user-service/user`,
+        method: "get",
+        headers: { Authorization: `Bearer ${Token}` }
       });
+      setFlag(true);
+      dispatch(getInfo(res.data));
+      dispatch(setIsWallet(false));
+      alert("지갑 생성 성공했습니다.");
+    } catch (error) {
+      console.log(error);
+      dispatch(setIsWallet(false));
+      alert("지갑 생성 실패했습니다.");
+    }
   };
 
   const onClickHash = () => {

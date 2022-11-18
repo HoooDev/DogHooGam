@@ -9,12 +9,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  // CustomOverlayMap,
-  Map,
-  MapMarker,
-  Polyline
-} from "react-kakao-maps-sdk";
+import { Map, MapMarker, Polyline } from "react-kakao-maps-sdk";
 
 import gps from "../../public/icons/gps.svg";
 import styles from "./KakaoMap.module.scss";
@@ -58,7 +53,6 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 };
 
 const KakaoMap = () => {
-  // console.log(process.env.NEXT_PUBLIC_KAKAO_KEY);
   const showDogs = useRef();
   const showFeeds = useRef();
   const showPaths = useRef();
@@ -191,11 +185,8 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
-        // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
-        // const lng = parseFloat(position.coords.longitude.toFixed(5));
         dispatch(pushPaths({ lat, lng }));
         setCenter({ lat, lng });
-        // handleClick({ lat, lng });
       });
     } else {
       alert("지도 정보를 허용해주세요!");
@@ -207,8 +198,6 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude; // 위도
         const lng = position.coords.longitude; // 경도
-        // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
-        // const lng = parseFloat(position.coords.longitude.toFixed(5));
         map.setCenter(new kakao.maps.LatLng(lat, lng));
         setCenter({ lat, lng });
       });
@@ -226,14 +215,11 @@ const KakaoMap = () => {
         (position) => {
           const lat = position.coords.latitude; // 위도
           const lng = position.coords.longitude; // 경도
-          // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
-          // const lng = parseFloat(position.coords.longitude.toFixed(5));
           console.log(lat, lng);
           nowWalkingApi({ lat, lng, personId })
             .then((res) => {
               const tmp = res.filter((item) => item.dogPk !== null);
               setOtherPositions([...tmp]);
-              // dispatch(pushPaths({ lat, lng }));
               setCenter({ lat, lng });
               handleClick({ lat, lng });
             })
@@ -308,6 +294,9 @@ const KakaoMap = () => {
             <div className={`${styles.feedModal__content} notoMid`}>
               {feed.content}
             </div>
+            <div className={`${styles.feedModal__date} notoMid`}>
+              {feed.createDate}
+            </div>
           </div>
         )}
       </Modal>
@@ -336,8 +325,8 @@ const KakaoMap = () => {
             image={{
               src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/cb6c81bf7666ee151f433a868703a3da/record.png",
               size: {
-                width: 20,
-                height: 20
+                width: 24,
+                height: 24
               }, // 마커이미지의 크기입니다
               options: {
                 offset: {
@@ -384,10 +373,10 @@ const KakaoMap = () => {
                   lng: feed.lng
                 }} // 마커를 표시할 위치
                 image={{
-                  src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/ba2d9ac3ceb1413dccda58b29d010819/pin.png", // 마커이미지의 주소입니다
+                  src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b4c5e7861b0c4ecf37e46427200d1663/star.png", // 마커이미지의 주소입니다
                   size: {
-                    width: 40,
-                    height: 40
+                    width: 34,
+                    height: 34
                   } // 마커이미지의 크기입니다
                 }}
                 onClick={() => {

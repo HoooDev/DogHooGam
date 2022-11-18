@@ -68,36 +68,33 @@ function Plusdog() {
   // };
 
   const makeNFT = async (e: any) => {
-    dispatch(setIsDogProfile(true));
-    router.push("/profile");
-    const dogNft = await sendFileToIPFS(
-      e,
-      imgFile,
-      nftDog,
-      0,
-      storeUser.userWalletAddress
-    );
-    console.log(dogNft[0], dogNft[1], "이미지, 트랜해쉬");
+    try {
+      dispatch(setIsDogProfile(true));
+      router.push("/profile");
+      const dogNft = await sendFileToIPFS(
+        e,
+        imgFile,
+        nftDog,
+        0,
+        storeUser.userWalletAddress
+      );
+      // console.log(dogNft[0], dogNft[1], "이미지, 트랜해쉬");
 
-    addDog(
-      {
-        ...apiDog,
-        dogImg: dogNft[0],
-        transactionHash: dogNft[1]
-      },
-      imgFile
-    )
-      .then((res) => {
-        if (res.status === 200) {
-          alert("강아지가 등록되었습니다.");
-          dispatch(setIsDogProfile(false));
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("강아지가 등록이 실패했습니다.");
-        dispatch(setIsDogProfile(false));
-      });
+      await addDog(
+        {
+          ...apiDog,
+          dogImg: dogNft[0],
+          transactionHash: dogNft[1]
+        },
+        imgFile
+      );
+      alert("강아지가 등록되었습니다.");
+      dispatch(setIsDogProfile(false));
+    } catch (error) {
+      console.error(error);
+      dispatch(setIsDogProfile(false));
+      alert("강아지가 등록이 실패했습니다.");
+    }
   };
   // console.log(nftDog);
   return (
