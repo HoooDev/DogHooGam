@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 import styles from "./AfterSign.module.scss";
 import pause from "../../public/icons/pause.svg";
@@ -28,8 +29,9 @@ const calCoin = (ms: number): number => {
 };
 
 const AfterSign = () => {
+  const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
-  const { totalDist, isPaused, coin } = useSelector(
+  const { totalDist, isPaused, coin, isWalkingStarted } = useSelector(
     (state: RootState) => state.walk
   );
   const interval: { current: NodeJS.Timeout | null } = useRef(null);
@@ -77,13 +79,45 @@ const AfterSign = () => {
     dispatch(pauseWalking());
   };
 
-  const publishToken = async () => {
+  // const publishToken = async () => {
+  //   if (userInfo?.userWalletAddress) {
+  //     await sendToken(userInfo.userWalletAddress, 100);
+  //     dispatch(setIsCoinLoading(false));
+  //   }
+  // };
+
+  const onStopClick = () => {
+    onPuaseClick();
+    if (confirm("산책을 마치시겠습니까?")) {
+      router.push("/calendar");
+      // try {
+      //   await dispatch(finishWalkingApi()).unwrap();
+      //   dispatch(setIsCoinLoading(true));
+      //   await publishToken();
+      //   alert("INK 적립 성공했습니다.");
+      // } catch (error) {
+      //   console.error(error);
+      //   dispatch(setIsCoinLoading(false));
+      //   alert("INK 적립 실패했습니다.");
+      // }
+    } else {
+      onPlayClick();
+    }
+  };
+
+  const finishAndPublishToken = async () => {
+    alert("산책이 종료되었습니다.\nINK 발행은 최대 1분이 소요될 수 있습니다.");
     try {
+      await dispatch(finishWalkingApi()).unwrap();
+      dispatch(setIsCoinLoading(true));
       if (userInfo?.userWalletAddress) {
-        await sendToken(userInfo.userWalletAddress, 100);
+        // await sendToken(userInfo.userWalletAddress, 100);
+        await sendToken(userInfo.userWalletAddress, coin);
         dispatch(setIsCoinLoading(false));
-        // console.log("INK 적립 성공했습니다.");
         alert("INK 적립 성공했습니다.");
+      } else {
+        dispatch(setIsCoinLoading(false));
+        alert("INK 적립 실패했습니다.");
       }
     } catch (error) {
       console.error(error);
@@ -92,24 +126,13 @@ const AfterSign = () => {
     }
   };
 
-  const onStopClick = () => {
-    onPuaseClick();
-    if (
-      confirm(
-        "산책을 마치시겠습니까?\nINK 발행은 최대 1분이 소요될 수 있습니다."
-      )
-    ) {
-      dispatch(finishWalkingApi())
-        .unwrap()
-        .then(() => {
-          dispatch(setIsCoinLoading(true));
-          publishToken();
-        })
-        .catch(() => console.error);
-    } else {
-      onPlayClick();
-    }
-  };
+  useEffect(() => {
+    return () => {
+      if (isWalkingStarted) {
+        finishAndPublishToken();
+      }
+    };
+  }, [isWalkingStarted]);
 
   return (
     <div className={`${styles.wrapper}`}>

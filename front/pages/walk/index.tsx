@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-restricted-globals */
 import { NextPage } from "next";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -10,18 +12,18 @@ import styles from "./index.module.scss";
 import type { AppDispatch, RootState } from "../../redux/store/index";
 import {
   finishWalking,
-  finishWalkingApi,
+  // finishWalkingApi,
   getMyDogs,
-  setMyDogs,
-  setIsCoinLoading
+  setMyDogs
+  // setIsCoinLoading
 } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 import DogImage from "../../components/walk/DogImage";
-import { sendToken } from "../api/web3/Web3.js";
+// import { sendToken } from "../api/web3/Web3.js";
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isWalkingStarted, myDogs, coin } = useSelector(
+  const { isWalkingStarted, myDogs } = useSelector(
     (state: RootState) => state.walk
   );
   const {
@@ -37,21 +39,6 @@ const Index: NextPage = () => {
       router.push("/profile");
     }
   }, []);
-  const publishToken = async () => {
-    try {
-      if (userInfo?.userWalletAddress) {
-        // await sendToken(userInfo.userWalletAddress, 100);
-        await sendToken(userInfo.userWalletAddress, coin);
-        dispatch(setIsCoinLoading(false));
-        // console.log("INK 적립 성공했습니다.");
-        alert("INK 적립 성공했습니다.");
-      }
-    } catch (error) {
-      console.error(error);
-      dispatch(setIsCoinLoading(false));
-      alert("INK 적립 실패했습니다.");
-    }
-  };
 
   useEffect(() => {
     dispatch(finishWalking());
@@ -60,18 +47,7 @@ const Index: NextPage = () => {
         dispatch(setMyDogs(res));
       })
       .catch(() => console.error);
-    return () => {
-      if (isWalkingStarted) {
-        dispatch(finishWalkingApi())
-          .unwrap()
-          .then(() => {
-            dispatch(setIsCoinLoading(true));
-            publishToken();
-          })
-          .catch(() => console.error);
-      }
-    };
-  }, [userInfo]);
+  }, []);
 
   return (
     <div className={`${styles.wrapper}`}>
