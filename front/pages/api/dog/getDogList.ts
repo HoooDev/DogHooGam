@@ -9,7 +9,6 @@ const getDogList = () => {
   })
     .then((res) => {
       if (res.status === 200) {
-        console.log(res.data);
         return res.data;
       }
       return [];

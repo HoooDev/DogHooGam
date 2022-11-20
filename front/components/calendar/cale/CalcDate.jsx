@@ -8,7 +8,6 @@ const splitDate = (target) => {
 };
 
 const CalcDate = (start, end) => {
-  // console.log("end", end);
   const returnYMD = (ymd) => {
     const now = new Date(ymd);
     const year = now.getFullYear();

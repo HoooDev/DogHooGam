@@ -1,11 +1,7 @@
-// import { useRouter } from "next/router";
-
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 function Redirect() {
-  // const [token, setToken] = useState<string>("");
-  // const router = useRouter();
   const router = useRouter();
 
   useEffect(() => {

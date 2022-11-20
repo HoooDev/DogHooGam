@@ -1,75 +1,71 @@
-// 390 보다 작을 때
 .wrapper {
   font-size: vw(40px);
   margin-right: vw(10px);
   width: 100%;
   height: 100vh;
-  background-color: #FFF8EA;
+  background-color: #fff8ea;
   text-align: center;
-  .introImg{
+  .introImg {
     width: vw(200px);
     height: vw(200px);
     margin-inline: auto;
     padding-top: vw(100px);
   }
-  .intro{
+  .intro {
     margin-top: vw(100px);
-    .text{
+    .text {
       margin-block: vw(20px);
       width: vw(200px);
       text-align: end;
       margin-inline: auto;
     }
   }
-  .button{
+  .button {
     height: vw(50px);
     width: vw(280px);
     margin-inline: auto;
     margin-top: vw(100px);
-    background-color: #F9E000;
+    background-color: #f9e000;
     border: none;
     border-radius: 10px;
-    
-    .kakao{
+
+    .kakao {
       margin-left: vw(20px);
       margin-right: vw(30px);
       height: vw(35px);
       width: vw(35px);
     }
   }
-  
 }
 
-// 390 보다 클 때
 @media screen and (min-width: $PHONE-VW) {
   .wrapper {
     font-size: 40px;
     margin-right: 10px;
-    .introImg{
+    .introImg {
       width: 200px;
       height: 200px;
       margin-inline: auto;
       padding-top: 100px;
     }
-    .intro{
+    .intro {
       margin-top: 100px;
-      .text{
+      .text {
         margin-block: 20px;
         width: 200px;
         text-align: end;
         margin-inline: auto;
       }
     }
-    .button{
+    .button {
       height: 50px;
       width: 280px;
       margin-inline: auto;
       margin-top: 100px;
-      background-color: #F9E000;
+      background-color: #f9e000;
       border: none;
       border-radius: 10px;
-      
-      .kakao{
+      .kakao {
         margin-left: 20px;
         margin-right: 30px;
         height: 35px;

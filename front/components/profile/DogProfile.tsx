@@ -8,14 +8,11 @@ import { v4 } from "uuid";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
-// import defaultDog from "../../public/icons/defaultDog.svg";
 import { useSelector } from "react-redux";
 import styles from "./DogProfile.module.scss";
 import addImg from "../../public/icons/addImg.svg";
 import { RootState } from "../../redux/store";
 import Loading from "../../public/images/Spinner.gif";
-// import getDogList from "../../pages/api/dog/getDogList";
-// import SimpleSlider from "./Carousel";
 import copy from "../../public/icons/copy.svg";
 
 interface dogType {
@@ -64,10 +61,8 @@ function DogProfile() {
   const handleCopyClipBoard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      // eslint-disable-next-line no-alert
       alert("트랜잭션 주소가 복사 되었습니다.");
     } catch (error) {
-      // eslint-disable-next-line no-alert
       alert("복사에 실패했습니다.");
     }
   };
@@ -81,7 +76,6 @@ function DogProfile() {
               <div key={v4()} className={`${styles.dogProfileBox}`}>
                 <div className={`${styles.profileBox} flex`}>
                   <div className={`${styles.imgBox}`}>
-                    {/* <div className={`${styles.dogImg}`}> */}
                     <img
                       className={`${styles.dogImg}`}
                       src={dog.dogImg}

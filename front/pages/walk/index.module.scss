@@ -15,10 +15,8 @@
       width: vw(2px);
     }
 
-    /* 스크롤바 막대 설정*/
     .dogSelectedCards::-webkit-scrollbar-thumb {
       background-color: $GRAY_D9;
-      /* 스크롤바 둥글게 설정    */
       border-radius: vw(10px);
     }
   }
@@ -42,10 +40,8 @@
         width: 2px;
       }
 
-      /* 스크롤바 막대 설정*/
       .dogSelectedCards::-webkit-scrollbar-thumb {
         background-color: $GRAY_D9;
-        /* 스크롤바 둥글게 설정    */
         border-radius: 10px;
       }
     }

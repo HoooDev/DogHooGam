@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-// import React, { useState } from "react";
 // eslint-disable-next-line import/no-unresolved
 import { useSelector, useDispatch } from "react-redux";
 import styles1 from "./DayCheck.module.scss";
@@ -39,11 +38,9 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
   const walkRecord = useSelector((state) => state.calendar.records);
   const makeDay = (week) => {
     const result2 = [];
-    // 첫 주
     if (week === 1) {
       const prevLastDate = parseInt(new Date(year, month, 0).getDate(), 10);
       for (let i = 1; i <= 7; i += 1) {
-        // 저번 달 날짜
         if (i <= firstDay) {
           const now = prevLastDate - firstDay + i;
           const idx = returnIdx("PREV", year, month, now);
@@ -54,9 +51,7 @@ const MakeCalendar = ({ year, month, firstDay, lastDate }) => {
               </button>
             </td>
           );
-        }
-        // 현재 달 날짜
-        else {
+        } else {
           const now = i - firstDay;
           const idx = returnIdx("", year, month, now);
           let dayTag;

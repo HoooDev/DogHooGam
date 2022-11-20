@@ -12,8 +12,8 @@ const MyLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const lat = position.coords.latitude; // 위도
-          const lng = position.coords.longitude; // 경도
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
           setState({
             level: 3,
             center: {
@@ -40,13 +40,13 @@ const MyLocation = () => {
   return (
     <div>
       {!!state && (
-        <Map // 지도를 표시할 Container
+        <Map
           center={state.center}
           style={{
             width: "100%",
             height: "450px"
           }}
-          level={state.level} // 지도의 확대 레벨
+          level={state.level}
           onCenterChanged={(map) =>
             setState({
               level: map.getLevel(),

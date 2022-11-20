@@ -16,7 +16,6 @@ function MemoryList() {
     getFeed()
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
           const memoryList = res.data;
           if (isLoading) {
             memoryList.push({
@@ -38,17 +37,6 @@ function MemoryList() {
         console.log(err);
       });
   }, [isLoading]);
-
-  // const dummys = [
-  //   { id: 1 },
-  //   { id: 2 },
-  //   { id: 3 },
-  //   { id: 4 },
-  //   { id: 5 },
-  //   { id: 6 },
-  //   { id: 7 }
-  // ];
-  console.log(feeds);
   return (
     <div>
       {feeds.length > 0 ? (

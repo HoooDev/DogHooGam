@@ -65,10 +65,8 @@ function Chat() {
     }
   ]);
 
-  // 스크롤 아래로 고정
   const scrollRef = useRef<any>();
   useEffect(() => {
-    console.log(1234);
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({
         behavior: "smooth"
@@ -77,15 +75,12 @@ function Chat() {
   }, [chatbox]);
 
   function getSelectResult(e: any) {
-    console.log(e);
-
     axios({
       url: `https://dog-hoogam.site/chatbot/indata`,
       method: "get",
       params: { data: e }
     })
       .then((res) => {
-        console.log(res);
         if (res.data.length === 1 && res.data[0].symptom === "분류불가") {
           setChatbox((prev) => [
             ...prev,
@@ -189,7 +184,6 @@ function Chat() {
       params: { symptom: e.target.id, icd: e.target.innerText }
     })
       .then((res) => {
-        console.log(res);
         setChatbox((prev) => [
           ...prev,
           {
@@ -219,7 +213,6 @@ function Chat() {
           if (message.sender === "you") {
             const ICDlist = message.ICD;
             const DiseaseList: any[] = [];
-            console.log(message);
             if (message.disease.length > 0) {
               for (let i = 0; i < message.disease.length; i += 1) {
                 DiseaseList.push([
@@ -249,7 +242,6 @@ function Chat() {
                         <h1>자세한 내용을 알고 싶으면 항목을 선택해주세요!</h1>
                         <div className="flex column align-center">
                           {ICDlist.map((item) => {
-                            console.log(message.symtptom);
                             return (
                               <button
                                 className={`${styles.selectbutton} fs-13 notoMid`}

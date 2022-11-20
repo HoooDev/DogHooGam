@@ -139,7 +139,6 @@ function Todo({ isUpdated }: { isUpdated: boolean }) {
     }
   };
 
-  // 스크롤 아래로 고정
   const scrollRef = useRef<any>();
   useEffect(() => {
     if (scrollRef.current) {

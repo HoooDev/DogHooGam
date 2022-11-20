@@ -209,7 +209,6 @@ function Plusdog() {
           </div>
           <input
             type="text"
-            // name="walletAdd"
             ref={walletRef}
             className={`${styles.dogInput} notoReg`}
             onChange={(e) => {

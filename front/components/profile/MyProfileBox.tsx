@@ -1,16 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-// import Image from "next/image";
-
 import { useSelector } from "react-redux";
 import Router from "next/router";
 import styles from "./MyProfileBox.module.scss";
-// import defaultUser from "../../public/icons/defaultUser.png";
 import MyWallet from "./MyWallet";
 
 function MyProfileBox() {
   const storeUser = useSelector((state: any) => state.user.userInfo);
-
-  // console.log(storeUser);
 
   function getLogout(e: any) {
     e.preventDefault();
@@ -18,7 +13,6 @@ function MyProfileBox() {
     window.localStorage.removeItem("persist:root");
     Router.push("/");
   }
-  // console.log(storeUser);
   return (
     <div className={`${styles.myProfileBox}`}>
       <button

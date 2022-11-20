@@ -4,7 +4,7 @@
   height: vw(50px);
   width: vw(30px);
   padding-top: vw(10px);
-  .dayButton{
+  .dayButton {
     border: none;
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: vw(10px);
@@ -19,16 +19,16 @@
     margin-bottom: vw(10px);
     width: vw(30px);
     height: vw(30px);
-  } 
+  }
 
-  .isMemo{
+  .isMemo {
     background-color: rgb(251, 128, 183);
     border-radius: vw(100px);
     width: vw(10px);
     height: vw(10px);
     margin-right: vw(1px);
   }
-  .isWalk{
+  .isWalk {
     background-color: rgb(110, 207, 149);
     border-radius: vw(100px);
     width: vw(10px);
@@ -39,11 +39,9 @@
 
 .selectDay {
   height: vw(36px);
-  // border-radius: 100px;
   text-align: center;
   padding-top: vw(10px);
-  // background-color: #9E7676;
-  .dayButton{
+  .dayButton {
     border: none;
     color: white;
     width: vw(30px);
@@ -52,7 +50,7 @@
     border-radius: 50%;
     margin-bottom: vw(10px);
   }
-  .isMemo{
+  .isMemo {
     background-color: rgb(251, 128, 183);
     border-radius: vw(100px);
     width: vw(10px);
@@ -60,7 +58,7 @@
     margin-right: vw(1px);
   }
 
-  .isWalk{
+  .isWalk {
     background-color: rgb(50, 200, 110);
     border-radius: vw(100px);
     width: vw(10px);
@@ -76,14 +74,14 @@
     height: 36px;
     width: 30px;
     padding-top: 10px;
-    .dayButton{
+    .dayButton {
       border: none;
       background-color: rgba(0, 0, 0, 0);
       margin-bottom: 10px;
       width: 30px;
       height: 30px;
     }
-  
+
     .daydiff {
       color: rgba(0, 0, 0, 0.3) !important;
       border: none;
@@ -91,16 +89,16 @@
       margin-bottom: 10px;
       width: 30px;
       height: 30px;
-    } 
-  
-    .isMemo{
+    }
+
+    .isMemo {
       background-color: rgb(251, 128, 183);
       border-radius: 100px;
       width: 10px;
       height: 10px;
       margin-right: 1px;
     }
-    .isWalk{
+    .isWalk {
       background-color: rgb(110, 207, 149);
       border-radius: 100px;
       width: 10px;
@@ -108,32 +106,29 @@
       margin-left: 1px;
     }
   }
-  
+
   .selectDay {
     height: 36px;
-    // border-radius: 100px;
     text-align: center;
     padding-top: 10px;
-    // background-color: #9E7676;
-    .dayButton{
+    .dayButton {
       border: none;
       color: white;
       width: 30px;
       height: 30px;
-      // background-color: rgba(0, 0, 0, 0);
       background-color: $MAIN;
       border-radius: 50%;
       margin-bottom: 10px;
     }
-    .isMemo{
+    .isMemo {
       background-color: rgb(251, 128, 183);
       border-radius: 100px;
       width: 10px;
       height: 10px;
       margin-right: 1px;
     }
-  
-    .isWalk{
+
+    .isWalk {
       background-color: rgb(50, 200, 110);
       border-radius: 100px;
       width: 10px;
@@ -148,7 +143,7 @@
   height: 50px;
   width: 30px;
   padding-top: 10px;
-  .dayButton{
+  .dayButton {
     border: none;
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 10px;
@@ -163,16 +158,16 @@
     margin-bottom: 10px;
     width: 30px;
     height: 30px;
-  } 
+  }
 
-  .isMemo{
+  .isMemo {
     background-color: rgb(251, 128, 183);
     border-radius: 100px;
     width: 10px;
     height: 10px;
     margin-right: 1px;
   }
-  .isWalk{
+  .isWalk {
     background-color: rgb(110, 207, 149);
     border-radius: 100px;
     width: 10px;
@@ -183,21 +178,18 @@
 
 .selectDay {
   height: 36px;
-  // border-radius: 100px;
   text-align: center;
   padding-top: 10px;
-  // background-color: #9E7676;
-  .dayButton{
+  .dayButton {
     border: none;
     color: white;
     width: 30px;
     height: 30px;
-    // background-color: rgba(0, 0, 0, 0);
     background-color: $MAIN;
     border-radius: 50%;
     margin-bottom: 10px;
   }
-  .isMemo{
+  .isMemo {
     background-color: rgb(251, 128, 183);
     border-radius: 100px;
     width: 10px;
@@ -205,12 +197,11 @@
     margin-right: 1px;
   }
 
-  .isWalk{
+  .isWalk {
     background-color: rgb(50, 200, 110);
     border-radius: 100px;
     width: 10px;
     height: 10px;
     margin-left: 1px;
   }
-
 }

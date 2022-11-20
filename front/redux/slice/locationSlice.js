@@ -11,11 +11,10 @@ export const location = createSlice({
   initialState,
   reducers: {
     getLocation: (state, action) => {
-      console.log(action.payload);
       state.locationInfo = action.payload;
     }
   }
 });
 
-export const { getLocation } = location.actions; // 액션 생성함수
-export default location.reducer; // 리듀서
+export const { getLocation } = location.actions;
+export default location.reducer;

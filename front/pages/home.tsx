@@ -12,8 +12,6 @@ function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     const Token = window.localStorage.getItem("AccessToken");
-    // console.log(Token);
-
     axios({
       url: `https://dog-hoogam.site/api/user-service/user`,
       method: "get",

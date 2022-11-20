@@ -7,13 +7,9 @@
   grid-gap: vw(18px);
   gap: vw(3px);
   .item {
-    // background-color: rgb(173, 173, 173);
-    // border-radius: 10px;
     .imgBox {
       width: vw(138px);
       height: vw(140px);
-      // box-shadow: 0px 0px 3px 1px rgb(230, 228, 228);
-      // background-color: rgb(240, 238, 238);
       .imgBox__content {
         margin-block: vw(2px);
         color: rgb(150, 150, 150);
@@ -23,7 +19,6 @@
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
-      // border-radius: 15px;
     }
   }
 }
@@ -49,8 +44,6 @@
     grid-gap: 18px;
     gap: 3px;
     .item {
-      // background-color: rgb(173, 173, 173);
-      // border-radius: 10px;
       .imgBox {
         width: 138px;
         height: 140px;
@@ -62,7 +55,6 @@
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
-        // border-radius: 15px;
       }
     }
   }

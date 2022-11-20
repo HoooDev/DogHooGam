@@ -15,7 +15,6 @@ import {
   REGISTER
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-// import logger from "redux-logger";
 import { createWrapper, MakeStore } from "next-redux-wrapper";
 import walkSlice from "../slice/walkSlice";
 import userSlice from "../slice/userSlice";
@@ -44,7 +43,6 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
       }
-      // }).concat(logger),
     }),
   devTools: process.env.NEXT_PUBLIC_NODE_ENV !== "production"
 });

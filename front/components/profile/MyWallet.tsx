@@ -1,18 +1,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import Image from "next/image";
-// import axios from "axios";
-// import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./MyWallet.module.scss";
 import walletLogo from "../../public/icons/walletLogo.png";
 import addImg from "../../public/icons/addImg.svg";
-// import { createAccount, getBalance } from "";
 import { createAccount, getBalance } from "../../pages/api/web3/Web3";
 import createWallet from "../../pages/api/user/createWallet";
-// import NftModal from "../common/NftModal";
-// import loading from "../../public/icons/loading.svg";
 import { getInfo } from "../../redux/slice/userSlice";
 import { setIsWallet } from "../../redux/slice/calendarSlice";
 import { RootState } from "../../redux/store";
@@ -20,19 +15,13 @@ import Loading from "../../public/images/Spinner.gif";
 import copy from "../../public/icons/copy.svg";
 
 function MyWallet() {
-  // const router = useRouter();
   const dispatch = useDispatch();
   const storeUser = useSelector((state: any) => state.user.userInfo);
-  // const dummy = false;
   const walletAddress = storeUser.userWalletAddress;
   const [walletBalance, setWalletBalance] = useState(0);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [flag, setFlag] = useState(false);
   const isWallet = useSelector((state: RootState) => state.calendar.isWallet);
-  // const toggleModal = () => setIsModalOpen(!isModalOpen);
-
   const [walletHash, setWalletHash] = useState<string>("");
-
   const getWalletBalance = async () => {
     const balance = await getBalance(storeUser.userWalletAddress);
     setWalletBalance(balance);
@@ -47,18 +36,14 @@ function MyWallet() {
   const handleCopyClipBoard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-
-      // eslint-disable-next-line no-alert
       alert("지갑 주소가 복사 되었습니다.");
     } catch (error) {
-      // eslint-disable-next-line no-alert
       alert("복사에 실패했습니다.");
     }
   };
 
   useEffect(() => {
     if (flag) {
-      // toggleModal();
       getWalletBalance();
     }
   }, [flag]);
@@ -68,9 +53,7 @@ function MyWallet() {
       dispatch(setIsWallet(true));
       const Token = window.localStorage.getItem("AccessToken");
       const [userWalletAddress, userWalletKey] = await createAccount();
-      // console.log(userWalletAddress, userWalletKey);
       const getAxios = createWallet(userWalletAddress, userWalletKey);
-      // router.push("/profile");
       await getAxios;
       const res = await axios({
         url: `https://dog-hoogam.site:8000/api/user-service/user`,
@@ -94,19 +77,6 @@ function MyWallet() {
 
   return (
     <div className={`${styles.myWalletBox}`}>
-      {/* <NftModal isOpen={isModalOpen}>
-        <Image src={loading} />
-        <p className={`${styles.loadingFont} notoBold fs-20`}>
-          지갑을 생성 중입니다.
-        </p>
-        <br />
-        <p className={`${styles.loadingFont} notoMid fs-14`}>
-          생성 시 지급되는 100 INK로
-        </p>
-        <p className={`${styles.loadingFont} notoMid fs-14`}>
-          첫 피드를 작성해보세요!
-        </p>
-      </NftModal> */}
       <div className={`${styles.walletIcon}`}>
         <Image src={walletLogo} />
       </div>
@@ -134,7 +104,6 @@ function MyWallet() {
           </div>
         </div>
       ) : (
-        // <div className={`${styles.walletTextBox}`}>
         <div style={{ height: "100%" }}>
           {isWallet ? (
             <div

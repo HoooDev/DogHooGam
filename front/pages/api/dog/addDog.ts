@@ -2,7 +2,6 @@ import axios from "axios";
 
 const addDog = async (data: any, image: any) => {
   const Token = window.localStorage.getItem("AccessToken");
-  console.log(data);
   const formData = new FormData();
   formData.append("file", image);
   formData.append(

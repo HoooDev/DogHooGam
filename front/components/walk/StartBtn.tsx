@@ -19,11 +19,8 @@ const StartBtn = () => {
     }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude; // 위도
-        const lng = position.coords.longitude; // 경도
-        // const lat = parseFloat(position.coords.latitude.toFixed(5)); // 위도
-        // const lng = parseFloat(position.coords.longitude.toFixed(5)); // 경도
-        // const dogPkList = myDogs.map((dog) => dog.pk);
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
         const dogPkList = selectedDogs.map((dog) => dog.id);
         startWalkingApi({
           dogPk: dogPkList,

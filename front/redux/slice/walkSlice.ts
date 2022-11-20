@@ -21,9 +21,6 @@ interface Dog {
 }
 
 interface WalkState {
-  // loading: boolean;
-  // success: boolean;
-  // error: any;
   isWalkingStarted: boolean;
   selectedDogs: any[];
   totalDist: string;
@@ -43,9 +40,6 @@ interface WalkState {
 }
 
 const initialState: WalkState = {
-  // loading: false,
-  // success: false,
-  // error: null,
   isWalkingStarted: false,
   selectedDogs: [],
   totalDist: "0.00",
@@ -62,7 +56,7 @@ const initialState: WalkState = {
   myDogs: [],
   coin: 0,
   isCoinLoading: false
-}; // 초기 상태 정의
+};
 
 export const startWalkingApi = async (data: any) => {
   const res = await axios.post("/walk", data);
@@ -77,24 +71,16 @@ export const nowWalkingApi = async (data: any) => {
 type Any = any;
 
 export const finishWalkingApi = createAsyncThunk<Any>(
-  // Types for ThunkAPI
   "walk/finishWalking",
   async (_, { getState }) => {
     const state: any = getState();
     try {
       const res = await axios.post("/walk/end", {
-        // coin: state.walk.coin,
-        coin: 100,
+        coin: state.walk.coin,
         distance: +state.walk.totalDist,
         walkPath: state.walk.paths,
         time: state.walk.time
       });
-      // if (res.status === 200) {
-      // if (state.walk.coin !== 0) {
-      // sendToken(state.user.userInfo.userWalletAddress, state.walk.coin);
-      // }
-      // sendToken(state.user.userInfo.userWalletAddress, 100);
-      // }
       return res.data;
     } catch (error) {
       console.error(error);
@@ -178,7 +164,6 @@ const walkSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(finishWalkingApi.fulfilled, (state) => {
-      console.log("fulfilled");
       state.isWalkingStarted = false;
       state.selectedDogs = [];
       state.totalDist = "0.00";
@@ -194,14 +179,6 @@ const walkSlice = createSlice({
       state.dogState = 0;
       state.coin = 0;
     });
-    // builder.addCase(finishWalkingApi.rejected, (state) => {
-    //   console.log("rejected");
-    //   state.isLoading = false;
-    // });
-    // builder.addCase(finishWalkingApi.pending, (state) => {
-    //   console.log("pending");
-    //   state.isLoading = true;
-    // });
   }
 });
 
@@ -213,11 +190,10 @@ export const {
   saveDistance,
   pauseWalking,
   restartWalking,
-  // resetWalking,
   saveTime,
   toggleDogState,
   setMyDogs,
   saveCoin,
   setIsCoinLoading
-} = walkSlice.actions; // 액션 생성함수
-export default walkSlice.reducer; // 리듀서
+} = walkSlice.actions;
+export default walkSlice.reducer;

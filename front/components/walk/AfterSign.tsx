@@ -71,35 +71,16 @@ const AfterSign = () => {
 
   const onPlayClick = () => {
     dispatch(restartWalking());
-    // setIsPausing((prev) => !prev);
   };
 
   const onPuaseClick = () => {
-    // setIsPausing((prev) => !prev);
     dispatch(pauseWalking());
   };
-
-  // const publishToken = async () => {
-  //   if (userInfo?.userWalletAddress) {
-  //     await sendToken(userInfo.userWalletAddress, 100);
-  //     dispatch(setIsCoinLoading(false));
-  //   }
-  // };
 
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
       router.push("/calendar");
-      // try {
-      //   await dispatch(finishWalkingApi()).unwrap();
-      //   dispatch(setIsCoinLoading(true));
-      //   await publishToken();
-      //   alert("INK 적립 성공했습니다.");
-      // } catch (error) {
-      //   console.error(error);
-      //   dispatch(setIsCoinLoading(false));
-      //   alert("INK 적립 실패했습니다.");
-      // }
     } else {
       onPlayClick();
     }
@@ -111,10 +92,11 @@ const AfterSign = () => {
       await dispatch(finishWalkingApi()).unwrap();
       dispatch(setIsCoinLoading(true));
       if (userInfo?.userWalletAddress) {
-        // await sendToken(userInfo.userWalletAddress, 100);
-        await sendToken(userInfo.userWalletAddress, coin);
+        if (coin !== 0) {
+          await sendToken(userInfo.userWalletAddress, coin);
+          alert("INK 적립 성공했습니다.");
+        }
         dispatch(setIsCoinLoading(false));
-        alert("INK 적립 성공했습니다.");
       } else {
         dispatch(setIsCoinLoading(false));
         alert("INK 적립 실패했습니다.");

@@ -27,7 +27,6 @@ const ResultSlider = ({ p1, p2, p3 }) => {
             <div className={`${styles.img}`}>
               <Image src={doctor} alt="#" />
             </div>
-            {/* <hr /> */}
             <h1 className={`${styles.title} fs-18`}>설명</h1>
             <h1 className={`${styles.content}`}>{p1}</h1>
           </div>
@@ -37,7 +36,6 @@ const ResultSlider = ({ p1, p2, p3 }) => {
             <div className={`${styles.img}`}>
               <Image src={reason} alt="#" />
             </div>
-            {/* <hr /> */}
             <h1 className={`${styles.title} fs-18`}>증상</h1>
             <h1 className={`${styles.content}`}>{p2}</h1>
           </div>
@@ -47,7 +45,6 @@ const ResultSlider = ({ p1, p2, p3 }) => {
             <div className={`${styles.img}`}>
               <Image src={drug} alt="#" />
             </div>
-            {/* <hr /> */}
             <h1 className={`${styles.title} fs-18`}>예방</h1>
             <h1 className={`${styles.content}`}>{p3}</h1>
           </div>

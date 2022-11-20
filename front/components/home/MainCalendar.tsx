@@ -10,7 +10,6 @@ function MainCalendar() {
   const [todayMemos, setTodayMemos] = useState<any>([]);
   const date: Date = new Date();
   const day: Array<string> = ["일", "월", "화", "수", "목", "금", "토"];
-  console.log(day[date.getDay()]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,7 +20,6 @@ function MainCalendar() {
       headers: { Authorization: `Bearer ${Token}` }
     })
       .then((res) => {
-        console.log(res);
         setTodayMemos(res.data);
       })
       .catch((err) => {
@@ -31,7 +29,6 @@ function MainCalendar() {
 
   function memoCheck(e: any) {
     e.preventDefault();
-    console.log(e.target.id);
     dispatch(setMemos([]));
     const Token = window.localStorage.getItem("AccessToken");
     axios({
@@ -39,8 +36,7 @@ function MainCalendar() {
       method: "patch",
       headers: { Authorization: `Bearer ${Token}` }
     })
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         const newList = [];
         for (let i = 0; i < todayMemos.length; i += 1) {
           if (todayMemos[i].pk === Number(e.target.id)) {

@@ -22,11 +22,10 @@ const CalendarPage: NextPage = () => {
     setTab(e.target.innerText);
   }
   const today = new Date();
-  const year = today.getFullYear(); // 년도4
-  const month = today.getMonth() + 1; // 월
-  const day = today.getDate(); // 날짜
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
   const dispatch = useDispatch();
-  // 리덕스에 선택한 년,월,날짜 저장 기본값은 오늘날짜
   useEffect(() => {
     getCalendarMemoApi(month, year)
       .then((res) => {

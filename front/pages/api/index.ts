@@ -23,15 +23,4 @@ instance.interceptors.request.use(
   }
 );
 
-// instance.interceptors.response.use(
-//   (response) => {
-//     const res = response.data;
-//     return res;
-//   },
-//   (err) => {
-//     console.error(err);
-//     return Promise.reject(err);
-//   }
-// );
-
 export default instance;

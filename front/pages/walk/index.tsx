@@ -12,14 +12,11 @@ import styles from "./index.module.scss";
 import type { AppDispatch, RootState } from "../../redux/store/index";
 import {
   finishWalking,
-  // finishWalkingApi,
   getMyDogs,
   setMyDogs
-  // setIsCoinLoading
 } from "../../redux/slice/walkSlice";
 import DogSelectCard from "../../components/walk/DogSelectCard";
 import DogImage from "../../components/walk/DogImage";
-// import { sendToken } from "../api/web3/Web3.js";
 
 const Index: NextPage = () => {
   const dispatch = useDispatch<AppDispatch>();

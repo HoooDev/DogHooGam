@@ -99,5 +99,5 @@ export const {
   setIsLoading,
   setIsWallet,
   setIsDogProfile
-} = calendarSlice.actions; // 액션 생성함수
-export default calendarSlice.reducer; // 리듀서
+} = calendarSlice.actions;
+export default calendarSlice.reducer;

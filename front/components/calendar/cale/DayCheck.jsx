@@ -1,6 +1,5 @@
 /* eslint-disable no-shadow */
 import React, { useReducer, useEffect } from "react";
-// import axios from "axios";
 import { useDispatch } from "react-redux";
 
 import styles from "./DayCheck.module.scss";
@@ -14,26 +13,18 @@ import {
   setSelectDay
 } from "../../../redux/slice/calendarSlice";
 
-// import "./DayCheck.scss";
-// import "react-calendar/dist/Calendar.css"; // css import
-
 const today = new Date();
-// console.log(today);
-// 초기 상태
 const initialState = {
   year: today.getFullYear(),
   month: today.getMonth()
 };
 function DayCheck() {
-  // const [memo, setMemo] = useState([]);
   const [state, dispatch] = useReducer(calendarReducer, initialState);
-  // 날짜 관련
   const { year, month } = state;
   const yearMonth = `${year}.${month + 1}`;
   const lastDate = parseInt(new Date(year, month + 1, 0).getDate(), 10);
   const firstDay = parseInt(new Date(year, month, 1).getDay(), 10);
-  const dispatch2 = useDispatch(); // 리덕스 날짜 저장값
-  // Month 감소
+  const dispatch2 = useDispatch();
   const onDecreases = () => {
     dispatch({ type: "DECREMENT" });
     const deyear = state.month === 0 ? state.year - 1 : state.year;
@@ -47,7 +38,6 @@ function DayCheck() {
     );
   };
 
-  // Month 증가
   const onIncreases = () => {
     dispatch({ type: "INCREMENT" });
     const inyear = state.month + 2 === 13 ? state.year + 1 : state.year;

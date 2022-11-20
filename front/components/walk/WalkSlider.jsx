@@ -4,8 +4,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import Image from "next/image";
-
 import styles from "./WalkSlider.module.scss";
 
 const settings = {
@@ -15,17 +13,6 @@ const settings = {
   slidesToShow: 1,
   slidesToScroll: 1
 };
-
-// {
-//   "pk": 1,
-//   "transactionHash": "0xb879bdb72e66901c18c82a8fb209e48abf565289f41fdf67117ca95d84be2cb7",
-//   "dogImg": "https://gateway.pinata.cloud/ipfs/QmVXpBrf6KzaaAahw1ZRsrFfX9dqetXpd64oZaoVTm6Qj9",
-//   "dogName": "동땡이",
-//   "birthday": "2022-11-24",
-//   "dogBreed": "포메라니안",
-//   "dogCharacter": "착해요~",
-//   "hide": false
-// }
 
 const WalkSlider = ({ dogs }) => {
   return (

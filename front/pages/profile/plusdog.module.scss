@@ -1,5 +1,4 @@
 .plusDog {
-  // margin-top: 30px;
   margin-bottom: vw(30px);
   .loadingFont {
     font-size: vw(16px);
@@ -15,9 +14,7 @@
       height: vw(150px);
       border-radius: 20%;
       overflow: hidden;
-      // box-shadow: 1px 1px 1px #787878;
       .dogImg {
-        // 정원slint-disable-next-line @next/next/no-img-element
         display: flex;
         width: 100%;
         height: 100%;
@@ -84,8 +81,6 @@
     color: white;
     font-size: vw(18px);
     font-weight: bold;
-    // margin-left: 10px;
-    // margin-block: 2px;
     height: vw(40px);
     width: vw(130px);
     background-color: #9e7676;
@@ -98,7 +93,6 @@
 
 @media screen and (min-width: $PHONE-VW) {
   .plusDog {
-    // margin-top: 30px;
     margin-bottom: 30px;
     .loadingFont {
       font-size: 16px;
@@ -114,9 +108,7 @@
         height: 150px;
         border-radius: 20%;
         overflow: hidden;
-        // box-shadow: 1px 1px 1px #787878;
         .dogImg {
-          // 정원slint-disable-next-line @next/next/no-img-element
           display: flex;
           width: 100%;
           height: 100%;
@@ -183,8 +175,6 @@
       color: white;
       font-size: 18px;
       font-weight: bold;
-      // margin-left: 10px;
-      // margin-block: 2px;
       height: 40px;
       width: 130px;
       background-color: #9e7676;

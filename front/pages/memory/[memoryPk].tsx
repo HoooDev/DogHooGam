@@ -1,12 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { useRouter } from "next/router";
-// import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./[memoryPk].module.scss";
-// import testimg from "../../public/images/test.png";
 import getOneFeed from "../api/feed/getOneFeed";
 import back from "../../public/icons/back.svg";
 
@@ -21,7 +19,6 @@ function Detail() {
       .then((res) => {
         if (res.status === 200) {
           setFeed(res.data);
-          console.log(res.data);
         }
         return [];
       })
@@ -44,7 +41,6 @@ function Detail() {
 
   return (
     <div className={`${styles.wrapper}`}>
-      {/* <h1 className={`${styles.Nav} fs-20 notoBold`}>추억 남기기</h1> */}
       <div className={`${styles.detail}`}>
         <div className={`${styles.imgBox}`}>
           <div className="flex justify-space-between">
@@ -63,44 +59,38 @@ function Detail() {
           </div>
           <img className={`${styles.img}`} src={feed.feedImg} alt="#" />
         </div>
-
-        {/* <p>{feed.transactionHash}</p> */}
-
         <h1 className={`${styles.content} fs-20 notoBold`}>{feed.content}</h1>
         <h1 className={`${styles.time} fs-16 notoBold`}>{feed.createDate}</h1>
       </div>
       {feed?.pk && (
         <div className={`${styles.map}`}>
-          <Map // 지도를 표시할 Container
+          <Map
             center={{
-              // 지도의 중심좌표
               lat: feed.lat,
               lng: feed.lng
             }}
             style={{
-              // 지도의 크기
               width: "100%-vw(40px)",
               height: "350px"
             }}
-            level={4} // 지도의 확대 레벨
+            level={4}
           >
-            <MapMarker // 마커를 생성합니다
+            <MapMarker
               position={{
-                // 마커가 표시될 위치입니다
                 lat: feed.lat,
                 lng: feed.lng
               }}
               image={{
-                src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b4c5e7861b0c4ecf37e46427200d1663/star.png", // 마커이미지의 주소입니다
+                src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b4c5e7861b0c4ecf37e46427200d1663/star.png",
                 size: {
                   width: 34,
                   height: 34
-                }, // 마커이미지의 크기입니다
+                },
                 options: {
                   offset: {
                     x: 27,
                     y: 69
-                  } // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+                  }
                 }
               }}
             />

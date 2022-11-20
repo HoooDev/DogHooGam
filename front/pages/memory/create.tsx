@@ -6,12 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import styles from "./create.module.scss";
 import back from "../../public/icons/back.svg";
-// import arrowRight from "../../public/icons/arrowRight.svg";
 import addimg from "../../public/icons/addImg2.png";
 import sendFileToIPFS, { getBalance } from "../api/web3/Web3";
 import addFeed from "../api/memory/addFeed";
-// import NftModal from "../../components/common/NftModal";
-// import loading from "../../public/icons/loading.svg";
 import MyLocation from "../../components/memory/MyLocation";
 
 import { setIsLoading } from "../../redux/slice/calendarSlice";
@@ -22,7 +19,6 @@ function Create() {
     (state: any) => state.location.locationInfo
   );
   const [userKey, setUserKey] = useState("");
-  // const [flag, setFlag] = useState(false);
   const [imgFile, setImgFile] = useState(null);
   const [uploadimg, setUploadimg] = useState<any>(null);
   const [nftFeed, setNftFeed] = useState({
@@ -36,13 +32,9 @@ function Create() {
     lng: "",
     transactionHash: ""
   });
-  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [walletBalance, setWalletBalance] = useState(0);
   const dispatch = useDispatch();
   const router = useRouter();
-
-  // const toggleModal = () => setIsModalOpen(!isModalOpen);
-
   const getWalletBalance = async () => {
     const balance = await getBalance(storeUser.userWalletAddress);
     setWalletBalance(balance);
@@ -87,7 +79,6 @@ function Create() {
   function handleImageUpload(e: any) {
     const fileArr = e.target.files;
     setImgFile(e.target.files[0]);
-    console.log(fileArr);
     const file = fileArr[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -105,8 +96,6 @@ function Create() {
         "100INK를 사용하여 피드를 작성하시겠습니까? \n 발행 시 최대 1분 정도 소요 될 수 있습니다."
       )
     ) {
-      // toggleModal();
-
       try {
         dispatch(setIsLoading(true));
         router.push("/memory");
@@ -118,14 +107,11 @@ function Create() {
           storeUser.userWalletAddress,
           userKey
         );
-        // console.log(feedNft[0], feedNft[1], "이미지, 트랜해쉬");
         setApiFeed({
           ...apiFeed,
           feedImg: feedNft[0],
           transactionHash: feedNft[1]
         });
-        // setFlag(true);
-
         const res = await addFeed(
           {
             ...apiFeed,
@@ -143,25 +129,10 @@ function Create() {
         alert("피드가 등록이 실패했습니다.");
         dispatch(setIsLoading(false));
       }
-      // router.push("/memory");
     }
   };
-
-  // useEffect(() => {
-  //   if (flag) {
-  //     addFeed(apiFeed, imgFile);
-  //     router.push("/memory");
-  //   }
-  // }, [flag, apiFeed]);
-
-  // console.log(storeLocation, "스토어로케이션");
-  // console.log(apiFeed);
   return (
     <div className={`${styles.wrapper}`}>
-      {/* <NftModal isOpen={isModalOpen}>
-        <Image src={loading} />
-        <p className={`${styles.loadingFont} notoBold`}>NFT 발행 중입니다.</p>
-      </NftModal> */}
       <div>
         <div className={`${styles.memoryNav} flex justify-space-between`}>
           <button

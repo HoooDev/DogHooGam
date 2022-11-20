@@ -2,7 +2,6 @@ import axios from "axios";
 
 const addFeed = async (data: any, imagefile: any) => {
   const Token = window.localStorage.getItem("AccessToken");
-  console.log(imagefile);
   const formData = new FormData();
   formData.append("file", imagefile);
   formData.append(

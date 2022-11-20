@@ -743,4 +743,3 @@ export const TOKEN_CA = "0xE5610dA374d6eAA555851366098642Fc7fa3A707";
 // eslint-disable-next-line import/prefer-default-export
 export const NFTContract = new web3.eth.Contract(NFT_ABI, NFT_CA);
 export const TOKENContract = new web3.eth.Contract(TOKEN_ABI, TOKEN_CA);
-// export default NFTContract;

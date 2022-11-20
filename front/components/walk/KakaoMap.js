@@ -135,7 +135,7 @@ const KakaoMap = () => {
         .then((res) => {
           setMySelectedDogs(res);
         })
-        .catch(() => console.log);
+        .catch(() => console.error);
     }
   }, [isModalOpen]);
 
@@ -146,14 +146,13 @@ const KakaoMap = () => {
           .then((res) => {
             setOther(res);
           })
-          .catch(() => console.log);
+          .catch(() => console.error);
       }
     }
   }, [isOtherModalOpen, pks]);
 
   const handleClick = ({ lat, lng }) => {
     if (paths?.length > 1) {
-      // 최근 움직인 거리
       const dist = calculateDistance(
         paths[paths.length - 1].lat,
         paths[paths.length - 1].lng,
@@ -168,24 +167,23 @@ const KakaoMap = () => {
 
     const lastPos = paths[paths.length - 1];
     if (paths.length > 1 && lastPos.lat === lat && lastPos.lng) return;
-    // let xDiff = 0;
-    // let yDiff = 0;
-    // if (lastPos) {
-    //   xDiff = lat - lastPos.lat;
-    //   yDiff = lng - lastPos.lng;
-    // }
-    // const tmp = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-    // if (tmp > 0.00004) {
-    //   dispatch(pushPaths({ lat, lng }));
-    // }
-    dispatch(pushPaths({ lat, lng }));
+    let xDiff = 0;
+    let yDiff = 0;
+    if (lastPos) {
+      xDiff = lat - lastPos.lat;
+      yDiff = lng - lastPos.lng;
+    }
+    const tmp = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+    if (tmp > 0.00004) {
+      dispatch(pushPaths({ lat, lng }));
+    }
   };
 
   const init = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude; // 위도
-        const lng = position.coords.longitude; // 경도
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
         dispatch(pushPaths({ lat, lng }));
         setCenter({ lat, lng });
       });
@@ -216,7 +214,6 @@ const KakaoMap = () => {
         (position) => {
           const lat = position.coords.latitude; // 위도
           const lng = position.coords.longitude; // 경도
-          console.log(lat, lng);
           nowWalkingApi({ lat, lng, personId })
             .then((res) => {
               const tmp = res.filter((item) => item.dogPk !== null);
@@ -224,9 +221,7 @@ const KakaoMap = () => {
               setCenter({ lat, lng });
               handleClick({ lat, lng });
             })
-            .catch((err) => {
-              console.error(err);
-            });
+            .catch(() => console.error);
         },
         () => console.error,
         {
@@ -312,10 +307,10 @@ const KakaoMap = () => {
         {selectedShowPaths && (
           <Polyline
             path={paths}
-            strokeWeight={5} // 선의 두께입니다
-            strokeColor="#db4040" // 선의 색깔입니다
-            strokeOpacity={1} // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
-            strokeStyle="solid" // 선의 스타일입니다
+            strokeWeight={5}
+            strokeColor="#db4040"
+            strokeOpacity={1}
+            strokeStyle="solid"
           />
         )}
 
@@ -328,12 +323,12 @@ const KakaoMap = () => {
               size: {
                 width: 24,
                 height: 24
-              }, // 마커이미지의 크기입니다
+              },
               options: {
                 offset: {
                   x: 12,
                   y: 16
-                } // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+                }
               }
             }}
           />
@@ -349,16 +344,16 @@ const KakaoMap = () => {
                     setPks(position.dogPk);
                   }
                 }}
-                position={{ lat: position.lat, lng: position.lng }} // 마커를 표시할 위치
+                position={{ lat: position.lat, lng: position.lng }}
                 image={{
                   src:
                     position.dogState === 0
                       ? "https://lab.ssafy.com/s07-final/S07P31C103/uploads/bd9a02e70f2fa3d9f84a7fd9ab8b7b0c/realGreen.png"
-                      : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png", // 마커이미지의 주소입니다
+                      : "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b8d28a189b358bfedc97693c18c51a3d/realRed.png",
                   size: {
                     width: 40,
                     height: 40
-                  } // 마커이미지의 크기입니다
+                  }
                 }}
               />
             </div>
@@ -372,13 +367,13 @@ const KakaoMap = () => {
                 position={{
                   lat: feed.lat,
                   lng: feed.lng
-                }} // 마커를 표시할 위치
+                }}
                 image={{
-                  src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b4c5e7861b0c4ecf37e46427200d1663/star.png", // 마커이미지의 주소입니다
+                  src: "https://lab.ssafy.com/s07-final/S07P31C103/uploads/b4c5e7861b0c4ecf37e46427200d1663/star.png",
                   size: {
                     width: 34,
                     height: 34
-                  } // 마커이미지의 크기입니다
+                  }
                 }}
                 onClick={() => {
                   toggleFeedModal();
