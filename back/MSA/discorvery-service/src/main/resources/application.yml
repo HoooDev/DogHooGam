@@ -1,0 +1,22 @@
+server:
+  port: 8761
+  address: 0.0.0.0
+  servlet:
+    contextPath: /
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-type: PKCS12
+    key-alias: tomcat
+    protocol: TLS
+    key-store-password: q1a2z3
+spring:
+  application:
+    name: discovery-service
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+  server:
+    wait-time-in-ms-when-sync-empty: 0
