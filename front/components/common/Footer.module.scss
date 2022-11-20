@@ -1,0 +1,26 @@
+.wrapper{
+  height: vw(55px);
+  width: vw($PHONE-VW);
+  position: fixed;
+  bottom: 0;
+  box-shadow: 0 -5px 4px 0 #CCC8C0;
+  background-color: $WHITE;
+  z-index: 99;
+  .icon{
+    width: vw(30px);
+    height: vw(30px);
+    background-color: gray;
+  }
+}
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper{
+    height: 55px;
+    width: $PHONE-VW;
+    .icon{
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

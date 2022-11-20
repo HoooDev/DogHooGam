@@ -1,0 +1,21 @@
+.wrapper {
+  .memoryNav {
+    margin-inline: vw(25px);
+    .createBtn {
+      width: vw(25px);
+      height: vw(25px);
+    }
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    .memoryNav {
+      margin-inline: 25px;
+      .createBtn {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}

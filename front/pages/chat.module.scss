@@ -1,0 +1,271 @@
+.wrapper {
+  height: calc(100vh - vw(130px));
+  background-color: #e7e7e7;
+  .chatBox {
+    height: calc(100% - 35px);
+    overflow-y: auto;
+    h1 {
+      margin-block: vw(5px);
+    }
+    .botprofile {
+      width: vw(50px);
+      height: vw(50px);
+      background-color: rgb(218, 242, 253);
+      margin-inline: vw(8px) vw(4px);
+      margin-top: vw(20px);
+      border-radius: vw(50px);
+      .img {
+        width: vw(35px);
+        height: vw(35px);
+      }
+    }
+    .botmessage {
+      margin-block: vw(5px) vw(10px);
+      margin-inline: vw(1px) vw(8px);
+      .text {
+        width: max-content;
+        max-width: vw(260px);
+        background-color: $WHITE;
+        padding: vw(20px) vw(15px);
+        border-radius: vw(10px);
+        white-space: pre-wrap;
+        .help {
+          text-decoration: none;
+          align-self: center;
+          color: #81b89d;
+        }
+        .selectbutton {
+          margin-block: vw(10px);
+          width: vw(230px);
+          background-color: #81b89d;
+          border: none;
+          border-radius: vw(5px);
+          color: $WHITE;
+          padding-block: vw(10px);
+          cursor: pointer;
+        }
+        .resultButton {
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          margin-top: 20px;
+          .diseaseTitle {
+            color: #81b89d;
+            margin-block: vw(10px) vw(10px);
+          }
+
+          .arrowicon {
+            width: vw(13px);
+            height: vw(13px);
+            margin-right: vw(5px);
+            border: none;
+            background-color: $WHITE;
+          }
+        }
+        .diseaseContent {
+          padding-inline: vw(20px);
+          line-height: vw(18px);
+          letter-spacing: vw(1px);
+        }
+        .dangerIcon {
+          width: vw(22px);
+          height: vw(22px);
+          margin-right: vw(10px);
+        }
+      }
+      .time {
+        align-self: flex-end;
+        margin-inline: vw(5px);
+      }
+    }
+    .mymessage {
+      flex-direction: row-reverse;
+      margin-block: vw(20px) vw(10px);
+      margin-inline: vw(8px);
+      .text {
+        width: max-content;
+        background-color: $WHITE;
+        max-width: vw(280px);
+        padding: vw(10px) vw(20px);
+        border-radius: vw(10px);
+        white-space: pre-wrap;
+      }
+      .time {
+        height: 100%;
+        margin-inline: vw(5px);
+        align-self: flex-end;
+      }
+    }
+    .notimessage {
+      background-color: rgb(189, 184, 184);
+      margin-block: vw(20px);
+      width: 100px;
+      padding: vw(5px) vw(10px);
+      margin-inline: auto;
+      border-radius: vw(5px);
+    }
+  }
+
+  .inputForm {
+    background-color: $WHITE;
+    width: 100%;
+    height: 50px;
+    .input {
+      outline: none;
+      border: none;
+      width: 320px;
+      resize: none;
+      padding: vw(10px) vw(15px);
+    }
+    .input::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .input::-webkit-scrollbar-thumb {
+      height: 17%;
+      background-color: rgba(255, 255, 255, 1);
+      border-radius: 10px;
+    }
+    .input::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0);
+    }
+    .button {
+      border: none;
+      background-color: #81b89d;
+      color: $WHITE;
+      width: 70px;
+    }
+  }
+
+  .chatBox::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .chatBox::-webkit-scrollbar-thumb {
+    height: 17%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+  }
+
+  .chatBox::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    height: calc(100vh - 120px);
+    .chatBox {
+      overflow-y: auto;
+      height: calc(100% - 45px);
+      h1 {
+        margin-block: 5px;
+      }
+      .botprofile {
+        width: 50px;
+        height: 50px;
+        background-color: rgb(218, 242, 253);
+        margin-inline: 8px 4px;
+        margin-top: 20px;
+        border-radius: 50px;
+        .img {
+          width: 35px;
+          height: 35px;
+        }
+      }
+      .botmessage {
+        margin-block: 5px 10px;
+        margin-inline: 1px 8px;
+        .text {
+          width: max-content;
+          max-width: 260px;
+          background-color: $WHITE;
+          padding: 20px 15px;
+          border-radius: 10px;
+          white-space: pre-wrap;
+          .selectbutton {
+            margin-block: 10px;
+            width: 230px;
+            background-color: #81b89d;
+            border: none;
+            border-radius: 5px;
+            color: $WHITE;
+            padding-block: 10px;
+            cursor: pointer;
+          }
+          .resultButton {
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            .diseaseTitle {
+              color: #81b89d;
+              margin-block: 10px 10px;
+            }
+
+            .arrowicon {
+              width: 13px;
+              height: 13px;
+              margin-right: 5px;
+              border: none;
+              background-color: $WHITE;
+            }
+          }
+          .diseaseContent {
+            padding-inline: 20px;
+            line-height: 18px;
+            letter-spacing: 1px;
+          }
+          .dangerIcon {
+            width: 22px;
+            height: 22px;
+            margin-right: 10px;
+          }
+        }
+        .time {
+          align-self: flex-end;
+          margin-inline: 5px;
+        }
+      }
+      .mymessage {
+        flex-direction: row-reverse;
+        margin-block: 20px 10px;
+        margin-inline: 8px;
+        .text {
+          width: max-content;
+          max-width: 280px;
+          background-color: $WHITE;
+          padding: 10px 20px;
+          border-radius: 10px;
+          white-space: pre-wrap;
+          overflow-x: hidden;
+        }
+        .time {
+          height: 100%;
+          margin-inline: 5px;
+          align-self: flex-end;
+        }
+      }
+      .notimessage {
+        background-color: rgb(189, 184, 184);
+        margin-block: 20px;
+        width: 100px;
+        padding: 5px 10px;
+        margin-inline: auto;
+        border-radius: 5px;
+      }
+    }
+    .inputForm {
+      .input {
+        outline: none;
+        border: none;
+        width: 320px;
+        resize: none;
+        padding: 10px 15px;
+      }
+      .button {
+        border: none;
+        background-color: #81b89d;
+        color: $WHITE;
+        width: 70px;
+      }
+    }
+  }
+}

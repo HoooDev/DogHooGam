@@ -1,0 +1,22 @@
+.wrapper {
+  width: vw($PHONE-VW);
+  height: 100%;
+  margin: 0 auto;
+
+  .children {
+    z-index: 1;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .main {
+    width: $PHONE-VW;
+  }
+  .wrapper {
+    width: $PHONE-VW;
+    .children {
+      padding-bottom: 60px;
+    }
+  }
+}

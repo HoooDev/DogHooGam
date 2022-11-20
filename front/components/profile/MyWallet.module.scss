@@ -1,0 +1,159 @@
+.myWalletBox {
+  margin-top: vw(50px);
+  background-color: white;
+  width: 90%;
+  height: 50%;
+  margin-inline: auto;
+  border-radius: vw(15px);
+  position: relative;
+  .Loading {
+    height: 100%;
+    .img {
+      width: vw(80px);
+      height: vw(80px);
+    }
+  }
+  .walletIcon {
+    position: absolute;
+    top: -13%;
+    left: 44%;
+    width: vw(40px);
+    height: vw(40px);
+  }
+  .addWalletBtnText {
+    margin-top: vw(10px);
+    font-size: vw(18px);
+    font-weight: bold;
+    text-align: center;
+  }
+  .addWalletBtnBox {
+    display: flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: auto;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .addWalletBtn {
+    width: vw(70px);
+    height: vw(70px);
+    margin: auto;
+    padding-top: 14%;
+  }
+  .walletTextBox {
+    padding-top: vw(30px);
+    padding-left: vw(20px);
+    font-weight: bold;
+    font-size: vw(18px);
+
+    .walletCoin {
+      margin-block: vw(10px);
+      word-wrap: break-word;
+    }
+    .walletAddressBox {
+      margin-block: vw(20px);
+      word-wrap: break-word;
+      display: flex;
+      width: 90%;
+      .walletAddress1 {
+        word-wrap: break-word;
+        width: vw(70px);
+      }
+      .walletAddress2 {
+        word-wrap: break-word;
+        width: vw(160px);
+      }
+      .copyBtn {
+        position: absolute;
+        top: vw(20px);
+        right: vw(20px);
+        width: vw(24px);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .myWalletBox {
+    margin-top: 50px;
+    background-color: white;
+    width: 90%;
+    height: 50%;
+    margin-inline: auto;
+    border-radius: 15px;
+    position: relative;
+    .Loading {
+      height: 100%;
+      .img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    .walletIcon {
+      position: absolute;
+      top: -13%;
+      left: 44%;
+      width: 40px;
+      height: 40px;
+    }
+    .addWalletBtnText {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .addWalletBtnBox {
+      display: flex;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: auto;
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .addWalletBtn {
+      width: 70px;
+      height: 70px;
+      margin: auto;
+      padding-top: 14%;
+    }
+    .walletTextBox {
+      padding-top: 30px;
+      padding-left: 20px;
+      font-weight: bold;
+      font-size: 18px;
+
+      .walletCoin {
+        margin-block: 10px;
+        word-wrap: break-word;
+      }
+      .walletAddressBox {
+        margin-block: 20px;
+        word-wrap: break-word;
+        display: flex;
+        width: 90%;
+        .walletAddress1 {
+          word-wrap: break-word;
+          width: 70px;
+        }
+        .walletAddress2 {
+          word-wrap: break-word;
+          width: 160px;
+        }
+        .copyBtn {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          width: 24px;
+        }
+      }
+    }
+  }
+}

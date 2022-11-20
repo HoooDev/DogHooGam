@@ -1,0 +1,58 @@
+.wrapper {
+  height: vw(55px);
+  width: vw($PHONE-VW);
+  position: sticky;
+  top: 0;
+  box-shadow: 0 4px 4px 0 #ccc8c0;
+  background-color: $WHITE;
+  z-index: 99;
+
+  .link {
+    text-decoration: none;
+  }
+  .icon {
+    margin-top: vw(5px);
+    margin-left: vw(10px);
+    width: vw(50px);
+  }
+  .imgbox {
+    margin-right: vw(15px);
+    .loading {
+      width: vw(50px);
+      height: vw(40px);
+    }
+    .profileimg {
+      width: vw(36px);
+      height: vw(36px);
+      margin-left: vw(4px);
+    }
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    height: 55px;
+    width: $PHONE-VW;
+    position: sticky;
+    top: 0;
+    .link {
+      text-decoration: none;
+    }
+    .icon {
+      margin-top: 5px;
+      margin-left: 10px;
+      width: 50px;
+    }
+    .imgbox {
+      margin-right: 15px;
+      .loading {
+        width: 50px;
+        height: 40px;
+      }
+      .profileimg {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+}

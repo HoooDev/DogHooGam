@@ -1,0 +1,175 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  height: vw(80px);
+  .move {
+    background-color: $WHITE;
+    border: 0;
+  }
+  
+}
+
+
+.caltable {
+  width: 80%;
+  height: vw(200px);
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-inline: auto;
+  border: none;
+}
+
+
+.caltable,
+.calth,
+.caltd {
+  vertical-align: top;
+}
+
+.caltr {
+  margin-left: vw(20px);
+}
+
+.caltd{
+  width: 10%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.calthead {
+  border: none;
+}
+
+.caltd {
+  border: none;
+}
+
+
+.caltd:first-child {
+  color: #94959d;
+}
+.caltd:first-child h1 {
+  color: #94959d;
+}
+.caltd:last-child h1 {
+  color: #94959d;
+}
+
+.caltd:last-child {
+  color: #94959d;
+}
+
+.caltd:hover {
+  font-weight: bold;
+}
+
+
+.diff {
+  border: none;
+  margin-bottom: 10px;
+  width: vw(30px);
+  height: vw(30px);
+  text-align: center;
+  padding-top: vw(10px);
+
+  .daybutton {
+    border: none;
+    color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: vw(10px);
+    width: vw(30px);
+    height: vw(30px);
+  }
+}
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    height: 80px;
+    .move {
+      background-color: $WHITE;
+      border: 0;
+    }
+    
+  }
+  
+  
+  .caltable {
+    width: 80%;
+    height: 200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-inline: auto;
+    border: none;
+  }
+  
+  .caltable,
+  .calth,
+  .caltd {
+    vertical-align: top;
+  }
+  
+  .caltr {
+    margin-left: 20px;
+  }
+
+
+  .caltd{
+    width: 10%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .calthead {
+    border: none;
+  }
+  
+  .caltd {
+    border: none;
+  }
+  
+  .caltd:first-child {
+    color: #94959d;
+  }
+  .caltd:first-child h1 {
+    color: #94959d;
+  }
+  .caltd:last-child h1 {
+    color: #94959d;
+  }
+  
+  .caltd:last-child {
+    color: #94959d;
+  }
+
+  .caltd:hover {
+    font-weight: bold;
+  }
+  
+  
+  .diff {
+    border: none;
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px;
+  
+    .daybutton {
+      border: none;
+      color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0);
+      margin-bottom: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

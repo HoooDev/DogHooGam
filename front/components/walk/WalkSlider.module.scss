@@ -1,0 +1,51 @@
+.wrapper {
+  .dogCard {
+    font-size: vw(14px);
+    .dogCard__img {
+      width: vw(100px);
+      height: vw(100px);
+      margin: 0 auto;
+      margin-bottom: vw(20px);
+      border-radius: 50%;
+    }
+    .dogCard__name {
+      margin-left: vw(40px);
+      margin-bottom: vw(10px);
+    }
+    .dogCard__breed {
+      margin-left: vw(40px);
+      margin-bottom: vw(10px);
+    }
+    .dogCard__char {
+      margin-left: vw(40px);
+      margin-bottom: vw(10px);
+    }
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    .dogCard {
+      font-size: 14px;
+      .dogCard__img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        border-radius: 50%;
+      }
+      .dogCard__name {
+        margin-left: 40px;
+        margin-bottom: 10px;
+      }
+      .dogCard__breed {
+        margin-left: 40px;
+        margin-bottom: 10px;
+      }
+      .dogCard__char {
+        margin-left: 40px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
