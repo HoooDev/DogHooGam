@@ -50,7 +50,6 @@ const AfterSign = () => {
       }
       interval.current = setInterval(() => {
         setTime((prev) => {
-          // 10 초
           const sec = (prev + 10) / 1000;
           if (sec % 10 === 0) {
             const res = calCoin(prev + 10);
@@ -77,15 +76,6 @@ const AfterSign = () => {
     dispatch(pauseWalking());
   };
 
-  const onStopClick = () => {
-    onPuaseClick();
-    if (confirm("산책을 마치시겠습니까?")) {
-      router.push("/home");
-    } else {
-      onPlayClick();
-    }
-  };
-
   const finishAndPublishToken = async () => {
     alert("산책이 종료되었습니다.\nINK 발행은 최대 1분이 소요될 수 있습니다.");
     try {
@@ -94,6 +84,7 @@ const AfterSign = () => {
       if (userInfo?.userWalletAddress) {
         if (coin !== 0) {
           await sendToken(userInfo.userWalletAddress, coin);
+          dispatch(setIsCoinLoading(false));
           alert("INK 적립 성공했습니다.");
         }
         dispatch(setIsCoinLoading(false));
@@ -108,10 +99,21 @@ const AfterSign = () => {
     }
   };
 
+  const onStopClick = () => {
+    onPuaseClick();
+    if (confirm("산책을 마치시겠습니까?")) {
+      finishAndPublishToken();
+      router.push("/home");
+    } else {
+      onPlayClick();
+    }
+  };
+
   useEffect(() => {
     return () => {
       if (isWalkingStarted) {
-        finishAndPublishToken();
+        dispatch(setIsCoinLoading(false));
+        dispatch(finishWalkingApi());
       }
     };
   }, [isWalkingStarted]);
