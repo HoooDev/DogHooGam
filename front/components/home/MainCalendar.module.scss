@@ -1,0 +1,79 @@
+.calendar {
+  width: vw(390px);
+  margin-inline: vw(15px);
+  height: vw(185px);
+  box-shadow: vw(0px) vw(4px) vw(4px) vw(0px) #0000003d;
+  .calendarY {
+    width: vw(180px);
+    background-color: #fff8ea;
+    padding: vw(15px) vw(20px);
+    .calendarS {
+      margin-top: vw(30px);
+      overflow-y: auto;
+      max-height: vw(100px);
+    }
+    .calendarS::-webkit-scrollbar {
+      width: 4px;
+    }
+    .calendarS::-webkit-scrollbar-thumb {
+      height: 17%;
+      background-color: rgb(151, 151, 150);
+      border-radius: 10px;
+    }
+    .calendarS::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0);
+    }
+    .memo {
+      display: block;
+      border: none;
+      color: rgb(63, 62, 62);
+      background-color: rgba(0, 0, 0, 0);
+      margin-block: vw(5px);
+      text-align: start;
+      width: vw(150px);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow-x: hidden;
+      height: vw(25px);
+    }
+    .done {
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
+  }
+  .calendarW {
+    width: vw(180px);
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .calendar {
+    width: 390px;
+    margin-inline: 15px;
+    height: 185px;
+    box-shadow: 0px 4px 4px 0px #0000003d;
+    .calendarY {
+      width: 180px;
+      background-color: #fff8ea;
+      padding: 15px 20px;
+      .calendarS {
+        margin-top: 20px;
+        max-height: 100px;
+        .memo {
+          margin-block: 5px;
+          width: 150px;
+          height: 25px;
+        }
+        
+        .done {
+          text-decoration: line-through;
+          text-decoration-thickness: 1px;
+        }
+      }
+    }
+    .calendarW {
+      width: 180px;
+      
+    }
+  }
+}

@@ -1,0 +1,6 @@
+$PHONE-VW: 420px;
+
+@function vw($size) {
+  $vw-context: $PHONE-VW * 0.01;
+  @return $size / $vw-context * 1vw;
+}

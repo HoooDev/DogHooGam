@@ -1,0 +1,108 @@
+.wrapper {
+  height: (160px);
+  background-color: $WHITE;
+  .icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: vw(30px) 0;
+    .distance {
+      .distance__num {
+        margin-bottom: vw(10px);
+        font-size: vw(20px);
+      }
+      .distance__unit {
+        font-size: vw(12px);
+      }
+    }
+    .coin {
+      padding: 0 vw(40px);
+      border-inline: 1px solid $GRAY_BA;
+      .coin__num {
+        margin-bottom: vw(10px);
+        font-size: vw(20px);
+      }
+      .coin__unit {
+        font-size: vw(12px);
+      }
+    }
+    .time {
+      .time__num {
+        margin-bottom: vw(10px);
+        font-size: vw(20px);
+      }
+      .time__unit {
+        font-size: vw(12px);
+      }
+    }
+  }
+  .controller {
+    padding-bottom: vw(20px);
+    .controller__content {
+      width: vw(150px);
+      .controller__pause {
+        width: vw(36px);
+      }
+      .controller__play {
+        width: vw(36px);
+      }
+      .controller__stop {
+        width: vw(36px);
+        margin-left: vw(20px);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    height: 160px;
+    .icons {
+      padding: 30px 0;
+      .distance {
+        .distance__num {
+          margin-bottom: 10px;
+          font-size: 20px;
+        }
+        .distance__unit {
+          font-size: 12px;
+        }
+      }
+      .coin {
+        padding: 0 40px;
+        border-inline: 1px solid $GRAY_BA;
+        .coin__num {
+          margin-bottom: 10px;
+          font-size: 20px;
+        }
+        .coin__unit {
+          font-size: 12px;
+        }
+      }
+      .time {
+        .time__num {
+          margin-bottom: 10px;
+          font-size: 20px;
+        }
+        .time__unit {
+          font-size: 12px;
+        }
+      }
+    }
+    .controller {
+      padding-bottom: 20px;
+      .controller__content {
+        width: 150px;
+        .controller__pause {
+          width: 36px;
+        }
+        .controller__play {
+          width: 36px;
+        }
+        .controller__stop {
+          width: 36px;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}

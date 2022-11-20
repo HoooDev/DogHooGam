@@ -1,0 +1,103 @@
+.wrapper {
+  scrollbar-width: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+
+  .calendar {
+    margin: auto;
+    scrollbar-width: none;
+  }
+
+  .tab {
+    display: grid;
+    grid-template-columns: repeat(3, vw(100px));
+    place-items: center center;
+    scrollbar-width: none;
+    overflow: hidden;
+    color: $GRAY_5B;
+    margin-top: vw(30px);
+    button {
+      background-color: $WHITE;
+      border: 0;
+    }
+    .isWalk{
+      background-color: rgb(50, 200, 110);
+      border-radius: vw(100px);
+      width: vw(10px);
+      height: vw(10px);
+    }
+
+    .isMemo{
+      background-color: rgb(251, 128, 183);
+      border-radius: vw(100px);
+      width: vw(10px);
+      height: vw(10px);
+    }
+  }
+  .memo,
+  .record {
+    color: black;
+    overflow: hidden;
+  }
+
+  .memo2,
+  .record2 {
+    color: $GRAY_9E;
+    overflow: hidden;
+  }
+}
+
+
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    scrollbar-width: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+    .calendar {
+      margin: auto;
+      scrollbar-width: none;
+    }
+
+    .tab {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      place-items: center center;
+      scrollbar-width: none;
+      overflow: hidden;
+      color: $GRAY_5B;
+      margin-top: 30px;
+      button {
+        background-color: $WHITE;
+        border: 0;
+      }
+      .isWalk{
+        background-color: rgb(50, 200, 110);
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+      }
+  
+      .isMemo{
+        background-color: rgb(251, 128, 183);
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+      }
+    }
+    .memo,
+    .record {
+      color: black;
+      overflow: hidden;
+    }
+
+    .memo2,
+    .record2 {
+      color: $GRAY_9E;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.wrapper {
+  position: relative;
+  height: calc(100vh - (180px));
+  .container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    .dogSelectedCards {
+      margin: 0 auto;
+      max-width: vw(300px);
+      overflow-x: auto;
+    }
+
+    .dogSelectedCards::-webkit-scrollbar {
+      width: vw(2px);
+    }
+
+    .dogSelectedCards::-webkit-scrollbar-thumb {
+      background-color: $GRAY_D9;
+      border-radius: vw(10px);
+    }
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    position: relative;
+    height: calc(100vh - (180px));
+    .container {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      .dogSelectedCards {
+        margin: 0 auto;
+        max-width: 300px;
+        overflow-x: auto;
+      }
+
+      .dogSelectedCards::-webkit-scrollbar {
+        width: 2px;
+      }
+
+      .dogSelectedCards::-webkit-scrollbar-thumb {
+        background-color: $GRAY_D9;
+        border-radius: 10px;
+      }
+    }
+  }
+}

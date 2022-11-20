@@ -1,0 +1,4363 @@
+[
+  {
+    "model": "chatbots.NotName",
+    "pk": 1,
+    "fields": {
+      "name": "디스크"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 2,
+    "fields": {
+      "name": "치료"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 3,
+    "fields": {
+      "name": "디스크치료"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 4,
+    "fields": {
+      "name": "거위"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 5,
+    "fields": {
+      "name": "기침"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 6,
+    "fields": {
+      "name": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 7,
+    "fields": {
+      "name": "소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 8,
+    "fields": {
+      "name": "이상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 9,
+    "fields": {
+      "name": "기침소리이상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 10,
+    "fields": {
+      "name": "울음소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 11,
+    "fields": {
+      "name": "기침거위울음소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 12,
+    "fields": {
+      "name": "거위울음소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 13,
+    "fields": {
+      "name": "기침거위소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 14,
+    "fields": {
+      "name": "딸"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 15,
+    "fields": {
+      "name": "국"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 16,
+    "fields": {
+      "name": "딸국"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 17,
+    "fields": {
+      "name": "거품"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 18,
+    "fields": {
+      "name": "토"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 19,
+    "fields": {
+      "name": "거품토"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 20,
+    "fields": {
+      "name": "함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 21,
+    "fields": {
+      "name": "거품토함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 22,
+    "fields": {
+      "name": "안구"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 23,
+    "fields": {
+      "name": "출혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 24,
+    "fields": {
+      "name": "안구출혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 25,
+    "fields": {
+      "name": "눈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 26,
+    "fields": {
+      "name": "가시"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 27,
+    "fields": {
+      "name": "눈가시"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 28,
+    "fields": {
+      "name": "나무"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 29,
+    "fields": {
+      "name": "눈나무"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 30,
+    "fields": {
+      "name": "눈동자"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 31,
+    "fields": {
+      "name": "몸"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 32,
+    "fields": {
+      "name": "체온"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 33,
+    "fields": {
+      "name": "고열"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 34,
+    "fields": {
+      "name": "고혈압"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 35,
+    "fields": {
+      "name": "혈압"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 36,
+    "fields": {
+      "name": "있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 37,
+    "fields": {
+      "name": "고혈압있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 38,
+    "fields": {
+      "name": "호흡"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 39,
+    "fields": {
+      "name": "과"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 40,
+    "fields": {
+      "name": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 41,
+    "fields": {
+      "name": "땀띠"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 42,
+    "fields": {
+      "name": "사마귀"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 43,
+    "fields": {
+      "name": "여드름"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 44,
+    "fields": {
+      "name": "물"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 45,
+    "fields": {
+      "name": "물사마귀"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 46,
+    "fields": {
+      "name": "비립종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 47,
+    "fields": {
+      "name": "입"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 48,
+    "fields": {
+      "name": "냄새"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 49,
+    "fields": {
+      "name": "입냄새"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 50,
+    "fields": {
+      "name": "심"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 51,
+    "fields": {
+      "name": "입냄새심"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 52,
+    "fields": {
+      "name": "악취"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 53,
+    "fields": {
+      "name": "입악취"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 54,
+    "fields": {
+      "name": "남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 55,
+    "fields": {
+      "name": "입악취남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 56,
+    "fields": {
+      "name": "구취"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 57,
+    "fields": {
+      "name": "구취심"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 58,
+    "fields": {
+      "name": "구토"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 59,
+    "fields": {
+      "name": "구토함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 60,
+    "fields": {
+      "name": "토혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 61,
+    "fields": {
+      "name": "토함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 62,
+    "fields": {
+      "name": "귀"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 63,
+    "fields": {
+      "name": "가려움"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 64,
+    "fields": {
+      "name": "귀가려움"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 65,
+    "fields": {
+      "name": "좁쌀"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 66,
+    "fields": {
+      "name": "귀좁쌀"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 67,
+    "fields": {
+      "name": "이물질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 68,
+    "fields": {
+      "name": "귀이물질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 69,
+    "fields": {
+      "name": "피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 70,
+    "fields": {
+      "name": "귀피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 71,
+    "fields": {
+      "name": "혈종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 72,
+    "fields": {
+      "name": "반점"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 73,
+    "fields": {
+      "name": "귀반점"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 74,
+    "fields": {
+      "name": "귀지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 75,
+    "fields": {
+      "name": "균형"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 76,
+    "fields": {
+      "name": "잡음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 77,
+    "fields": {
+      "name": "균형잡음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 78,
+    "fields": {
+      "name": "감각"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 79,
+    "fields": {
+      "name": "균형감각"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 80,
+    "fields": {
+      "name": "근육"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 81,
+    "fields": {
+      "name": "발작"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 82,
+    "fields": {
+      "name": "근육발작"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 83,
+    "fields": {
+      "name": "경련"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 84,
+    "fields": {
+      "name": "근육경련"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 85,
+    "fields": {
+      "name": "근육발작함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 86,
+    "fields": {
+      "name": "강직성"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 87,
+    "fields": {
+      "name": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 88,
+    "fields": {
+      "name": "다리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 89,
+    "fields": {
+      "name": "다리근육"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 90,
+    "fields": {
+      "name": "라"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 91,
+    "fields": {
+      "name": "다리근육라"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 92,
+    "fields": {
+      "name": "수축"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 93,
+    "fields": {
+      "name": "다리근육수축"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 94,
+    "fields": {
+      "name": "통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 95,
+    "fields": {
+      "name": "근육통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 96,
+    "fields": {
+      "name": "근육통"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 97,
+    "fields": {
+      "name": "기침함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 98,
+    "fields": {
+      "name": "기형"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 99,
+    "fields": {
+      "name": "기형있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 100,
+    "fields": {
+      "name": "벌침"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 101,
+    "fields": {
+      "name": "벌"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 102,
+    "fields": {
+      "name": "소변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 103,
+    "fields": {
+      "name": "초록색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 104,
+    "fields": {
+      "name": "소변초록색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 105,
+    "fields": {
+      "name": "녹색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 106,
+    "fields": {
+      "name": "쉬"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 107,
+    "fields": {
+      "name": "녹색쉬"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 108,
+    "fields": {
+      "name": "오줌"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 109,
+    "fields": {
+      "name": "오줌녹색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 110,
+    "fields": {
+      "name": "녹색오줌"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 111,
+    "fields": {
+      "name": "소변녹색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 112,
+    "fields": {
+      "name": "여드름있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 113,
+    "fields": {
+      "name": "여드름남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 114,
+    "fields": {
+      "name": "피지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 115,
+    "fields": {
+      "name": "종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 116,
+    "fields": {
+      "name": "피지종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 117,
+    "fields": {
+      "name": "피부"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 118,
+    "fields": {
+      "name": "종양"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 119,
+    "fields": {
+      "name": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 120,
+    "fields": {
+      "name": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 121,
+    "fields": {
+      "name": "가려움증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 122,
+    "fields": {
+      "name": "눈가려움증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 123,
+    "fields": {
+      "name": "안구가려움"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 124,
+    "fields": {
+      "name": "안구가려움증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 125,
+    "fields": {
+      "name": "아래쪽"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 126,
+    "fields": {
+      "name": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 127,
+    "fields": {
+      "name": "눈아래쪽뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 128,
+    "fields": {
+      "name": "위쪽"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 129,
+    "fields": {
+      "name": "눈위쪽뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 130,
+    "fields": {
+      "name": "옆"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 131,
+    "fields": {
+      "name": "눈옆뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 132,
+    "fields": {
+      "name": "안쪽"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 133,
+    "fields": {
+      "name": "검은색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 134,
+    "fields": {
+      "name": "눈안쪽검은색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 135,
+    "fields": {
+      "name": "량"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 136,
+    "fields": {
+      "name": "급증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 137,
+    "fields": {
+      "name": "오줌량급증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 138,
+    "fields": {
+      "name": "짐"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 139,
+    "fields": {
+      "name": "오줌량짐"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 140,
+    "fields": {
+      "name": "소변량"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 141,
+    "fields": {
+      "name": "소변량급증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 142,
+    "fields": {
+      "name": "소변량짐"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 143,
+    "fields": {
+      "name": "쉬"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 144,
+    "fields": {
+      "name": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 145,
+    "fields": {
+      "name": "눈다래끼"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 146,
+    "fields": {
+      "name": "눈다래끼남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 147,
+    "fields": {
+      "name": "다래끼남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 148,
+    "fields": {
+      "name": "뒷다리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 149,
+    "fields": {
+      "name": "뒷다리통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 150,
+    "fields": {
+      "name": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 151,
+    "fields": {
+      "name": "앞다리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 152,
+    "fields": {
+      "name": "앞다리통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 153,
+    "fields": {
+      "name": "담"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 154,
+    "fields": {
+      "name": "머리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 155,
+    "fields": {
+      "name": "기울"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 156,
+    "fields": {
+      "name": "진탕"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 157,
+    "fields": {
+      "name": "선회"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 158,
+    "fields": {
+      "name": "증상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 159,
+    "fields": {
+      "name": "머리기울안구진탕선회증상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 160,
+    "fields": {
+      "name": "목"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 161,
+    "fields": {
+      "name": "두부"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 162,
+    "fields": {
+      "name": "외상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 163,
+    "fields": {
+      "name": "두부외상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 164,
+    "fields": {
+      "name": "머리피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 165,
+    "fields": {
+      "name": "머리출혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 166,
+    "fields": {
+      "name": "차멀미"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 167,
+    "fields": {
+      "name": "차"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 168,
+    "fields": {
+      "name": "멀미"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 169,
+    "fields": {
+      "name": "기운"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 170,
+    "fields": {
+      "name": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 171,
+    "fields": {
+      "name": "증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 172,
+    "fields": {
+      "name": "무기력증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 173,
+    "fields": {
+      "name": "기력"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 174,
+    "fields": {
+      "name": "점"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 175,
+    "fields": {
+      "name": "피부점"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 176,
+    "fields": {
+      "name": "피부반점"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 177,
+    "fields": {
+      "name": "선천적"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 178,
+    "fields": {
+      "name": "발달"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 179,
+    "fields": {
+      "name": "선천적발달이상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 180,
+    "fields": {
+      "name": "발달이상있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 181,
+    "fields": {
+      "name": "발달이상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 182,
+    "fields": {
+      "name": "발열"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 183,
+    "fields": {
+      "name": "발열남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 184,
+    "fields": {
+      "name": "발열증상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 185,
+    "fields": {
+      "name": "발작함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 186,
+    "fields": {
+      "name": "경련발작"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 187,
+    "fields": {
+      "name": "봄"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 188,
+    "fields": {
+      "name": "소변봄"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 189,
+    "fields": {
+      "name": "배뇨"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 190,
+    "fields": {
+      "name": "관련"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 191,
+    "fields": {
+      "name": "배뇨관련증상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 192,
+    "fields": {
+      "name": "곤란"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 193,
+    "fields": {
+      "name": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 194,
+    "fields": {
+      "name": "장애"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 195,
+    "fields": {
+      "name": "배뇨장애"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 196,
+    "fields": {
+      "name": "배뇨곤란있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 197,
+    "fields": {
+      "name": "백색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 198,
+    "fields": {
+      "name": "눈백색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 199,
+    "fields": {
+      "name": "눈동자백색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 200,
+    "fields": {
+      "name": "변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 201,
+    "fields": {
+      "name": "눈동자변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 202,
+    "fields": {
+      "name": "눈변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 203,
+    "fields": {
+      "name": "변비"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 204,
+    "fields": {
+      "name": "변비증상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 205,
+    "fields": {
+      "name": "변비있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 206,
+    "fields": {
+      "name": "배"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 207,
+    "fields": {
+      "name": "배소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 208,
+    "fields": {
+      "name": "가스"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 209,
+    "fields": {
+      "name": "배가스소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 210,
+    "fields": {
+      "name": "배물소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 211,
+    "fields": {
+      "name": "때"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 212,
+    "fields": {
+      "name": "때배소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 213,
+    "fields": {
+      "name": "배소리남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 214,
+    "fields": {
+      "name": "지속적"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 215,
+    "fields": {
+      "name": "배지속적소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 216,
+    "fields": {
+      "name": "배가"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 217,
+    "fields": {
+      "name": "아픔"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 218,
+    "fields": {
+      "name": "배가아픔"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 219,
+    "fields": {
+      "name": "복부"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 220,
+    "fields": {
+      "name": "복부아픔"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 221,
+    "fields": {
+      "name": "복통"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 222,
+    "fields": {
+      "name": "배통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 223,
+    "fields": {
+      "name": "팽만"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 224,
+    "fields": {
+      "name": "복부팽만"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 225,
+    "fields": {
+      "name": "혹"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 226,
+    "fields": {
+      "name": "배혹"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 227,
+    "fields": {
+      "name": "배혹남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 228,
+    "fields": {
+      "name": "몽우리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 229,
+    "fields": {
+      "name": "배몽우리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 230,
+    "fields": {
+      "name": "배몽우리짐"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 231,
+    "fields": {
+      "name": "배물"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 232,
+    "fields": {
+      "name": "참"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 233,
+    "fields": {
+      "name": "배물참"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 234,
+    "fields": {
+      "name": "물참"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 235,
+    "fields": {
+      "name": "부정맥"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 236,
+    "fields": {
+      "name": "진단"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 237,
+    "fields": {
+      "name": "부정맥진단"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 238,
+    "fields": {
+      "name": "부정맥있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 239,
+    "fields": {
+      "name": "횟수"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 240,
+    "fields": {
+      "name": "증가"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 241,
+    "fields": {
+      "name": "소변횟수증가"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 242,
+    "fields": {
+      "name": "빈혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 243,
+    "fields": {
+      "name": "빈혈있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 244,
+    "fields": {
+      "name": "빈혈기"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 245,
+    "fields": {
+      "name": "빈혈기있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 246,
+    "fields": {
+      "name": "피부뾰루지남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 247,
+    "fields": {
+      "name": "피부뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 248,
+    "fields": {
+      "name": "다리뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 249,
+    "fields": {
+      "name": "뾰루지남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 250,
+    "fields": {
+      "name": "상상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 251,
+    "fields": {
+      "name": "임신"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 252,
+    "fields": {
+      "name": "상상임신"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 253,
+    "fields": {
+      "name": "발정"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 254,
+    "fields": {
+      "name": "마운팅"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 255,
+    "fields": {
+      "name": "상상임신함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 256,
+    "fields": {
+      "name": "생리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 257,
+    "fields": {
+      "name": "생리출혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 258,
+    "fields": {
+      "name": "계속"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 259,
+    "fields": {
+      "name": "생리피계속"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 260,
+    "fields": {
+      "name": "생리피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 261,
+    "fields": {
+      "name": "생식기"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 262,
+    "fields": {
+      "name": "부종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 263,
+    "fields": {
+      "name": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 264,
+    "fields": {
+      "name": "성기"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 265,
+    "fields": {
+      "name": "성기혹"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 266,
+    "fields": {
+      "name": "농"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 267,
+    "fields": {
+      "name": "생식기농"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 268,
+    "fields": {
+      "name": "성기혹남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 269,
+    "fields": {
+      "name": "생식기혹"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 270,
+    "fields": {
+      "name": "생식기혹남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 271,
+    "fields": {
+      "name": "생식기남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 272,
+    "fields": {
+      "name": "생식기이상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 273,
+    "fields": {
+      "name": "모양"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 274,
+    "fields": {
+      "name": "생식기모양이상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 275,
+    "fields": {
+      "name": "생식기가려움"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 276,
+    "fields": {
+      "name": "생식기가려움증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 277,
+    "fields": {
+      "name": "돔"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 278,
+    "fields": {
+      "name": "설"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 279,
+    "fields": {
+      "name": "설함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 280,
+    "fields": {
+      "name": "변이"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 281,
+    "fields": {
+      "name": "점액"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 282,
+    "fields": {
+      "name": "점액변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 283,
+    "fields": {
+      "name": "설사"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 284,
+    "fields": {
+      "name": "변봄"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 285,
+    "fields": {
+      "name": "소변이물질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 286,
+    "fields": {
+      "name": "불순물"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 287,
+    "fields": {
+      "name": "소변불순물"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 288,
+    "fields": {
+      "name": "혈괴"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 289,
+    "fields": {
+      "name": "결석"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 290,
+    "fields": {
+      "name": "소변결석"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 291,
+    "fields": {
+      "name": "습진"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 292,
+    "fields": {
+      "name": "습진있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 293,
+    "fields": {
+      "name": "대변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 294,
+    "fields": {
+      "name": "식욕"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 295,
+    "fields": {
+      "name": "부진"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 296,
+    "fields": {
+      "name": "식욕부진"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 297,
+    "fields": {
+      "name": "밥"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 298,
+    "fields": {
+      "name": "밥함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 299,
+    "fields": {
+      "name": "심장"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 300,
+    "fields": {
+      "name": "심장소리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 301,
+    "fields": {
+      "name": "심박수"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 302,
+    "fields": {
+      "name": "심박수급등"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 303,
+    "fields": {
+      "name": "사상충"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 304,
+    "fields": {
+      "name": "심장사상충"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 305,
+    "fields": {
+      "name": "아토피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 306,
+    "fields": {
+      "name": "아토피있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 307,
+    "fields": {
+      "name": "눈이물질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 308,
+    "fields": {
+      "name": "주변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 309,
+    "fields": {
+      "name": "눈주변변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 310,
+    "fields": {
+      "name": "감"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 311,
+    "fields": {
+      "name": "눈감"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 312,
+    "fields": {
+      "name": "개요"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 313,
+    "fields": {
+      "name": "눈개요"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 314,
+    "fields": {
+      "name": "충혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 315,
+    "fields": {
+      "name": "눈충혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 316,
+    "fields": {
+      "name": "앞다리부종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 317,
+    "fields": {
+      "name": "앞다리부종있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 318,
+    "fields": {
+      "name": "요로"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 319,
+    "fields": {
+      "name": "요로결석"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 320,
+    "fields": {
+      "name": "실금"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 321,
+    "fields": {
+      "name": "배뇨실금"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 322,
+    "fields": {
+      "name": "운동"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 323,
+    "fields": {
+      "name": "안"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 324,
+    "fields": {
+      "name": "운동안"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 325,
+    "fields": {
+      "name": "하려"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 326,
+    "fields": {
+      "name": "운동하려"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 327,
+    "fields": {
+      "name": "거부"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 328,
+    "fields": {
+      "name": "운동거부"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 329,
+    "fields": {
+      "name": "유선"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 330,
+    "fields": {
+      "name": "주위"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 331,
+    "fields": {
+      "name": "유선주위"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 332,
+    "fields": {
+      "name": "초콜릿"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 333,
+    "fields": {
+      "name": "섭취"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 334,
+    "fields": {
+      "name": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 335,
+    "fields": {
+      "name": "혈당"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 336,
+    "fields": {
+      "name": "수치"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 337,
+    "fields": {
+      "name": "혈당수치"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 338,
+    "fields": {
+      "name": "문제"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 339,
+    "fields": {
+      "name": "때문제"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 340,
+    "fields": {
+      "name": "걸음걸이"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 341,
+    "fields": {
+      "name": "걸음걸이이상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 342,
+    "fields": {
+      "name": "기생충"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 343,
+    "fields": {
+      "name": "물림"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 344,
+    "fields": {
+      "name": "기생충물림"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 345,
+    "fields": {
+      "name": "몸무게"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 346,
+    "fields": {
+      "name": "살이"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 347,
+    "fields": {
+      "name": "감소"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 348,
+    "fields": {
+      "name": "몸무게감소"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 349,
+    "fields": {
+      "name": "피남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 350,
+    "fields": {
+      "name": "출혈있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 351,
+    "fields": {
+      "name": "잇몸"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 352,
+    "fields": {
+      "name": "잇몸점"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 353,
+    "fields": {
+      "name": "이빨"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 354,
+    "fields": {
+      "name": "치아"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 355,
+    "fields": {
+      "name": "골절"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 356,
+    "fields": {
+      "name": "이빨골절"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 357,
+    "fields": {
+      "name": "코"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 358,
+    "fields": {
+      "name": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 359,
+    "fields": {
+      "name": "코뾰루지남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 360,
+    "fields": {
+      "name": "코통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 361,
+    "fields": {
+      "name": "느낌"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 362,
+    "fields": {
+      "name": "코통증느낌"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 363,
+    "fields": {
+      "name": "골"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 364,
+    "fields": {
+      "name": "코골"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 365,
+    "fields": {
+      "name": "코골심"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 366,
+    "fields": {
+      "name": "코골있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 367,
+    "fields": {
+      "name": "코로나"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 368,
+    "fields": {
+      "name": "코이물질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 369,
+    "fields": {
+      "name": "힘"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 370,
+    "fields": {
+      "name": "코힘"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 371,
+    "fields": {
+      "name": "코피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 372,
+    "fields": {
+      "name": "코피남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 373,
+    "fields": {
+      "name": "콧물"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 374,
+    "fields": {
+      "name": "콧물남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 375,
+    "fields": {
+      "name": "털이"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 376,
+    "fields": {
+      "name": "탈모"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 377,
+    "fields": {
+      "name": "탈모증상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 378,
+    "fields": {
+      "name": "곳곳"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 379,
+    "fields": {
+      "name": "피멍"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 380,
+    "fields": {
+      "name": "몸곳곳피멍"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 381,
+    "fields": {
+      "name": "몸피멍"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 382,
+    "fields": {
+      "name": "온몸"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 383,
+    "fields": {
+      "name": "온몸피멍"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 384,
+    "fields": {
+      "name": "건조"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 385,
+    "fields": {
+      "name": "피부건조"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 386,
+    "fields": {
+      "name": "흉"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 387,
+    "fields": {
+      "name": "피부흉짐"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 388,
+    "fields": {
+      "name": "흉터"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 389,
+    "fields": {
+      "name": "피부흉터"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 390,
+    "fields": {
+      "name": "딱지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 391,
+    "fields": {
+      "name": "피부딱지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 392,
+    "fields": {
+      "name": "피부딱지짐"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 393,
+    "fields": {
+      "name": "상처"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 394,
+    "fields": {
+      "name": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 395,
+    "fields": {
+      "name": "지방종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 396,
+    "fields": {
+      "name": "피부지방종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 397,
+    "fields": {
+      "name": "피부몽우리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 398,
+    "fields": {
+      "name": "피부몽우리짐"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 399,
+    "fields": {
+      "name": "피부부종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 400,
+    "fields": {
+      "name": "혹남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 401,
+    "fields": {
+      "name": "염증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 402,
+    "fields": {
+      "name": "피부염증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 403,
+    "fields": {
+      "name": "항문"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 404,
+    "fields": {
+      "name": "항문피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 405,
+    "fields": {
+      "name": "항문출혈있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 406,
+    "fields": {
+      "name": "항문피남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 407,
+    "fields": {
+      "name": "숨"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 408,
+    "fields": {
+      "name": "호흡곤란"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 409,
+    "fields": {
+      "name": "헤드"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 410,
+    "fields": {
+      "name": "프레싱"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 411,
+    "fields": {
+      "name": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 412,
+    "fields": {
+      "name": "벽"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 413,
+    "fields": {
+      "name": "벽머리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 414,
+    "fields": {
+      "name": "비빔"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 415,
+    "fields": {
+      "name": "벽머리비빔"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 416,
+    "fields": {
+      "name": "프레스"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 417,
+    "fields": {
+      "name": "헤드프레스"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 418,
+    "fields": {
+      "name": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 419,
+    "fields": {
+      "name": "혈뇨함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 420,
+    "fields": {
+      "name": "소변피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 421,
+    "fields": {
+      "name": "혈뇨증상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 422,
+    "fields": {
+      "name": "대변피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 423,
+    "fields": {
+      "name": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 424,
+    "fields": {
+      "name": "혈변함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 425,
+    "fields": {
+      "name": "숨쉬기"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 426,
+    "fields": {
+      "name": "발진"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 427,
+    "fields": {
+      "name": "피부발진"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 428,
+    "fields": {
+      "name": "배변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 429,
+    "fields": {
+      "name": "몸혹"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 430,
+    "fields": {
+      "name": "몸혹남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 431,
+    "fields": {
+      "name": "호흡문제"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 432,
+    "fields": {
+      "name": "호흡문제있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 433,
+    "fields": {
+      "name": "거림"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 434,
+    "fields": {
+      "name": "코골함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 435,
+    "fields": {
+      "name": "쉼"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 436,
+    "fields": {
+      "name": "숨쉼"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 437,
+    "fields": {
+      "name": "움직임"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 438,
+    "fields": {
+      "name": "움직임문제"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 439,
+    "fields": {
+      "name": "움직임문제있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 440,
+    "fields": {
+      "name": "귀문제"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 441,
+    "fields": {
+      "name": "귀문제있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 442,
+    "fields": {
+      "name": "눈문제"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 443,
+    "fields": {
+      "name": "눈문제있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 444,
+    "fields": {
+      "name": "재채기"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 445,
+    "fields": {
+      "name": "채"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 446,
+    "fields": {
+      "name": "채함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 447,
+    "fields": {
+      "name": "피부문제"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 448,
+    "fields": {
+      "name": "피부문제있음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 449,
+    "fields": {
+      "name": "열"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 450,
+    "fields": {
+      "name": "침"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 451,
+    "fields": {
+      "name": "척추"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 452,
+    "fields": {
+      "name": "척추통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 453,
+    "fields": {
+      "name": "식욕증가"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 454,
+    "fields": {
+      "name": "추위"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 455,
+    "fields": {
+      "name": "체중"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 456,
+    "fields": {
+      "name": "체중증가"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 457,
+    "fields": {
+      "name": "비듬"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 458,
+    "fields": {
+      "name": "탈수"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 459,
+    "fields": {
+      "name": "탈수증상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 460,
+    "fields": {
+      "name": "구역질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 461,
+    "fields": {
+      "name": "구역질함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 462,
+    "fields": {
+      "name": "눈곱"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 463,
+    "fields": {
+      "name": "땅"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 464,
+    "fields": {
+      "name": "습성"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 465,
+    "fields": {
+      "name": "땅습성"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 466,
+    "fields": {
+      "name": "불안"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 467,
+    "fields": {
+      "name": "분리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 468,
+    "fields": {
+      "name": "분리불안"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 469,
+    "fields": {
+      "name": "물건"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 470,
+    "fields": {
+      "name": "구멍"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 471,
+    "fields": {
+      "name": "이빨구멍"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 472,
+    "fields": {
+      "name": "이빨구멍남"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 473,
+    "fields": {
+      "name": "갈색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 474,
+    "fields": {
+      "name": "이빨갈색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 475,
+    "fields": {
+      "name": "이빨갈색변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 476,
+    "fields": {
+      "name": "이빨검은색"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 477,
+    "fields": {
+      "name": "이빨검은색변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 478,
+    "fields": {
+      "name": "입속"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 479,
+    "fields": {
+      "name": "입속종양"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 480,
+    "fields": {
+      "name": "입속검은색종양"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 481,
+    "fields": {
+      "name": "물설사"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 482,
+    "fields": {
+      "name": "물설사함"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 483,
+    "fields": {
+      "name": "각질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 484,
+    "fields": {
+      "name": "검은색변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 485,
+    "fields": {
+      "name": "흑"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 486,
+    "fields": {
+      "name": "흑변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 487,
+    "fields": {
+      "name": "잠"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 488,
+    "fields": {
+      "name": "산책"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 489,
+    "fields": {
+      "name": "디스크"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 490,
+    "fields": {
+      "name": "거위기침"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 491,
+    "fields": {
+      "name": "거품토"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 492,
+    "fields": {
+      "name": "안와질병"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 493,
+    "fields": {
+      "name": "안구진탕"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 494,
+    "fields": {
+      "name": "고열"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 495,
+    "fields": {
+      "name": "고혈압"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 496,
+    "fields": {
+      "name": "과호흡"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 497,
+    "fields": {
+      "name": "농포"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 498,
+    "fields": {
+      "name": "구취"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 499,
+    "fields": {
+      "name": "구토"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 500,
+    "fields": {
+      "name": "가려움증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 501,
+    "fields": {
+      "name": "귀내부이물질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 502,
+    "fields": {
+      "name": "귀혈종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 503,
+    "fields": {
+      "name": "홍반"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 504,
+    "fields": {
+      "name": "귀지과다"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 505,
+    "fields": {
+      "name": "균형상실"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 506,
+    "fields": {
+      "name": "근육강직성경련"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 507,
+    "fields": {
+      "name": "근육떨림"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 508,
+    "fields": {
+      "name": "근육수축"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 509,
+    "fields": {
+      "name": "근육통"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 510,
+    "fields": {
+      "name": "기침"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 511,
+    "fields": {
+      "name": "기형"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 512,
+    "fields": {
+      "name": "꿀벌의침"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 513,
+    "fields": {
+      "name": "녹색소변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 514,
+    "fields": {
+      "name": "농피증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 515,
+    "fields": {
+      "name": "눈가려움"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 516,
+    "fields": {
+      "name": "눈주위뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 517,
+    "fields": {
+      "name": "다뇨"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 518,
+    "fields": {
+      "name": "다래끼"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 519,
+    "fields": {
+      "name": "다리통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 520,
+    "fields": {
+      "name": "담"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 521,
+    "fields": {
+      "name": "머리기울임"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 522,
+    "fields": {
+      "name": "머리떨림"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 523,
+    "fields": {
+      "name": "외상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 524,
+    "fields": {
+      "name": "멀미"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 525,
+    "fields": {
+      "name": "무기력"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 526,
+    "fields": {
+      "name": "반점"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 527,
+    "fields": {
+      "name": "발달이상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 528,
+    "fields": {
+      "name": "발열"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 529,
+    "fields": {
+      "name": "발작"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 530,
+    "fields": {
+      "name": "배뇨곤란"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 531,
+    "fields": {
+      "name": "백내장"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 532,
+    "fields": {
+      "name": "변비"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 533,
+    "fields": {
+      "name": "복명음"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 534,
+    "fields": {
+      "name": "복부통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 535,
+    "fields": {
+      "name": "복부팽창"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 536,
+    "fields": {
+      "name": "복부혹"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 537,
+    "fields": {
+      "name": "복수"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 538,
+    "fields": {
+      "name": "부정맥"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 539,
+    "fields": {
+      "name": "빈뇨"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 540,
+    "fields": {
+      "name": "빈혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 541,
+    "fields": {
+      "name": "뾰루지"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 542,
+    "fields": {
+      "name": "상상임신"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 543,
+    "fields": {
+      "name": "생리"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 544,
+    "fields": {
+      "name": "생식기부종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 545,
+    "fields": {
+      "name": "생식기장애"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 546,
+    "fields": {
+      "name": "선회증상"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 547,
+    "fields": {
+      "name": "설사"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 548,
+    "fields": {
+      "name": "소변내이물질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 549,
+    "fields": {
+      "name": "습진"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 550,
+    "fields": {
+      "name": "식분증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 551,
+    "fields": {
+      "name": "식욕상실"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 552,
+    "fields": {
+      "name": "심박수급증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 553,
+    "fields": {
+      "name": "심장베이스종양"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 554,
+    "fields": {
+      "name": "아토피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 555,
+    "fields": {
+      "name": "안구내이물질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 556,
+    "fields": {
+      "name": "앞다리부종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 557,
+    "fields": {
+      "name": "요석증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 558,
+    "fields": {
+      "name": "요실금"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 559,
+    "fields": {
+      "name": "운동거부"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 560,
+    "fields": {
+      "name": "유선염"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 561,
+    "fields": {
+      "name": "이물질섭취"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 562,
+    "fields": {
+      "name": "저혈당"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 563,
+    "fields": {
+      "name": "절름발이"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 564,
+    "fields": {
+      "name": "체외기생충"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 565,
+    "fields": {
+      "name": "체중감량"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 566,
+    "fields": {
+      "name": "치과질환"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 567,
+    "fields": {
+      "name": "치아골절"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 568,
+    "fields": {
+      "name": "코부종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 569,
+    "fields": {
+      "name": "코통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 570,
+    "fields": {
+      "name": "코골이"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 571,
+    "fields": {
+      "name": "코로나바이러스감염"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 572,
+    "fields": {
+      "name": "코막힘"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 573,
+    "fields": {
+      "name": "코피"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 574,
+    "fields": {
+      "name": "콧물"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 575,
+    "fields": {
+      "name": "탈모증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 576,
+    "fields": {
+      "name": "피멍"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 577,
+    "fields": {
+      "name": "피부갈라짐"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 578,
+    "fields": {
+      "name": "피부상처"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 579,
+    "fields": {
+      "name": "피부종양"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 580,
+    "fields": {
+      "name": "피부혹"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 581,
+    "fields": {
+      "name": "피부염"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 582,
+    "fields": {
+      "name": "항문출혈"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 583,
+    "fields": {
+      "name": "헐떡임"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 584,
+    "fields": {
+      "name": "헤드프레싱"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 585,
+    "fields": {
+      "name": "혈뇨"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 586,
+    "fields": {
+      "name": "혈변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 587,
+    "fields": {
+      "name": "호흡곤란"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 588,
+    "fields": {
+      "name": "귀가려움증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 589,
+    "fields": {
+      "name": "재채기"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 590,
+    "fields": {
+      "name": "침흘림"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 591,
+    "fields": {
+      "name": "관절종창"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 592,
+    "fields": {
+      "name": "척추통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 593,
+    "fields": {
+      "name": "식욕증가"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 594,
+    "fields": {
+      "name": "추위"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 595,
+    "fields": {
+      "name": "체중증가"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 596,
+    "fields": {
+      "name": "비듬"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 597,
+    "fields": {
+      "name": "잔뇨"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 598,
+    "fields": {
+      "name": "웅크림"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 599,
+    "fields": {
+      "name": "탈수"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 600,
+    "fields": {
+      "name": "헛구역질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 601,
+    "fields": {
+      "name": "눈곱"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 602,
+    "fields": {
+      "name": "땅파는행동"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 603,
+    "fields": {
+      "name": "불안"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 604,
+    "fields": {
+      "name": "물어뜯기"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 605,
+    "fields": {
+      "name": "치아흔들림"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 606,
+    "fields": {
+      "name": "충치"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 607,
+    "fields": {
+      "name": "마른기침"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 608,
+    "fields": {
+      "name": "구강종양"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 609,
+    "fields": {
+      "name": "흑색종"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 610,
+    "fields": {
+      "name": "물설사"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 611,
+    "fields": {
+      "name": "각질"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 612,
+    "fields": {
+      "name": "흑변"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 613,
+    "fields": {
+      "name": "수면부족"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 614,
+    "fields": {
+      "name": "귀홍반"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 615,
+    "fields": {
+      "name": "기침과다"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 616,
+    "fields": {
+      "name": "통증"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 617,
+    "fields": {
+      "name": "분류불가"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 618,
+    "fields": {
+      "name": "두통"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 619,
+    "fields": {
+      "name": "감기"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 620,
+    "fields": {
+      "name": "똥"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 621,
+    "fields": {
+      "name": "중독"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 622,
+    "fields": {
+      "name": "가만히"
+    }
+  },
+  {
+    "model": "chatbots.NotName",
+    "pk": 623,
+    "fields": {
+      "name": "위"
+    }
+  }
+]

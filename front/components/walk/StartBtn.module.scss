@@ -1,0 +1,25 @@
+.wrapper {
+  z-index: 2;
+  .startBtn {
+    cursor: pointer;
+    .startBtn__content {
+      padding: vw(12px) vw(50px);
+      border: 0;
+      border-radius: vw(24px);
+      color: $WHITE;
+      background-color: $MAIN;
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (min-width: $PHONE-VW) {
+  .wrapper {
+    .startBtn {
+      .startBtn__content {
+        padding: 12px 50px;
+        border-radius: 24px;
+      }
+    }
+  }
+}
