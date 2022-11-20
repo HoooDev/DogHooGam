@@ -1,0 +1,54 @@
+server:
+  port: 2001
+  address: 0.0.0.0
+  servlet:
+    context-path: /
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: q1a2z3
+    key-store-type: PKCS12
+    key-alias: tomcat
+    protocol: TLS
+spring:
+  application:
+    name: business-service
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true
+    ip-address: ${server.address}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: https://dog-hoogam.site:8761/eureka
+#unit is ms. 15 * 24 * 60 * 60 * 1000 = 15days
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans
+
+
+# S3
+
+cloud:
+
+  aws:
+    credentials:
+      access-key: AKIAT4XDCDFHJJ755RPL
+      secret-key: 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
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+    s3:
+      bucket: c103
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error

@@ -1,0 +1,156 @@
+[
+  {
+    "model": "chatbots.IcdData",
+    "pk": 1,
+    "fields": {
+      "ICD": "건강 검진"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 2,
+    "fields": {
+      "ICD": "귀 또는 유양돌기의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 3,
+    "fields": {
+      "ICD": "근골격계 또는 결합 조직의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 4,
+    "fields": {
+      "ICD": "내분비, 영양 또는 대사 질환"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 5,
+    "fields": {
+      "ICD": "면역 체계의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 6,
+    "fields": {
+      "ICD": "발달 이상(기형)"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 7,
+    "fields": {
+      "ICD": "비뇨 생식기의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 8,
+    "fields": {
+      "ICD": "비뇨 생식기의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 9,
+    "fields": {
+      "ICD": "소화계의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 10,
+    "fields": {
+      "ICD": "순환계의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 11,
+    "fields": {
+      "ICD": "시각계의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 12,
+    "fields": {
+      "ICD": "종양"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 13,
+    "fields": {
+      "ICD": "신경계의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 14,
+    "fields": {
+      "ICD": "외부 원인의 부상, 중독 또는 기타 다른 결과"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 15,
+    "fields": {
+      "ICD": "임신, 출산 또는 산욕기"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 16,
+    "fields": {
+      "ICD": "정신, 행동 또는 신경 발달 장애"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 17,
+    "fields": {
+      "ICD": "치과 질환"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 18,
+    "fields": {
+      "ICD": "특정 감염성 또는 기생충성 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 19,
+    "fields": {
+      "ICD": "피부의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 20,
+    "fields": {
+      "ICD": "혈액 또는 혈액 형성 기관의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 21,
+    "fields": {
+      "ICD": "호흡기의 질병"
+    }
+  },
+  {
+    "model": "chatbots.IcdData",
+    "pk": 22,
+    "fields": {
+      "ICD": "질병 분류를 특정할 수 없는 경우"
+    }
+  }
+]

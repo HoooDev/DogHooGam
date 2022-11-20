@@ -1,0 +1,5 @@
+spring:
+  cloud:
+    config:
+      uri: http://dog-hoogam.site:8888
+      name: ecommerce
