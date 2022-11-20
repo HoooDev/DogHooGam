@@ -80,7 +80,7 @@ const AfterSign = () => {
   const onStopClick = () => {
     onPuaseClick();
     if (confirm("산책을 마치시겠습니까?")) {
-      router.push("/calendar");
+      router.push("/home");
     } else {
       onPlayClick();
     }
