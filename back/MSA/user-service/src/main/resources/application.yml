@@ -1,0 +1,29 @@
+server:
+  port: 2000
+  address: 0.0.0.0
+  servlet:
+    context-path: /
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: q1a2z3
+    key-store-type: PKCS12
+    key-alias: tomcat
+    protocol: TLS
+spring:
+  application:
+    name: user-service
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: https://dog-hoogam.site:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans
