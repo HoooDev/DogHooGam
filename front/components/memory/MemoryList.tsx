@@ -10,7 +10,7 @@ import { RootState } from "../../redux/store";
 import images from "../../public/icons/images.svg";
 
 function MemoryList() {
-  const [feeds, setFeeds] = useState<any>([""]);
+  const [feeds, setFeeds] = useState<any>([]);
   const isLoading = useSelector((state: RootState) => state.calendar.isLoading);
   useEffect(() => {
     getFeed()
