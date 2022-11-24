@@ -47,7 +47,7 @@
 <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"><img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white"><img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white"><img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=SQLite&logoColor=white">
 
 - 프론트앤드
-<img src="https://img.shields.io/badge/next-#000000?style=for-the-badge&logo=Next.js&logoColor=white"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white"><img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=white">
+<img src="https://img.shields.io/badge/next-000000?style=for-the-badge&logo=Next.js&logoColor=white"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white"><img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=white">
 
 - 블록체인
 <img src="https://img.shields.io/badge/Ethereum-3178C6?style=for-the-badge&logo=Ethereum&logoColor=white">
@@ -69,8 +69,11 @@
 *******************************************************************************
 - 저희 서비스의 홈 화면입니다.
 - 초기 이용자를 위해 각 서비스의 간단한 소개와 원하는 서비스로 바로 이동할 수 있게 하였습니다.
+
 ![memo](./img.asset/homedirect.gif)
+
 - 또한 오늘의 메모 목록을 보여주고 직접 관리도 가능하게 하였습니다.
+
 ![memo](./img.asset/homememo.gif)
 
 ### 산책
@@ -80,6 +83,7 @@
 - 산책을 하면서 이동 경로를 확인할 수 있고, 주변에 산책하고 있는 강아지를 확인 할 수 있습니다.
 - 산책 중 과거에 발행 한 피드를 볼 수 있습니다.
 - 모든 기능은 사용자 편의를 위해 필터로 키고 끄고를 가능하게 해 두었습니다.
+
 ![산책경로](./img.asset/산책경로.gif)
 
 ### NFT
@@ -87,6 +91,7 @@
 - 마이페이지를 통해서 지갑 생성과 강아지 등록을 할 수 있습니다.
 
 ![wallet](./img.asset/지갑생성.gif)
+
 - 강아지 신분증은 ERC-721 규약을 지킨 NFT로 발행되며, 여러마리의 강아지가 등록이 가능합니다
 
 ![dog](./img.asset/강아지등록.gif)
@@ -95,6 +100,7 @@
 - 피드 작성 시 강아지와 찍은 위치를 표시 할 수 있고 이후 산책 할 때 강아지와 남긴 사진들이 지도에 표시 됩니다.
 
 ![피드발행](./img.asset/피드발행행.gif)
+
 ![피드발행완료](./img.asset/피드발행완료.gif)
 
 
@@ -105,6 +111,7 @@
   
 
 ![memo](./img.asset/memo.gif)
+
 - 또한 캘린더에서 과거의 메모, 산책기록을 확인 할 수 있습니다.
   
 
