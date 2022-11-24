@@ -2,6 +2,7 @@
 ![logo](./img.asset/logo.png)
 </div>
 
+
 ## 🧾목차
 
 1. [**서비스 소개**](#-서비스-소개)
@@ -38,23 +39,16 @@
 
 ## 🛠️ 기술 스택
 - 협업툴
-<img src="https://img.shields.io/badge/GitLab-FCA121?style=for-the-badge&logo=GitLab&logoColor=white"/>
-<img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white"/>
-<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white"/>
+<img src="https://img.shields.io/badge/GitLab-FCA121?style=for-the-badge&logo=GitLab&logoColor=white"/><img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white"/><img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white"/>
 
 - 서버관리
 <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=white"/>
 
 - 백앤드
-<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
-<img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white">
-<img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
-<img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=SQLite&logoColor=white">
+<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"><img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white"><img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white"><img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=SQLite&logoColor=white">
 
 - 프론트앤드
-<img src="https://img.shields.io/badge/next-000000?style=for-the-badge&logo=Next.js&logoColor=white">
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white">
-<img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=white">
+<img src="https://img.shields.io/badge/next-#000000?style=for-the-badge&logo=Next.js&logoColor=white"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white"><img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=white">
 
 - 블록체인
 <img src="https://img.shields.io/badge/Ethereum-3178C6?style=for-the-badge&logo=Ethereum&logoColor=white">
@@ -77,7 +71,6 @@
 - 저희 서비스의 홈 화면입니다.
 - 초기 이용자를 위해 각 서비스의 간단한 소개와 원하는 서비스로 바로 이동할 수 있게 하였습니다.
 ![memo](./img.asset/homedirect.gif)
-
 - 또한 오늘의 메모 목록을 보여주고 직접 관리도 가능하게 하였습니다.
 ![memo](./img.asset/homememo.gif)
 
@@ -95,7 +88,6 @@
 - 마이페이지를 통해서 지갑 생성과 강아지 등록을 할 수 있습니다.
 
 ![wallet](./img.asset/지갑생성.gif)
-
 - 강아지 신분증은 ERC-721 규약을 지킨 NFT로 발행되며, 여러마리의 강아지가 등록이 가능합니다
 
 ![dog](./img.asset/강아지등록.gif)
@@ -114,9 +106,9 @@
   
 
 ![memo](./img.asset/memo.gif)
-
 - 또한 캘린더에서 과거의 메모, 산책기록을 확인 할 수 있습니다.
   
+
 ![memo](./img.asset/메모 기록.gif)
 
 ### 챗봇
